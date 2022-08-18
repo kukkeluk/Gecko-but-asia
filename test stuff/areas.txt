@@ -1,0 +1,220 @@
+
+#########################################
+# NEW FOFFY CHINA PROVS                 #
+#########################################
+
+ankang_area = {
+	color = { 174 143 143 }
+	5527 5553 5568 5580 5666
+}
+
+changsha_area = {
+	5503 5523 5551 5597
+}
+
+changzhi_area = {
+	color = { 232 60 60 }
+	694 5535 5573 5660 5661
+}
+
+chengde_area = {
+	703 5513 5544 5545
+}
+
+dali_area = {
+	color = { 239 205 141 }
+	661 5519 5520 5603 2167
+}
+
+dalian_area = {
+	726 5614 5617
+}
+
+datong_area = {
+	697 5512 5589 5658 5659
+}
+
+alxa_area = {
+	color = { 109 87 78 }
+	5608 5625 5627 5628
+}
+
+ganzhou_area = {
+	5501 683 5558 5559 5636
+}
+
+guangzhou_area = {
+	665 667 668 5531
+}
+
+guilin_area = {
+	1840 5549 5550 
+}
+
+hangzhou_area = { 
+	684 5555 5560 5564
+}
+
+hanzhong_area = {
+	color = { 206 187 162 }
+	5506 5525 5576 5579 5581 
+}
+
+huai-an_area = {
+	685 5541 5542 5566
+}
+
+jinan_area = {
+	691 5543 5567
+}
+
+jinzhong_area = {
+	5574 5594 5599 5600 5642 # 5642 added
+}
+
+kunming_area = {
+	660 662 5546 5547 5604
+}
+
+lanzhou_area = {
+	699 5532 5586 2183 5664
+}
+
+luzhou_area = { 
+	color = { 227 153 153 }
+	5548 5588 5651 5647
+}
+
+shenyang_area = {
+	color = { 112 155 228 }
+	704 5609 5615 5630
+}
+
+tai-an_area = {
+	688 5539 5601 687
+}
+
+ejin_area = {
+	color = { 142 91 91 }
+	5624 5626 5629 5641
+}
+
+ulanqab_area = {
+	color = { 126 50 50 }
+	702 5631 5613
+}
+
+weichang_area = {
+	5533 5590 5591
+}
+
+xia_area = { 
+	708 709 5507 2184 5665
+}
+
+xianning_area = {
+	color = { 53 162 58 }
+	5554 5598 5652 1833
+}
+
+yumen_area = { #new added oirat split to be done
+	707 5508 5575 5694
+}
+
+chifeng_area = {
+	2115 4203 4672 4675 722
+}
+
+chengdu_area = {
+	5504 5521 4212 5643 5644
+}
+
+hainan_area = {
+	5552 666 5640
+}
+
+xuzhou_area = {
+	color = { 102 25 150 }
+	5655 5540 5602
+}
+
+biyang_area = {
+	color = { 0 50 150 }
+	5537 5646 5645 5524 # 5662 removed
+}
+
+yanshan_area = {
+	5517 5649 5656
+}
+
+wuchang_area = {
+	5505 682 5662 # 5538 5653 removed 5662 added
+}
+
+kaiyang_area = {
+	color = { 255 204 0 }
+	5650 5648 5522 673
+}
+
+yunnan_area = {
+	2748 5632 5657
+}
+
+##############################
+#		PR Korea areas
+##############################
+fo1_area = {
+	5669 5670 5671 #PR Korea
+}
+
+##############################
+#		MJL Mongol Split
+##############################
+mangyshlak_area = {
+	439 443 5699 5698 #Oirat Split
+}
+
+hotan_area = {
+	5688 710 4693 #Oirat Split
+}
+
+lower_ural_area = {
+	color = { 71 139 85 }
+ 	2441 5710 5712 1078 #Oirat Split
+}
+
+yenisei_area = {
+ 	5683 5682 2443 1063 1062 #Oirat Split
+}
+
+naryn_area = {
+	2126 2125 5679 5676 5686 #Oirat Split
+}
+
+zungarian_gate = {
+	5677 5675 2118 5690 2119 #Oirat Split
+}
+
+qaraghandy_area = {
+	478 2360 4685 5715 4686 #Oirat Split
+}
+
+turgay_area = {
+	2353 2351 2369 4692 #Oirat Split
+}
+
+lower_ob_area = {
+	2434 480 1064 1065 #Oirat Split
+}
+
+##############################
+#		MJL Sumatra Wastelands
+##############################
+
+upper_wasteland_sumatra_area = {
+	5717 5718 5719 5721 #MJL Indonesia
+}
+
+lower_wasteland_sumatra_area = {
+	4808 5716 5720 #MJL Indonesia
+}
