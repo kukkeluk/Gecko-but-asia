@@ -88,6 +88,12 @@ country_event = {
 		add_adm_power = -50
 		add_dip_power = -50
 		add_mil_power = -50
+		
+		add_country_modifier = {
+			name = vasa_centralization_reforms
+			duration = -1
+		}		
+
 	}
 	option = {		# Let things be as they are
 		name = flavor_swe.1.b
@@ -275,7 +281,6 @@ country_event = {
 	
 	is_triggered_only = yes
 
-
 	option = {		# This is the One True Faith!
 		name = flavor_swe.2.a
 		add_years_of_income = 1
@@ -298,7 +303,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1555
 		NOT = { is_year = 1568 }
 		owns = 4		# Bergslagen
@@ -339,7 +351,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1550
 		NOT = { is_year = 1590 }
 		owns = 1		# Uppland
@@ -382,7 +401,28 @@ country_event = {
 
 	fire_only_once = yes
 
-	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
+		is_free_or_tributary_trigger = yes
+		OR = {
+			iron = 1
+			copper = 1
+		}
+		is_year = 1600
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
 
 	option = {		# Encourage Walloon immigration
 		name = "flavor_swe.EVTOPTA3227"
@@ -415,18 +455,26 @@ country_event = {
 	title = "flavor_swe.EVTNAME3228"
 	desc = "flavor_swe.EVTDESC3228"
 	picture = REFORM_eventPicture
-
-	fire_only_once = yes
-
+	
 	is_triggered_only = yes
 
 
-	option = {		# Professional Army
-		name = "h_swedish_events_override_reforms_option"
+	option = {		# Regional Conscription
+		name = "flavor_swe.EVTOPTA3228"
 		ai_chance = { factor = 80 }
 		add_army_professionalism = 0.05
 		add_country_modifier = {
 			name = swedish_military_reforms
+			duration = -1
+		}
+		add_innovativeness_small_effect = yes
+	}
+	option = {		# Mercenary Core
+		name = "flavor_swe.EVTOPTB3228"
+		ai_chance = { factor = 5 }
+		add_army_professionalism = 0.05
+		add_country_modifier = {
+			name = swedish_mercenary_core
 			duration = -1
 		}
 		add_innovativeness_small_effect = yes
@@ -454,7 +502,14 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		dip_tech = 15
 		1 = {
 			has_construction = navy
@@ -483,7 +538,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1632
 		NOT = { is_year = 1680 }
 		owns = 1		# Uppland
@@ -525,7 +587,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1652
 		NOT = { is_year = 1686 }
 		owns = 36		# Estland
@@ -562,7 +631,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_free_or_tributary_trigger = yes
 		adm_tech = 16
 		
@@ -606,22 +682,42 @@ country_event = {
 	desc = "flavor_swe.EVTDESC3232"
 	picture = COURT_eventPicture
 
-	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
+		is_year = 1600
+		is_free_or_tributary_trigger = yes
+		government = monarchy
+	}
+
+	mean_time_to_happen = {
+		months = 200
+	}
 
 
 	option = {		# The King shall rule supreme
 		name = "flavor_swe.EVTOPTA3232"
 		ai_chance = { factor = 90 }
 		add_stability = -1
+		add_absolutism = 15
 		add_country_modifier = {
-			name = h_swedish_absolutism
+			name = the_absolutism
 			duration = -1
 		}
 	}
 	option = {		# The King must heed the Council
 		name = "flavor_swe.EVTOPTB3232"
 		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes
+		add_stability = 3
 	}
 }
 	
@@ -635,7 +731,14 @@ country_event = {
 
 	fire_only_once = yes
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1613
 		NOT = { is_year = 1654 }
 		owns = 1		# Uppland
@@ -667,7 +770,14 @@ country_event = {
 
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1610
 		NOT = { is_year = 1630 }
 	}
@@ -696,7 +806,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		has_regency = yes
 		has_consort_regency = no
 		NOT = { is_year = 1670 }
@@ -739,9 +856,16 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		ADM = 4
-		average_home_autonomy = 20
+		is_year = 1620
 	}
 
 	mean_time_to_happen = {
@@ -780,7 +904,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_female = yes
 		has_regency = no
 		
@@ -828,7 +959,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_female = yes
 		religion = protestant
 		has_regency = no
@@ -869,7 +1007,14 @@ country_event = {
 
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1600
 		has_regency = yes
 		has_consort_regency = no
@@ -908,7 +1053,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		has_regency = no
 		is_year = 1650
 	}
@@ -989,7 +1141,25 @@ country_event = {
 	picture = MILITARY_CAMP_eventPicture
 
 
-	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
+		is_year = 1650
+		NOT = { is_year = 1750 }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+	}
+
 
 	option = {		# Reform the army.
 		name = "flavor_swe.EVTOPTA3244"
@@ -1017,7 +1187,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1700
 		NOT = { is_year = 1800 }
 	}
@@ -1055,7 +1232,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1710
 		OR = {
 			religion = protestant
@@ -1097,7 +1281,14 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_free_or_tributary_trigger = yes
 		war_with = RUS
 		NOT = { exists = FIN }
@@ -1158,8 +1349,15 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
-		is_year = 1750
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
+		is_year = 1700
 		is_free_or_tributary_trigger = yes
 		NOT = { ADM = 4 }
 		NOT = { DIP = 4 }
@@ -1193,8 +1391,15 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
-		is_year = 1750
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
+		is_year = 1625
 	}
 
 	mean_time_to_happen = {
@@ -1240,8 +1445,15 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
-		is_year = 1750
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
+		is_year = 1701
 	}
 
 	mean_time_to_happen = {
@@ -1273,10 +1485,7 @@ country_event = {
 	picture = REFORM_eventPicture
 
 
-	fire_only_once = yes
-
 	is_triggered_only = yes
-
 
 	option = {		# Initiate the reform
 		name = "flavor_swe.EVTOPTA3264"
@@ -1301,7 +1510,14 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 	
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1700
 		owns = 8		# Dalaskogen
 		NOT = { stability = 0 }
@@ -1343,10 +1559,17 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		primary_culture = swedish
 		183 = {
-			owned_by = SWE
+			owned_by = ROOT
 			culture = swedish
 			NOT = { is_capital = yes }
 		}
@@ -1379,7 +1602,14 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1660
 		NOT = { is_year = 1703 }
 	}
@@ -1406,7 +1636,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1660
 		NOT = { is_year = 1702 }
 	}
@@ -1433,7 +1670,14 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1718
 		NOT = { is_year = 1772 }
 	}
@@ -1460,7 +1704,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1737
 		NOT = { is_year = 1778 }
 	}
@@ -1492,9 +1743,16 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		is_year = 1700
-		has_country_modifier = h_swedish_absolutism
+		has_country_modifier = the_absolutism
 		government = monarchy
 		OR = {
 			NOT = { ADM = 4 }
@@ -1522,9 +1780,9 @@ country_event = {
 		add_stability = 3
 		if = {
 			limit = {
-				has_country_modifier = h_swedish_absolutism
+				has_country_modifier = the_absolutism
 			}
-			remove_country_modifier = h_swedish_absolutism
+			remove_country_modifier = the_absolutism
 		}
 		add_country_modifier = {
 			name = age_of_fredom
@@ -1557,7 +1815,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		has_country_flag = swedish_hats
 	}
 
@@ -1591,7 +1856,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		has_country_modifier = age_of_fredom
 		is_year = 1738
 		NOT = { is_year = 1739 }
@@ -1616,7 +1888,7 @@ country_event = {
 		}
 		RUS = {
 			add_casus_belli = {
-				target = SWE
+				target = ROOT
 				type = cb_insult
 				months = 36
 			}
@@ -1635,7 +1907,7 @@ country_event = {
 		}
 		FRA = {
 			add_casus_belli = {
-				target = SWE
+				target = ROOT
 				type = cb_insult
 				months = 36
 			}
@@ -1654,7 +1926,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		has_country_modifier = age_of_fredom
 		is_year = 1746
 		NOT = { is_year = 1747 }
@@ -1680,7 +1959,7 @@ country_event = {
 		}
 		RUS = {
 			add_casus_belli = {
-				target = SWE
+				target = ROOT
 				type = cb_insult
 				months = 36
 			}
@@ -1699,7 +1978,7 @@ country_event = {
 		}
 		FRA = {
 			add_casus_belli = {
-				target = SWE
+				target = ROOT
 				type = cb_insult
 				months = 36
 			}
@@ -1718,7 +1997,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		has_country_modifier = age_of_fredom
 		is_year = 1756
 		NOT = { is_year = 1758 }
@@ -1750,7 +2036,7 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		tag = ROOT
 		has_country_modifier = age_of_fredom
 		is_year = 1760
 		NOT = { is_year = 1761 }
@@ -1774,7 +2060,7 @@ country_event = {
 		}
 		RUS = {
 			add_casus_belli = {
-				target = SWE
+				target = ROOT
 				type = cb_insult
 				months = 36
 			}
@@ -1793,7 +2079,7 @@ country_event = {
 		}
 		FRA = {
 			add_casus_belli = {
-				target = SWE
+				target = ROOT
 				type = cb_insult
 				months = 36
 			}
@@ -1812,7 +2098,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		has_country_modifier = age_of_fredom
 		is_year = 1765
 		NOT = { is_year = 1766 }
@@ -1835,7 +2128,7 @@ country_event = {
 		}
 		RUS = {
 			add_casus_belli = {
-				target = SWE
+				target = ROOT
 				type = cb_insult
 				months = 36
 			}
@@ -1854,7 +2147,7 @@ country_event = {
 		}
 		FRA = {
 			add_casus_belli = {
-				target = SWE
+				target = ROOT
 				type = cb_insult
 				months = 36
 			}
@@ -1871,7 +2164,14 @@ country_event = {
 	picture = COURT_eventPicture
 
 	trigger = {
-		tag = SWE
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
 		has_country_modifier = age_of_fredom
 		NOT = { has_reform = celestial_empire }
 		government = monarchy
@@ -1901,4 +2201,756 @@ country_event = {
 	}
 }
 
+#Swedish Missions Event
 
+#Coronation of a Swedish King
+country_event = {
+	id = flavor_swe.100
+	title = flavor_swe.100.title
+	desc = flavor_swe.100.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_swe.100.a
+		define_ruler = {
+			name = "Johan I"
+			dynasty = "Vasa"
+			adm = 4
+			dip = 5
+			mil = 3
+			
+			age = 20
+			claim = 80
+		}
+		
+		custom_tooltip = johan_industrious
+		
+		define_consort = {
+			name = "Birgitta"
+			dynasty = "Sture"
+			culture = ROOT
+			religion = ROOT
+			age = 19
+			adm = 3
+			dip = 3
+			mil = 3
+			female = yes
+		}
+		
+		custom_tooltip = h_swedish_missions_event_tooltip_1
+		
+		hidden_effect = {
+			set_country_flag = johanking
+			add_ruler_personality = industrious_personality
+		}
+	}
+	
+	option = {
+		name = flavor_swe.100.b
+		define_ruler = {
+			name = "Gustav I"
+			dynasty = "Vasa"
+			adm = 3
+			dip = 2
+			mil = 4
+			
+			age = 20
+			claim = 80
+		}
+		
+		custom_tooltip = gustav_inspiring
+		
+		define_consort = {
+			name = "Birgitta"
+			dynasty = "Sture"
+			culture = ROOT
+			religion = ROOT
+			age = 19
+			adm = 3
+			dip = 3
+			mil = 3
+			female = yes
+		}
+		
+		custom_tooltip = h_swedish_missions_event_tooltip_1
+		
+		hidden_effect = {
+			set_country_flag = gustavking
+			add_ruler_personality = inspiring_leader_personality
+		}
+	}
+}
+
+##Military Reforms for Sweden
+country_event = {
+	id = flavor_swe.101
+	title = flavor_swe.101.title
+	desc = flavor_swe.101.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_swe.101.a
+		add_country_modifier = {
+			name = h_swedish_reform_infantry_core
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = flavor_swe.101.b
+		add_country_modifier = {
+			name = h_swedish_reform_leadership
+			duration = -1
+		}
+	}
+}
+
+##Ga-Pa
+country_event = {
+	id = flavor_swe.102
+	title = flavor_swe.102.title
+	desc = flavor_swe.102.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	
+	#option = {
+	#	name = flavor_swe.102.a
+	#	add_country_modifier = {
+	#		name = h_swedish_ga_pa_doctrine
+	#		duration = 5475
+	#	}
+	#}
+	
+	option = {
+		name = flavor_swe.102.b
+		add_army_tradition = 25
+		add_mil_power = 100
+	}
+}
+
+##Alexander of the North
+country_event = {
+	id = flavor_swe.103
+	title = flavor_swe.103.title
+	desc = flavor_swe.103.desc
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_swe.103.a
+		add_ruler_modifier = {
+			name = h_swedish_alexander_of_the_north
+			duration = -1
+		}
+	}
+}
+
+##Aftermath of the Kalmar War
+country_event = {
+	id = flavor_swe.314
+	title = flavor_swe.314.t
+	desc = flavor_swe.314.d
+	picture = CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_swe.314.a
+		##Forget the union
+
+		add_prestige = -5
+		add_stability_or_adm_power = yes
+		add_manpower = 3
+		add_sailors = 500
+
+		subarctic_islands_area = {
+			add_permanent_claim = ROOT
+		}
+
+		hidden_effect = {
+			set_country_flag = h_forget_the_union
+			set_country_flag = h_kalmar_union_event_choice_concluded
+		}
+	}
+}
+
+country_event = { #Lund Universitet 
+	id = flavor_swe.300  
+	title = flavor_swe.300.t 
+	desc = flavor_swe.300.d
+	picture = UNIVERSITY_eventPicture
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = flavor_swe.300.a #Ad utrumque paratus!
+		
+		if = {
+			limit = {
+				6 = { 
+					NOT = { has_building = university }
+				}
+			}
+			6 = { add_building = university }
+		}
+		else = { add_adm_power = 100 }
+		define_advisor = {
+			name = "Canutus Hahn"	 
+			skill = 3 
+			cost_multiplier = 0.50 
+			type = philosopher 
+		}
+		change_innovativeness = 3 
+	}
+}
+
+country_event = { #A Description of the Northern Peoples
+	id = flavor_swe.301
+	title = flavor_swe.301.t 
+	desc = flavor_swe.301.d 
+	picture = BIG_BOOK_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
+		owns = 315
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = flavor_swe.301.a #I can't wait for the sequel!
+		
+		add_prestige = 5
+		add_country_modifier = {
+			name = swe_prestigious_publications_modifier 
+			duration = -1 
+		}
+	}
+}
+
+country_event = { #Riksdag of the Estates
+	id = flavor_swe.302
+	title = flavor_swe.302.t 
+	desc = flavor_swe.302.d 
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = flavor_swe.302.a #Support the clerical estates.
+		
+		scaled_estate_church_land_share_effect = yes
+		add_estate_loyalty = {
+			estate = estate_church 
+			loyalty = 15 
+		}
+		add_country_modifier = {
+			name = swe_strong_clergy_modifier
+			duration = 7300 
+		}
+		add_adm_power = 50 
+	}
+	
+	option = {
+		name = flavor_swe.302.b #Our interest lie with our merchants.
+		
+		scaled_estate_burghers_land_share_effect = yes
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 15 
+		}
+		add_country_modifier = {
+			name = swe_strong_merchant_class_modifier
+			duration = 7300 
+		}
+		every_owned_province = {
+			limit = { province_has_center_of_trade_of_level = 2 }
+			add_base_production = 2
+		}				
+	}
+	
+	option = {
+		name = flavor_swe.302.c #Let us secure the support of the nobility, instead.
+		
+		scaled_estate_nobles_land_share_effect = yes
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 15 
+		}
+		add_country_modifier = {
+			name = swe_powerful_nobility_modifier
+			duration = 7300 
+		}
+		add_mil_power = 50 
+	}
+	
+	option = {
+		name = flavor_swe.302.e #We need not depend on the old institutions!
+		
+		change_estate_land_share = {
+			estate = all
+			share = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -10 
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10 
+		}
+		add_estate_loyalty = {
+			estate = estate_church 
+			loyalty = -10 
+		}
+		every_owned_province = {
+			limit = { local_autonomy_above_min = 10 }
+			add_local_autonomy = -10 
+		}
+	}
+}
+
+country_event = { #The Sound Dues of Sweden
+	id = flavor_swe.303
+	title = flavor_swe.303.t 
+	desc = flavor_swe.303.d 
+	picture = LARGE_SHIPYARD_eventPicture 
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = SWE
+			AND = {
+				was_tag = SWE
+				NOT = { exists = SWE }
+				tag = SCA
+			}		
+		}
+		owns_core_province = 12
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = flavor_swe.303.a #Impose new Sound Dues.
+		
+		if = {
+					limit = {
+						12 = {
+							NOT = { province_has_center_of_trade_of_level = 2 }
+						}
+					}
+					12 = {
+						add_center_of_trade_level = 1
+					}
+					else = {
+						add_treasury = 200
+					}
+				}
+	}
+	
+	option = {
+		name = flavor_swe.303.b #Let us create a market of free trade instead.
+		
+		add_country_modifier = {
+			name = swe_increased_free_trade_modifier 
+			duration = 9125 
+		}
+	}
+}
+
+country_event = { #	
+	id = flavor_swe.304 
+	title = flavor_swe.304.t 
+	desc = flavor_swe.304.d 
+	picture = CONQUEST_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		AND = {
+			tag = SWE
+			AND = {
+				owns_core_province = 36
+				owns_core_province = 1842
+				owns_core_province = 1834
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = flavor_swe.304.b #Our lands, our rules.
+		
+		estonia_ingria_area = {
+			add_local_autonomy = -10 
+			add_devastation = -25 
+		}
+		change_dip = 1 
+	}
+}
+
+country_event = { #Gustav Vasa Bible
+	id = flavor_swe.305
+	title = flavor_swe.305.t 
+	desc = flavor_swe.305.d 
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = flavor_swe.305.a #Spread the word 
+	
+		add_country_modifier = {
+			name = swe_defender_of_the_reformation_modifier 
+			duration = 9125 
+		}
+	}
+}
+
+country_event = { #The Lion of the North 
+	id = flavor_swe.306 
+	title = flavor_swe.306.t 
+	desc = flavor_swe.306.d 
+	picture = COURT_eventPicture 
+	
+	fire_only_once = yes 
+	
+	trigger = {
+		tag = SWE 
+		is_year = 1600 
+		NOT = { is_year = 1650 }
+		NOT = { mil = 6 }
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+	}
+	
+	option = {
+		name = flavor_swe.306.a #Lion come forth! 
+		
+		kill_ruler = yes 
+		define_ruler = {
+			name = "Gustavus Adolphus the Great"
+			dynasty = Vasa 
+			adm = 6 
+			dip = 6 
+			mil = 6 
+		}
+		if = {
+			limit = {
+				has_dlc = "Rights of Man" 
+			}
+			add_ruler_personality = conqueror_personality 
+			add_ruler_personality = strict_personality 
+			add_ruler_personality = zealot_personality
+		}
+		add_stability = -1 
+	}
+	
+	option = {
+		name = flavor_swe.306.b #We will maintain the status quo. 
+		
+		add_prestige = 5 
+	}
+}
+
+country_event = { #The Dalecarlian Rebellions
+	id = flavor_swe.307 
+	title = flavor_swe.307.t 
+	desc = flavor_swe.307.d 
+	picture = ANGRY_MOB_eventPicture 
+	
+	fire_only_once = yes 
+	
+	trigger = {
+		is_year = 1481
+		tag = SWE 
+		OR = {
+			NOT = { stability = 3 }
+			num_of_loans = 3
+		}
+		NOT = { is_year = 1600 }
+	}
+	
+	mean_time_to_happen = {
+		months = 200 
+	}
+	
+	option = {
+		name = flavor_swe.307.a #This is madness!
+		
+		capital_scope = {
+			spawn_rebels = {
+				size = 3
+				type = leadered_peasant_rebels
+				win = yes 	
+			}
+		}
+	}
+}
+
+country_event = { #The Sture Murders 
+	id = flavor_swe.308 
+	title = flavor_swe.308.t 
+	desc = flavor_swe.308.d 
+	picture = ASSASSINATION_eventPicture 
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWE 
+		OR = {
+			NOT = { adm = 1 }
+			NOT = { dip = 1 }
+		}
+		NOT = { stability = 2 }
+		is_year = 1560
+		NOT = { is_year = 1610 }
+		has_estate = estate_nobles
+		estate_territory = {
+			estate = estate_nobles
+			territory = 10
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	option = {
+		name = flavor_swe.308.a #Compensate the victims and pursue seclusion.
+		
+		add_years_of_income = -0.3 
+		add_prestige = -15
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10 
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = 10
+		}
+	}
+	
+	option = {
+		name = flavor_swe.308.b #Drive them out of our land!
+		
+		
+		capital_scope = {
+			spawn_rebels = {
+				size = 2
+				type = noble_rebels
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = -0.05
+		}
+		add_stability = -1 
+	}
+}
+
+country_event = { #Civil Code of the Swedish Realm 
+	id = flavor_swe.309
+	title = flavor_swe.309.t 
+	desc = flavor_swe.309.d 
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWE 
+		is_year = 1600
+	}
+	
+	mean_time_to_happen = {
+		months = 120 
+	}
+	
+	option = { 
+		name = flavor_swe.309.a #A new era for our Baltic territories!
+		
+		add_country_modifier = {
+			name = swe_civil_code_of_sweden_modifier
+			duration = 10950 
+		}
+	}
+}
+
+country_event = { #Royal Swedish Academy of Sciences
+	id = flavor_swe.310 
+	title = flavor_swe.310.t 
+	desc = flavor_swe.310.d 
+	picture = GREAT_BUILDING_eventPicture
+	
+	fire_only_once = yes 
+	
+	trigger = {
+		tag = SWE 
+		owns = 1 
+		innovativeness = 25 
+		current_age = age_of_absolutism
+	}
+	
+	mean_time_to_happen = {
+		months = 48 
+	}
+	
+	option = {
+		name = flavor_swe.310.a #För efterkommande!
+		
+		1 = {
+			add_province_modifier = { 
+				name = swe_royal_academy_sciences_modifier 
+				duration = 7300  
+			}
+		}
+		change_innovativeness = 3 
+	}
+}
+
+country_event = { #Anders Celsius and the Celsius Temperature Scale
+	id = flavor_swe.311 
+	title = flavor_swe.311.t 
+	desc = flavor_swe.311.d 
+	picture = ADVISOR_eventPicture
+	
+	fire_only_once = yes 
+	
+	trigger = {
+		tag = SWE 
+		innovativeness = 30 
+		is_year = 1650 
+	}
+	
+	option = {
+		name = flavor_swe.311.a #A very hot man of science!
+		
+		add_country_modifier = {
+			name = swe_discoveries_of_celcius_modifier
+			duration = 7300 
+		}
+		define_advisor = {
+			name = "Anders Celcius" 
+			type = natural_scientist
+			skill = 3 
+			cost_multiplier = 0.5 
+		}
+	}
+}
+
+country_event = { #The December Crisis
+	id = flavor_swe.312
+	title = flavor_swe.312.t 
+	desc = flavor_swe.312.d 
+	picture = COUNTRY_COLLAPSE_eventPicture
+	
+	fire_only_once = yes 
+	
+	trigger = {
+		tag = SWE 
+		absolutism = 25 
+		is_year = 1680 
+		has_estate = estate_nobles 
+	}
+	
+	mean_time_to_happen = {
+		months = 200 
+	}
+	
+	option = {
+		name = flavor_swe.312.a #I refuse! 
+		
+		add_stability = -2 
+		random_owned_province = {
+			noble_rebels = 3
+		}
+		random_owned_province = {
+			noble_rebels = 2
+		}
+		random_owned_province = {
+			noble_rebels = 1
+		}
+		random_owned_province = {
+			noble_rebels = 2
+		}
+		random_owned_province = {
+			noble_rebels = 3
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -20 
+		}
+	}
+	
+	option = {
+		name = flavor_swe.312.b #Bend to the nobility 
+		
+		add_absolutism = -10 
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = 0.10
+		}
+		add_country_modifier = {
+			name = swe_ruling_nobility_modifier 
+			duration = 7300 
+		}
+	}
+}
+
+country_event = { #Societetsskolan i Göteborg för Döttrar
+	id = flavor_swe.313
+	title = flavor_swe.313.t 
+	desc = FU_Sweden_Events.d 
+	picture = wihgfx_FEMALE_SCHOLAR_eventPicture
+	
+	fire_only_once = yes 
+	
+	trigger = {
+		tag = SWE
+		4163 = {
+			owned_by = ROOT 
+			NOT = { devastation = 1 }
+		}
+		current_age = age_of_absolutism
+	}
+	
+	mean_time_to_happen = {
+		months = 240 
+	}
+	
+	option = {
+		name = flavor_swe.313.a #A great step for women across our realm!
+		
+		add_country_modifier = {
+			name = swe_first_female_school_modifier
+			duration = -1 
+		}
+		change_innovativeness = 2 
+	}
+}

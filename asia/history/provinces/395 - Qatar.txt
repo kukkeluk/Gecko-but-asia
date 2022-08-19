@@ -1,9 +1,11 @@
 #395 - Qatar
 
-owner = ALH
-controller = ALH
+#owner = ALH
+#controller = ALH
+owner = ORM
+controller = ORM
 culture = gulf_arabic
-religion = shiite
+religion = ibadi
 capital = "Qatar"
 trade_goods = gems
 hre = no
@@ -13,6 +15,7 @@ base_manpower = 1
 is_city = yes
 add_core = ALH
 add_core = ORM
+center_of_trade = 1
 discovered_by = muslim
 discovered_by = ottoman
 discovered_by = indian

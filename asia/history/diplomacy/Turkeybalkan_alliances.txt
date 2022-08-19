@@ -1,18 +1,10 @@
-#Albania guaranteed by Venice
-#guarantee = {
-#	first = VEN
-#	second = ALB
-#	start_date = 1444.1.1
-#	end_date = 1468.1.1
-#}
-
 #Trebizond guaranteed by Georgia
-#guarantee = {
-#	first = GEO
-#	second = TRE
-#	start_date = 1398.1.1
-#	end_date = 1461.1.1
-#}
+guarantee = {
+	first = GEO
+	second = TRE
+	start_date = 1398.1.1
+	end_date = 1461.1.1
+}
 
 # Serbia and the Ottomans
 vassal = {
@@ -254,21 +246,6 @@ vassal = {
 	second = TRA
 	start_date = 1599.3.17
 	end_date = 1699.1.1
-}
-
-# Ottoman vassal
-#guarantee = {
-#	first = TUR
-#	second = RAG
-#	start_date = 1444.1.1
-#	end_date = 1528.1.1
-#}
-
-vassal = {
-	first = TUR
-	second = RAG
-	start_date = 1528.1.1
-	end_date = 1806.1.1
 }
 
 # The Septinsular Republic

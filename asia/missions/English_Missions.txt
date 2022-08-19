@@ -21,6 +21,7 @@ eng_british_conquest = {
 		
 		trigger = {
 			army_size_percentage = 1
+			manpower_percentage = 0.6
 			num_of_generals = 1
 		}
 		
@@ -113,6 +114,51 @@ eng_british_conquest_ire = {
 	
 	has_country_shield = yes
 	
+	eng_colonize_teleporter = {
+		icon = mission_iroquois_warriors
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			num_of_colonists = 1
+		}
+		
+		effect = {
+			5800 = {
+			cede_province = ROOT
+			}
+			5800 = {
+			add_core = ROOT
+			}
+			hidden_effect = {
+				2010 = {
+					discover_country = ROOT
+				}
+				2560 = {
+					discover_country = ROOT
+				}
+				965 = {
+					discover_country = ROOT
+				}
+				2639 = {
+					discover_country = ROOT
+				}
+				962 = {
+					discover_country = ROOT
+				}
+				957 = {
+					discover_country = ROOT
+				}
+				2554 = {
+					discover_country = ROOT
+				}
+				898 = {
+					discover_country = ROOT
+				}
+			}
+		}
+	}
+	
 	conquer_ireland = {
 		icon = mission_unite_home_region
 		required_missions = { eng_mighty_army }
@@ -132,29 +178,50 @@ eng_british_conquest_ire = {
 		trigger = {
 			munster_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
 			connacht_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
 			ulster_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
 			leinster_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
 		}
 		
 		effect = {
-			add_country_modifier = {
-				name = "isles_secured"
-				duration = 5475
+			munster_area = { 
+				add_province_modifier = {
+					name = "eng_irish_revolts"
+					duration = 5475
 				}
+			}
+			connacht_area = { 
+				add_province_modifier = {
+					name = "eng_irish_revolts"
+					duration = 5475
+				}
+			}
+			ulster_area = { 
+				add_province_modifier = {
+					name = "eng_irish_revolts"
+					duration = 5475
+				}
+			}
+			leinster_area = { 
+				add_province_modifier = {
+					name = "eng_irish_revolts"
+					duration = 5475
+				}
+			}
 		}
-	}	
+	
+	}
 }
 
 eng_british_conquest_scotland = {
@@ -183,8 +250,10 @@ eng_british_conquest_scotland = {
 				area = lowlands_area
 				province_id = 250
 				province_id = 4363
+				province_id = 4364
 				province_id = 252
 				province_id = 4110
+				province_id = 253
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -196,11 +265,16 @@ eng_british_conquest_scotland = {
 			4363 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-
+			4364 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			252 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			4110 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			253 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			lowlands_area = {
@@ -230,20 +304,6 @@ eng_british_conquest_scotland = {
 				}
 				370 = {add_claim = ROOT }
 				371 = {add_claim = ROOT }
-				western_norway = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-				eastern_norway = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
 			}
 		}
 	
@@ -315,18 +375,6 @@ eng_french_conquest = {
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}
-			236 = {
-				western_longbow =  ROOT
-				western_longbow =  ROOT
-				western_longbow =  ROOT
-				western_longbow =  ROOT
-				western_longbow =  ROOT
-				western_longbow =  ROOT
-				western_longbow =  ROOT
-				western_longbow =  ROOT
-				western_longbow =  ROOT
-				western_longbow =  ROOT
 			}
 		}
 	}
@@ -497,7 +545,7 @@ eng_exploration_americas = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = miss_discover_caribbean
-				colonial_the_carribean = { has_discovered = ROOT }
+				colonial_mexico = { has_discovered = ROOT }
 			}
 		}
 		
@@ -546,7 +594,7 @@ eng_exploration_americas = {
 		completed_by = 1610.1.1
 		
 		provinces_to_highlight = {
-			colonial_region = colonial_the_carribean
+			colonial_region = colonial_mexico
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
@@ -556,7 +604,7 @@ eng_exploration_americas = {
 			tooltip = english_colony_in_the_carribean.tooltip
 				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 					value = 5
-					colonial_region = colonial_the_carribean
+					colonial_region = colonial_mexico
 					is_city = yes
 				}
 			}
@@ -624,7 +672,151 @@ eng_chesapeake_dominance = {
 
 }
 
+eng_indian_ocean_exploration = {
+	
+	slot = 5
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = ENG
+			tag = GBR
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	england_discovers_india = {
+		icon = mission_junk_boat
+		required_missions = { }
+		position = 7
+		completed_by = 1579.1.1
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = england_discovers_india.tooltip
+				west_india_region = { has_discovered = ROOT }
+				bengal_region = { has_discovered = ROOT }
+				coromandel_region = { has_discovered = ROOT }
+				deccan_region = { has_discovered = ROOT }
+			}
+		}
+		
+		effect = {
+			add_dip_power = 100
+			add_navy_tradition = 20
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Rule Britannia"
+					}
+				}
+				west_bengal_area = {
+					limit = {
+						NOT = { is_claim = ROOT }
+						NOT = { is_core = ROOT }
+					}
+					add_claim = ROOT
+				}
+			}
+		}
+	}
+	
+	england_discovers_australia = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { england_discovers_india }
+		completed_by = 1788.1.1
+		
+		provinces_to_highlight = {
+			colonial_region = colonial_australia
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = miss_discover_australia
+				colonial_australia = { has_discovered = ROOT }
+			}
+			custom_trigger_tooltip = {
+				tooltip = england_discovers_australia.tooltip
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 5
+					colonial_region = colonial_australia
+					is_city = yes
+				}
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "eng_australian_colony"
+				duration = 5475
+			}
+		}
+	
+	}
 
+}
+
+eng_indian_cot_dominance = {
+
+	slot = 4
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = ENG
+			tag = GBR
+		}
+		NOT = {
+			has_dlc = "Rule Britannia"
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	establish_trade_in_indian_cot = {
+		icon = mission_indian_stateman
+		required_missions = { england_discovers_india }
+		position = 7
+		completed_by = 1776.7.1
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 504
+				province_id = 1340
+				province_id = 1343
+				province_id = 1948
+			}
+		}
+		
+		trigger = { 
+			OR = {
+				504 = {		# Sind
+					is_strongest_trade_power = ROOT
+				}
+				1340 = {	# Comorin Cape
+					is_strongest_trade_power = ROOT
+				}
+				1343 = {	# Ganges Delta
+					is_strongest_trade_power = ROOT
+				}
+				1948 = {	# Deccan
+					is_strongest_trade_power = ROOT
+				}
+			}
+		}
+	
+		effect = {
+			add_country_modifier = {
+				name = "east_india_trade_rush"
+				duration = 5475
+			}
+		}
+	}
+
+}
 
 eng_british_cot_dominance = {
 
@@ -648,6 +840,7 @@ eng_british_cot_dominance = {
 		icon = mission_high_income
 		required_missions = { 
 			establish_trade_in_american_cot
+			establish_trade_in_indian_cot
 		}
 		position = 8
 		

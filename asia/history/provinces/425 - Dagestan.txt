@@ -5,14 +5,14 @@ controller = GAZ
 culture = dagestani
 religion = shiite
 capital = "Derbent"
-trade_goods = fish
+trade_goods = wine
 hre = no
 base_tax = 3 
 base_production = 3
 base_manpower = 1
 is_city = yes
 add_core = GAZ
-
+add_province_triggered_modifier=wine_modifier
 
 
 discovered_by = muslim

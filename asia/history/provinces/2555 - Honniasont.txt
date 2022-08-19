@@ -15,8 +15,6 @@ discovered_by = north_american
 extra_cost = 8
 center_of_trade = 1
 
-
-#1444.1.1 = { tribal_owner = ERI }
 1656.1.1 = {
  	owner = IRO
 	controller = IRO

@@ -6,29 +6,179 @@ dlh_slot_1 = {
 		has_dlc = "Dharma"
 	}
 	potential = {
-		tag = DLH
+		OR = {
+			tag = SRH
+			tag = DLH
+		}
 		has_dlc = "Dharma"
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
 	
-	dlh_high_income_mission = {
-		icon = mission_high_income
-		required_missions = {  } #None
-		position = 1
-		trigger = { share_of_starting_income = 1.5 }
+	ind_indian_muslim_harem = {
+		icon = mission_ottoman_harem
+		required_missions = {  }
+		provinces_to_highlight = {
+		}
+		
+		trigger = {
+			num_of_royal_marriages = 2
+			prestige = 25
+		}
+		
 		effect = {
 			add_country_modifier = {
-				name = "gc_growing_economy"
-				duration = 9125 #25 years
+				name = "india_expanded_harem2"
+				duration = 7300
+			}
+		}
+	}
+	
+	ind_indian_muslim_brahmins_church = {
+		icon = mission_buddhist_monk_praying
+		required_missions = { ind_indian_muslim_harem }
+		provinces_to_highlight = {
+		}
+		
+		trigger = {
+			if = {
+				limit = {
+					has_estate = estate_brahmins
+					has_estate = estate_church
+				}
+				OR = {
+					AND = {
+						estate_loyalty = {
+							estate = estate_brahmins
+							loyalty = 60
+						}
+						estate_influence = {
+							estate = estate_brahmins
+							influence = 40
+						}
+					}
+					AND = {
+						estate_loyalty = {
+							estate = estate_church
+							loyalty = 60
+						}
+						estate_influence = {
+							estate = estate_church
+							influence = 40
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_estate = estate_church
+					has_estate = estate_dhimmi
+				}
+				OR = {
+					AND = {
+						estate_loyalty = {
+							estate = estate_dhimmi
+							loyalty = 60
+						}
+						estate_influence = {
+							estate = estate_dhimmi
+							influence = 40
+						}
+					}
+					AND = {
+						estate_loyalty = {
+							estate = estate_church
+							loyalty = 60
+						}
+						estate_influence = {
+							estate = estate_church
+							influence = 40
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_estate = estate_church
+				}
+				estate_loyalty = {
+					estate = estate_church
+					loyalty = 60
+				}
+				estate_influence = {
+					estate = estate_church
+					influence = 40
+				}
+			}
+			else = {
+				religious_unity = 1
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 60
+					}
+					estate_influence = {
+						estate = estate_church
+						influence = 60
+					}
+				}
+				add_country_modifier = {
+					name = "ulemma_appeased"
+					duration = 7300
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							NOT = {
+								has_estate = estate_brahmins
+							}
+							estate_loyalty = {
+								estate = estate_dhimmi
+								loyalty = 60
+							}
+							estate_influence = {
+								estate = estate_dhimmi
+								influence = 60
+							}
+						}
+						AND = {
+							has_estate = estate_brahmins
+							estate_loyalty = {
+								estate = estate_brahmins
+								loyalty = 60
+							}
+							estate_influence = {
+								estate = estate_brahmins
+								influence = 60
+							}
+						}
+					}
+				}
+				add_country_modifier = {
+					name = "gen_brahmin_loyalty"
+					duration = 7300
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = "ulemma_appeased"
+					duration = 7300
+				}
 			}
 		}
 	}
 	
 	dlh_agra_mission = {
 		icon = mission_found_the_city_of_agra
-		required_missions = { dlh_jnp_reconquest }
-		position = 2
+		required_missions = { ind_indian_muslim_brahmins_church }
+		position = 3
 		completed_by = 1504.1.1
 		provinces_to_highlight = {
 			province_id = 524
@@ -55,6 +205,7 @@ dlh_slot_1 = {
 	dlh_textile_industry = {
 		icon = mission_expand_textile_industry
 		required_missions = { dlh_agra_mission }
+		position = 4
 		provinces_to_highlight = {
 		}
 		trigger = {
@@ -87,48 +238,25 @@ dlh_east_missions = {
 		has_dlc = "Dharma"
 	}
 	potential = {
-		tag = DLH
+		OR = {
+			tag = SRH
+			tag = DLH
+		}
 		has_dlc = "Dharma"
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
 	
-	dlh_jnp_reconquest = {
-		icon = mission_reclaim_lost_territory
+	ind_north_india_unite_culture = {
+		icon = mission_indian_stateman
 		required_missions = { }
-		completed_by = 1486.1.1
-		provinces_to_highlight = {
-		
-			}
-
 		
 		trigger = {
-			army_size_percentage = 1
-			num_of_generals = 1
+			num_accepted_cultures = 2
 		}
+		
 		effect = {
-			lower_doab_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			sirhind_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			oudh_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			purvanchal_area = {
+			upper_doab_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -137,43 +265,72 @@ dlh_east_missions = {
 			}
 		}
 	}
-	dlh_jnp_reconquest_2 = {
-		icon = mission_defeat_jaunpur
-		required_missions = { dlh_jnp_reconquest }
-		completed_by = 1486.1.1
+	ind_north_india_conquer_delhi = {
+		icon = mission_persian_soldiers
+		required_missions = { ind_north_india_unite_culture }
+		
+		provinces_to_highlight = {
+			area = upper_doab_area
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			upper_doab_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "gen_delhi_conquest2"
+				duration = 7300
+			}
+		}
+	}
+	dlh_conquer_bengal = {
+		icon = mission_conquer_bengal_dlh
+		required_missions = { ind_north_india_conquer_delhi }
+		position = 4
 		provinces_to_highlight = {
 			OR = {
-				area = lower_doab_area
-				area = oudh_area
-				area = purvanchal_area
+				area = gaur_area
+				area = west_bengal_area
+				area = north_bengal_area
+				area = east_bengal_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = {
-			lower_doab_area = {
+			gaur_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
 			}
-			oudh_area = {
+			west_bengal_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
 			}
-			purvanchal_area = {
+			north_bengal_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			east_bengal_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
 			}
 		}
 		effect = {
-			add_mil_power = 50
-			add_adm_power = 50
-			add_dip_power = 50
+			add_country_modifier = {
+				name = dlh_bengal_modifier
+				duration = 7300
+			}
 		}
 	}
 	dlh_grand_trunk_road = {
 		icon = mission_the_grand_trunk_road_dlh
-		required_missions = { }
+		required_missions = { dlh_conquer_bengal }
 		position = 6
 		provinces_to_highlight = {
 			OR = {
@@ -182,11 +339,30 @@ dlh_east_missions = {
 				area = upper_doab_area
 				area = lower_doab_area
 				area = purvanchal_area
+				area = bihar_area
+				area = gaur_area
+				area = east_bengal_area
 				province_id = 524
+				province_id = 507
+				province_id = 1343
+			}
+			OR = {
+				NOT = {
+					owned_by = ROOT
+				}
+				province_id = 507
+				province_id = 524
+				province_id = 1343
 			}
 		}
 		trigger = {
+			507 = {
+				is_strongest_trade_power = ROOT
+			}
 			524 = {
+				is_strongest_trade_power = ROOT
+			}
+			1343 = {
 				is_strongest_trade_power = ROOT
 			}
 			lahore_area = {
@@ -224,6 +400,27 @@ dlh_east_missions = {
 					devastation = 1
 				}
 			}
+			bihar_area = {
+				type = all
+				owned_by = ROOT
+				NOT = {
+					devastation = 1
+				}
+			}
+			gaur_area = {
+				type = all
+				owned_by = ROOT
+				NOT = {
+					devastation = 1
+				}
+			}
+			east_bengal_area = {
+				type = all
+				owned_by = ROOT
+				NOT = {
+					devastation = 1
+				}
+			}
 		}
 		effect = {
 			custom_tooltip = dlh_grand_trunk_road.tooltip
@@ -236,6 +433,9 @@ dlh_east_missions = {
 							area = upper_doab_area
 							area = lower_doab_area
 							area = purvanchal_area
+							area = bihar_area
+							area = gaur_area
+							area = east_bengal_area
 						}
 					}
 					add_province_modifier = {
@@ -243,6 +443,50 @@ dlh_east_missions = {
 						duration = -1
 					}
 				}
+			}
+			jharkhand_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			orissa_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	dlh_conquer_orissa = {
+		icon = mission_conquer_orissa_dlh
+		required_missions = { dlh_grand_trunk_road }
+		provinces_to_highlight = {
+			OR = {
+				area = jharkhand_area
+				area = orissa_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			jharkhand_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			orissa_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {	
+			add_adm_power = 100
+			add_country_modifier = {
+				name = "dlh_orissa_conquest_modifier"
+				duration = 7300
 			}
 		}
 	}
@@ -256,7 +500,10 @@ dlh_west_missions = {
 		has_dlc = "Dharma"
 	}
 	potential = {
-		tag = DLH
+		OR = {
+			tag = SRH
+			tag = DLH
+		}
 		has_dlc = "Dharma"
 		NOT = { map_setup = map_setup_random }
 	}
@@ -270,7 +517,7 @@ dlh_west_missions = {
 			OR = {
 				area = upper_doab_area
 				area = sirhind_area
-				#area = lahore_area
+				area = lahore_area
 			}
 			NOT = {
 				owned_by = ROOT
@@ -285,10 +532,10 @@ dlh_west_missions = {
 				type = all
 				owned_by = ROOT
 			}
-			#lahore_area = {
-			#	type = all
-			#	owned_by = ROOT
-			#}
+			lahore_area = {
+				type = all
+				owned_by = ROOT
+			}
 		}
 		effect = {
 			multan_area = {
@@ -366,6 +613,20 @@ dlh_west_missions = {
 				}
 				add_permanent_claim = ROOT
 			}
+			malwa_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			gondwana_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 			sindh_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -383,10 +644,153 @@ dlh_west_missions = {
 			
 		}
 	}
-
+	dlh_conquer_malwa = {
+		icon = mission_subdue_malwa
+		required_missions = { dlh_restore_sultanate }
+		provinces_to_highlight = {
+			OR = {
+				area = gird_area
+				area = malwa_area
+				area = gondwana_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			gird_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			malwa_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			gondwana_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			patan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			ahmedabad_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			tapti_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			marwar_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			mewar_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			jaipur_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			jangladesh_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	dlh_conquer_gujarat = {
+		icon = mission_conquer_gujarat_dlh
+		required_missions = { dlh_conquer_malwa  }
+		provinces_to_highlight = {
+			OR = {
+				area = patan_area
+				area = ahmedabad_area
+				area = tapti_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			patan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			ahmedabad_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			tapti_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			khandesh_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			konkan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			ahmednagar_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			desh_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			berar_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
 	dlh_restore_empire = {
 		icon = mission_delhi_resurgent
-		required_missions = {  }
+		required_missions = { dlh_conquer_orissa dlh_conquer_deccan }
 		position = 8
 		provinces_to_highlight = {
 		}
@@ -399,6 +803,34 @@ dlh_west_missions = {
 			add_mil_power = 100
 			add_adm_power = 100
 			add_dip_power = 100
+			west_india_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			deccan_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			bengal_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			coromandel_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 }
@@ -411,7 +843,10 @@ dlh_slot_4 = {
 		has_dlc = "Dharma"
 	}
 	potential = {
-		tag = DLH
+		OR = {
+			tag = SRH
+			tag = DLH
+		}
 		has_dlc = "Dharma"
 		NOT = { map_setup = map_setup_random }
 	}
@@ -480,9 +915,11 @@ dlh_slot_4 = {
 	}
 	dlh_conquer_rajputs = {
 		icon = mission_conquer_rajputana
-		required_missions = {  }
+		required_missions = { dlh_conquer_malwa }
 		provinces_to_highlight = {
 			OR = {
+				area = marwar_area
+				area = mewar_area
 				area = jaipur_area
 				area = jangladesh_area
 			}
@@ -491,6 +928,14 @@ dlh_slot_4 = {
 			}
 		}
 		trigger = {
+			marwar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			mewar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
 			jaipur_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
@@ -503,6 +948,114 @@ dlh_slot_4 = {
 		effect = {
 			add_country_modifier = {
 				name = "dlh_rajput_conquest_modifier"
+				duration = 7300
+			}
+		}
+	}
+	dlh_conquer_marathas = {
+		icon = mission_conquer_maharashtra
+		required_missions = { dlh_conquer_gujarat  }
+		provinces_to_highlight = {
+			OR = {
+				area = khandesh_area
+				area = konkan_area
+				area = ahmednagar_area
+				area = desh_area
+				area = berar_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			khandesh_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			konkan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			ahmednagar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			desh_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			berar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			deccan_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			kongu_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			south_carnatic_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			north_carnatic_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	dlh_conquer_deccan = {
+		icon = mission_invade_the_deccan_dlh
+		required_missions = { dlh_conquer_marathas  }
+		provinces_to_highlight = {
+			OR = {
+				region = deccan_region
+				area = kongu_area
+				area = south_carnatic_area
+				area = north_carnatic_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			deccan_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			kongu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			south_carnatic_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			north_carnatic_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			add_mil_power = 100
+			add_country_modifier = {
+				name = "dlh_deccan_conquest_modifier"
 				duration = 7300
 			}
 		}

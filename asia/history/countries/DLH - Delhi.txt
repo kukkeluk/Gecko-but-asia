@@ -5,55 +5,51 @@ religion = sunni
 technology_group = indian
 capital = 522	# Delhi
 fixed_capital = 522 # Cannot move capital away from this province & no power cost to move to it
-religious_school = maliki_school
+religious_school = hanafi_school
+historical_rival = BNG
+historical_rival = JNP
+historical_rival = MER
+historical_rival = BAH
+historical_rival = VIJ
+historical_rival = TRS
 
 1435.1.1 = {
 	monarch = {
 		name = "Mohammed Shah IV"
 		dynasty = "Sayyid"
-		ADM = 4
-		DIP = 5
-		MIL = 5
+		ADM = 1
+		DIP = 1
+		MIL = 1
 	}
-}	
+	clear_scripted_personalities = yes
+	add_ruler_personality = babbling_buffoon_personality
+}
 
-1439.1.1 = {
-	leader = {
-		name = "Bahlûl Lodi"	
-		type = general
-
-		fire = 4
-		shock = 4
-		manuever = 3
-		siege = 1 
+1435.1.1 = {
+	heir = {
+		name = "Aladdin Alam"
+		monarch_name = "Aladdin Alam Shah"
+		dynasty = "Sayyid"
+		birth_date = 1420.1.1
+		death_Date = 1451.4.20
+		claim = 95
+		ADM = 1
+		DIP = 0
+		MIL = 0
 	}
 }
 
-#1435.1.1 = {
-#	heir = {
-#		name = "Aladdin Alam"
-#		monarch_name = "Aladdin Alam Shah"
-#		dynasty = "Sayyid"
-#		birth_date = 1420.1.1
-#		death_Date = 1451.4.20
-#		claim = 95
-#		ADM = 1
-#		DIP = 0
-#		MIL = 0
-#	}
-#}
-
-#1445.1.1 = {
-#	monarch = {
-#		name = "Aladdin Alam Shah"
-#		dynasty = "Sayyid"
-#		ADM = 1
-#		DIP = 0
-#		MIL = 0
-#	}
-#	clear_scripted_personalities = yes
-#	add_ruler_personality = babbling_buffoon_personality
-#}
+1445.1.1 = {
+	monarch = {
+		name = "Aladdin Alam Shah"
+		dynasty = "Sayyid"
+		ADM = 1
+		DIP = 0
+		MIL = 0
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = babbling_buffoon_personality
+}
 
 1451.4.20 = {
 	monarch = {

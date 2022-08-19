@@ -2,6 +2,8 @@
 
 owner = SHY
 controller = SHY
+#owner = TRS
+#controller = TRS
 culture = khazak
 religion = sunni
 capital = "Sozak"

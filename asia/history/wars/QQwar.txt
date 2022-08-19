@@ -1,0 +1,15 @@
+name="QQMLKwar"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 420 # Surat
+}
+1443.1.1 = {
+	add_attacker = QAR
+	add_defender = MLK
+}
+# Peace
+1444.11.11 = {
+	rem_attacker = QAR
+	rem_defender = MLK
+}

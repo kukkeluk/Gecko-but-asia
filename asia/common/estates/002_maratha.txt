@@ -156,15 +156,21 @@ estate_maratha = {
 	privileges = {
 		estate_maratha_land_rights
 		estate_maratha_military
-		estate_maratha_advisor
+		estate_marathas_grant_generalship
 		estate_maratha_special_privilege
+		#estate_maratha_levies
 		estate_maratha_loyalty_privilege
-		estate_maratha_levies
 		estate_maratha_levies_for_muslims
 		estate_maratha_monopoly_of_metals
 		estate_maratha_monopoly_of_livestock
 		estate_maratha_monopoly_of_gems
-		estate_gc_noble_levies
+		estate_maratha_war_support
+		estate_maratha_power_broken
+		estate_maratha_enforce_serfdom
+		estate_nobility_feudal_society
+		estate_nobility_offensive_focus
+		estate_nobility_defense_focus
+		estate_maratha_subject_rights
 	}
 	
 	agendas = {

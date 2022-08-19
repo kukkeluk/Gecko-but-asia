@@ -1,0 +1,21 @@
+#South Schlewsig
+
+owner = SHL
+controller = SHL
+add_core = SHL
+culture = danish
+religion = catholic
+hre = yes
+base_tax = 4 
+base_production = 3
+trade_goods = grain
+base_manpower = 4
+capital = "Slesvig"
+is_city = yes
+
+center_of_trade = 1
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman

@@ -1,0 +1,86 @@
+namespace = badmjl
+
+normal_or_historical_nations = yes
+
+	
+country_event = {
+	id = badmjl.1
+	title = badmjl.1.t
+	desc = badmjl.1.d
+	picture = ASSASSINATION_eventPicture
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	hidden = yes 
+	
+	trigger = {
+		tag = MAR
+		NOT = {
+			has_country_flag = mar_brahmin_setup_flag
+		}
+	}
+	
+	immediate = {
+		set_variable = {
+			which = MarBrahminSupport 
+			value = 0
+		}
+		set_variable = {
+			which = MarBrahminOppose 
+			value = 0
+		}
+		set_country_flag = mar_brahmin_setup_flag
+	}
+	
+	option = { 
+		name = flavor_badmjl.1.a 
+		
+	}
+}
+
+country_event = {
+	id = badmjl.2
+	title = badmjl.2.t
+	desc = badmjl.2.d
+	picture = ASSASSINATION_eventPicture
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	option = {
+		name = badmjl.2.a 
+		
+		
+		#Sinicize sinhalese
+		hidden_effect = {
+			every_province = {
+				limit = {
+					culture = sinhala
+				}
+				change_culture = sinhala_dravidian
+			}
+			every_country = {
+				limit = {
+					primary_culture = sinhala
+				}
+				change_primary_culture = sinhala_dravidian
+				set_ruler_culture = sinhala_dravidian
+				if = {
+					limit = {
+						has_heir = yes
+						heir_culture = sinhala	
+					}
+					set_heir_culture = sinhala_dravidian
+				}
+				if = {
+					limit = {
+						has_consort = yes
+						consort_culture = sinhala
+					}
+					set_consort_culture = sinhala_dravidian
+				}
+			}
+		}
+	}
+}

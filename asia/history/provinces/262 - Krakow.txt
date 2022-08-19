@@ -1,8 +1,6 @@
 #262 - Krakow
 
-latent_trade_goods = {
-	coal
-}
+
 
 owner = POL
 controller = POL
@@ -10,8 +8,8 @@ culture = polish
 religion = catholic
 capital = "Kraków"
 hre = no
-base_tax = 7
-base_production = 7
+base_tax = 5
+base_production = 5
 trade_goods = salt
 base_manpower = 6
 is_city = yes

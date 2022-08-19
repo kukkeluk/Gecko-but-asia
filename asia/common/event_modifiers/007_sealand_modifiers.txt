@@ -1,0 +1,184 @@
+# Change Muslim School:
+change_school_modifier = {
+	# Nothing is needed here
+}
+
+# Piety change:
+mjl_piety_legalism_change_modifier = {
+	# Nothing is needed here
+}
+mjl_piety_mysticism_change_modifier = {
+	# Nothing is needed here
+}
+
+##########################################
+
+# Hormuz:
+tamed_the_desert_modifier = {
+	local_development_cost = -0.1
+}
+the_way_to_god_modifier = {
+	monthly_piety = -0.001
+}
+
+# Qara Qoyunlu:
+cavarly_focused_society_modifier = {
+	cavalry_cost = -0.1
+	cavalry_flanking = 0.10
+}
+unite_the_turks_modifier = {
+	num_accepted_cultures = 1
+	same_culture_advisor_cost = -0.07
+	culture_conversion_cost = -0.1
+}
+egypt_under_new_management_modifier = {
+	local_state_maintenance_modifier = 0.33
+	local_unrest = 3
+	min_local_autonomy = 50
+	local_production_efficiency = 1
+}
+subjugate_the_bedouins_modifier = {
+	local_autonomy = -0.1
+}
+royal_road_modifier = {
+	supply_limit_modifier = 0.15
+	local_friendly_movement_speed = 0.15
+	local_hostile_movement_speed = 0.15
+}
+
+# Mamluks:
+tunisian_trade_modifier = {
+	global_ship_trade_power = 0.2
+}
+nubian_integration_modifier = {
+	local_autonomy = -0.07
+}
+convert_ethiopian_heathens_modifier = {
+	local_missionary_strength = 0.03
+	local_missionary_maintenance_cost = -0.3
+}
+invasion_to_italy_modifier = {
+	galley_power = 0.2
+	recover_navy_morale_speed = 0.1
+}
+colonial_ambitions_modifier = {
+	colonists = 1
+	global_colonial_growth = 33
+}
+australian_gold_modifier = {
+	global_tariffs = 0.25
+}
+subjugation_of_beyliks_modifier = {
+	local_autonomy = -0.05
+	local_years_of_nationalism = -5
+}
+modernized_society_views_modifier = {
+	may_recruit_female_generals = yes
+	female_advisor_chance = 0.1
+}
+mesopotamian_mamluks_modifier = {
+	cavalry_cost = -0.1
+}
+prepare_for_europe_hugbox_modifier = {
+	manpower_recovery_speed = 0.3
+	reinforce_speed = 0.3
+}
+abbasid_governors_modifier = {
+	governing_capacity = 200
+	max_absolutism = 50
+	global_autonomy = -0.05
+}
+
+# Denmark:
+wittelsbach_prevailed_modifier = {
+	infantry_power = 0.075
+}
+gryf_prevailed_modifier = {
+	land_morale = 0.1
+	legitimacy = 1
+}
+subjugation_of_sweden_modifier = {
+	local_years_of_nationalism = -10
+	local_unrest = -2
+}
+nordic_trade_union_modifier = {
+	inflation_reduction = 0.1
+	embargo_efficiency = 0.2
+	mercantilism_cost = -0.15
+	merchants = 1
+}
+invasion_fleet_modifier = {
+	allowed_marine_fraction = 1
+	naval_attrition = -0.05
+	ship_durability = 0.05
+}
+live_long_and_prosper_modifier = {
+	monarch_lifespan = 0.99
+}
+
+# Sweden:
+utskrivning_modifier = {
+	local_manpower_modifier = 0.10
+}
+swedish_colonizer_modifier = {
+	colonists = 1
+}
+king_in_the_north_modifier = {
+	prestige = 1
+	yearly_corruption = -0.1
+	yearly_absolutism = 1
+}
+hanseatic_city_modifier = {
+	merchants = 1
+	placed_merchant_power = 5
+}
+uniformity_policy_modifier = {
+	global_unrest = -1
+	autonomy_change_time = -0.05
+	stability_cost_modifier = -0.1
+}
+trans_baltic_dominion_modifier = {
+	autonomy_change_time = -0.025
+	local_culture_conversion_cost = -0.10
+}
+new_living_space_modifier = {
+	land_forcelimit_modifier = 0.05
+}
+##########################################
+# Tunis/Emirate of Two Sicilies:
+ets_mediterranean_pirates_modifier = {
+	allowed_marine_fraction = 0.5
+}
+ets_medici_bank_modifier = {
+	interest = -0.2
+}
+ets_trade_control_modifier = {
+	local_years_of_nationalism = -5
+	trade_value_modifier = 0.1
+	local_defensiveness = 0.15
+}
+ets_trade_control_2_modifier = {
+	trade_value_modifier = 0.2
+	allowed_num_of_buildings = 1
+	local_defensiveness = 0.30
+	local_state_maintenance_modifier = -0.25
+}
+fatimid_government_janissaries_boost_0 = {
+	is_janissary_modifier = yes
+	drill_decay_modifier = -1
+}
+fatimid_government_janissaries_boost_1 = {
+	is_janissary_modifier = yes
+	reinforce_speed = 0.33
+	reinforce_cost_modifier = -1
+}
+fatimid_government_janissaries_boost_2 = {
+	is_janissary_modifier = yes
+	fire_damage = 0.33
+	shock_damage = 0.33
+}
+fatimid_government_janissaries_boost_3 = {
+	is_janissary_modifier = yes
+	fire_damage_received = -0.66
+	shock_damage_received = -0.66
+}

@@ -3,8 +3,8 @@
 owner = ORM
 controller = ORM
 culture = gulf_arabic
-religion = shiite
-capital = "Abu Dhabi"
+religion = ibadi
+capital = "Mascalat"
 trade_goods = livestock #Pearls
 hre = no
 base_tax = 1 

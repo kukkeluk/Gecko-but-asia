@@ -50,9 +50,6 @@ eng_british_naval_conq = {
 			226 = {
 				add_permanent_claim = ROOT
 			}
-			5004 = {
-				add_permanent_claim = ROOT
-			}
 		}
 	}
 }
@@ -74,14 +71,14 @@ eng_rb_gibraltar = {
 	}
 	has_country_shield = yes
 	
-	gc_eng_rb_take_gibraltar = {
+	eng_rb_take_gibraltar = {
 		icon = mission_rb_take_gibraltar
 		required_missions = { eng_mighty_navy }
 		completed_by = 1713.4.11
 		position = 2
 		
 		provinces_to_highlight = {
-			province_id = 5004
+			province_id = 226
 			NOT = { owned_by = ROOT }
 		}
 		
@@ -99,7 +96,7 @@ eng_rb_gibraltar = {
 		}
 		
 		trigger = {
-			5004 = {
+			226 = {
 				owned_by = ROOT
 			}
 		}
@@ -109,8 +106,10 @@ eng_rb_gibraltar = {
 				name = "eng_rb_gibraltar_mod"
 				duration = 5475
 			}
-			
-			denmark_area = {
+			4559 = {
+				add_permanent_claim = ROOT
+			}
+			corsica_sardinia_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -140,7 +139,7 @@ eng_rb_islands_med = {
 	
 	eng_rb_take_baleares = {
 		icon = mission_rb_increase_our_reach
-		required_missions = {  }
+		required_missions = { eng_rb_take_gibraltar }
 		position = 3
 		
 		provinces_to_highlight = {
@@ -350,8 +349,8 @@ eng_rb_stability = {
 		
 		effect = {
 			add_country_modifier = {
-				name = gc_hun_strong_economy
-				duration = 7300
+				name = "eng_rb_roses_legit"
+				duration = 5475
 			}
 		}
 	}
@@ -505,7 +504,7 @@ gbr_rb_canada_group = {
 		position = 7
 		
 		provinces_to_highlight = {
-			colonial_region = colonial_canada
+			colonial_region = colonial_eastern_america
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
@@ -517,7 +516,7 @@ gbr_rb_canada_group = {
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = miss_discover_canada
-				colonial_canada = {
+				colonial_eastern_america = {
 					has_discovered = ROOT
 				}
 			}
@@ -525,7 +524,7 @@ gbr_rb_canada_group = {
 				tooltip = miss_colonize_canada
 				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 					value = 1
-					colonial_region = colonial_canada
+					colonial_region = colonial_eastern_america
 					is_city = yes
 				}
 			}
@@ -670,6 +669,7 @@ eng_rb_buildings_group = {
 		position = 10
 		
 		trigger = {
+			has_institution = enlightenment
 			calc_true_if = {
 				all_owned_province = {
 					OR = {
@@ -823,49 +823,19 @@ eng_rb_conquest_europe = {
 		trigger = {
 			brittany_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
 		}
 		
 		effect = {
-			186 = {
+			1276 = {
 				add_trade_modifier = {
 					who = root
 					duration = 5475
-					power = 30
+					power = 25
 					key = bordeaux_ambition
 				}
 			}
-			167 = {
-				if = {
-					limit = {	
-						NOT = {
-							province_has_center_of_trade_of_level = 3
-						}
-					}
-				}	
-				center_of_trade = 1
-			}		
-			177 = {
-				if = {
-					limit = {	
-						NOT = {
-							province_has_center_of_trade_of_level = 3
-						}
-					}
-				}	
-				center_of_trade = 1
-			}	
-			172 = {
-				if = {
-					limit = {	
-						NOT = {
-							province_has_center_of_trade_of_level = 3
-						}
-					}
-				}	
-				center_of_trade = 1
-			}	
 			pyrenees_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -920,8 +890,10 @@ eng_rb_conquest_europe = {
 				area = pyrenees_area
 				area = poitou_area
 				area = loire_area
-				area = cahors_area
-				area = guyenne_area			
+				province_id = 199
+				province_id = 194
+				province_id = 195
+				province_id = 4697
 			}
 			NOT = { owned_by = ROOT }
 		}
@@ -929,23 +901,27 @@ eng_rb_conquest_europe = {
 		trigger = {
 			pyrenees_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
 			poitou_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
 			loire_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
-			guyenne_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+			199 = {
+				owned_by = ROOT
 			}
-			cahors_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+			194 = {
+				owned_by = ROOT
+			}
+			195 = {
+				owned_by = ROOT
+			}
+			4697 = {
+				owned_by = ROOT
 			}
 		}
 		
@@ -959,10 +935,6 @@ eng_rb_conquest_europe = {
 					duration = -1
 				}
 			}
-			add_country_modifier = {
-				name = "angevin_supremacy"
-				duration = -1
-				}	
 			picardy_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -985,7 +957,7 @@ eng_rb_conquest_europe = {
 				add_permanent_claim = ROOT
 			}
 		}
-	}	
+	}
 }
 
 gbr_rb_empire_group = {
@@ -1076,6 +1048,372 @@ gbr_rb_empire_group = {
 	}
 }
 
+gbr_rb_spice_islands_group = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Rule Britannia"
+	}
+	potential = {
+		OR = {
+			tag = ENG
+			tag = GBR
+		}
+		has_dlc = "Rule Britannia"
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	eng_rb_spice_islands = {
+		icon = mission_rb_colonise_spice_islands
+		required_missions = { england_discovers_india }
+		position = 8
+		completed_by = 1776.1.1
+		
+		provinces_to_highlight = {
+			OR = {
+				trade_company_region = trade_company_moluccas
+				trade_company_region = trade_company_indonesia
+			}
+			is_sea = no
+			NOT = { owned_by = ROOT }
+			has_discovered = ROOT
+		}
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = eng_rb_spice_islands.tooltip
+				OR = {
+					trade_company_moluccas = { 
+						owned_by = ROOT
+						is_city = yes
+					}
+					trade_company_indonesia = {
+						owned_by = ROOT
+						is_city = yes
+					}
+				}
+			}
+		}
+		
+		effect = {
+			kutai_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			brunei_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			if = {
+				limit = {
+					tag = GBR
+				}
+				west_bengal_area = {
+					limit = {
+						NOT = { is_claim = ROOT }
+						NOT = { is_core = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+}
+
+gbr_rb_indian_group = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Rule Britannia"
+	}
+	potential = {
+		tag = GBR
+		has_dlc = "Rule Britannia"
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	gbr_rb_india_landfall = {
+		icon = mission_rb_conquer_bengal
+		required_missions = { eng_rb_spice_islands }
+		position = 9
+		completed_by = 1789.1.1
+		
+		provinces_to_highlight = {
+			area = west_bengal_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		
+		ai_priority = {
+			factor = 3
+		}
+		
+		trigger = {
+			west_bengal_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			golconda_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			garjat_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			orissa_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			andhra_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			jharkhand_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_mahanadi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			maidan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	gbr_rb_india_coast = {
+		icon = mission_rb_take_indian_coast
+		required_missions = { gbr_rb_india_landfall }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = orissa_area
+				area = andhra_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		
+		trigger = {
+			orissa_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			andhra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			bihar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			purvanchal_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			oudh_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			gaur_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	
+	}
+	
+	gbr_rb_india_landgrab = {
+		icon = mission_rb_take_north_india
+		required_missions = { gbr_rb_india_coast }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = bihar_area
+				area = purvanchal_area
+				area = oudh_area
+				area = gaur_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		
+		trigger = {
+			bihar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			purvanchal_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			oudh_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			gaur_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {	
+				name = "gbr_rb_indian_integration"
+				duration = 7300
+			}
+		}
+	
+	}
+}
+
+gbr_rb_india_princes = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Rule Britannia"
+	}
+	potential = {
+		tag = GBR
+		has_dlc = "Rule Britannia"
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	gbr_rb_india_princedoms = {
+		icon = mission_rb_inland_india
+		required_missions = { gbr_rb_india_landfall }
+		position = 10
+		
+		provinces_to_highlight = {
+			OR = {
+				area = golconda_area
+				area = maidan_area
+				area = garjat_area
+				area = jharkhand_area
+				area = upper_mahanadi_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		
+		trigger = {
+			jharkhand_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			golconda_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			maidan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			garjat_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			upper_mahanadi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			golconda_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "gbr_inland_trade"
+					duration = 5475
+				}
+			}
+			maidan_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "gbr_inland_trade"
+					duration = 5475
+				}
+			}
+			gondwana_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "gbr_inland_trade"
+					duration = 5475
+				}
+			}
+			garjat_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "gbr_inland_trade"
+					duration = 5475
+				}
+			}
+		}
+	
+	}
+}
 
 gbr_rb_northern_colonial = {
 	slot = 2

@@ -1,0 +1,9 @@
+government = monarchy
+add_government_reform = mandate_of_heaven_claimant
+government_rank = 3
+technology_group = chinese
+religion = confucianism
+primary_culture = wu
+capital = 1824	#Wenzhou
+historical_rival = CKS
+historical_rival = CWE

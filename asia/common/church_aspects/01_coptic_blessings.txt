@@ -2,7 +2,7 @@ legitimize_government = {
 	is_blessing = yes
 
 	modifier = {
-		land_morale = 0.05
+       state_maintenance_modifier = -0.25
 	}
 	ai_will_do = {
 		factor = 10
@@ -40,7 +40,7 @@ send_monks_to_establish_monasteries = {
 	is_blessing = yes
 
 	modifier = {
-		global_missionary_strength = 0.015
+		global_missionary_strength = 0.02
 	}
 	ai_will_do = {
 		factor = 10
@@ -69,8 +69,7 @@ promote_territorial_rights = {
 	is_blessing = yes
 
 	modifier = {
-		development_cost = -0.05
-		interest = -0.25
+		core_creation = -0.1
 	}
 	ai_will_do = {
 		factor = 10

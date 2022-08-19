@@ -1,0 +1,9 @@
+government = monarchy
+add_government_reform = tsardom
+primary_culture = georgian
+add_accepted_culture = georgian
+religion = orthodox
+technology_group = eastern
+historical_rival = QAR
+historical_rival = TIM
+capital = 423 # Tbilisi

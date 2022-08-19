@@ -1,5 +1,9 @@
 #1121 - Bure
 
+latent_trade_goods = {
+	coal
+}
+
 owner = MAL
 controller = MAL
 culture = mali
@@ -7,15 +11,12 @@ is_city = yes
 base_manpower = 2
 religion = shamanism #Fetishism
 capital = "Kurussa"
-trade_goods = cloth
+trade_goods = gold
 hre = no
 base_tax = 6 
 base_production = 6
 add_core = MAL
-add_permanent_province_modifier = {
-    name = critical_province
-    duration = -1
-}
+
 
 
 discovered_by = sub_saharan

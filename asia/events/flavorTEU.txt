@@ -44,7 +44,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 6
+		months = 1
 		modifier = {
 			factor = 0.1
 			is_year = 1455
@@ -334,6 +334,15 @@ country_event = {
 			}
 		}
 		west_prussia_area = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+				NOT = { is_permanent_claim = DNZ }
+				NOT = { is_core = DNZ }
+			}
+			add_permanent_claim = ROOT
+		}
+		east_prussia_area = {
 			limit = {
 				NOT = { is_permanent_claim = ROOT }
 				NOT = { is_core = ROOT	}

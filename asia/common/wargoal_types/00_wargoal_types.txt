@@ -296,7 +296,7 @@ take_capital_disloyal = {
 		prestige_factor = 2
 		peace_cost_factor = 0.5
 		
-	required_treaty_to_take_provinces = {
+		required_treaty_to_take_provinces = {
 			po_become_vassal
 		}
 
@@ -327,7 +327,7 @@ take_capital_vassalize = {
 		prestige_factor = 2
 		peace_cost_factor = 1
 
-			required_treaty_to_take_provinces = {
+		required_treaty_to_take_provinces = {
 			po_subjugate_vassal
 		}
 		
@@ -516,10 +516,11 @@ superiority_insult_mutual = {
 take_capital_personal_union = {
 	type = take_capital
 	
-		attacker = 	{
+	attacker = {
 		badboy_factor = 1
 		prestige_factor = 1
 		peace_cost_factor = 1
+		
 		required_treaty_to_take_provinces = {
 			po_form_personal_union
 		}
@@ -530,19 +531,16 @@ take_capital_personal_union = {
 		}
 	}
 	
-	defender = 	{
-		badboy_factor = 0.25
+	defender = {
+		badboy_factor = 1
 		prestige_factor = 1
-		peace_cost_factor = 0.75
+		peace_cost_factor = 1
 
-		
 		peace_options = {
 			po_demand_provinces
 		}
-		
-		prov_desc = ALL_CORES	
 	}
-	
+
 	war_name = UNION_WAR_NAME
 }
 
@@ -709,12 +707,10 @@ take_capital_conquest = {
 		
 		allowed_provinces = {
 			is_claim = ROOT
-			
 		}
 
 		peace_options = {
 			po_demand_provinces
-			make_canton
 		}
 	}
 	
@@ -725,7 +721,6 @@ take_capital_conquest = {
 
 		peace_options = {
 			po_demand_provinces
-			make_canton
 		}
 	}
 
@@ -738,7 +733,7 @@ take_core = {
 	attacker = {
 		badboy_factor = 0.25
 		prestige_factor = 1
-		peace_cost_factor = 0.5
+		peace_cost_factor = 0.75
 
 		allowed_provinces = {
 			is_core = ROOT
@@ -747,7 +742,6 @@ take_core = {
 		peace_options = {
 			po_demand_provinces
 			po_return_cores
-			make_canton
 		}
 		
 		prov_desc = ALL_CORES
@@ -756,7 +750,7 @@ take_core = {
 	defender = {
 		badboy_factor = 0.25
 		prestige_factor = 1
-		peace_cost_factor = 0.5
+		peace_cost_factor = 0.75
 
 		allowed_provinces = {
 			is_core = FROM
@@ -765,7 +759,6 @@ take_core = {
 		peace_options = {
 			po_demand_provinces
 			po_return_cores
-			make_canton
 		}
 		
 		prov_desc = ALL_CORES	
@@ -808,11 +801,11 @@ take_capital_claim = {
 
 take_claim = {
 	type = take_province
-
+	
 	attacker = {
 		badboy_factor = 1.0
 		prestige_factor = 1
-		peace_cost_factor = 1.1
+		peace_cost_factor = 1.0	
 		allowed_provinces = {
 			OR = {
 				is_claim = ROOT
@@ -821,7 +814,6 @@ take_claim = {
 		}
 		peace_options = {
 			po_demand_provinces
-			make_canton
 		}
 		prov_desc = ALL_CLAIMS
 	}
@@ -829,7 +821,7 @@ take_claim = {
 	defender = {
 		badboy_factor = 1.0
 		prestige_factor = 1
-		peace_cost_factor = 1.1	
+		peace_cost_factor = 1.0	
 		allowed_provinces = {
 			OR = {
 				is_claim = FROM
@@ -842,44 +834,6 @@ take_claim = {
 		prov_desc = ALL_CLAIMS
 	}
 	war_name = CLAIM_WAR_NAME
-}
-
-nice_borders_cb = {
-	type = take_province
-	
-	attacker = {
-		badboy_factor = 1.0
-		prestige_factor = 1
-		peace_cost_factor = 1
-		allowed_provinces_are_eligible = yes
-		allowed_provinces = {
-				OR = {
-					is_core = ROOT
-					is_claim = ROOT
-					any_neighbor_province = {
-							owned_by = FROM
-					}
-					has_influencing_fort = yes
-					controlled_by = ROOT
-				}
-		}
-		peace_options = {
-			po_demand_provinces
-		}
-		prov_desc = ALL_PROVS
-	}
-	
-	defender = {
-		badboy_factor = 0.75
-		prestige_factor = 1
-		peace_cost_factor = 1
-	
-		peace_options = {
-			po_demand_provinces
-		}
-		prov_desc = ALL_CLAIMS
-	}
-	war_name = BORDER_WAR_NAME
 }
 
 take_province_nationalist = {
@@ -896,7 +850,6 @@ take_province_nationalist = {
 		
 		peace_options = {
 			po_demand_provinces
-			make_canton
 		}
 		
 		country_desc = ALL_CGROUP_COUNTRIES
@@ -914,7 +867,6 @@ take_province_nationalist = {
 		
 		peace_options = {
 			po_demand_provinces
-			make_canton
 		}
 		
 		country_desc = ALL_CGROUP_COUNTRIES
@@ -939,7 +891,6 @@ take_capital_imperial = {
 		
 		peace_options = {
 			po_demand_provinces
-			make_canton
 		}
 		
 		country_desc = ALL_COUNTRIES
@@ -958,7 +909,6 @@ take_capital_imperial = {
 		
 		peace_options = {
 			po_demand_provinces
-			make_canton
 		}
 		
 		country_desc = ALL_COUNTRIES
@@ -1099,20 +1049,11 @@ take_colony = {
 	attacker = {
 		badboy_factor = 0.25
 		prestige_factor = 0.5
-		peace_cost_factor = 1.5
-		allowed_provinces_are_eligible = yes
+		peace_cost_factor = 0.25
+		peace_cost_factor_non_allowed_treaty = 1.25
+		
 		allowed_provinces = {
-			OR = {
-				colony_claim = ROOT
-				is_colony = yes
-				colonial_region = colonial_colombia
-				colonial_region = colonial_canada
-				colonial_region = colonial_eastern_america
-				colonial_region = colonial_mexico
-				colonial_region = colonial_the_carribean
-				colonial_region = colonial_la_plata
-				colonial_region = colonial_brazil
-			}	
+			colony_claim = ROOT
 		}
 		
 		peace_options = {
@@ -1124,23 +1065,12 @@ take_colony = {
 	
 	defender = {
 		badboy_factor = 0.25
-		prestige_factor = 0.5
-		peace_cost_factor = 1.5
-		peace_cost_factor_non_allowed_treaty = 25
-		allowed_provinces_are_eligible = yes
+		prestige_factor = 1
+		peace_cost_factor = 0.5	
+		
 		allowed_provinces = {
-			OR = {
-				colony_claim = ROOT
-				is_colony = yes
-				colonial_region = colonial_colombia
-				colonial_region = colonial_canada
-				colonial_region = colonial_eastern_america
-				colonial_region = colonial_mexico
-				colonial_region = colonial_the_carribean
-				colonial_region = colonial_la_plata
-				colonial_region = colonial_brazil
-			}
-		}	
+			colony_claim = FROM
+		}
 		
 		peace_options = {
 			po_demand_provinces
@@ -1398,7 +1328,6 @@ take_province_excommunication = {
 			po_become_vassal
 			po_gold
 			po_concede_defeat
-			make_canton
 		}
 		prov_desc = ALL_CGROUP_PROVS
 	}
@@ -1412,7 +1341,6 @@ take_province_excommunication = {
 
 		peace_options = {
 			po_demand_provinces
-			make_canton
 		}
 	}
 
@@ -1718,13 +1646,12 @@ take_capital_throne = {
 	}
 	
 	defender = {
-		badboy_factor = 0.25
+		badboy_factor = 0.5
 		prestige_factor = 1
-		peace_cost_factor = 0.5
+		peace_cost_factor = 0.75
 
 		allowed_provinces = {
 			is_core = FROM
-			is_claim = FROM
 		}
 		
 		peace_options = {
@@ -1970,12 +1897,12 @@ war_goal_peasants_change_government = {
 }
 
 war_goal_change_government_mutual = {
-	type = take_capital
+	type = take_border
 	
 	attacker = {
-		badboy_factor = 0.5
-		prestige_factor = 1
-		peace_cost_factor = 1.0	
+		badboy_factor = 0.75
+		prestige_factor = 1.25
+		peace_cost_factor = 0.8	
 		
 		allowed_provinces = {
 			OR = {
@@ -1994,9 +1921,9 @@ war_goal_change_government_mutual = {
 	}
 	
 	defender = {
-		badboy_factor = 0.50
-		prestige_factor = 1
-		peace_cost_factor = 1.0	
+		badboy_factor = 0.75
+		prestige_factor = 1.25
+		peace_cost_factor = 0.8
 		
 		allowed_provinces = {
 			OR = {
@@ -2479,7 +2406,7 @@ force_migration = {
 			}
 		}
 
-			required_treaty_to_take_provinces = {
+		required_treaty_to_take_provinces = {
 			po_force_migration
 		}
 

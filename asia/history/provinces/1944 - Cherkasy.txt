@@ -1,7 +1,7 @@
 #Cherkasy
 
-owner = KIE
-controller = KIE
+owner = LIT
+controller = LIT 
 culture = ruthenian
 religion = orthodox
 hre = no
@@ -11,8 +11,10 @@ trade_goods = livestock
 base_manpower = 1
 capital = "Cherkasy"
 is_city = yes
+#add_local_autonomy = 25
+#add_local_autonomy = 15
 add_core = KIE
-#add_core = LIT
+add_core = LIT
 discovered_by = western
 discovered_by = eastern
 discovered_by = muslim

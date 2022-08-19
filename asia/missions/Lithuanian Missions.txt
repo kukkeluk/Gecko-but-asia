@@ -8,9 +8,70 @@ lithuanian_missions_1 = {
 	}
 	has_country_shield = yes
 	
+	
+	build_up_ukraine = {
+		icon = mission_recruit_the_cossacks
+		position = 1
+		required_missions = { }
+		
+		trigger = {
+			stability = 1
+			army_size_percentage = 1
+		}
+		
+		effect = {
+			smolensk_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	smolensk_ukraine = {
+		icon = mission_consolidate_the_state
+		position = 2
+		required_missions = { build_up_ukraine }
+		
+		provinces_to_highlight =  {
+			OR = {
+			area = smolensk_area
+			province_id = 4243
+			}
+		}
+		
+		trigger = {		
+			smolensk_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			add_legitimacy = 20
+			moscow_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			oka_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
 	develop_ukraine_1 = {
 		icon = mission_colonial
-		required_missions = {  }
+		position = 2
+		required_missions = { smolensk_ukraine }
 		provinces_to_highlight = {
 			region = ruthenia_region
 			NOT = {
@@ -38,6 +99,8 @@ lithuanian_missions_1 = {
 		icon = mission_luther_theses
 		required_missions = { develop_ukraine_1 }
 		trigger = {
+			NOT = { current_age = age_of_discovery }
+			NOT = { current_age = age_of_reformation }
 			religious_unity = 1
 		}
 		effect = {
@@ -53,7 +116,7 @@ lithuanian_missions_1 = {
 					culture = lithuanian
 					type = theologian
 					skill = 3
-					cost_multiplier = 0.67
+					cost_multiplier = 0.5
 				}
 				add_country_modifier = {
 					name = "lit_conferedation_on_religion"
@@ -69,7 +132,7 @@ lithuanian_missions_1 = {
 					culture = lithuanian
 					type = inquisitor
 					skill = 3
-					cost_multiplier = 0.67
+					cost_multiplier = 0.25
 				}
 			}
 		}
@@ -373,10 +436,6 @@ lithuanian_missions_slot = {
 			owns_core_province = 285
 		}
 		effect = {
-			add_country_modifier = {
-				name = "PR_LIT_mission"
-				duration = -1
-			}
 			add_mercantilism = 2
 			if = {
 				limit = {

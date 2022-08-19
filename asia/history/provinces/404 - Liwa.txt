@@ -1,5 +1,7 @@
 #404 - Liwa
 
+#owner = YAS
+#controller = YAS
 owner = ORM
 controller = ORM
 culture = gulf_arabic
@@ -7,9 +9,9 @@ religion = ibadi
 capital = "Liwa"
 trade_goods = spices #Dates
 hre = no
-base_tax = 5
-base_production = 5
-base_manpower = 5
+base_tax = 1 
+base_production = 1
+base_manpower = 1
 is_city = yes
 add_core = YAS
 add_core = ORM

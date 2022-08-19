@@ -1,5 +1,6 @@
 #941 - Cumberland
 
+is_city = yes
 culture = yuchi
 religion = totemism
 capital = "Ouasioto"

@@ -1,0 +1,1237 @@
+
+namespace = mjl_events
+namespace = mjl_estate_events
+normal_or_historical_nations = yes
+
+#country_event = {
+#	id = mjl_events.1
+#	title = "mjl_events.EVTNAME1"
+#	desc = "mjl_events.EVTDESC1"
+#	picture = ANGRY_MOB_eventPicture
+#		
+#	trigger = {
+#		was_player = yes
+#	}
+#	mean_time_to_happen = {
+#		months = 10000
+#	}
+#	option = {
+#		name = "mjl_events.EVTOPTA1"
+#		add_country_modifier = {
+#			name = "mjl_table_slam"
+#			duration = 30
+#		}
+#	}
+#}
+
+
+#country_event = {
+#	id = mjl_events.2
+#	title = "mjl_events.EVTNAME2"
+#	desc = "mjl_events.EVTDESC2"
+#	picture = COURT_eventPicture
+#	
+#	trigger = {
+#		has_reform = english_monarchy
+#		NOT = { has_country_flag = mjl_english_monarchy_ruler_flag }
+#	}
+#	mean_time_to_happen = {
+#		months = 1
+#	}
+#	option = {
+#		name = "mjl_events.EVTOPTA2"
+#		add_country_modifier = {
+#			name = "mjl_english_monarchy_rulers"
+#			duration = -1
+#		}
+#		set_country_flag = mjl_english_monarchy_ruler_flag
+#	}
+#}
+
+
+#country_event = {
+#	id = mjl_events.3
+#	title = "mjl_events.EVTNAME3"
+#	desc = "mjl_events.EVTDESC3"
+#	picture = COURT_eventPicture
+#	
+#	trigger = {
+#		NOT = { has_reform = english_monarchy }
+#		has_country_flag = mjl_english_monarchy_ruler_flag
+#	}
+#	mean_time_to_happen = {
+#		months = 1
+#	}
+#	option = {
+#		name = "mjl_events.EVTOPTA3"
+#		clr_country_flag = mjl_english_monarchy_ruler_flag
+#		remove_country_modifier = mjl_english_monarchy_rulers
+#	}
+#}
+
+country_event = {
+	id = mjl_events.4
+	title = muslim_school_events.20.t
+	desc = muslim_school_events.20.d
+	picture = MYSTIC_IN_PRAYER_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+		has_dlc = "Cradle of Civilization"
+		religion_group = muslim
+		NOT = { has_country_modifier = change_school_modifier }
+		NOT = { has_country_flag = mjl_1444_change_school_on_start }
+	}
+
+	immediate = {
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_country_flag = mjl_1444_change_school
+			set_country_flag = mjl_1444_change_school_on_start
+		}
+	}
+
+	option = {
+		name = muslim_school_events.20.b
+		trigger = {
+			NOT = { religion = shiite }
+		}
+		set_religious_school = {
+			group = muslim
+			school = hanafi_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.c
+		trigger = {
+			NOT = { religion = shiite }
+		}
+		set_religious_school = {
+			group = muslim
+			school = hanbali_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.dd
+		trigger = {
+			NOT = { religion = shiite }
+		}
+		set_religious_school = {
+			group = muslim
+			school = maliki_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.e
+		trigger = {
+			NOT = { religion = shiite }
+		}
+		set_religious_school = {
+			group = muslim
+			school = shafii_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.f
+		trigger = {
+			NOT = { religion = sunni }
+		}
+		set_religious_school = {
+			group = muslim
+			school = jafari_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.g
+		trigger = {
+			NOT = { religion = sunni }
+		}
+		set_religious_school = {
+			group = muslim
+			school = ismaili_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.h
+		trigger = {
+			NOT = { religion = sunni }
+		}
+		set_religious_school = {
+			group = muslim
+			school = zaidi_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+}
+
+country_event = {
+	id = mjl_events.5
+	title = muslim_school_events.20.t
+	desc = "mjl_events.EVTDESC5"
+	picture = MYSTIC_IN_PRAYER_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = muslim_school_events.20.b
+		trigger = {
+			NOT = { religion = shiite }
+		}
+		set_religious_school = {
+			group = muslim
+			school = hanafi_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.c
+		trigger = {
+			NOT = { religion = shiite }
+		}
+		set_religious_school = {
+			group = muslim
+			school = hanbali_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.dd
+		trigger = {
+			NOT = { religion = shiite }
+		}
+		set_religious_school = {
+			group = muslim
+			school = maliki_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.e
+		trigger = {
+			NOT = { religion = shiite }
+		}
+		set_religious_school = {
+			group = muslim
+			school = shafii_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.f
+		trigger = {
+			NOT = { religion = sunni }
+		}
+		set_religious_school = {
+			group = muslim
+			school = jafari_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.g
+		trigger = {
+			NOT = { religion = sunni }
+		}
+		set_religious_school = {
+			group = muslim
+			school = ismaili_school
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+	option = {
+		name = muslim_school_events.20.h
+		trigger = {
+			NOT = { religion = sunni }
+		}
+		set_religious_school = {
+			group = muslim
+			school = zaidi_school 
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = change_school_modifier_was_set_year
+				value = trigger_value:is_year
+			}
+			export_to_variable = {
+				which = change_school_modifier_was_set_month
+				value = trigger_value:is_month
+			}
+			set_variable = {
+				which = change_school_modifier_length
+				value = 25
+			}
+			change_variable = {
+				which = change_school_modifier_length
+				which = change_school_modifier_was_set_year
+			}
+		}
+		add_country_modifier = {
+			name = change_school_modifier
+			duration = 9125
+			hidden = yes
+		}
+		clr_country_flag = mjl_1444_change_school
+	}
+}
+
+#country_event = {
+#	id = mjl_events.6
+#	title = "mjl_events.EVTNAME6"
+#	desc = "mjl_events.EVTDESC6"
+#	picture = COURT_eventPicture
+#	
+#	trigger = {
+#		has_reform = african_colonists_reform
+#		NOT = {
+#			OR = {
+#				has_idea_group = expansion_ideas
+#				has_idea_group = exploration_ideas
+#			}
+#		}
+#		any_owned_province = {
+#			is_colony = yes
+#			colonysize = 1
+#			OR = {
+#				NOT = { continent = africa }
+#				AND = {
+#					continent = africa
+#					is_island = yes
+#				}
+#			}
+#		}
+#	}
+#	mean_time_to_happen = {
+#		months = 1
+#	}
+#	option = {
+#		name = "mjl_events.EVTOPTA6"
+#		custom_tooltip = mjl_non_africa_province_colonised_tt
+#		hidden_effect = {
+#			every_owned_province = {
+#				limit = {
+#					is_colony = yes
+#					OR = {
+#						NOT = { continent = africa }
+#						AND = {
+#							continent = africa
+#							is_island = yes
+#						}
+#					}
+#				}
+#				add_colonysize = -1000
+#			}
+#		}
+#	}
+#}
+
+#clean up event after an ai
+country_event = {
+	id = mjl_events.7
+	title = "mjl_events.EVTNAME7"
+	desc = "mjl_events.EVTDESC7"
+	picture = COURT_eventPicture
+	
+	trigger = {
+		is_colonial_nation = yes
+		ai = no
+		NOT = { has_country_flag = mjl_cn_clean_up_ai_mess }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	immediate = {
+		hidden_effect = {
+			#inflation reset
+			if = {
+				limit = {
+					inflation = 5
+				}
+				add_inflation = -100
+				set_country_flag = mjl_colony_inflation_reset
+			}
+			#corruption reset
+			if = {
+				limit = {
+					corruption = 0.01
+				}
+				add_corruption = -100
+				set_country_flag = mjl_colony_corruption_reset
+			}
+			#stability reset
+			if = {
+				limit = {
+					stability = -3
+					NOT = { stability = -2 }
+				}
+				add_stability = 3
+				set_country_flag = mjl_colony_stability_fix_3
+			}
+			else_if = {
+				limit = {
+					stability = -2
+					NOT = { stability = -1 }
+				}
+				add_stability = 2
+				set_country_flag = mjl_colony_stability_fix_2
+			}
+			else_if = {
+				limit = {
+					stability = -1
+					NOT = { stability = 0 }
+				}
+				add_stability = 1
+				set_country_flag = mjl_colony_stability_fix_1
+			}
+			# Stab for native policy
+			add_stability = 1
+			#### gov cleanup ####
+			#t2
+			if = {
+				limit = {
+					has_reform = republican_authoritarianism_reform
+				}
+				remove_government_reform = republican_authoritarianism_reform
+				change_government_reform_progress = 100
+			}
+			if = {
+				limit = {
+					has_reform = nepotism_reform
+				}
+				remove_government_reform = nepotism_reform
+				change_government_reform_progress = 100
+			}
+			if = {
+				limit = {
+					has_reform = republicanism_reform
+				}
+				remove_government_reform = republicanism_reform
+				change_government_reform_progress = 100
+			}
+			#t3
+			if = {
+				limit = {
+					has_reform = frequent_elections_reform
+				}
+				remove_government_reform = frequent_elections_reform
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = consolidation_of_power_reform
+				}
+				remove_government_reform = consolidation_of_power_reform
+				change_government_reform_progress = 50
+			}
+			#t4
+			if = {
+				limit = {
+					has_reform = provincial_governments_reform
+				}
+				remove_government_reform = provincial_governments_reform
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = administrative_divisions_reform
+				}
+				remove_government_reform = administrative_divisions_reform
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = union_of_states_reform
+				}
+				remove_government_reform = union_of_states_reform
+				change_government_reform_progress = 50
+			}
+			#t5
+			if = {
+				limit = {
+					has_reform = parliamentary_reform
+				}
+				remove_government_reform = parliamentary_reform
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = presidential_reform
+				}
+				remove_government_reform = presidential_reform
+				change_government_reform_progress = 50
+			}
+			#t6
+			if = {
+				limit = {
+					has_reform = broaden_executive_powers_reform
+				}
+				remove_government_reform = broaden_executive_powers_reform
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = devolution_of_powers_reform
+				}
+				remove_government_reform = devolution_of_powers_reform
+				change_government_reform_progress = 50
+			}
+			#t7
+			if = {
+				limit = {
+					has_reform = political_principle_reform
+				}
+				remove_government_reform = political_principle_reform
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = moral_principle_reform
+				}
+				remove_government_reform = moral_principle_reform
+				change_government_reform_progress = 50
+			}
+			#t8
+			if = {
+				limit = {
+					has_reform = landholders_reform
+				}
+				remove_government_reform = landholders_reform
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = citizenry_reform
+				}
+				remove_government_reform = citizenry_reform
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = admiralty_reform
+				}
+				remove_government_reform = admiralty_reform
+				change_government_reform_progress = 50
+			}
+			#t9
+			if = {
+				limit = {
+					has_reform = appointment_by_committee_reform
+				}
+				remove_government_reform = appointment_by_committee_reform
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = bureaucratic_aparatus_reform
+				}
+				remove_government_reform = bureaucratic_aparatus_reform
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = universal_suffrage_reform
+				}
+				remove_government_reform = universal_suffrage_reform
+				change_government_reform_progress = 50
+			}
+			#t10
+			if = {
+				limit = {
+					has_reform = strengthen_executive_powers_reform 
+				}
+				remove_government_reform = strengthen_executive_powers_reform 
+				change_government_reform_progress = 50
+			}
+			if = {
+				limit = {
+					has_reform = reinforce_republican_values_reform
+				}
+				remove_government_reform = reinforce_republican_values_reform
+				change_government_reform_progress = 50
+			}
+		}
+	}
+	option = {
+		name = "mjl_events.EVTOPTA7"
+		set_country_flag = mjl_cn_clean_up_ai_mess
+		if = {
+			limit = {
+				has_country_flag = mjl_colony_inflation_reset
+			}
+			clr_country_flag = mjl_colony_inflation_reset
+			custom_tooltip = mjl_colony_inflation_reset_tt
+		}
+
+		if = {
+			limit = {
+				has_country_flag = mjl_colony_stability_fix_3
+			}
+			clr_country_flag = mjl_colony_stability_fix_3
+			custom_tooltip = mjl_colony_stability_fix_3_tt
+		}
+		if = {
+			limit = {
+				has_country_flag = mjl_colony_stability_fix_2
+			}
+			clr_country_flag = mjl_colony_stability_fix_2
+			custom_tooltip = mjl_colony_stability_fix_2_tt
+		}
+		if = {
+			limit = {
+				has_country_flag = mjl_colony_stability_fix_1
+			}
+			clr_country_flag = mjl_colony_stability_fix_1
+			custom_tooltip = mjl_colony_stability_fix_1_tt
+		}
+		if = {
+			limit = {
+				has_country_flag = mjl_colony_corruption_reset
+			}
+			clr_country_flag = mjl_colony_corruption_reset
+			custom_tooltip = mjl_colony_corruption_reset_tt
+		}
+		custom_tooltip = mjl_colony_government_fix_tt
+		custom_tooltip = mjl_colony_stabup_nativepolicy_tt
+	}
+}
+
+
+
+country_event = {
+    id = mjl_events.9
+    title = "mjl_events.EVTNAME9"
+    desc = "mjl_events.EVTDESC9"
+    picture = COURT_eventPicture
+
+    is_triggered_only = yes
+    hidden = yes
+    
+    trigger = {
+        NOT = { has_country_flag = discovered_australia_event }
+        technology_group = chinese
+    }
+
+    immediate = {
+        name = "mjl_events.EVTOPTA9"
+        set_country_flag = discovered_australia_event
+        australia_region = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+        south_china_sea_region = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+        east_indian_ocean_region = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+        south_west_pacific_region = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+        moluccas_region = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+        te_waipounamu_area = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+		te_ika_a_maui_hauauru_area = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+		te_ika_a_maui_waho_area = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+        melanesia_area = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+        1431 = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+        1430 = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+        1432 = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+        1726 = {
+            ROOT = {
+                discover_province = PREV
+            }
+        }
+    }
+    option = {
+    }
+}
+
+country_event = {
+	id = mjl_events.10
+	title = "mjl_events.EVTNAME10"
+	desc = "mjl_events.EVTDESC10"
+	#picture = TRADEGOODS_eventPicture
+	picture = Danny_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		1104 = {
+			owned_by = ROOT
+			is_core = ROOT
+			is_city = yes
+		}
+		1105 = {
+			owned_by = ROOT
+			is_core = ROOT
+			is_city = yes
+		}
+	}
+	mean_time_to_happen = {
+		months = 24
+	}
+	option = {
+		name = "mjl_events.EVTOPTA10"
+		1104 = {
+			change_trade_goods = ivory
+			if = {
+				limit = {
+					has_building = wharf
+				}
+				hidden_effect = { remove_building = wharf }
+				add_building = tradecompany 
+			}
+		}
+		1105 = {
+			change_trade_goods = ivory
+			if = {
+				limit = {
+					has_building = wharf
+				}
+				hidden_effect = { remove_building = wharf }
+				add_building = tradecompany 
+			}
+		}
+		add_prestige = 10
+	}
+}
+
+#country_event = {
+#	id = mjl_events.11
+#	title = "mjl_events.EVTNAME11"
+#	desc = "mjl_events.EVTDESC11"
+#	#picture = TRADEGOODS_eventPicture
+#	picture = Danny_eventPicture
+#
+#	trigger = {
+#		has_country_flag = mjl_revolution_age_abso_ability
+#		has_country_flag = mjl_absolutism_age_abso_ability
+#		NOT = { has_country_flag = mjl_absolutism_gained }
+#	}
+#	mean_time_to_happen = {
+#		months = 1
+#	}
+#	option = {
+#		name = "mjl_events.EVTOPTA11"
+#		add_absolutism = 15
+#		set_country_flag = mjl_absolutism_gained
+#	}
+#}
+
+country_event = {
+	id = mjl_events.12
+	title = "mjl_events.EVTNAME12"
+	desc = "mjl_events.EVTDESC12"
+	#picture = TRADEGOODS_eventPicture
+	picture = Danny_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = KON
+		owns_core_province = 4086
+	}
+	mean_time_to_happen = {
+		months = 48
+	}
+	option = {
+		name = "mjl_events.EVTOPTA12"
+		4086 = {
+			if = {
+				limit = {
+					NOT = { has_building = cathedral }
+				}
+				add_building = cathedral
+			}
+			add_province_modifier = {
+				name = "mjl_boon_of_szyna"
+				duration = -1
+			}
+		}
+	}
+}
+
+#country_event = {
+#	id = mjl_events.13
+#	title = "mjl_events.EVTNAME13"
+#	desc = "mjl_events.EVTDESC13"
+#	picture = Loaf_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		NOT = { has_country_flag = mjl_loaf_event_flag }
+#		ai = no
+#	}
+#
+#	option = {
+#		name = "mjl_events.EVTOPTA13"
+#		set_country_flag = mjl_loaf_event_flag
+#		add_prestige = 5
+#	}
+#}
+
+country_event = {
+	id = mjl_events.14
+	title = "mjl_events.EVTNAME14"
+	desc = "mjl_events.EVTDESC14"
+	picture = Danny_eventPicture
+	hidden = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			tag = HAB
+			tag = BRA
+			tag = SWI
+			tag = LAN
+			tag = BOH
+			tag = HES
+			tag = DAN
+		}
+		NOT = { has_country_flag = mjl_hre_capital_spy_boost_flag }
+		is_part_of_hre = yes
+		capital_scope = {
+			is_part_of_hre = yes
+		}
+	}
+	immediate = {
+		set_country_flag = mjl_hre_capital_spy_boost_flag
+		add_country_modifier = {
+			name = "mjl_hre_spy_boost_modifier"
+			duration = 36500
+		}
+	}
+	option = {
+		name = "mjl_events.EVTOPTA14"
+	}
+}
+
+country_event = {
+	id = mjl_events.15
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	}
+	immediate = {
+		add_country_modifier = {
+			name = "mjl_absolutism_age_max_abso"
+			duration = -1
+		}
+	}
+	option = {
+		name = "mjl_events.EVTOPTA15"
+	}
+}
+country_event = {
+    id = mjl_estate_events.1
+    title = mjl_events.EVTNAME98
+    desc = none
+    picture = COURT_eventPicture
+
+    is_triggered_only = yes
+    hidden = yes
+
+    immediate = {
+        random_owned_province = {
+            limit = {
+                NOT = { 
+                    has_building = state_house
+                }
+                has_building = temple
+            }
+            remove_building = temple
+            add_building_construction = {
+                building = state_house
+                speed = 1
+                cost = 0
+            }
+        }
+    }
+    option = {}
+}
+country_event = {
+    id = mjl_estate_events.2
+    title = mjl_events.EVTNAME99
+    desc = none
+    picture = COURT_eventPicture
+
+    is_triggered_only = yes
+    hidden = yes
+
+    immediate = {
+        random_owned_province = {
+    limit = {
+	OR = {
+	trade_goods = wine
+	trade_goods = grain
+	trade_goods = livestock
+	}
+	NOT = { has_province_modifier = "mjl_peasant_farms" }
+	}
+	add_building_construction = {
+	building = farm_estate
+	speed = 1
+    cost = 0
+	}
+	add_province_modifier = {
+	name = "mjl_peasant_farms"
+	duration = -1
+	}
+        }
+    }
+    option = {}
+}

@@ -1,0 +1,54 @@
+estate_nobles_swe_utskrivning = { # Sealand. Part of Sweden mission
+	icon = privilege_demand_more_troops
+	land_share = 5
+	#max_absolutism = -5
+	loyalty = 0.05
+	influence = 0.05
+	
+	is_valid = {
+		mission_completed = every_swede_must_serve
+	}
+	on_granted = {
+		custom_tooltip = estate_nobles_swe_utskrivning_granted_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = { 
+					culture = swedish
+				}
+				add_province_modifier = {
+					name = "utskrivning_modifier"
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_nobles_swe_utskrivning_revoked_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = { has_province_modifier = "utskrivning_modifier"}
+				remove_province_modifier = "utskrivning_modifier"
+			}
+		}
+	}
+	penalties = {
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 25 }
+				estate_influence = {
+					estate = estate_nobles
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_nobles_swe_utskrivning }
+		}
+		modifier = {
+			factor = 0
+			is_absolutism_active = yes
+		}
+	}
+}

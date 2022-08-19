@@ -1,30 +1,15 @@
 government = tribal
 add_government_reform = steppe_horde
-primary_culture = kirgiz
+primary_culture = uyghur
 religion = sunni
 technology_group = nomad_group
-capital = 457
+#capital = 715
+capital = 739 #Kashgar
 religious_school = hanafi_school
-add_accepted_culture = uyghur
-historical_rival = TIM
-historical_rival = CHG
-historical_rival = KHO
-historical_rival = SHY
-historical_rival = OIR
+add_accepted_culture = kirgiz
 historical_rival = AFG
-historical_rival = ARL
-historical_rival = GOL
-historical_rival = KAZ
-historical_rival = CRI
-historical_rival = QOM
-historical_rival = KRM
-historical_rival = FRS
-historical_rival = KHI
-historical_rival = NOG
-historical_rival = HMI
-historical_rival = SYG
-historical_rival = KHA
-
+historical_rival = DLH
+historical_rival = SRH
 #Khans of Mughalistan
 1399.1.1 = {
 	monarch = {

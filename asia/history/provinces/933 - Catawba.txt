@@ -1,9 +1,10 @@
 #933 - Catawba
 
+is_city = yes
 culture = catawba
 religion = totemism
 capital = "Catawba"
-trade_goods = unknown
+trade_goods = tobacco
 hre = no
 native_size = 5
 native_ferocity = 1

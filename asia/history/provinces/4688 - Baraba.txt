@@ -1,5 +1,7 @@
 #4688 - Baraba
 
+owner = SIB
+controller = SIB
 #owner = SHY
 #controller = SHY
 #add_core = SHY

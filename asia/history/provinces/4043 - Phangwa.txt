@@ -1,8 +1,5 @@
 #4043 - Phangwa
-owner = ZAN
-controller = ZAN
-add_core = ZAN
-culture = nyasa
+
 religion = shamanism #Fetishism
 trade_goods = unknown
 hre = no
@@ -15,4 +12,3 @@ native_hostileness = 9
 
 capital = "Phangwa"
 discovered_by = central_african
-discovered_by = east_african

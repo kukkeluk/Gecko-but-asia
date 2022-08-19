@@ -4,7 +4,6 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_mughal_empire_flag }
 			NOT = { has_reform = celestial_empire }
 			OR = {
@@ -15,12 +14,18 @@ country_decisions = {
 			NOT = { tag = MUG }
 			NOT = { tag = TUR }
 			NOT = { tag = HLR }
-			NOT = { tag = TIM }
+			NOT = { tag = YZD }
+			NOT = { tag = SAS }
 			OR = {
 				NOT = { exists = MUG }
 				ai = no
 			}
-			tag = AFG
+			OR = {
+				culture_group = iranian
+				primary_culture = turkmeni
+				primary_culture = uzbehk
+				primary_culture = kirgiz
+			}
 			OR = {
 				ai = no
 				AND = {
@@ -40,9 +45,6 @@ country_decisions = {
 		provinces_to_highlight = {
 			OR = {
 				province_id = 507
-				province_id = 2075
-				#province_id = 522
-				province_id = 524
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -54,176 +56,17 @@ country_decisions = {
 			NOT = { exists = MUG }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
-			OR = {
 				owns_core_province = 507 #Lahore
-				owns_core_province = 2075 #Sirhind
-				owns_core_province = 524 #Agra
-			}
-			#owns_core_province = 522 #Delhi
-		}
-		effect = {
-			#if = {
-			#	limit = {
-			#		tag = AFG
-			#		exists = TRS
-			#	}
-	  		#	balkh_area = {
-			#		limit = {
-			#			owned_by = AFG
-			#		}
-	  		#		remove_core = AFG
-	  		#		add_core = TRS
-	  		#		cede_province = TRS
-	  		#	}
-			#	balkh_area = {
-	  		#		remove_core = AFG
-	  		#	}
-	  		#}
-			#if = {
-			#	limit = {
-			#		tag = AFG
-			#		exists = TIM
-			#		TIM = { 
-			#			ai = no
-			#		}
-			#	}
-	  		#	balkh_area = {
-			#		limit = {
-			#			owned_by = AFG
-			#		}
-	  		#		remove_core = AFG
-	  		#		add_core = TIM
-	  		#		cede_province = TIM
-	  		#	}
-			#	balkh_area = {
-	  		#		remove_core = AFG
-	  		#	}
-	  		#}
-			#if = {
-			#	limit = {
-			#		tag = AFG
-			#		exists = BUK
-			#		BUK = { 
-			#			ai = no
-			#		}
-			#	}
-	  		#	balkh_area = {
-			#		limit = {
-			#			owned_by = AFG
-			#		}
-	  		#		remove_core = AFG
-	  		#		add_core = BUK
-	  		#		cede_province = BUK
-	  		#	}
-			#	balkh_area = {
-	  		#		remove_core = AFG
-	  		#	}
-	  		#}
-			khorasan_region = {
-				limit = { country_or_non_sovereign_subject_holds = ROOT }
-					add_base_manpower = 1
-					add_base_production = 1
 				}
-			#if = {
-			#	limit = {
-			#		tag = AFG
-			#		exists = TRS
-			#		AFG = {
-			#			any_subject_country = {
-			#				balkh_area = {
-			#					owned_by = PREV
-			#				}
-			#			}
-			#		}
-			#	}
-			#	every_subject_country = {
-			#		limit = {
-			#			balkh_area = {
-			#				owned_by = PREV
-			#			}
-			#		}
-			#		balkh_area = {
-			#			limit = {
-			#				owned_by = PREV
-			#			}
-			#			remove_core = AFG
-			#			remove_core = PREV
-			#			add_core = TRS
-			#			cede_province = TRS
-			#		}
-			#	}
-	  		#}
-			#if = {
-			#	limit = {
-			#		tag = AFG
-			#		exists = TIM
-			#		TIM = { 
-			#			ai = no
-			#		}
-			#		AFG = {
-			#			any_subject_country = {
-			#				balkh_area = {
-			#					owned_by = PREV
-			#				}
-			#			}
-			#		}
-			#	}
-			#	every_subject_country = {
-			#		limit = {
-			#			balkh_area = {
-			#				owned_by = PREV
-			#			}
-			#		}
-			#		balkh_area = {
-			#			limit = {
-			#				owned_by = PREV
-			#			}
-			#			remove_core = AFG
-			#			remove_core = PREV
-			#			add_core = TIM
-			#			cede_province = TIM
-			#		}
-			#	}
-	  		#}
-			#if = {
-			#	limit = {
-			#		tag = AFG
-			#		exists = BUK
-			#		TIM = { 
-			#			ai = no
-			#		}
-			#		AFG = {
-			#			any_subject_country = {
-			#				balkh_area = {
-			#					owned_by = PREV
-			#				}
-			#			}
-			#		}
-			#	}
-			#	every_subject_country = {
-			#		limit = {
-			#			balkh_area = {
-			#				owned_by = PREV
-			#			}
-			#		}
-			#		balkh_area = {
-			#			limit = {
-			#				owned_by = PREV
-			#			}
-			#			remove_core = AFG
-			#			remove_core = PREV
-			#			add_core = BUK
-			#			cede_province = BUK
-			#		}
-			#	}
-	  		#}
+		effect = {
+			507 = {
+				move_capital_effect = yes
+			}
 			change_tag = MUG
-			#507 = {
-			#	move_capital_effect = yes
-			#}
+			custom_tooltip = MUG_ideas_localisation
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
-			change_primary_culture = kanauji
+			change_primary_culture = panjabi
 			set_government_rank = 3
 			507 = {
 			 	add_base_tax = 1
@@ -237,22 +80,56 @@ country_decisions = {
 				add_permanent_claim = MUG
 			}
 			add_prestige = 25
-			add_government_reform = mughal_government
-			change_unit_type = gunpowder_empire
-			define_ruler = {
-				name = "Babur"
-				dynasty = "Timurid"
-				
-				religion = sunni
-				claim = 100
-				adm = 4
-				dip = 5
-				mil = 6
+            MUG = {
+			 random_owned_province = {
+			 limit = {
+			    is_capital = no
+				}
+				change_culture = babylonian
+				}
 				}
 			if = {
-				limit = { has_heir = yes }
-				kill_heir = {}
-			}	
+				limit = {
+					NOT = { technology_group = indian }
+				}
+				change_technology_group = indian
+				change_unit_type = indian
+			}
+			if = {
+				limit = {
+					NOT = {
+						government = monarchy
+					}
+				}
+				change_government = monarchy
+			}
+			add_government_reform = indian_sultanate_reform
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+				}
+				add_government_reform = mughal_government
+			}
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+					reform_level = 3
+				}
+				add_government_reform = mansabdari_reform
+			}
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+					reform_level = 4
+				}
+				add_government_reform = zabt_reform
+			}
+			if = {
+				limit = {
+					has_reform = states_general_reform
+				}
+				remove_government_reform = states_general_reform
+			}
 			if = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas

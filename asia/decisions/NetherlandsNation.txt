@@ -17,8 +17,12 @@ country_decisions = {
 			NOT = { tag = PAP }
 			NOT = { tag = NED }
 			NOT = { tag = HLR }
-			tag = BUR
-			 
+			OR = {
+				primary_culture = dutch
+				primary_culture = flemish
+				primary_culture = frisian
+				tag = BUR
+			}
 			OR = {
 				ai = no
 				AND = {
@@ -58,6 +62,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			adm_tech = 10
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
@@ -110,63 +115,63 @@ country_decisions = {
 					move_capital_effect = yes
 				}
 			}
-			if = {
-				limit = {
-					tag = BUR
-					exists = FRA
-				}
-	  			france_region = {
-					limit = {
-						owned_by = BUR
-					}
-	  				remove_core = BUR
-	  				add_core = FRA
-	  				cede_province = FRA
-	  			}
-				france_region = {
-	  				remove_core = BUR
-	  			}
-				89 = {	
-	  				remove_core = BUR
-	  				add_core = FRA
-	  				cede_province = FRA
-				}
-	  		}
-			low_countries_region = {
-				limit = { country_or_non_sovereign_subject_holds = ROOT }
-					add_base_manpower = 1
-					add_base_production = 1
-				}
-			if = {
-				limit = {
-					tag = BUR
-					exists = FRA
-					BUR = {
-						any_subject_country = {
-							france_region = {
-								owned_by = PREV
-							}
-						}
-					}
-				}
-				every_subject_country = {
-					limit = {
-						france_region = {
-							owned_by = PREV
-						}
-					}
-					france_region = {
-						limit = {
-							owned_by = PREV
-						}
-						remove_core = BUR
-						remove_core = PREV
-						add_core = FRA
-						cede_province = FRA
-					}
-				}
-	  		}
 			change_tag = NED
+			if = { #Sinicize Walloon
+				limit = {
+					primary_culture = wallonian
+				}
+				change_primary_culture = wallonian_german
+				set_ruler_culture = wallonian_german
+			}
+			if = {
+					limit = {
+						heir_culture = wallonian
+					}
+					set_heir_culture = wallonian_german
+				}
+				if = {
+					limit = {
+						has_consort = yes
+						consort_culture = wallonian
+					}
+					set_consort_culture = wallonian_german
+				}
+				hidden_effect = {
+					every_province = {
+						limit = {
+							culture = wallonian
+						}
+						change_culture = wallonian_german
+					}
+					every_country = {
+						limit = {
+							primary_culture = wallonian
+						}
+						change_primary_culture = wallonian_german
+						set_ruler_culture = wallonian_german
+						if = {
+							limit = {
+								has_heir = yes
+								heir_culture = wallonian	
+							}
+							set_heir_culture = wallonian_german
+						}
+						if = {
+							limit = {
+								has_consort = yes
+								consort_culture = wallonian
+							}
+							set_consort_culture = wallonian_german
+						}
+					}
+				}
+				custom_tooltip = wallonian_culture_ct
+			custom_tooltip = NED_ideas_localisation
+			if = {
+				limit = { NOT = { government = republic } }
+				change_government_to_republic = yes
+			}
+			add_government_reform = dutch_republic
 			swap_non_generic_missions = yes
 			low_countries_region = {
 				limit = {
@@ -203,5 +208,4 @@ country_decisions = {
 		}
 		ai_importance = 400
 	}
-	
 }

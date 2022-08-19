@@ -1,0 +1,1384 @@
+florentine_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = { 
+			tag = LAN 
+			tag = TUS
+		}
+	}
+	has_country_shield = yes
+	
+	lan_strengthen_republic = {
+		icon = republican_yearnings 
+		required_missions = { }
+		position = 1 
+		trigger = { 
+			stability = 1 
+			grown_by_development = 25 
+		}
+		effect = { 
+			add_country_modifier = { 
+				name = lan_safeguard_florentine_republic_modifier
+				duration = 7300
+			}
+		}
+	}
+	
+	lan_salone_dei_cinquecento = {
+		icon = all_bases_covered 
+		required_missions = { lan_strengthen_republic }
+		position = 3
+		
+		provinces_to_highlight = {
+			province_id = 116
+		}
+		
+		trigger = {
+			capital_scope = {
+				OR = { 
+					has_building = courthouse
+					has_building = town_hall 
+				}
+			}
+			government_reform_progress = 200 
+			legitimacy_equivalent = 50 
+		}
+		effect = { 
+			country_event = { id = FU_Florence_Events.1 }
+			if = {
+				limit = { 
+					government = monarchy 
+					has_estate = estate_nobles 
+				}
+				add_estate_loyalty = { 
+					estate = estate_nobles 
+					loyalty = 10 
+				}
+			}
+		}
+	}
+	
+	lan_la_misericordia = {
+		icon = the_hungarian_succession 
+		required_missions = { lan_salone_dei_cinquecento }
+		position = 5
+		
+		provinces_to_highlight = {
+			area = tuscany_area 
+		}
+		
+		trigger = {
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" } 
+				tuscany_area = {
+					type = all 
+					country_or_non_sovereign_subject_holds = ROOT 
+					is_prosperous = yes 
+				}
+			}
+			else = {
+				tuscany_area = { 
+					type = all 
+					country_or_non_sovereign_subject_holds = ROOT 
+				}
+				development_in_provinces = {
+					area = tuscany_area 
+					value = 125 
+				}
+			}
+			if = {
+				limit = { has_global_flag = trade_goods_expanded_mod_active }
+				tuscany_area = { 
+					type = all 
+				}
+			}
+		}
+		effect = { 
+			add_country_modifier = {
+				name = lan_facilitation_of_health_services_modifier
+				duration = -1 
+			}
+			custom_tooltip = emp_ven_plague_doctor_training_tt
+			hidden_effect = { set_country_flag = has_competent_doctors }
+		}
+	}
+	
+	papal_relations = {
+		icon = mission_european_church
+		position = 7
+		required_missions = { lan_italic_league }
+		
+		provinces_to_highlight = {
+			OR = {
+				owned_by = PAP
+				province_id = 118
+			}
+		}
+		
+		trigger = {
+			reverse_has_opinion = {
+				who = PAP
+				value = 150
+			}
+		}
+		effect = {
+			country_event = { id = eubmission_events.1 }
+		}
+	}
+	papal_plot = {
+		icon = mission_italian_condottiere
+		position = 8
+		required_missions = { papal_relations }
+		trigger = {
+			reverse_has_opinion = {
+				who = PAP
+				value = 150
+			}
+			papal_influence = 20
+		}
+		effect = {
+			add_papal_influence = -20
+			PAP = {
+				kill_ruler = yes
+			}
+			
+			add_country_modifier = { 
+				name = papal_dominion
+				duration = 7300
+			}
+		}
+	}
+	florence_pope = {
+		icon = mission_empire
+		position = 9
+		required_missions = { papal_plot }
+		trigger = {
+			 is_papal_controller = yes
+		}
+		effect = {
+			add_prestige = 10
+			central_italy_area = {
+				limit = {
+					owned_by = PAP
+				}
+				remove_core = PAP
+				add_core = URB
+				cede_province = URB
+			}
+			URB = { grant_independence = yes }
+		}
+	}
+	central_florence = {
+		icon = mission_cannons_firing
+		position = 10
+		required_missions = { florence_pope }
+		provinces_to_highlight = {
+			area = central_italy_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			118 = {
+				owned_by = PAP
+				}
+			central_italy_area = {
+				type = all
+				is_core = ROOT
+				owned_by = ROOT
+			}
+			papal_influence = 50
+			manpower_percentage = 0.25
+			treasury = 100
+		}
+		effect = {
+			add_papal_influence = -50
+			add_yearly_manpower = -0.2
+			add_treasury = -100
+			118 = { 
+	  			cede_province = LAN 
+				}
+		}
+	}
+	roman_florence = {
+		icon = mission_alliances
+		position = 11
+		required_missions = { central_florence }
+		provinces_to_highlight = {
+			province_id = 118
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			118 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			albania_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_adriatic_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+florentine_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = { 
+			tag = LAN 
+			tag = TUS
+		}
+	}
+	has_country_shield = yes	
+	
+	lan_renaissance = {
+		icon = florentine_renaissance
+		required_missions = { } 
+		position = 1 
+		trigger = {
+			has_institution = renaissance 
+			OR = { 
+				monthly_income = 15
+				has_estate_privilege = estate_burghers_patronage_of_the_arts
+			}
+		}
+		effect = { 
+			if = {
+				limit = {
+					NOT = { has_global_flag = had_leo_flag }
+				}
+				country_event = { id = flavor_mlo.9 } 
+			}
+			else_if = {
+				limit = { 
+					has_global_flag = had_leo_flag 
+					has_dlc = "Rule Britannia"
+				}
+				change_innovativeness = 3 
+			}
+			else = { change_adm = 1 }
+			if = { 
+				limit = { has_dlc = "Rights of Man" }
+				custom_tooltip = lan_get_patron_of_arts_or_1_dip_tt
+				hidden_effect = { 
+					country_event = { id = FU_Florence_Events.2 }
+				}
+			}
+		}
+	}
+	
+	lan_expand_studium_generale = {
+		icon = mission_early_modern_university
+		required_missions = { lan_renaissance lan_reorganize_city_wards }
+		position = 2 
+		
+		provinces_to_highlight = {
+			province_id = 116
+		}
+				
+		
+		trigger = {
+			116 = { 
+				development = 32 
+				owned_by = ROOT 
+			}
+			any_neighbor_country = {
+				tech_difference = 2
+			} 
+		}
+		effect = { 
+			country_event = { id = FU_Florence_Events.3 }
+		}
+	}
+	
+	lan_artistic_genius = {
+		icon = make_haste_slowly 
+		required_missions = { lan_salone_dei_cinquecento lan_expand_studium_generale lan_duomo_di_firenze }
+		position = 4 
+		trigger = {
+			tuscany_area = { 
+				type = all 
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			OR = { 
+				development_in_provinces = {
+					area = tuscany_area 
+					value = 125 
+				}
+			}
+			stability = 1 
+			has_adm_advisor_3 = yes 
+		}
+		effect = { 
+			add_country_modifier = {
+				name = lan_florentine_ingegno_modifier 
+				duration = 10950 
+			}
+		}
+	}
+	
+	lan_intellectual_movement = {
+		icon = counter_reformation 
+		required_missions = { lan_artistic_genius }
+		position = 5
+		trigger = {
+			num_of_owned_provinces_with = {
+				has_building = university 
+				development = 25 
+				value = 5 
+			}
+			if = { 
+				limit = { has_dlc = "Rule Britannia" }
+				innovativeness = 100
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = land_second_renaissance_modifier
+				duration = 7300 
+			}
+		}
+	}
+	
+	conquer_north_naples = {
+		icon = mission_monarch_in_throne_room
+		position = 7 
+		required_missions = { lan_italic_league }
+		provinces_to_highlight = {
+			area = naples_area
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			naples_area = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "florence_naval_efforts"
+				duration = 5475
+			}
+		}
+	}
+	
+	florence_fleet = {
+		icon = mission_galleys_in_port
+		position = 8
+		required_missions = { conquer_north_naples }
+		trigger = {
+			naval_forcelimit = 30
+			navy_size_percentage = 0.95
+		}
+		effect = {
+			sicily_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			corsica_sardinia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	control_italian_isles = {
+		icon = mission_sea_battles
+		position = 9
+		required_missions = { florence_fleet }
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+				area = sicily_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			sicily_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+					name = "florence_bash"
+					duration = 3650
+				}
+		}
+	}
+	florence_monopoly = {
+		icon = mission_hanseatic_city
+		position = 10
+		required_missions = { control_italian_isles }
+		trigger = {
+				land_forcelimit = 50
+				monthly_income = 50
+			}
+		effect = {
+			tunisia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			delta_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+florentine_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = { 
+			tag = LAN 
+			tag = TUS
+		}
+	}
+	has_country_shield = yes	
+	
+	lan_reorganize_city_wards = {
+		icon = consolidate_switzerland
+		required_missions = { } 
+		position = 1 
+		trigger = {
+			has_adm_advisor = yes 
+			monthly_adm = 10 
+			custom_trigger_tooltip = { 
+				tooltip = lan_adjusted_city_plans_tt
+				has_country_flag = lan_adjusted_city_plans_flag  
+			}
+		}
+		effect = { 
+			custom_tooltip = lan_1_dev_cost_per_adm_power 
+			hidden_effect = { 
+				if = {
+					limit = { monthly_adm = 16 }
+					tuscany_area = {
+						limit = { country_or_non_sovereign_subject_holds = ROOT } 
+						add_province_modifier = {
+							name = lan_city_planning_modifier16
+							duration = 3650 
+						}
+					}
+				}
+				else_if = {
+					limit = { monthly_adm = 15 }
+					tuscany_area = {
+						limit = { country_or_non_sovereign_subject_holds = ROOT } 
+						add_province_modifier = {
+							name = lan_city_planning_modifier15
+							duration = 3650 
+						}
+					}
+				}
+				else_if = {
+					limit = { monthly_adm = 14 }
+					tuscany_area = {
+						limit = { country_or_non_sovereign_subject_holds = ROOT } 
+						add_province_modifier = {
+							name = lan_city_planning_modifier14
+							duration = 3650 
+						}
+					}
+				}
+				else_if = {
+					limit = { monthly_adm = 13 }
+					tuscany_area = {
+						limit = { country_or_non_sovereign_subject_holds = ROOT } 
+						add_province_modifier = {
+							name = lan_city_planning_modifier13
+							duration = 3650 
+						}
+					}
+				}
+				else_if = {
+					limit = { monthly_adm = 12 }
+					tuscany_area = {
+						limit = { country_or_non_sovereign_subject_holds = ROOT } 
+						add_province_modifier = {
+							name = lan_city_planning_modifier12
+							duration = 3650 
+						}
+					}
+				}
+				else_if = {
+					limit = { monthly_adm = 11 }
+					tuscany_area = {
+						limit = { country_or_non_sovereign_subject_holds = ROOT } 
+						add_province_modifier = {
+							name = lan_city_planning_modifier11
+							duration = 3650 
+						}
+					}
+				}
+				else_if = {
+					limit = { monthly_adm = 10 }
+					tuscany_area = {
+						limit = { country_or_non_sovereign_subject_holds = ROOT } 
+						add_province_modifier = {
+							name = lan_city_planning_modifier10
+							duration = 3650 
+						}
+					}
+				}
+				if = { 
+					limit = { has_dlc = "Mandate of Heaven" }
+					capital_scope = { add_prosperity = 50 }
+				}
+				set_country_flag = lan_city_planning_flag
+				clr_country_flag = lan_adjusted_city_plans_flag
+			}
+		}
+	}
+	
+	lan_duomo_di_firenze = {
+		icon = conquer_tuscany 
+		required_missions = { lan_reorganize_city_wards lan_blossoming_cities }
+		position = 3
+		trigger = {
+			if = { 	
+				limit = { has_dlc = "Leviathan" }
+				116 = { 
+					OR = { 
+						has_great_project = {
+							type = santa_maria_del_fiore
+							tier = 2
+						}
+						has_great_project = {
+							type = santa_maria_del_fiore
+							tier = 3
+						}
+					}
+				}
+			}
+			else = { 
+				116 = { 
+					has_tax_building_trigger = yes 
+					development = 35 
+				}
+			}
+			if = { 
+				limit = { has_dlc = "Mandate of Heaven" }
+				NOT = { devastation = 1 } 
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = lan_symbol_of_catholicism_modifier 
+				duration = -1 
+				desc = lan_as_long_as_we_remain_catholic_desc
+			}
+			if = {
+				limit = { is_excommunicated = yes } 
+				excommunicate = ROOT
+			}
+			custom_tooltip = lan_pious_or_1_dip_skill_tt 
+			hidden_effect = { 
+				country_event = { id = FU_Florence_Events.4 }
+			}
+		}
+	}
+	
+	lan_lessons_architecture = { 
+		icon = pulverize_pisa
+		required_missions = { lan_bankers_guild_florence }
+		position = 5
+		trigger = { 
+				115 = { 
+					NOT = { num_free_building_slots = 1 } 
+					development = 30 
+				}
+		}
+		effect = { 
+			add_country_modifier = {
+				name = lan_neo_italian_architecture_modifier
+				duration = -1 
+			}
+			define_advisor = { 
+				type = artist
+				skill = 3 
+				cost_multiplier = 0.35 
+			}
+			custom_tooltip = ned_city_planner_tt
+		}
+	}
+	
+	lan_italic_league = {
+		icon = catholic_confraternity
+		required_missions = { } 
+		position = 6
+		trigger = { 
+			is_part_of_hre = yes 
+			stability = 1
+			army_size_percentage = 1
+			AND = { 
+				employed_advisor = {
+					category = ADM
+				}
+				employed_advisor = {
+					category = DIP
+				}
+				employed_advisor = {
+					category = MIL
+				}
+			}
+		}
+		effect = { 	
+			tooltip = { 
+				add_country_modifier = {
+					name = lan_sword_shield_emperor_modifier
+					duration = 5475
+				}
+			}
+			add_country_modifier = {
+					name = "florence_expansion"
+					duration = 5475
+			}
+			liguria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			naples_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hidden_effect = {
+					add_country_modifier = {
+						name = lan_sword_shield_emperor_modifier
+						duration = 5475
+					}
+				set_country_flag = lan_induct_empire_flag
+			}
+		}
+	}
+	
+	lan_fifth_campaign = {
+		icon = confront_the_lombards
+		required_missions = { lan_italic_league }
+		position = 7
+		provinces_to_highlight = { 
+			province_id = 101 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = { 
+				AND = { 
+					101 = { country_or_non_sovereign_subject_holds = ROOT } 
+					101 = { 
+						NOT = { local_autonomy = 25 } 
+						NOT = { devastation = 1 } 
+					}
+				}
+				101 = { 
+					owner = { 
+						alliance_with = ROOT 
+						has_opinion = {
+							who = ROOT 
+							value = 150 
+						}
+					}
+				}
+			}
+		}
+		effect = { 
+			add_country_modifier = {	
+				name = lan_influx_of_workers_in_the_republic_modifier
+				duration = 5475
+			}
+			101 = { add_center_of_trade_level = 1 } 
+			add_adm_power = 50 
+		}
+	}	
+	
+	lan_grand_duchy_tuscany = {
+		icon = tuscan_birthright
+		required_missions = { lan_fifth_campaign }
+		position = 8 
+		provinces_to_highlight = {
+			area = tuscany_area 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+		trigger = { 
+			tag = TUS 
+			tuscany_area = {
+				type = all 
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			OR = { 
+				adm = 6 
+				dip = 6 
+				mil = 6 
+			}
+			stability = 3 
+			government_rank = 2 
+		}
+		effect = { 
+			add_country_modifier = { 
+				name = lan_bid_italy_modifier 
+				duration = 9125 
+			}
+		}
+	}
+	
+	lan_fiori_de_firenzia = {
+		icon = bohemian_crystal
+		required_missions = { lan_grand_duchy_tuscany }
+		position = 9
+		provinces_to_highlight = {
+			area = venetia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = { 
+			venetia_area = {
+				type = all 
+				OR = { 
+					country_or_non_sovereign_subject_holds = ROOT 
+					owner = { 
+						alliance_with = ROOT 
+						has_opinion = {
+							who = ROOT 
+							value = 180
+						}
+					}
+				}
+			}
+			117 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = { 
+				117 = { add_base_production = 3 }
+				add_country_modifier = {
+					name = lan_glass_trade_italy_modifier 
+					duration = 7300 
+				}
+			tooltip = {
+				112 = { remove_province_modifier = ven_murano_glass_industry }
+				capital_scope = { 
+					add_province_modifier = {
+						name = ven_murano_glass_industry 
+						duration = -1 
+					}
+				}
+			}
+			hidden_effect = {
+					112 = {
+						add_province_modifier = {
+							name = ven_murano_glass_industry 
+							duration = -1 
+						}
+					} 
+			}
+		}
+	}
+}
+
+florentine_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = { 
+			tag = LAN 
+			tag = TUS
+		}
+	}
+	has_country_shield = yes
+
+	lan_arte_di_calimala = {
+		icon = fu_gallen_textiles
+		required_missions = { lan_reorganize_city_wards }
+		position = 2 
+		trigger = {
+			num_of_owned_provinces_with = { 
+				trade_goods = cloth 
+				base_production = 12 
+				has_production_building_trigger = yes 
+				value = 1 
+			}
+			OR = { 
+				has_estate_privilege = estate_burghers_monopoly_of_textiles
+				num_of_estate_privileges = {
+					estate = estate_burghers
+					value = 3
+				}
+			}
+		}
+		effect = {
+			country_event = { id = FU_Florence_Events.5 }
+		}
+	}
+	
+	lan_florin_lira = {
+		icon = dominant_economy
+		required_missions = { }
+		position = 3 
+		trigger = {
+			monthly_income = 20 
+			NOT = { num_of_loans = 1 } 
+			treasury = 500
+			num_of_owned_provinces_with = {
+				has_trade_building_trigger = yes 
+				value = 3 
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = lan_first_strong_euro_currency_modifier
+				duration = 7300
+			}
+			if = { 
+				limit = { has_estate = estate_burghers }
+				add_estate_loyalty = {
+					estate = estate_burghers 
+					loyalty = 10 
+				}
+			}
+		}
+	}
+	
+	lan_bankers_guild_florence = {
+		icon = interest_of_holland
+		required_missions = { lan_florin_lira }
+		position = 4
+		trigger = {
+			NOT = { inflation = 1 }
+			OR = { 	
+				custom_trigger_tooltip = {
+					tooltip = lan_signed_treaty_eight_saints_tt
+					has_country_flag = lan_signed_treaty_eight_saints_flag 
+				}
+				full_idea_group = economic_ideas
+				adm = 6 
+				AND = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 90
+					}
+					num_of_estate_privileges = {
+						estate = estate_burghers
+						value = 4
+					}
+				}
+			}
+		}
+		effect = { 
+			add_country_modifier = {
+				name = lan_medici_bank_ledgers_modifier
+				duration = -1 
+			}
+			add_corruption = -1
+			if = { 
+				limit = { has_country_flag = lan_signed_treaty_eight_saints_flag }
+				PAP = { 
+					add_years_of_income = 0.5 
+					add_opinion = {
+						who = ROOT 
+						modifier = lan_italian_trusted_funds_modifier
+					}
+					add_trust = { 
+						who = ROOT 
+						value = 10 
+						mutual = yes 
+					}
+				}
+			}
+		}
+	}
+	
+	lan_secure_homelands = { 
+		icon = conquer_east_francia
+		required_missions = { lan_italic_league } 
+		position = 7
+		provinces_to_highlight = { 
+			area = tuscany_area 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+		trigger = {
+			tuscany_area = {	
+				type = all 
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+		}
+		effect = { 	
+			tuscany_area = {
+				add_nationalism = -10 
+				add_local_autonomy = -20
+			}
+			add_country_modifier = {
+				name = lan_strong_base_modifier
+				duration = 7300
+			}
+		}
+	}
+	
+	lan_build_52_tunnels = {
+		icon = unify_piedmont
+		required_missions = { lan_grand_duchy_tuscany } 
+		position = 9
+		provinces_to_highlight = { 
+			area = piedmont_area 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			piedmont_area = {	
+				type = all 
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+			if = {
+				limit = { has_global_flag = trade_goods_expanded_mod_active } 
+				4727 = {
+					num_of_times_improved = 3 
+				}
+				103 = {
+					num_of_times_improved = 3 
+				}
+			}
+			else = { 
+				4727 = { num_of_times_improved = 4 } 
+				103 = { num_of_times_improved = 4 }
+			}
+		}
+		effect = { 
+			4727 = { 
+				add_province_modifier = {
+					name = lan_alpine_tunnel_modifier
+					duration = -1 
+				}
+				add_base_manpower = 2 
+			}
+			103 = { 
+				add_province_modifier = {
+					name = lan_alpine_tunnel_modifier
+					duration = -1 
+				}
+				add_base_manpower = 2 
+			}
+		}
+	}
+	
+	lan_forza_italia = {
+		icon = terra_santa
+		required_missions = { lan_grand_duchy_tuscany lan_fiori_de_firenzia lan_build_52_tunnels lan_duke_valley }
+		position = 10 
+		trigger = {
+			total_development = 700 
+			prestige = 75 
+			stability = 3 
+			army_size = 100 
+		}
+		effect = {	
+			add_country_modifier = {
+				name = lan_road_to_unification_modifier
+				duration = -1 
+			}
+		}
+	}
+}
+	
+florentine_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = { 
+			tag = LAN 
+			tag = TUS
+		}
+	}
+	has_country_shield = yes
+
+	lan_handle_papal_affairs = {
+		icon = invest_in_the_provinces 
+		required_missions = { } 
+		position = 1 
+		trigger = { 
+			OR = { 
+				PAP = { is_rival = ROOT } 
+				alliance_with = PAP 
+				118 = { country_or_non_sovereign_subject_holds = ROOT } 
+				PAP = { 
+					has_opinion = {
+						who = ROOT 
+						value = 100 
+					}
+				}
+			}
+		}
+		effect = { 
+			custom_tooltip = lan_if_alliance_or_opinion_tt
+			tooltip = { 
+				add_papal_influence = 25 
+				random_owned_province = { 
+					limit = { has_cardinal = no } 
+					add_cardinal = yes 
+				}
+				PAP = {  
+					add_opinion = {
+						who = ROOT 
+						modifier = lan_treaty_eight_saints_modifier
+					}
+				}
+			}
+			custom_tooltip = lan_else_if_rome_owned_or_enemy_pope_tt
+			tooltip = { 
+				add_country_modifier = { 
+					name = lan_italian_expansion_modifier
+					duration = 5475
+				}
+			}
+			hidden_effect = { 
+				if = { 
+					limit = { 
+						PAP = { 
+							is_rival = ROOT 
+						}
+					}
+					add_country_modifier = { 
+						name = lan_italian_expansion_modifier
+						duration = 5475
+					}
+				}
+				else = { 
+					set_country_flag = lan_eight_saints_treaty_flag 
+					add_papal_influence = 25 
+					random_owned_province = { 
+						limit = { has_cardinal = no } 
+						add_cardinal = yes 
+					}
+					PAP = {  
+						add_opinion = {
+							who = ROOT 
+							modifier = lan_treaty_eight_saints_modifier
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	lan_blossoming_cities = { 	
+		icon = eastern_catholicization
+		required_missions = { lan_handle_papal_affairs }
+		position = 2
+		trigger = {
+			num_of_owned_provinces_with = { 
+				has_tax_building_trigger = yes 
+				development = 20 
+				value = 5 
+			}
+		}
+		effect = { 
+			custom_tooltip = lan_every_province_req_tt
+			tooltip = {
+				add_base_tax = 1 
+				add_base_production = 1 
+				add_base_manpower = 1 
+			}
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10 
+			}
+			add_estate_loyalty = {
+				estate = estate_burghers 
+				loyalty = 10 
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = { 
+						has_building = temple 
+						development = 20 
+					}
+					add_base_tax = 1 
+					add_base_production = 1 
+					add_base_manpower = 1
+				}
+			}
+		}
+	}
+	
+	lan_bankers_holy_see = { 
+		icon = reform_the_monte
+		required_missions = { lan_blossoming_cities }
+		position = 3
+		trigger = {
+			OR = { 
+				invested_papal_influence = 50 
+				116 = { 
+					OR = { 
+						has_great_project = {
+							type = santa_maria_del_fiore
+							tier = 2
+						}
+						has_great_project = {
+							type = santa_maria_del_fiore
+							tier = 3
+						}
+					}
+				}
+				118 = { owned_by = ROOT }
+				is_papal_controller = yes
+			}
+			OR = { 
+				num_of_cardinals = 3 
+				monthly_income = PAP 
+			}
+		}
+		effect = {
+			if = { 
+				limit = { religion = catholic } 
+				custom_tooltip = lan_5_tax_per_cardinal_and_50_less_curia_cost
+				hidden_effect = {
+					if = { 
+						limit = { num_of_cardinals = 7 }
+						add_country_modifier = {
+							name = lan_handing_the_papal_finances_modifier7
+							duration = 9125
+						}
+					}
+					else_if = { 
+						limit = { num_of_cardinals = 6 }
+						add_country_modifier = {
+							name = lan_handing_the_papal_finances_modifier6
+							duration = 9125
+						}
+					} 
+					else_if = { 
+						limit = { num_of_cardinals = 5 }
+						add_country_modifier = {
+							name = lan_handing_the_papal_finances_modifier5
+							duration = 9125
+						}
+					}
+					else_if = { 
+						limit = { num_of_cardinals = 4 }
+						add_country_modifier = {
+							name = lan_handing_the_papal_finances_modifier4
+							duration = 9125
+						}
+					}
+					else_if = { 
+						limit = { num_of_cardinals = 3 }
+						add_country_modifier = {
+							name = lan_handing_the_papal_finances_modifier3
+							duration = 9125
+						}
+					}
+					else_if = { 
+						limit = { num_of_cardinals = 2 }
+						add_country_modifier = {
+							name = lan_handing_the_papal_finances_modifier2
+							duration = 9125
+						}
+					}
+					else_if = { 
+						limit = { num_of_cardinals = 1 }
+						add_country_modifier = {
+							name = lan_handing_the_papal_finances_modifier1
+							duration = 9125
+						}
+					}
+				}
+			}
+			else = { 
+				add_country_modifier = {
+					name = lan_taxing_the_church_modifier
+					duration = -1 
+				}
+				change_estate_land_share = {
+					estate = estate_church
+					share = -10
+				}
+			}
+		}
+	}
+	
+	lan_reform_catasto = {
+		icon = catholic_volunteers
+		required_missions = { lan_bankers_guild_florence lan_bankers_holy_see }
+		position = 5 
+		trigger = { 
+			crown_land_share = 20
+			tag = TUS 
+			stability = 3 
+			NOT = { average_home_autonomy = 2 }
+			NOT = { average_unrest = 1 } 
+		}
+		effect = { 
+			country_event = { id = FU_Florence_Events.6 }
+		}
+	}
+	
+	lan_via_aemilia = {
+		icon = dalmatian_conquest
+		required_missions = { lan_italic_league }
+		position = 7 
+		provinces_to_highlight = { 
+			area = emilia_romagna_area 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			emilia_romagna_area = {
+				type = all 
+				OR = { 
+					country_or_non_sovereign_subject_holds = ROOT 
+					owner = { 
+						alliance_with = ROOT 
+						has_opinion = {
+							who = ROOT 
+							value = 150
+						}
+						trust = { 
+							who = ROOT 
+							value = 75 
+						}
+					}
+				}
+			}
+		}
+		effect = { 
+			add_country_modifier = { 
+				name = lan_restored_old_roads_modifier 
+				duration = 7300
+			}
+			emilia_romagna_area = {
+				add_base_tax = 1 
+			}					
+		}
+	}
+	
+	lan_depose_sforza = {
+		icon = Control_Junkers
+		required_missions = { lan_secure_homelands lan_via_aemilia }
+		position = 8
+		provinces_to_highlight = {
+			area = lombardy_area 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = { 
+			OR = { 
+				lombardy_area = { 
+					type = all 
+					country_or_non_sovereign_subject_holds = ROOT 
+				}
+				MLO = { 
+					alliance_with = ROOT 
+					has_opinion = {
+						who = ROOT 
+						value = 150
+					}
+					trust = { 
+						who = ROOT 
+						value = 75 
+					}
+				}
+			}
+		}
+		effect = { 
+			add_country_modifier = { 
+				name = lan_milanese_condottieri_modifier
+				duration = 9125
+			}
+			country_event = { id = FU_Florence_Events.33 }
+			if = { 
+				limit = { 
+					MLO = { alliance_with = ROOT }
+					has_dlc = "Cradle of Civilization"
+				}
+				MLO = { 
+					add_army_professionalism = 0.05 
+					add_army_tradition = 15
+				}
+			}
+			else_if = { 
+				limit = { 
+					MLO = { alliance_with = ROOT }
+					NOT = { has_dlc = "Cradle of Civilization" }
+				}
+				MLO = { add_army_tradition = 20 } 
+			}
+		}
+	}
+
+	lan_duke_valley = {
+		icon = develop_the_po_valley
+		required_missions = { lan_depose_sforza }
+		position = 9 
+		provinces_to_highlight = { 
+			area = po_valley_area 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			po_valley_area = { 
+				type = all 
+				country_or_non_sovereign_subject_holds = ROOT 
+			}
+		}
+		effect = { 
+			po_valley_area = { 
+				add_province_modifier = {
+					name = lan_irrigation_po_valley_modifier
+					duration = 5475
+				}
+				add_base_production = 1 
+			}
+		}
+	}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

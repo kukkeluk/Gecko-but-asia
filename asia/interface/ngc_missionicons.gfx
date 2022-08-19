@@ -1,0 +1,18 @@
+	### Purple Phoenix Mission Icons ###
+
+spriteTypes = {
+	spriteType = {
+		name = "mission_challenge_FRA"
+		texturefile = "gfx//interface//missions//challenge_FRA.dds"
+	}
+	
+	spriteType = {
+		name = "mission_challenge_GBR"
+		texturefile = "gfx//interface//missions//challenge_GBR.dds"
+	}
+	
+	spriteType = {
+		name = "mission_challenge_HAB"
+		texturefile = "gfx//interface//missions//challenge_HAB.dds"
+	}	
+}	

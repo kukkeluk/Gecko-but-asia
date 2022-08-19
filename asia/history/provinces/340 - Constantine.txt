@@ -3,7 +3,7 @@
 owner = TUN
 controller = TUN 
 culture = berber
-religion = sunni
+religion = ibadi
 capital = "Constantine"
 trade_goods = grain
 hre = no

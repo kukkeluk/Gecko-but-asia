@@ -1,0 +1,5 @@
+government = republic
+technology_group = chinese
+primary_culture = togoku
+religion = shinto
+capital = 4637

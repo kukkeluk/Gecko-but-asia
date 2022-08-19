@@ -14,12 +14,15 @@ country_decisions = {
 			NOT = { exists = RUM }
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
+			NOT = { tag = BYZ }
 			NOT = { tag = RUS }
 			NOT = { tag = PRU }
 			NOT = { tag = ENG }
-			tag = AKK
 			is_emperor_of_china = no
-				
+			OR = {
+				primary_culture = turkish
+				tag = MAM	
+			}
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -30,14 +33,11 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			OR = {
-				province_id = 151		# Constantinople
+			OR = {		
 				province_id = 316		# Iznik
-				province_id = 323		# Konya
 				province_id = 326		# Ankara
 				province_id = 329		# Sivas
-				province_id = 331		# Erzurum
-				province_id = 2301		# Kayseri
+				province_id = 318		
 				province_id = 4312		# Eskeshehir
 			}
 			OR = {
@@ -46,24 +46,20 @@ country_decisions = {
 			}
 		}
 		allow = {
-			tag = AKK
 			is_at_war = no
 			is_subject = no #Cannot even be a tributary
 			is_nomad = no
 			religion_group = muslim
 			NOT = { exists = RUM }
-			owns_core_province = 151		# Constantinople
 			owns_core_province = 316		# Iznik
-			owns_core_province = 323		# Konya
 			owns_core_province = 326		# Ankara
 			owns_core_province = 329		# Sivas
-			owns_core_province = 331		# Erzurum
-			owns_core_province = 2301		# Kayseri
+			owns_core_province = 318		
 			owns_core_province = 4312		# Eskeshehir
 		}
 		effect = {
 			change_tag = RUM
-			swap_non_generic_missions = yes
+			custom_tooltip = RUM_ideas_localisation
 			RUM = {
 				if = {
 					limit = {
@@ -71,6 +67,10 @@ country_decisions = {
 						is_revolutionary = no
 					}
 					change_government_to_monarchy = yes
+				}
+				if = {
+					limit = { is_revolutionary = no }
+					add_government_reform = ottoman_government
 				}
 			}
 			remove_non_electors_emperors_from_empire_effect = yes
@@ -86,6 +86,12 @@ country_decisions = {
 					NOT = { is_core = ROOT }
 				}
 				add_permanent_claim = RUM
+			}
+			if = {
+				limit = {
+					NOT = { primary_culture = turkish }
+				}
+				change_primary_culture = turkish
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"

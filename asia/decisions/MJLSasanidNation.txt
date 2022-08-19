@@ -1,0 +1,86 @@
+country_decisions = {
+     reform_the_sasanid_empire = {
+	    major = yes
+		potential = {
+		    normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+
+			NOT = { has_country_flag = formed_sassanid_empire_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = SAS }
+		culture_group = iranian
+		religion = zoroastrian
+		is_colonial_nation = no
+		}
+		provinces_to_highlight = {
+		OR = {
+		   province_id = 410 #Baghdad
+		   province_id = 2218 #Shiraz
+		   province_id = 408  #Basra
+		}
+		OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+		    owns_core_province = 410 #Baghdad
+			owns_core_province = 2218 #Shiraz
+			owns_core_province = 408 #Basra
+		}
+		effect = {
+		410 = {
+		move_capital_effect = yes
+		change_province_name = Ctesiphon
+		rename_capital = Ctesiphon
+		}
+		change_tag = SAS
+		custom_tooltip = SAS_ideas_localisation
+        add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+	    add_prestige = 25
+ 	    if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+		mashriq_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = SAS
+			}
+		persia_region  = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = SAS
+			}
+		swap_non_generic_missions = yes
+		add_accepted_culture = al_iraqiya_arabic
+		add_government_reform = sasanid_government
+		add_dip_power = 100
+		set_country_flag = formed_sasanid_empire_flag
+		}
+	 
+	   ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 600
+	}
+}

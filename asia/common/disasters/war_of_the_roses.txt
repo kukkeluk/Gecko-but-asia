@@ -6,6 +6,7 @@ war_of_the_roses = {
 		is_free_or_tributary_trigger = yes
 		uses_doom = no
 		NOT = { has_country_flag = had_war_of_the_roses  }
+		is_tutorial_active = no
 	}
 
 
@@ -13,9 +14,14 @@ war_of_the_roses = {
 	can_start = {
 		current_age = age_of_discovery
 		has_any_disaster = no
-		AND = {
-			NOT = { dynasty = Tudor }
-			NOT = { heir_dynasty = Tudor }
+		OR = {
+			has_heir = no
+			AND = {
+				has_heir = yes
+				NOT = { heir_dynasty = York }
+				NOT = { heir_dynasty = Lancaster }
+				NOT = { heir_dynasty = Plantagenet }
+			}
 		}
 		has_regency = no
 		is_lesser_in_union = no
@@ -54,7 +60,7 @@ war_of_the_roses = {
 			}
 		}
 		modifier = {
-			factor = 2
+			factor = 0.5
 			NOT = { dynasty = York }
 		}
 		modifier = {
@@ -62,19 +68,19 @@ war_of_the_roses = {
 			NOT = { dynasty = Lancaster }
 		}
 		modifier = {
-			factor = 2
+			factor = 0.5
 			NOT = { stability = 1 }
 		}
 		modifier = {
-			factor = 2
+			factor = 0.5
 			NOT = { ADM = 2 }
 		}		
 		modifier = {
-			factor = 2
+			factor = 0.5
 			NOT = { DIP = 2 }
 		}		
 		modifier = {
-			factor = 2
+			factor = 0.5
 			NOT = { MIL = 2 }
 		}		
 		
@@ -97,7 +103,8 @@ war_of_the_roses = {
 
 
 	modifier = {
-		mercenary_manpower = 0.5
+		global_unrest = 5
+		amount_of_banners = 0.1
 	}	
 	
 	

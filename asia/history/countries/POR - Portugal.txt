@@ -1,5 +1,5 @@
-government = monarchy
-add_government_reform = feudalism_reform
+government = republic
+add_government_reform = portugese_reform
 primary_culture = portugese
 religion = catholic
 technology_group = western
@@ -8,33 +8,33 @@ historical_friend = CAS
 capital = 227 # Lisboa
 add_army_professionalism = 0.05
 national_focus = DIP
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
 
 
-1385.1.1 = {
+change_estate_land_share = {
+	estate = estate_nobles
+	share = -0.502
+}
+
+1391.1.1 = {
 	monarch = {
-		name = "João I"
-		dynasty = "de Avis"
-		adm = 2
+		name = "Edward"
+		monarch_name = "Edward I"
+		dynasty = "de Aviz"
+		birth_date = 1391.1.1
+		death_date = 1481.8.28
+		adm = 3
 		dip = 2
 		mil = 2
 	}
+	clear_scripted_personalities = yes
+	add_heir_personality = expansionist_personality
 }
 
 1385.4.1 = { leader = {	name = "Nuno Álvares Pereira"	type = general	fire = 4	shock = 4	manuever = 5	siege = 0	death_date = 1423.1.1 } }
-
-1391.10.31 = {
-	heir = {
-		name = "Duarte"
-		monarch_name = "Duarte"
-		dynasty = "de Avis"
-		birth_date = 1391.10.31
-		death_date = 1438.9.9
-		claim = 95
-		adm = 1
-		dip = 3
-		mil = 0
-	}
-}
 
 1415.4.1 = { leader = {	name = "Infantes"		type = general	fire = 2	shock = 3	manuever = 2	siege = 0	death_date = 1449.1.1 } }
 
@@ -48,18 +48,15 @@ national_focus = DIP
 
 1432.1.1 = { leader = {	name = "Gonçalo Velho Cabral"	type = explorer	fire = 1	shock = 1	manuever = 2	siege = 0	death_date = 1432.12.31 } }
 
-1433.1.1 = {
-	monarch = {
-		name = "Duarte"
-		dynasty = "de Avis"
-		birth_date = 1391.10.31
-		adm = 1
-		dip = 3
-		mil = 0
-	}
-}
 
-1433.1.1 = {
+1433.1.1 = { leader = {	name = "Gonçalo Velho Cabral"	type = explorer	fire = 1	shock = 1	manuever = 3	siege = 0	death_date = 1434.12.31 } }
+
+1434.1.1 = { leader = {	name = "Afonso Gonçalves Baldaia" type = explorer	fire = 2	shock = 2	manuever = 2	siege = 0	death_date = 1437.12.31 } }
+
+1435.1.1 = { leader = {	name = "Earl of Avranches"	type = general	fire = 3	shock = 3	manuever = 3	siege = 0	death_date = 1449.5.20 } }
+
+
+1438.9.10 = {
 	heir = {
 		name = "Afonso"
 		monarch_name = "Afonso V"
@@ -70,26 +67,11 @@ national_focus = DIP
 		adm = 3
 		dip = 2
 		mil = 2
+		leader = {	name = "Afonso V"	type = general	fire = 3	shock = 2	manuever = 3	siege = 1 }
 	}
+	clear_scripted_personalities = yes
+	add_heir_personality = expansionist_personality
 }
-
-1433.1.1 = { leader = {	name = "Gonçalo Velho Cabral"	type = explorer	fire = 1	shock = 1	manuever = 3	siege = 0	death_date = 1434.12.31 } }
-
-1434.1.1 = { leader = {	name = "Afonso Gonçalves Baldaia" type = explorer	fire = 2	shock = 2	manuever = 2	siege = 0	death_date = 1437.12.31 } }
-
-1435.1.1 = { leader = {	name = "Earl of Avranches"	type = general	fire = 3	shock = 3	manuever = 3	siege = 0	death_date = 1449.5.20 } }
-
-1438.9.10 = {
-	monarch = {
-		name = "Infante Pedro"
-		dynasty = "de Avis"
-		birth_date = 1438.1.1
-		adm = 4
-		dip = 4
-		mil = 4
-	}
-}
-
 
 1443.1.1 = { leader = {	name = "Diogo Gomes"		type = explorer	fire = 3	shock = 3	manuever = 3	siege = 0	death_date = 1462.12.31 } }
 
@@ -706,7 +688,7 @@ add_government_reform = autocracy_reform }
 
 1777.2.23 = {
 	heir = {
-		name = "Joao"
+		name = "João"
 		monarch_name = "João VI"
 		dynasty = "de Bragança"
 		birth_date = 1767.5.13

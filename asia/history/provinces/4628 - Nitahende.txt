@@ -2,8 +2,8 @@
 
 culture = mescalero
 religion = totemism
-capital = "Nitahendï¿½"
-trade_goods = unknown
+capital = "Nitahendé"
+trade_goods = grain
 hre = no
 base_tax = 1 
 base_production = 1

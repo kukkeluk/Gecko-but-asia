@@ -1,7 +1,10 @@
 #110 - Trent
 
-owner = TNT
-controller = TNT
+owner = HAB
+controller = HAB
+add_core = HAB
+#owner = TNT
+#controller = TNT
 add_core = TNT
 culture = venetian
 religion = catholic

@@ -1,8 +1,5 @@
 #4375 - Chester
 
-latent_trade_goods = {
-	coal
-}
 
 owner = ENG
 controller = ENG

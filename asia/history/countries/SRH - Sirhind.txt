@@ -1,9 +1,22 @@
 government = monarchy
 add_government_reform = feudalism_reform
-technology_group = indian
 primary_culture = panjabi
+add_accepted_culture = kashmiri
+add_accepted_culture = kanauji
+technology_group = indian
+historical_rival = AFG
 religion = hinduism
 capital = 510 #Sirhind
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
+
+
+change_estate_land_share = {
+	estate = estate_church
+	share = 6.25
+}
 
 #Lodis
 1431.1.1 = {
@@ -13,15 +26,16 @@ capital = 510 #Sirhind
 		culture = afghani
 		religion = sunni
 		ADM = 4
-		DIP = 4
-		MIL = 4
+		DIP = 5
+		MIL = 6
+		leader = { name = "Bahlûl Lodi"		type = general	fire = 4	shock = 5	manuever = 4	siege = 2 }
 	}
 	government = monarchy
 	add_government_reform = indian_sultanate_reform
 	religion = sunni
 	religious_school = hanafi_school
 	clear_scripted_personalities = yes
-	add_ruler_personality = strict_personality
+	add_ruler_personality = inspiring_leader_personality
 	add_ruler_personality = conqueror_personality
 	add_ruler_personality = industrious_personality
 }

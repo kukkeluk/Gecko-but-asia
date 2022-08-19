@@ -5,6 +5,7 @@ culture = huarpe
 
 
 discovered_by = south_american
+discovered_by = andean
 
 religion = animism
 capital = "La Rioja"

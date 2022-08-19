@@ -1,14 +1,14 @@
 # No previous file for Napochi
 
-
+is_city = yes
 culture = creek
 religion = totemism
 capital = "Napochi"
-trade_goods = unknown
+trade_goods = tobacco
 hre = no
-base_tax = 1 
+base_tax = 2 
 base_production = 1
-base_manpower = 1
+base_manpower = 2
 native_size = 5
 native_ferocity = 1
 native_hostileness = 2

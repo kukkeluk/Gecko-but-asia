@@ -6,7 +6,7 @@
 h_swedish_visby = {
 	naval_forcelimit = 5
 	local_ship_repair = 0.25
-	province_trade_power_modifier = 0.25
+	province_trade_power_modifier = 0.10
 }
 
 h_swedish_reform_infantry_core = {
@@ -17,6 +17,8 @@ h_swedish_reform_leadership = {
 	free_leader_pool = 1
 	leader_land_manuever = 1
 	leader_naval_manuever = 1
+	leader_land_fire = 1
+	leader_naval_fire = 1
 	leader_cost = -0.10
 }
 
@@ -26,7 +28,7 @@ h_swedish_innovative_warfare = {
 }
 
 h_swedish_adolphus_legacy = {
-	reinforce_speed = 0.15
+	reinforce_speed = 0.2
 }
 
 h_swedish_carolean_regiments = {
@@ -35,7 +37,7 @@ h_swedish_carolean_regiments = {
 
 h_swedish_ga_pa_doctrine = {
 	recover_army_morale_speed = 0.05
-	land_morale = 0.1
+	land_morale = 0.05
 }
 
 h_swedish_uppsala_university = {
@@ -54,7 +56,7 @@ h_swedish_falun_mine_global = {
 
 
 h_swedish_dalarna_state_local_2 = {
-	local_development_cost = -0.1
+	local_development_cost = -0.05
 }
 
 h_swedish_lutheran_support = {
@@ -104,9 +106,9 @@ h_swedish_empire = {
 }
 
 h_swedish_fleet = {
-	galley_cost = -0.25
-	galley_power = 0.10
-	sailors_recovery_speed = 0.25
+	galley_cost = -0.10
+	galley_power = 0.05
+	sailors_recovery_speed = 0.15
 }
 
 h_swedish_neva_conquered = {
@@ -129,31 +131,14 @@ h_swedish_agriculture_boost = {
 }
 
 h_swedish_industry = {
-	infantry_cost = -0.10
+	infantry_cost = -0.05
 }
 
 h_swedish_naval_supremacy = {
-	naval_morale = 0.10
-	global_naval_engagement_modifier = 0.10
+	navy_tradition_decay = -0.01
 }
 
 ##Override
-
-swedish_military_reforms = {
-	drill_gain_modifier = 0.20
-	drill_decay_modifier = -0.10
-}
-
-swedish_mercenary_core = {
-	mercenary_discipline = 0.05
-	mercenary_cost = -0.10
-	mercenary_manpower = 0.15
-}
-
-swedish_naval_reforms = {
-	global_ship_cost = -0.10
-	naval_morale = 0.10
-}
 
 wallon_immigrants = {
 	trade_goods_size_modifier = 0.10

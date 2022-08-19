@@ -1,8 +1,5 @@
 #241 - Glamorgan+Monmouthshire
 
-latent_trade_goods = {
-	coal
-}
 
 owner = ENG
 controller = ENG
@@ -12,7 +9,7 @@ hre = no
 base_tax = 2
 base_production = 2
 trade_goods = iron
-base_manpower = 1
+base_manpower = 3
 capital = "Swansea"
 is_city = yes
 add_core = ENG

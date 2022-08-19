@@ -1,5 +1,6 @@
 #895 - Arkansas
 
+is_city = yes
 culture = yoron
 religion = totemism
 capital = "Arkansas"

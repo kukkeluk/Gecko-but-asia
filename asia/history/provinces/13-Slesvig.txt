@@ -1,22 +1,23 @@
 #Sönderjylland-Slesvig, incl. Slesvig, Haderslev and Flensborg
 
-add_core = SHL
-owner = SHL
-controller = SHL
+add_core = DAN
+owner = DAN
+controller = DAN
 culture = danish
 religion = catholic
-hre = no
+hre = yes
 base_tax = 3
-base_production = 3
-trade_goods = livestock
-base_manpower = 2
-capital = "Slesvig"
+base_production = 2
+trade_goods = cloth
+base_manpower = 3
+capital = "Sønderjylland"
 is_city = yes
 discovered_by = eastern
 discovered_by = western
 discovered_by = muslim
 discovered_by = ottoman
 
+1000.1.1 = { add_core = DAN }
 1460.3.5 = { owner = DAN controller = DAN }
 1536.1.1 = { religion = protestant }
 1627.8.1 = {

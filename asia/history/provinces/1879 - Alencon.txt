@@ -1,18 +1,18 @@
 # 1879 - Alençon
 
-owner = ENG
-controller = ENG
+owner = NRM
+controller = NRM
+add_core = NRM
 capital = "Alençon"
 is_city = yes
 culture = cosmopolitan_french
 religion = catholic
 hre = no
 base_tax = 4
-base_production = 3
+base_production = 4
 trade_goods = livestock
-base_manpower = 2
-#add_core = ALE
-add_core = ENG
+base_manpower = 3
+add_core = ALE
 add_local_autonomy = 80
 discovered_by = eastern
 discovered_by = western

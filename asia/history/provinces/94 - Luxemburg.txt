@@ -7,14 +7,14 @@ capital = "Luxemburg"
 is_city = yes
 culture = wallonian
 religion = catholic 
-#hre = yes
+hre = no
 base_tax = 5
 base_production = 5
 trade_goods = iron
 base_manpower = 2
 add_core = LUX
 fort_15th = yes
-
+center_of_trade = 1
 
 
 discovered_by = eastern

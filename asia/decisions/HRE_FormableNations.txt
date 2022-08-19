@@ -150,11 +150,6 @@ country_decisions = {
 			set_capital = 65
 			65 = { add_base_tax = 2 }
 			set_country_flag = formed_bavaria_flag
-			country_event = { id = ideagroups.1 } #Swap Ideas
-			country_event = { 
-				id = gc_bavarian_event.1 
-				days = 14
-			}
 
 			if = {
 				limit = {
@@ -391,7 +386,11 @@ country_decisions = {
 					ai = no
 				}
 			}
-			primary_culture = franconian
+			OR = {
+				primary_culture = franconian
+				tag = BOH
+		        tag = HES
+			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -408,7 +407,7 @@ country_decisions = {
 					ROOT = {
 						NOT = {
 							num_of_owned_provinces_with = {
-								value = 6
+								value = 4
 								culture = franconian
 								continent = europe
 								is_core = root
@@ -454,7 +453,7 @@ country_decisions = {
 				owns_core_province = 67			#Nurnberg
 			}
 			num_of_owned_provinces_with = {
-				value = 6
+				value = 4
 				culture = franconian
 				continent = europe
 				is_core = root
@@ -465,7 +464,9 @@ country_decisions = {
 			}
 		}
 		effect = {
+			custom_tooltip = franconia_cav_nation
 			change_tag = FKN
+			custom_tooltip = FKN_ideas_localisation
 			restore_country_name_effect = yes
 			franconia_area = {
 				limit = {
@@ -484,6 +485,12 @@ country_decisions = {
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
+			}
+			if = {
+				limit = {
+					NOT = { primary_culture = franconian }
+				}
+				change_primary_culture = franconian
 			}
 			add_prestige = 25
 			set_country_flag = formed_franconia_flag
@@ -517,7 +524,6 @@ country_decisions = {
 	swabia_nation = {
 		major = yes
 		potential = {
-			TAG = SWI
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			was_never_german_regional_tag_trigger = yes
@@ -535,6 +541,7 @@ country_decisions = {
 					ai = no
 				}
 			}
+			primary_culture = swabian
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -813,13 +820,21 @@ country_decisions = {
 			NOT = { tag = PAP }
 			NOT = { tag = GER }
 			NOT = { tag = PRU }
+			NOT = { tag = HSA }
 			NOT = { tag = SAX } #Saxe-Lauenburg should form either Saxony or Hannover, not both
 			NOT = { exists = HAN }
+		 OR = {
+		 primary_culture = lower_saxon
+		 tag = DAN
+		 }
+			is_colonial_nation = no
 			OR = {
-				TAG = HSA
-				primary_culture = lower_saxon
-			}
-			is_colonial_nation = no			
+				ai = no
+				AND = {
+					owns_core_province = 53	# Luneburg
+					owns_core_province = 1758	# Hannover
+				}
+			}			
 			OR = {
 				is_former_colonial_nation = no
 				AND = {
@@ -874,6 +889,7 @@ country_decisions = {
 				move_capital_effect = yes
 			}
 			change_tag = HAN
+			custom_tooltip = HAN_ideas_localisation
 			restore_country_name_effect = yes
 			1758 = {
 				add_base_tax = 1
@@ -1048,7 +1064,9 @@ country_decisions = {
 			}
 		}
 		effect = {
+			custom_tooltip = westphalia_inf_nation
 			change_tag = WES
+			custom_tooltip = WES_ideas_localisation
 			restore_country_name_effect = yes
 			set_country_flag = formed_westphalia_flag
 			if = {

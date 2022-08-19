@@ -1,0 +1,78 @@
+CN_merchant_guilds_shaping = {
+	global_trade_power = 0.1
+	center_of_trade_upgrade_cost = -0.20
+}
+CN_positive_vibes = {
+	trade_efficiency = 0.1
+}
+CN_flow_of_immigrants = {
+	local_development_cost = -0.1
+	local_tax_modifier = 0.1
+}
+CN_colony_thriving = {
+	global_tax_modifier = 0.10
+}
+CN_centralization = {
+	republican_tradition = 0.5
+}
+CN_army = {
+	drill_decay_modifier = -0.10
+	recover_army_morale_speed = 0.10
+}
+CN_new_lands_new_opportunities = {
+	global_colonial_growth = 20
+}
+CN_the_more_we_grow_the_more_we_plow = {
+	build_cost = -0.1
+}
+CN_new_land_claimed = {
+	prestige = 1
+	colonist_placement_chance = 0.1
+}
+CN_region_united = {
+	monthly_splendor = 2
+	transport_cost = -0.20
+}
+CN_workshops_going_boom = {
+	trade_goods_size_modifier = 0.1
+}
+CN_flow_of_innovativeness = {
+	idea_cost = -0.10
+}
+CN_extra_taxation = {
+	global_tax_modifier = 0.15
+}
+CN_submissive_to_cns = {
+	global_tariffs = -0.25
+}
+CN_martial_law = {
+	global_regiment_recruit_speed = 0.3
+}
+CN_increased_militancy = {
+	army_tradition = 1
+}
+CN_influx_of_settlers = {
+	local_development_cost = -0.1
+}
+CN_growing_economy = {
+ 	mercantilism_cost = -0.20
+	trade_efficiency = 0.1
+}
+CN_developing_own_diplomacy = {
+	spy_offence = 0.20
+}
+CN_renowned_products = {
+	trade_value_modifier = 0.25
+}
+CN_colonial_assembly_modifier = {
+	stability_cost_modifier = -0.1
+}
+CN_growth = {
+	trade_goods_size_modifier = 0.05
+}
+CN_liberty_desire = {
+	reduced_liberty_desire = 10
+}
+encourage_administration = {
+	reelection_cost = -0.1 
+}

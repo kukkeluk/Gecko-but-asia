@@ -12,10 +12,11 @@ native_size = 15
 native_ferocity = 2
 native_hostileness = 6
 
+center_of_trade = 1
+
 
 
 discovered_by = north_american
-#1444.1.1 = { tribal_owner = OTT }
 1634.1.1 = { discovered_by = FRA } # Jean Nicolet
 1664.1.1 = { discovered_by = ENG }
 

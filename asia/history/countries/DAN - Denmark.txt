@@ -1,15 +1,20 @@
 government = monarchy
-add_government_reform = feudalism_reform
+add_government_reform = arch_king_reform
 primary_culture = danish
 religion = catholic
+elector=yes
 technology_group = western
-#historical_friend = NOR
-capital = 5004 #Sjaelland
-add_accepted_culture = norwegian
+historical_rival = NOR
+capital = 12 #København
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
+
 
 change_estate_land_share = {
 	estate = estate_nobles
-	share = 8
+	share = 7.498
 }
 change_estate_land_share = {
 	estate = estate_church
@@ -37,12 +42,12 @@ change_estate_land_share = {
 		dynasty = "von Wittelsbach"
 		birth_date = 1416.2.26
 		culture = bavarian
-		adm = 4
+		adm = 3
 		dip = 3
-		mil = 4
+		mil = 3
 	}
 	clear_scripted_personalities = yes
-	#add_ruler_personality = infertile_personality
+	add_ruler_personality = infertile_personality
 }
 
 1445.9.26 = {

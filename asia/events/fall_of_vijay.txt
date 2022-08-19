@@ -1,0 +1,335 @@
+namespace = fall_of_vijay
+normal_or_historical_nations = yes
+
+country_event = {
+	id = fall_of_vijay.0
+	title = fall_of_vijay.0.t
+	desc = fall_of_vijay.0.d
+	picture = FORT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		technology_group = indian
+		has_global_flag = vijay_disaster_ongoing
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = fall_of_vijay.0.a
+		
+	}
+}
+
+country_event = {
+	id = fall_of_vijay.1
+	title = fall_of_vijay.1.t
+	desc = fall_of_vijay.1.d
+	picture = FORT_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = VIJ
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = fall_of_vijay_disaster_flag
+			set_global_flag = vijay_disaster_ongoing
+		}
+	}
+	
+	option = {
+		name = fall_of_vijay.1.a
+		random_owned_province = {
+			spawn_rebels = {
+			size = 6
+			type = noble_rebels
+			win = yes
+			}
+		}
+	}
+	
+	option = {
+		name = fall_of_vijay.1.b
+		random_owned_province = {
+			spawn_rebels = {
+				size = 6
+				type = pretender_rebels
+				win = yes
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = fall_of_vijay.100
+	title = fall_of_vijay.100.t
+	desc = fall_of_vijay.100.d
+	picture = FORT_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = VIJ
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = had_fall_of_vijay 
+			clr_country_flag = fall_of_vijay_disaster_flag
+			clr_global_flag = vijay_disaster_ongoing
+			every_province = {
+				limit = {
+					continent = asia
+				}
+				remove_core = VIJ
+				remove_claim = VIJ
+			}
+			add_core = 4422
+			add_core = 2031 
+			add_core = 4414 
+			add_core = 538 
+			add_core = 2085
+		}
+	}
+	
+	option = {
+		name = fall_of_vijay.100.a
+		add_stability = 1
+	}
+}
+
+country_event = {
+	id = fall_of_vijay.2
+	title = fall_of_vijay.2.t
+	desc = fall_of_vijay.2.d
+	picture = FORT_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = VIJ
+	}
+	
+	option = {
+		name = fall_of_vijay.2.a
+		random_owned_province = {
+			spawn_rebels = {
+				size = 6
+				type = anti_tax_rebels
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fall_of_vijay.3
+	title = fall_of_vijay.3.t
+	desc = fall_of_vijay.3.d
+	picture = FORT_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = VIJ
+	}
+	
+	option = {
+		name = fall_of_vijay.3.a
+		add_stability = -1
+		541 = {
+			spawn_rebels = {
+				size = 6
+				type = anti_tax_rebels
+				win = yes
+			}
+		}
+	}
+}
+		
+country_event = {
+	id = fall_of_vijay.4
+	title = fall_of_vijay.4.t
+	desc = fall_of_vijay.4.d
+	picture = FORT_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		num_of_rebel_controlled_provinces = 13
+	}
+	
+	option = {
+		name = fall_of_vijay.4.a
+		release = YOR
+		YOR = {
+			add_truce_with = MAR
+			add_truce_with = MAD
+			add_truce_with = ORI
+			add_truce_with = MER
+		}
+		release = KLN				
+		KLN = {
+			add_truce_with = MAR
+			add_truce_with = MAD
+			add_truce_with = ORI
+			add_truce_with = MER
+		}
+		release = KRK
+		KRK = {
+			add_truce_with = MAR
+			add_truce_with = MAD
+			add_truce_with = ORI
+			add_truce_with = MER
+		}
+		release = GNG
+		GNG = {
+			add_truce_with = MAR
+			add_truce_with = MAD
+			add_truce_with = ORI
+			add_truce_with = MER
+		}
+		release = TNJ
+		TNJ = {
+			add_truce_with = MAR
+			add_truce_with = ORI
+			add_truce_with = MER
+		}
+		release = BIJ
+		BIJ = {
+			add_truce_with = MAD
+			add_truce_with = ORI
+			add_truce_with = MER
+		}
+		release = GOC
+		GOC = {
+			add_truce_with = MAR
+			add_truce_with = MAD
+			add_truce_with = MER
+		}
+		release = BRR
+		BRR = {
+			add_truce_with = MAD
+			add_truce_with = ORI
+			add_truce_with = MER
+		}
+		release = BAH
+		BAH = {
+			add_truce_with = MAR
+			add_truce_with = MAD
+			add_truce_with = ORI
+			add_truce_with = MER
+		}
+		release = CHD
+		CHD = {
+			add_truce_with = MAR
+			add_truce_with = MAD
+			add_truce_with = ORI
+			add_truce_with = MER
+		}
+		release = TLG
+		TLG = {
+			add_truce_with = MAR
+			add_truce_with = MAD
+			add_truce_with = MER
+		}
+		2029 = {
+			cede_province = KLT		
+		}
+		KLT = {
+			add_truce_with = MAR
+			add_truce_with = MAD
+			add_truce_with = ORI
+			add_truce_with = MER
+		}
+		hidden_effect = {
+			ROOT = {
+				disband_rebels = anti_tax_rebels 
+				disband_rebels = noble_rebels
+				disband_rebels = pretender_rebels
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fall_of_vijay.5
+	title = fall_of_vijay.3.t
+	desc = fall_of_vijay.3.d
+	picture = FORT_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = VIJ
+	}
+	
+	option = {
+		name = fall_of_vijay.3.a
+		add_stability = -1
+		541 = {
+			spawn_rebels = {
+				size = 6
+				type = anti_tax_rebels
+				win = yes
+			}
+		}
+	}
+}
+country_event = {
+	id = fall_of_vijay.6
+	title = fall_of_vijay.3.t
+	desc = fall_of_vijay.3.d
+	picture = FORT_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = VIJ
+	}
+	
+	option = {
+		name = fall_of_vijay.3.a
+		add_stability = -1
+		541 = {
+			spawn_rebels = {
+				size = 6
+				type = anti_tax_rebels
+				win = yes
+			}
+		}
+	}
+}
+country_event = {
+	id = fall_of_vijay.7
+	title = fall_of_vijay.3.t
+	desc = fall_of_vijay.3.d
+	picture = FORT_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = VIJ
+	}
+	
+	option = {
+		name = fall_of_vijay.3.a
+		add_stability = -1
+		541 = {
+			spawn_rebels = {
+				size = 6
+				type = anti_tax_rebels
+				win = yes
+			}
+		}
+	}
+}

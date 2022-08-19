@@ -1,0 +1,16 @@
+name = "Majapahit-Palembang War"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 623
+}
+
+1443.1.1 = {
+	add_attacker = MAJ
+	add_defender = PLB
+}
+# Peace
+1444.11.11 = {
+	rem_attacker = MAJ
+	rem_defender = PLB
+}

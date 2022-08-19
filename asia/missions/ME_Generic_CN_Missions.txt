@@ -1,0 +1,1176 @@
+CN_Generic_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		is_colonial_nation = yes
+	}
+	has_country_shield = yes
+	
+	CN_dominate_home_trade_node = {
+		icon = mission_weirdchimp
+		position = 1
+		required_missions = {  }
+		trigger = {
+			stability = 1
+			full_idea_group = exploration_ideas
+		}
+		effect = {
+			add_prestige = 10
+			define_advisor = {
+				type = treasurer
+				name = "Zaibou"
+				skill = 2
+				culture = nakota
+				religion = norse_pagan_reformed
+				cost_multiplier = 0.50
+			}
+		}
+	}
+
+	CN_forming_a_merchant_case = {
+		icon = mission_hanseatic_city
+		position = 2
+		required_missions = { CN_dominate_home_trade_node }
+		trigger = {
+			OR = {
+				marketplace = 3
+				trade_depot = 3
+				stock_exchange = 3
+				any_owned_province = {
+					province_has_center_of_trade_of_level = 2
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_merchant_guilds_shaping
+				duration = -1
+			}
+		}
+	}
+
+	
+	CN_support = {
+		icon = mission_alliances
+		position = 4
+		required_missions = { CN_growth_of_cities CN_forming_a_merchant_case }
+		trigger = {
+			if = {
+				limit = {
+					is_colonial_nation_of = POR
+				}
+				has_spy_network_in = {
+				who = POR
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = ENG
+				}
+				has_spy_network_in = {
+				who = ENG
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = GBR
+				}
+				has_spy_network_in = {
+				who = GBR
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = IRE
+				}
+				has_spy_network_in = {
+				who = IRE
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = SWE
+				}
+				has_spy_network_in = {
+				who = SWE
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = DAN
+				}
+				has_spy_network_in = {
+				who = DAN
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = SCA
+				}
+				has_spy_network_in = {
+				who = SCA
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = PRU
+				}
+				has_spy_network_in = {
+				who = PRU
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = BRA
+				}
+				has_spy_network_in = {
+				who = BRA
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = LOT
+				}
+				has_spy_network_in = {
+				who = LOT
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = CAS
+				}
+				has_spy_network_in = {
+				who = CAS
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = SPA
+				}
+				has_spy_network_in = {
+				who = SPA
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = MOR
+				}
+				has_spy_network_in = {
+				who = MOR
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = ADU
+				}
+				has_spy_network_in = {
+				who = ADU
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = LUS
+				}
+				has_spy_network_in = {
+				who = LUS
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = MAL
+				}
+				has_spy_network_in = {
+				who = MAL
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = TUN
+				}
+				has_spy_network_in = {
+				who = TUN
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = SOK
+				}
+				has_spy_network_in = {
+				who = SOK
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = KON
+				}
+				has_spy_network_in = {
+				who = KON
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = CHW
+				}
+				has_spy_network_in = {
+				who = CHW
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = RZW
+				}
+				has_spy_network_in = {
+				who = RZW
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = RZI
+				}
+				has_spy_network_in = {
+				who = RZI
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = MAD
+				}
+				has_spy_network_in = {
+				who = MAD
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = ETH
+				}
+				has_spy_network_in = {
+				who = ETH
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = MAJ
+				}
+				has_spy_network_in = {
+				who = MAJ
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = PSA
+				}
+				has_spy_network_in = {
+				who = PSA
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = MSA
+				}
+				has_spy_network_in = {
+				who = MSA
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = MAS
+				}
+				has_spy_network_in = {
+				who = MAS
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = SMZ
+				}
+				has_spy_network_in = {
+				who = SMZ
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = JAP
+				}
+				has_spy_network_in = {
+				who = JAP
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = BUR
+				}
+				has_spy_network_in = {
+				who = BUR
+				value = 75
+				}
+			}
+			if = {
+				limit = {
+				is_colonial_nation_of = NED
+				}
+				has_spy_network_in = {
+				who = NED
+				value = 75
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_developing_own_diplomacy
+				duration = -1
+			}
+		}
+	}
+}
+
+CN_Generic_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		is_colonial_nation = yes
+	}
+	has_country_shield = yes
+
+	CN_encourage_immigration = {
+		icon = mission_establish_high_seas_navy
+		position = 1
+		required_missions = { }
+		trigger = {
+			if = {
+				limit = {
+					ai = yes
+				}
+				colonial_parent = {
+					has_opinion = {
+						who = ROOT
+						value = 125
+					}
+				}
+			}
+			else = {
+				colonial_parent = {
+					has_opinion = {
+						who = ROOT
+						value = 200
+					}
+				}
+			}
+		}
+		effect = {
+			country_event = { id = ME_CN_Events.1 } #Immigration
+			custom_tooltip = ME_cn_event1_tooltip
+			
+		}
+	}
+	
+	CN_build_temples = {
+		icon = mission_hands_praying
+		position = 2
+		required_missions = { CN_encourage_immigration CN_dominate_home_trade_node }
+		trigger = {
+			OR = {
+				temple = 5
+				AND = {
+					native_ceremonial_fire_pit = 1
+					native_sweat_lodge = 1
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "building_spree"
+				duration = 9125
+			}
+		}
+	}
+
+	CN_growth_of_cities = {
+		icon = mission_settlers_north_america
+		position = 3
+		required_missions = { CN_build_temples }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				development = 15
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_colony_thriving
+				duration = 5475
+			}
+		}
+	}
+
+	CN_rapid_urbanization = {
+		icon = mission_colonial
+		position = 4
+		required_missions = { CN_growth_of_cities }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { development = 20 }
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 5
+						development = 20
+					}
+				}
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					ai = yes
+				}
+				any_owned_province = {
+					development = 20
+				}
+			}
+			else = {
+				num_of_owned_provinces_with = {
+					value = 5
+					development = 20
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = CN_Tooltips.2
+			set_country_flag = CN_cool_trade_goods
+		}
+	}
+	
+	CN_encourage_administration = {
+		icon = mission_scholar_officials
+		position = 5
+		required_missions = { CN_support }
+		trigger = {
+			monthly_adm = 12
+			monthly_dip = 12
+			monthly_mil = 12
+			mil_tech = 15
+		}
+		effect = {
+			add_country_modifier = {
+				name = encourage_administration
+				duration = 9125
+			}
+		}
+	}
+	
+	CN_war_exhaustion = {
+		icon = mission_native_reductions
+		position = 6
+		required_missions = { }
+
+		provinces_to_highlight = {
+			owned_by = ROOT
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 25
+				is_prosperous = yes
+			}
+			war_exhaustion = 2
+		}
+		effect = {
+			add_country_modifier = {
+				name = cn_war_exhaustion
+				duration = -1
+			}
+		}
+	}
+
+	CN_riches_of_the_new_world = {
+		icon = mission_war_chest
+		position = 7
+		required_missions = { CN_workshops }
+		trigger = {
+			OR = {
+				# gold = 3
+				production_leader = {
+					trade_goods = coffee
+				}
+				production_leader = {
+					trade_goods = tobacco
+				}
+				production_leader = {
+					trade_goods = sugar
+				}
+				production_leader = {
+					trade_goods = fur
+				}
+				production_leader = {
+					trade_goods = gems
+				}
+				production_leader = {
+					trade_goods = cotton
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = CN_Tooltips.6
+			hidden_effect = {
+				if = {
+					limit = {
+						production_leader = {
+							trade_goods = coffee
+						}
+					}
+					every_owned_province = {
+						limit = {
+							trade_goods = coffee
+						}
+						add_province_modifier = {
+							name = CN_renowned_products
+							duration = 10950
+						}
+					}
+				}
+				if = {
+					limit = {
+						production_leader = {
+							trade_goods = tobacco
+						}
+					}
+					every_owned_province = {
+						limit = {
+							trade_goods = tobacco
+						}
+						add_province_modifier = {
+							name = CN_renowned_products
+							duration = 10950
+						}
+					}
+				}
+				if = {
+					limit = {
+						production_leader = {
+							trade_goods = sugar
+						}
+					}
+					every_owned_province = {
+						limit = {
+							trade_goods = sugar
+						}
+						add_province_modifier = {
+							name = CN_renowned_products
+							duration = 10950
+						}
+					}
+				}
+				if = {
+					limit = {
+						production_leader = {
+							trade_goods = fur
+						}
+					}
+					every_owned_province = {
+						limit = {
+							trade_goods = fur
+						}
+						add_province_modifier = {
+							name = CN_renowned_products
+							duration = 10950
+						}
+					}
+				}
+				if = {
+					limit = {
+						production_leader = {
+							trade_goods = gems
+						}
+					}
+					every_owned_province = {
+						limit = {
+							trade_goods = gems
+						}
+						add_province_modifier = {
+							name = CN_renowned_products
+							duration = 10950
+						}
+					}
+				}
+				if = {
+					limit = {
+						production_leader = {
+							trade_goods = cotton
+						}
+					}
+					every_owned_province = {
+						limit = {
+							trade_goods = cotton
+						}
+						add_province_modifier = {
+							name = CN_renowned_products
+							duration = 10950
+						}
+					}
+				}
+
+			}
+		}
+	}
+}
+
+CN_Generic_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		is_colonial_nation = yes
+	}
+	has_country_shield = yes
+	
+	CN_build_army_mission = { #Localized as reclaim_maine_title and reclaim_maine_desc
+		icon = mission_native_build_army_mission
+		required_missions = {  } #None
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			army_size_percentage = 1 #What you need to complete the mission, displayed for mission tooltip
+		}
+		effect = { #This is what you get after you finished your mission.
+			add_country_modifier = {
+				name = "thriving_arms_industry"
+				duration = 9125 #25 years
+			}
+		}
+	}
+
+	CN_colonial_assembly = {
+		icon = mission_rb_monopolize_the_channel
+		position = 2
+		required_missions = { CN_encourage_immigration CN_beyond_our_borders }
+		trigger = {
+			has_parliament = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_colonial_assembly_modifier
+				duration = -1
+			}
+		}
+	}
+
+	CN_colonial_laws = {
+		icon = mission_rb_college_of_justice
+		position = 3
+		required_missions = { CN_colonial_assembly }
+		trigger = {
+			OR = {
+				NOT = { average_autonomy_above_min = 10 }
+				absolutism = 25
+			}
+		}
+		effect = {
+			add_prestige = 25
+			country_event = { id = ME_CN_Events.3 }
+		}
+	}
+	
+	CN_pick_direction = {
+		icon = mission_restore_trade_superiority
+		required_missions = {  }
+		position = 4
+		trigger = {
+			adm_tech = 10
+			custom_trigger_tooltip = {
+				tooltip = CN_pick_a_direction_ct
+				OR = {
+					has_country_flag = CN_decide_for_army
+					has_country_flag = CN_decide_for_gold
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = CN_pick_a_direction_tt
+			hidden_effect = {
+				swap_non_generic_missions = yes
+			}
+		}
+	}
+}
+
+CN_Generic_missions_3_branch = {
+slot = 3
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Origins"
+	}
+	potential = {
+		is_colonial_nation = yes
+		NOT = { has_country_flag = CN_decide_for_army }
+		NOT = { has_country_flag = CN_decide_for_gold }
+	}
+	has_country_shield = yes
+	
+	CN_second_branch_mission = {
+		icon = mission_unknown_mission
+		required_missions = { CN_pick_direction }
+		position = 5
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = CN_gold_triggers_tt
+						always = no
+					}
+					num_of_owned_provinces_with = {
+						value = 2
+						base_production = 6
+					}
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = CN_army_triggers_tt
+						always = no
+					}
+					army_size_percentage = 1.0
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = CN_gold_effects_tt
+			custom_tooltip = CN_army_effects_tt
+		}
+	}
+}
+	
+CN_gold_slot_3 = {
+slot = 3
+generic = no
+ai = yes
+potential_on_load = {
+		has_dlc = "Origins"
+	}
+potential = {
+	is_colonial_nation = yes
+	has_country_flag = CN_decide_for_gold
+}
+has_country_shield = yes
+
+	#Enforce your choice
+	CN_gold_slot = {
+		icon = mission_zambezi_gold
+		required_missions = { CN_pick_direction }
+		position = 5
+		provinces_to_highlight = {
+			owned_by = ROOT
+		}
+		 trigger = {
+            num_of_owned_provinces_with = {
+                value = 2
+		NOT = { trade_goods = gold }
+                base_production = 6
+            }
+        }
+		 effect = {
+            random_owned_province = {
+                limit = {
+                    base_production = 6
+                    NOT = { trade_goods = gold }
+                }
+                change_trade_goods = gold
+            }
+            random_owned_province = {
+                limit = {
+                    base_production = 6
+                    NOT = { trade_goods = gold }
+                }
+                change_trade_goods = gold
+            }
+		}
+	}
+}
+
+CN_army_slot = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Origins"
+	}
+	potential = {
+		is_colonial_nation = yes
+		has_country_flag = CN_decide_for_army
+	}
+	has_country_shield = yes
+
+	#Enforce your choice
+	CN_army_3 = {
+		icon = mission_mal_more_tolerance_to_heathens
+		required_missions = { CN_pick_direction }
+		position = 5
+		trigger = {
+			army_size_percentage = 1.0
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_attrition
+				duration = -1
+			}
+		}
+	}
+}
+
+CN_Generic_missions_3_buildings = {
+slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		is_colonial_nation = yes
+	}
+	has_country_shield = yes
+	
+	CN_workshops = {
+		icon = mission_rb_the_bank_of_scotland
+		position = 6
+		required_missions = { }
+		trigger = {
+			OR = {
+				workshop = 5
+				counting_house = 5
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_workshops_going_boom
+				duration = 5475
+			}
+		}
+	}
+
+	CN_manufactories = {
+		icon = mission_have_manufactories
+		position = 7
+		required_missions = { CN_workshops }
+		trigger = {
+			calc_true_if = {
+				desc = build_manufactories_mission_tooltip
+				all_owned_province = {
+					OR = {
+						has_building = mills
+						has_building = farm_estate
+						has_building = tradecompany
+						has_building = plantations
+						has_building = textile
+						has_building = weapons
+						has_building = wharf
+						has_building = furnace
+					}
+				}
+				amount = 20
+			}
+		}
+		effect = {
+			add_years_of_income = 0.25
+			country_event = { id = ME_CN_Events.2 }
+		}
+	}
+}
+
+CN_Generic_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		is_colonial_nation = yes
+	}
+	has_country_shield = yes
+
+	CN_beyond_our_borders = {
+		icon = mission_brazilian_bandeirantes
+		position = 1
+		required_missions = { }
+		trigger = {
+			num_of_colonists = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_new_lands_new_opportunities
+				duration = 9125
+			}
+		}
+	}
+	
+	CN_Gold_2 = {
+		icon = mission_zambezi_gold
+		position = 2
+		required_missions = { CN_colonial_expansion CN_beyond_our_borders }
+		 trigger = {
+            num_of_owned_provinces_with = {
+                value = 3
+                NOT = { trade_goods = gold }
+                base_production = 4
+            }
+        }
+        effect = {
+            random_owned_province = {
+                limit = {
+                    base_production = 4
+                    NOT = { trade_goods = gold }
+                }
+                change_trade_goods = gold
+            }
+            random_owned_province = {
+                limit = {
+                    base_production = 4
+                    NOT = { trade_goods = gold }
+                }
+                change_trade_goods = gold
+            }
+			random_owned_province = {
+                limit = {
+                    base_production = 4
+                    NOT = { trade_goods = gold }
+                }
+                change_trade_goods = gold
+            }
+        }
+	}
+
+	CN_subdue_natives = {
+		icon = mission_iroquois_warriors
+		position = 3
+		required_missions = { CN_Gold_2 }
+		provinces_to_highlight = {
+		}
+		trigger = {
+			grown_by_development = 200
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_centralization
+				duration = 7300
+			}
+		}
+	}
+
+	CN_army = {
+		icon = mission_assemble_an_army
+		position = 4
+		required_missions = { CN_subdue_natives }
+		trigger = {
+			calc_true_if = {
+				army_size_percentage = 0.8
+				manpower_percentage = 0.8
+				num_of_generals = 2
+				num_of_infantry = 50
+				amount = 3
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_army
+				duration = -1
+			}
+		}
+	}
+	
+	CN_blood_for_the_blood_gods = {
+		icon = mission_early_modern_university
+		position = 5
+		required_missions = { CN_unite_the_region }
+		trigger = {
+			has_parliament = yes
+			current_size_of_parliament = 15
+			OR = {
+			current_age = age_of_reformation
+			current_age = age_of_absolutism
+			current_age = age_of_revolutions
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_liberty_desire
+				duration = -1
+			}
+		}
+	}
+	
+	CN_fountain_of_youth = {
+		icon = the_fountain_of_youth
+		position = 6
+		required_missions = { }
+		provinces_to_highlight = {
+			has_province_modifier = sce_life_water
+		}
+		trigger = {
+				any_province = {
+					has_province_modifier = sce_life_water
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		effect = {
+			add_country_modifier = {
+				name = "guardians_of_the_fountains"
+				duration = -1
+			}
+		}
+	}
+
+	CN_mercantilism = {
+		icon = mission_dominate_home_trade_node
+		position = 7
+		required_missions = { CN_workshops }
+		trigger = {
+			OR = {
+				mercantilism = 20
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_growing_economy
+				duration = 9125
+			}
+		}
+	}
+}
+
+CN_Generic_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		is_colonial_nation = yes
+	}
+	has_country_shield = yes
+
+	CN_colonial_expansion = {
+		icon = mission_colonial
+		position = 1
+		required_missions = { }
+		trigger = {
+			grown_by_development = 50
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_new_land_claimed
+				duration = 9125
+			}
+		}
+	}
+
+	CN_extensive_colonization = {
+		icon = mission_settlers_north_america
+		position = 2
+		required_missions = { CN_colonial_expansion }
+		provinces_to_highlight = {
+			region_for_scope_province = {
+				is_capital_of = ROOT
+			}
+			NOT = { owned_by = ROOT }
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 25
+						any_province = {
+							colonial_region = PREV
+							is_capital_of = ROOT
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 25
+				any_province = {
+					colonial_region = PREV
+					is_capital_of = ROOT
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_the_more_we_grow_the_more_we_plow
+				duration = 10950
+			}
+		}
+	}
+
+	CN_unite_the_region = {
+		icon = mission_unite_home_region
+		position = 4
+		required_missions = { CN_extensive_colonization CN_subdue_natives }
+		provinces_to_highlight = {
+			region_for_scope_province = {
+				is_capital_of = ROOT
+			}
+			NOT = { owned_by = ROOT }
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 50
+						any_province = {
+							colonial_region = PREV
+							is_capital_of = ROOT
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			monthly_income = 50
+			num_of_owned_provinces_with = {
+				value = 50
+				any_province = {
+					colonial_region = PREV
+					is_capital_of = ROOT
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = CN_region_united
+				duration = -1
+			}
+		}
+	}
+}

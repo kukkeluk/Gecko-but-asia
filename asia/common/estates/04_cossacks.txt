@@ -10,7 +10,10 @@ estate_cossacks = {
 		factor = 1
 		modifier = {
 			factor = 2
-			has_terrain = steppe
+			OR = {
+				has_terrain = steppe
+				has_terrain = victory_province_steppe
+			}
 		}
 		modifier = {
 			factor = 2
@@ -39,6 +42,7 @@ estate_cossacks = {
 	trigger = {	
 		has_dlc = "The Cossacks"
 		NOT = { has_reform = pirate_republic_reform }
+		NOT = { has_reform = cossacks_reform }
 		NOT = { has_government_attribute = is_merchant_republic }
 		NOT = { has_reform = trading_city }
 		NOT = { is_revolutionary_republic_trigger = yes }
@@ -54,24 +58,27 @@ estate_cossacks = {
 		OR = {
 			has_estate = estate_cossacks
 			any_owned_province = {
-				has_terrain = steppe
+				OR = {
+					has_terrain = steppe
+					has_terrain = victory_province_steppe
+				}
 			}
-			tag = HUN
-			tag = POL
 		}
 	}
 
 	# These scale with loyalty & power
 	country_modifier_happy = {
 		cavalry_cost = -0.1
-		manpower_recovery_speed = 0.1
+		cavalry_power = 0.1
+		loot_amount = 1
 	}
 	country_modifier_neutral = {
-		cavalry_cost = -0.1
+		cavalry_power = 0.1
+		loot_amount = 0.25
 	}	
 	country_modifier_angry = {
 		cavalry_cost = 0.1
-		manpower_recovery_speed = -0.1
+		cavalry_power = -0.1
 		global_unrest = 2
 	}
 	land_ownership_modifier = {
@@ -84,7 +91,10 @@ estate_cossacks = {
 		desc = EST_STEPPE_PROVINCES
 		trigger = {
 			any_owned_province = {
-				has_terrain = steppe
+				OR = {
+					has_terrain = steppe
+					has_terrain = victory_province_steppe
+				}
 			}
 			num_of_cities = 10
 		}
@@ -128,7 +138,6 @@ estate_cossacks = {
 		estate_cossacks_cossack_self_governance
 		estate_cossacks_establish_the_cossack_regiments
 		estate_cossacks_expand_the_cossack_regiments
-		estate_cossacks_recruit_cossack_generals
 		estate_cossacks_prime_herding_rights
 	}
 

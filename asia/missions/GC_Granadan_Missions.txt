@@ -103,7 +103,6 @@ andalusia_slot_1_missions = {
 					OR = {
 						area = lower_andalucia_area
 						area = upper_andalucia_area
-						area = cordoba_area
 					}
 					OR = {
 						NOT = { owned_by = ROOT }
@@ -128,11 +127,6 @@ andalusia_slot_1_missions = {
 				religion = ROOT
 			}
 			upper_andalucia_area = {
-				type = all
-				owned_by = ROOT
-				religion = ROOT
-			}
-			cordoba_area = {
 				type = all
 				owned_by = ROOT
 				religion = ROOT
@@ -167,7 +161,7 @@ andalusia_slot_1_missions = {
 			1466 = {
 				trade_share = {
 					country = ROOT
-					share = 90
+					share = 75
 				}
 			}
 		}
@@ -408,13 +402,6 @@ granada_slot_2_missions = {
 				add_permanent_claim = ROOT
 			}
 			lower_andalucia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			cordoba_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -853,7 +840,7 @@ adu_slot_2_missions = {
 				skill = 4
 				culture = ROOT
 				religion = ROOT
-				cost_multiplier = 0.67
+				cost_multiplier = 0.25
 			}
 		}
 	}
@@ -1096,7 +1083,7 @@ andalusia_slot_3_missions_b = {
 				}
 				custom_trigger_tooltip = {
 					tooltip = miss_discover_caribbean
-					colonial_the_carribean = {
+					colonial_mexico = {
 						has_discovered = ROOT
 					}
 				}
@@ -1142,7 +1129,7 @@ andalusia_slot_3_missions_c = {
 		position = 8
 
 		provinces_to_highlight = {
-			colonial_region = colonial_the_carribean
+			colonial_region = colonial_mexico
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
@@ -1150,7 +1137,7 @@ andalusia_slot_3_missions_c = {
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 5
-				colonial_region = colonial_the_carribean
+				colonial_region = colonial_mexico
 				is_city = yes
 			}
 		}
@@ -1221,7 +1208,7 @@ granada_slot_4_missions = {
 				type = trader
 				skill = 2
 				culture = ROOT
-				cost_multiplier = 0.67
+				cost_multiplier = 0.25
 			}
 			if = {
 				limit = {
@@ -1413,28 +1400,9 @@ andalusia_slot_4_missions = {
 		}
 		
 		effect = {
-			tafilalt_area = {
-				limit = {
-					NOT = {
-						owned_by = ROOT
-						is_core = ROOT
-					}
-				}
-				add_claim = ROOT
-			}
-			sus_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_claim = ROOT }
-				}
-				add_claim = ROOT
-			}
-			southern_morocco_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_claim = ROOT }
-				}
-				add_claim = ROOT
+			add_country_modifier = {
+			name = adu_moroccon_conquest
+			duration = 3650
 			}
 		}
 	}
@@ -1686,9 +1654,7 @@ granada_slot_5_missions = {
 					has_government_attribute = heir
 				}
 				has_heir = yes
-				heir_claim = 100
 			}
-			legitimacy_equivalent = 100
 			NOT = {
 				average_unrest = 2
 			}
@@ -1978,6 +1944,9 @@ andalusia_slot_5_missions = {
 		}
 		
 		effect = {
+			country_event = {
+				id = flavor_gra.3
+			}
 			said_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -2095,6 +2064,13 @@ andalusia_slot_5_missions = {
 				}
 			}
 			syrian_desert_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			trans_jordan_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_claim = ROOT }

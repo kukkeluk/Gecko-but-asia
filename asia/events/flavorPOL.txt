@@ -1,7 +1,7 @@
 ######################################## 
 # Flavor events for Poland
 # 
-# written by Sara Wendel-Örtqvist
+# written by Sara Wendel-Ã–rtqvist
 ######################################## 
 
 namespace = flavor_pol
@@ -49,44 +49,44 @@ country_event = {
 }
 
 # The Statute of Piotrkow
-#country_event = {
-#	id = flavor_pol.3468
-#	title = "flavor_pol.EVTNAME3468"
-#	desc = "flavor_pol.EVTDESC3468"
-#	picture = COURT_eventPicture
-#	
-#	fire_only_once = yes
-#	
-#	trigger = {
-#		OR = {
-#			AND = {
-#				tag = POL
-#				NOT = { exists = PLC }
-#			}
-#			tag = PLC
-#		}
-#		is_year = 1490
-#		NOT = { is_year = 1500 }
-#	}
-#	
-#	mean_time_to_happen = {
-#		months = 50
-#	}
-#	
-#	option = {
-#		name = "flavor_pol.EVTOPTA3468" # Enact
-#		add_stability_or_adm_power = yes
-#		add_mercantilism = 3
-#		add_country_modifier = {
-#			name = pol_statute_piotrkow
-#			duration = 10950
-#		}
-#	}
-#	option = {
-#		name = "flavor_pol.EVTOPTB3468" # Refuse to enact
-#		add_stability = -3
-#	}
-#}
+country_event = {
+	id = flavor_pol.3468
+	title = "flavor_pol.EVTNAME3468"
+	desc = "flavor_pol.EVTDESC3468"
+	picture = COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = POL
+				NOT = { exists = PLC }
+			}
+			tag = PLC
+		}
+		is_year = 1490
+		NOT = { is_year = 1500 }
+	}
+	
+	mean_time_to_happen = {
+		months = 50
+	}
+	
+	option = {
+		name = "flavor_pol.EVTOPTA3468" # Enact
+		add_stability_or_adm_power = yes
+		add_mercantilism = 3
+		add_country_modifier = {
+			name = pol_statute_piotrkow
+			duration = 10950
+		}
+	}
+	option = {
+		name = "flavor_pol.EVTOPTB3468" # Refuse to enact
+		add_stability = -3
+	}
+}
 
 # The Polish Inheritance of Masovia
 country_event = {
@@ -347,11 +347,7 @@ country_event = {
 				tag = POL
 				NOT = { exists = PLC }
 			}
-			OR = {
-				tag = PLC
-				tag = HUN
-				tag = EOH
-			}	
+			tag = PLC
 		}
 		religion_group = christian
 		exists = TUR
@@ -861,7 +857,7 @@ country_event = {
 			name = "Nicolaus Copernicus"
 			culture = polish
 			skill = 3
-			cost_multiplier = 0.25
+			cost_multiplier = 0.50
 		}
 	}
 }
@@ -1071,7 +1067,7 @@ country_event = {
 	}
 }
 
-# Michal Sedziwój
+# Michal SedziwÃ³j
 country_event = {
 	id = flavor_pol.6
 	title = "flavor_pol.EVTNAME6"
@@ -1102,7 +1098,7 @@ country_event = {
 		add_adm_power = 100
 		define_advisor = {
 			type = philosopher
-			name = "Michal Sedziwój"
+			name = "Michal SedziwÃ³j"
 			culture = polish
 			discount = yes
 			skill = 3
@@ -1400,43 +1396,10 @@ country_event = {
 			}
 			remove_government_reform = elective_monarchy
 			#set_legacy_government = administrative_monarchy
-		if = {
-				limit = { has_heir = yes }
-				kill_heir = {}
-			}
-			add_absolutism = 10
 		}
 	}
 }
 
-# cleanup event for hotfix
-#country_event = {
-#	id = flavor_pol.13
-#	title = "flavor_pol.EVTNAME12"
-#	desc = "flavor_pol.EVTDESC12"
-#	picture = ANGRY_MOB_eventPicture
-#	
-#	fire_only_once = yes
-#	
-#	trigger = {
-#		has_country_modifier = pol_zebrzydowski_rebellion_flag
-#		NOT = { has_country_flag = pol_zebrzydowski_rebellion_flag }
-#	}
-#	
-#	mean_time_to_happen = {
-#		months = 1
-#	}
-#	
-#	option = {
-#		name = "flavor_pol.EVTOPTA12" # The nobles has formally surrendered
-#		remove_estate_privilege = estate_nobles_pacta_conventa
-#		remove_country_modifier = pol_zebrzydowski_rebellion_flag
-#		remove_country_modifier = pol_sejm_veto
-#		remove_country_modifier = pol_sejm_refuse_troops
-#		remove_country_modifier = pol_sejm_comply_policies
-#		clr_country_flag = pol_konfederacja_flag
-#	}
-#}
 
 # Collegium Hosianum
 country_event = {
@@ -1664,7 +1627,10 @@ country_event = {
 			exists = yes
 			is_subject = no
 			NOT = { junior_union_with = POL }
-			dynasty = "Jagiellon"
+			OR = {
+				dynasty = "Jagiellon"
+				government = republic
+			}
 		}
 		NOT = { is_year = 1450 }
 	}
@@ -1674,7 +1640,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 1
+		months = 3
 		modifier = {
 			factor = 0.1
 			is_year = 1447
@@ -1689,22 +1655,22 @@ country_event = {
 		}
 	}
 	
-#	option = {
-#		name = flavor_pol.18.a #We must retain the Jagiellon Dynasty
-#		trigger = {
-#			LIT = {
-#				ai = yes
-#				was_player = no
-#			}
-#		}
-#		ai_chance = { 
-#			factor = 75 
-#		}
-#		create_union = LIT
-#		country_event = {
-#			id = flavor_pol.20
-#		}
-#	}
+	option = {
+		name = flavor_pol.18.a #We must retain the Jagiellon Dynasty
+		trigger = {
+			LIT = {
+				ai = yes
+				was_player = no
+			}
+		}
+		ai_chance = { 
+			factor = 75 
+		}
+		create_union = LIT
+		country_event = {
+			id = flavor_pol.20
+		}
+	}
 	
 	option = {
 		name = flavor_pol.18.b #Appoint a Local Noble.
@@ -1712,71 +1678,22 @@ country_event = {
 			factor = 25
 		}
 		define_ruler = {
-			DIP = 4
-			ADM = 5
-			MIL = 6
-			#max_random_adm = 6
-			#max_random_dip = 6
-			#max_random_mil = 6
+			DIP = 5
+			ADM = 4
+			MIL = 4
 			claim = 100
 			culture = polish
 		}
-		create_union = LIT
-		country_event = {
-			id = flavor_pol.20
-		}
-		set_country_flag = gecko_localnoble
 		if = {
 			limit = {
 				has_states_general_mechanic = yes
 			}
 			change_statists_vs_orangists = 1
 		}
-		279 = {
-					cede_province = POL
-				}
-		2962 = {
-					cede_province = POL
-				}		
-		4539 = {
-					cede_province = POL
-				}		
-		4245 = {
-					cede_province = SMO
-				}
-		297 = {
-					cede_province = SMO
-				}
-		293 = {
-					cede_province = SMO
-				}
-		4244 = {
-					cede_province = SMO
-				}
-		4243 = {
-					cede_province = PLT
-				}
-		771 = {
-					cede_province = PLT
-				}
-		4246 = {
-					cede_province = PLT
-				}
-		292 = {
-					cede_province = PLT
-				}
 		LIT = {
-			every_core_province = {
-			limit = {
-				OR = {
-					area = smolensk_area
-					area = tver_area
-					area = white_ruthenia_area
-					area = volhynia_area
-				}	
-				NOT = { owned_by = LIT }
-			}
-			remove_core = LIT
+			add_opinion = {
+				who = ROOT
+				modifier = lit_denied_birthright
 			}
 		}
 	}

@@ -1,0 +1,76 @@
+########################################################################
+#Denmark mission event:
+namespace = sea_denmark_events
+
+country_event = {
+	id = sea_denmark_events.1
+	title = sea_denmark_events.1.t
+	desc = sea_denmark_events.1.d
+	picture = KING_SICK_IN_BED_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						normandy_area = {
+							type = all
+							NOT = { is_core = NRM }
+						}
+					}
+				}
+				normandy_area = { add_core = NRM }
+			}
+		}
+	}
+
+	option = {
+		name = sea_denmark_events.1.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			release = NRM
+		}
+		vassalize = NRM
+		hidden_effect = {
+			NRM = {
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
+		}
+		NRM = {
+			define_heir = {
+				name = "Rollo"
+				dynasty = "Ragnvaldsson"
+				religion = norse_pagan_reformed
+				claim = 100
+				birth_date = 860.1.1
+			}
+			hidden_effect = {
+				kill_ruler = yes
+			}
+			add_ruler_modifier = {
+				name = live_long_and_prosper_modifier
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				normandy_area = {
+					is_core = ROOT
+				}
+			}
+			normandy_area = { remove_core = ROOT }
+		}
+	}
+	option = {
+		name = sea_denmark_events.1.b
+		ai_chance = { factor = 0 }
+		add_stability = -1
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -20
+		}
+	}
+}

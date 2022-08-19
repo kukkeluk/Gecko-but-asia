@@ -3,7 +3,7 @@
 owner = KRW
 controller = KRW
 add_core = KRW
-culture = takama
+culture = ganda
 religion = shamanism #Fetishism
 capital = "Buzinza"
 trade_goods = iron
@@ -12,4 +12,5 @@ base_tax = 2
 base_production = 2
 base_manpower = 2
 is_city = yes
+center_of_trade = 1
 discovered_by = central_african

@@ -1,0 +1,25 @@
+sca_add_knipling_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				OR = {
+					has_building = wharf
+					has_building = weapons
+					has_building = plantations
+					has_building = tradecompany
+					has_building = mills
+					has_building = farm_estate
+				}
+			}
+			remove_building = wharf
+			remove_building = weapons
+			remove_building = plantations
+			remove_building = tradecompany
+			remove_building = mills
+			remove_building = farm_estate
+			add_building = textile
+		}
+	}
+	change_trade_goods = cloth
+	add_base_production = 1
+}

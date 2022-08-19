@@ -29,6 +29,10 @@ country_event = {
 		}
 	}
 
+	after = {
+		clr_country_flag = brahmin_deity_interaction
+	}
+
 	mean_time_to_happen = {
 		months = 60
 	}
@@ -76,10 +80,6 @@ country_event = {
 		}
 		name = "hindu_events.1.h"
 	}
-	
-	after = {
-		clr_country_flag = brahmin_deity_interaction
-	}
 }
 
 ##################################################
@@ -98,22 +98,11 @@ country_event = {
 		has_regency = no
 		NOT = { has_ruler_modifier = jnana }
 		NOT = { has_ruler_modifier = hindu_withdrawn_contemplation }
-		employed_advisor = {
-			type = artist
-			religion = hinduism
-		}
+		advisor = artist
 	}
 
 	mean_time_to_happen = {
-		months = 1200
-		modifier = {
-			factor = 0.9
-			stability = 2
-		}
-		modifier = {
-			factor = 0.8
-			stability = 3
-		}
+		months = 120
 	}
 
 	# Contemplate creative aspect of Shiva
@@ -124,7 +113,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.3 days = 1826 } }
 	}
 
 	# Continue search
@@ -147,7 +135,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.3.a"
@@ -177,22 +167,19 @@ country_event = {
 		has_regency = no
 		NOT = { has_ruler_modifier = jnana }
 		NOT = { has_ruler_modifier = hindu_withdrawn_contemplation }
-		employed_advisor = {
-			type = theologian
-			religion = hinduism
-		}
+		advisor = theologian
 		stability = 1
 		is_at_war = no
 	}
 
 	mean_time_to_happen = {
-		months = 1200
+		months = 120
 		modifier = {
 			factor = 0.9
 			stability = 2
 		}
 		modifier = {
-			factor = 0.8
+			factor = 0.9
 			stability = 3
 		}
 	}
@@ -205,7 +192,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.5 days = 1826 } }
 	}
 
 	# Continue search
@@ -228,7 +214,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.5.a"
@@ -267,10 +255,7 @@ country_event = {
 		has_regency = no
 		NOT = { has_ruler_modifier = jnana }
 		NOT = { has_ruler_modifier = hindu_withdrawn_contemplation }
-		employed_advisor = {
-			type = inquisitor
-			religion = hinduism
-		}
+		advisor = inquisitor
 		war_score = 20
 		any_known_country = {
 			defensive_war_with = ROOT
@@ -278,11 +263,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1000
-		modifier = {
-			factor = 0.75
-			war_score = 50
-		}
+		months = 100
 	}
 
 	# Contemplate the destructive aspect of Shiva
@@ -293,7 +274,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.7 days = 1826 } }
 	}
 
 	# Continue search
@@ -316,7 +296,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.7.a"
@@ -352,22 +334,11 @@ country_event = {
 		has_regency = no
 		NOT = { has_ruler_modifier = jnana }
 		NOT = { has_ruler_modifier = hindu_withdrawn_contemplation }
-		employed_advisor = {
-			type = philosopher
-			religion = hinduism
-		}
+		advisor = philosopher
 	}
 
 	mean_time_to_happen = {
-		months = 1200
-		modifier = {
-			factor = 0.9
-			stability = 2
-		}
-		modifier = {
-			factor = 0.8
-			stability = 3
-		}
+		months = 120
 	}
 
 	# Contemplate how Shiva is concealed, but present in all things
@@ -378,7 +349,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.9 days = 1826 } }
 	}
 
 	# Continue search
@@ -401,7 +371,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.9.a"
@@ -439,15 +411,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1200
-		modifier = {
-			factor = 0.9
-			stability = 2
-		}
-		modifier = {
-			factor = 0.8
-			stability = 3
-		}
+		months = 120
 	}
 
 	immediate = {
@@ -458,7 +422,6 @@ country_event = {
 				NOT = { has_ruler_modifier = hindu_withdrawn_contemplation }
 				NOT = { has_ruler_modifier = jnana }
 			}
-			hidden_effect = { save_event_target_as = event_ally }
 			country_event = { id = hindu_events.30 days = 1 }
 		}
 	}
@@ -471,7 +434,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.11 days = 1826 } }
 	}
 
 	# Continue search
@@ -494,7 +456,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.11.a"
@@ -536,36 +500,20 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1200
-		modifier = {
-			factor = 0.9
-			stability = 2
-		}
-		modifier = {
-			factor = 0.8
-			stability = 3
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			random_known_country = {
-				limit = {
-					marriage_with = ROOT
-					has_personal_deity = vishnu
-					has_regency = no
-					NOT = { has_ruler_modifier = hindu_withdrawn_contemplation }
-					NOT = { has_ruler_modifier = jnana }
-				}
-				save_event_target_as = marriage_with_country
-			}
-		}
+		months = 120
 	}
 
 	option = {
 		name = "hindu_events.12.a"
 		add_dip_power = 20
-		event_target:marriage_with_country = {
+		random_known_country = {
+			limit = {
+				marriage_with = ROOT
+				has_personal_deity = vishnu
+				has_regency = no
+				NOT = { has_ruler_modifier = hindu_withdrawn_contemplation }
+				NOT = { has_ruler_modifier = jnana }
+			}
 			add_opinion = {
 				who = ROOT
 				modifier = reconciling_differences
@@ -596,15 +544,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 72
-		modifier = {
-			factor = 0.9
-			stability = 2
-		}
-		modifier = {
-			factor = 0.8
-			stability = 3
-		}
+		months = 4
 	}
 
 	# Contemplate the benevolent and beautiful aspect of Shakti
@@ -615,7 +555,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.15 days = 1826 } }
 	}
 
 	# Continue search
@@ -649,15 +588,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 36
-		modifier = {
-			factor = 0.9
-			stability = 2
-		}
-		modifier = {
-			factor = 0.8
-			stability = 3
-		}
+		months = 1
 	}
 
 	# Contemplate the benevolent and beautiful aspect of Shakti
@@ -668,7 +599,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.15 days = 1826 } }
 	}
 
 	# Continue search hindu_shakta_1_rejected
@@ -696,7 +626,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.15.a"
@@ -739,7 +671,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 300
+		months = 60
 		modifier = {
 			factor = 0.8
 			num_of_royal_marriages = 3
@@ -758,7 +690,6 @@ country_event = {
 			name = hindu_withdrawn_meditation
 			duration = 730
 		}
-		hidden_effect = { country_event = { id = hindu_events.17 days = 731 } }
 	}
 
 	# Meditate on unity (Prakrti)
@@ -769,7 +700,6 @@ country_event = {
 			name = hindu_withdrawn_meditation
 			duration = 730
 		}
-		hidden_effect = { country_event = { id = hindu_events.18 days = 731 } }
 	}
 
 	# Eschew meditation
@@ -792,7 +722,9 @@ country_event = {
 		NOT = { has_ruler_modifier = shakti_parvati }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.17.a"
@@ -813,7 +745,9 @@ country_event = {
 		NOT = { has_ruler_modifier = shakti_prakrti }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.18.a"
@@ -837,21 +771,21 @@ country_event = {
 		any_known_country = {
 			OR = {
 				offensive_war_with = ROOT
-				is_in_war = {
-					attacker_leader = root
-					casus_belli = cb_independence_war
+				AND = {
+					war_with = ROOT
+					ROOT = {
+						has_casus_belli = {
+							type = cb_independence_war
+							target = PREV
+						}
+					}
 				}
 			}
 		}
-		NOT = { war_score = -1 }
 	}
 
 	mean_time_to_happen = {
-		months = 500
-		modifier = {
-			factor = 0.75
-			NOT = { war_score = -15 }
-		}
+		months = 100
 	}
 
 	# Contemplate the destructive and fearsome aspect of Shakti
@@ -862,7 +796,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.20 days = 1826 } }
 	}
 
 	# Continue search hindu_shakta_1_rejected
@@ -885,7 +818,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.20.a"
@@ -931,7 +866,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 300
+		months = 60
 	}
 
 	# Meditate on destruction (Kali)
@@ -942,7 +877,6 @@ country_event = {
 			name = hindu_withdrawn_meditation
 			duration = 730
 		}
-		hidden_effect = { country_event = { id = hindu_events.22 days = 731 } }
 	}
 
 	# Meditate on liberation (Tara)
@@ -953,7 +887,6 @@ country_event = {
 			name = hindu_withdrawn_meditation
 			duration = 730
 		}
-		hidden_effect = { country_event = { id = hindu_events.23 days = 731 } }
 	}
 
 	# Eschew meditation
@@ -976,7 +909,9 @@ country_event = {
 		NOT = { has_ruler_modifier = shakti_kali }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.22.a"
@@ -997,7 +932,9 @@ country_event = {
 		NOT = { has_ruler_modifier = shakti_tara }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.23.a"
@@ -1018,16 +955,6 @@ country_event = {
 
 	is_triggered_only = yes
 
-	trigger = {
-		if = { #otherwise the flavour is wrong
-			limit = {
-				has_dlc = "Rights of Man"
-			}
-			has_consort = yes
-			is_origin_of_consort = from
-		}
-	}
-
 	# Contemplate Lakshmi as a medium to Vishnu
 	option = {
 		name = "hindu_events.24.a"
@@ -1036,7 +963,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.25 days = 1826 } }
 	}
 
 	# Contemplate Lakshmi as peer or superior to Vishnu
@@ -1047,7 +973,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.26 days = 1826 } }
 	}
 
 	# Continue search
@@ -1070,7 +995,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.25.a"
@@ -1110,7 +1037,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	# Lakshmi is the force behind Vishnu, but Vishnu is still the surpeme god
 	option = {
@@ -1185,22 +1114,11 @@ country_event = {
 		has_regency = no
 		NOT = { has_ruler_modifier = jnana }
 		NOT = { has_ruler_modifier = hindu_withdrawn_contemplation }
-		employed_advisor = {
-			type = theologian
-			religion = hinduism
-		}
+		advisor = theologian
 	}
 
 	mean_time_to_happen = {
-		months = 1200
-		modifier = {
-			factor = 0.9
-			stability = 2
-		}
-		modifier = {
-			factor = 0.8
-			stability = 3
-		}
+		months = 120
 	}
 
 	# Accept theologian's tutorage
@@ -1211,7 +1129,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.28 days = 1826 } }
 	}
 
 	# Accept advice, seek other teacher
@@ -1223,7 +1140,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.29 days = 1826 } }
 	}
 
 	# Continue search
@@ -1246,7 +1162,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.28.a"
@@ -1283,7 +1201,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.29.a"
@@ -1317,7 +1237,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.31 days = 1826 } }
 	}
 
 	# Contemplate Shiva as peer or superior to Vishnu
@@ -1328,7 +1247,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.32 days = 1826 } }
 	}
 
 	# Continue search
@@ -1351,7 +1269,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.31.a"
@@ -1391,7 +1311,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	# Shiva is Vishnu's most respected follower, but Vishnu is still the surpeme god
 	option = {
@@ -1474,15 +1396,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 600
-		modifier = {
-			factor = 0.9
-			stability = 2
-		}
-		modifier = {
-			factor = 0.8
-			stability = 3
-		}
+		months = 60
 	}
 
 	# FULL CELIBATE
@@ -1494,7 +1408,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 2920
 		}
-		hidden_effect = { country_event = { id = hindu_events.34 days = 2921 } }
 	}
 
 	# Maybe a little bit celibate
@@ -1509,7 +1422,6 @@ country_event = {
 			name = vishnu_celibacy
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.35 days = 1826 } }
 	}
 
 	# Continue search/orgies
@@ -1532,7 +1444,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.34.a"
@@ -1589,7 +1503,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.35.a"
@@ -1637,21 +1553,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 800
-		modifier = {
-			factor = 0.5
-			all_neighbor_country = {
-				NOT = { tech_difference = -1 }
-			}
-		}
-		modifier = {
-			factor = 0.9
-			stability = 2
-		}
-		modifier = {
-			factor = 0.8
-			stability = 3
-		}
+		months = 100
 	}
 
 	# Contemplate Ganesha
@@ -1662,7 +1564,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.37 days = 1826 } }
 	}
 
 	# Continue search
@@ -1686,7 +1587,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.37.a"
@@ -1727,7 +1630,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 24
+		months = 18
 	}
 
 	option = {
@@ -1779,15 +1682,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 240
-		modifier = {
-			factor = 0.33
-			ruler_age = 70
-		}
-		modifier = {
-			factor = 0.9
-			stability = 3
-		}
+		months = 120
 	}
 
 	# Make plans for your funeral
@@ -1987,7 +1882,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1400
+		months = 140
 		modifier = {
 			factor = 0.75
 			temple = 3
@@ -2009,7 +1904,6 @@ country_event = {
 			name = hindu_withdrawn_contemplation
 			duration = 1825
 		}
-		hidden_effect = { country_event = { id = hindu_events.45 days = 1826 } }
 	}
 
 	# Continue search
@@ -2032,7 +1926,9 @@ country_event = {
 		NOT = { has_ruler_modifier = jnana }
 	}
 
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	option = {
 		name = "hindu_events.45.a"
@@ -2073,7 +1969,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 36
+		months = 18
 	}
 
 	option = {
@@ -2121,10 +2017,21 @@ country_event = {
 		government = monarchy
 		has_heir = no
 		has_government_attribute = heir
+		OR = {
+			NOT = { has_country_flag = has_had_suryavansha_flag }
+			had_country_flag = {
+				flag = has_had_suryavansha_flag
+				days = 27375
+			}
+		}
 	}
 
 	mean_time_to_happen = {
 		months = 180
+	}
+
+	immediate = {
+		set_country_flag = has_had_suryavansha_flag
 	}
 
 	option = {
@@ -2171,7 +2078,7 @@ country_event = {
 
 	option = {
 		name = "hindu_events.49.a"
-		create_general = { tradition = 30 }
+		create_general = { tradition = 0 }
 		add_prestige = 10
 	}
 
@@ -2200,7 +2107,7 @@ country_event = {
 
 	option = {
 		name = "hindu_events.50.a"
-		custom_tooltip = "hindu_events.50.a.tt" #A reference to the Guru Meditation error on old Amiga computers.
+		custom_tooltip = "hindu_events.50.a.tt"
 		add_stability = -1
 	}
 }

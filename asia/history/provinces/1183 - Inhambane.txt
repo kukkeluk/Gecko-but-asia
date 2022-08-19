@@ -1,7 +1,5 @@
 #1183 - Inhambane
-owner = SFA
-controller = SFA
-add_core = SFA
+
 culture = nguni
 religion = shamanism #Fetishism
 capital = "Inhambane"
@@ -25,9 +23,11 @@ discovered_by = MDI
 discovered_by = MLI
 discovered_by = SFA
 discovered_by = ZIM
-extra_cost = 8
-center_of_trade = 1
-
+owner = SFA
+controller = SFA
+add_core = SFA
+is_city = yes
+trade_goods = fish
 
 1498.1.15 = { discovered_by = POR } #Vasco Da Gama
 #1560.1.1 - Portuguese tradepost established
@@ -35,9 +35,7 @@ center_of_trade = 1
 	owner = POR
 	controller = POR
 	add_core = POR
-	is_city = yes
-	base_manpower = 1
-	trade_goods = ivory
+
 } #Permanent Portuguese outpost established
 1752.1.1 = { unrest = 7 } #Tsonga migrations destabilize region
 1755.1.1 = { unrest = 0 }

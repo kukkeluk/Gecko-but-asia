@@ -7,6 +7,44 @@
 namespace = flavor_mor
 normal_or_historical_nations = yes
 
+#Crisis of the Maghreb
+country_event = {
+	id = flavor_mor.1
+	title = flavor_mor.1.t
+	desc = flavor_mor.1.d
+	picture = FAMINE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOR
+		NOT = { is_year = 1450 }
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = flavor_mor.1.a #Let them try! We shall rise again!
+		add_country_modifier = {
+			name = "mor_crisis"
+			duration = 1825
+		}
+		every_known_country = {
+			limit = {
+				capital_scope = {
+					region = maghreb_region
+				}
+			}
+			add_country_modifier = {
+				name = "mor_crisis"
+				duration = 1825
+			}
+			country_event = { id = flavor_mor.11 }
+		}
+	}
+}
 
 #Moorish Refugees
 country_event = {
@@ -93,6 +131,167 @@ country_event = {
 	}
 }
 
+#The Wattasid Viziers - Foreboding
+country_event = {
+	id = flavor_mor.5
+	title = flavor_mor.5.t
+	desc = flavor_mor.5.d
+	picture = KING_SICK_IN_BED_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOR
+		NOT = { is_year = 1455 } #Died in 1448
+	}
+	
+	mean_time_to_happen = {
+		months = 33
+	}
+	
+	option = {
+		name = flavor_mor.5.a #A great man has passed away
+		add_piety = -0.05
+		set_country_flag = mor_death_of_yahya
+	}
+	
+}
+
+#A Wattasid Conspiracy?
+country_event = {
+	id = flavor_mor.6
+	title = flavor_mor.6.t
+	desc = flavor_mor.6.d
+	picture = ACCUSATION_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		tag = MOR
+		has_country_flag = mor_death_of_yahya
+		NOT = { is_year = 1490 }
+		always = no #Removed
+	}
+	
+	#mean_time_to_happen = {
+	#	months = 126
+	#}
+	
+	option = {
+		name = flavor_mor.6.a #Kill them all!
+		ai_chance = { factor = 1 }
+		add_stability = -1
+		country_event = { id = flavor_mor.7 days = 30 }
+	}
+	
+	option = {
+		name = flavor_mor.6.b #They remain our trusted advisors.
+		ai_chance = { factor = 0 }
+		set_country_flag = mor_wattasid_power
+	}
+	
+}
+
+#Wattasid Revolt
+country_event = {
+	id = flavor_mor.7
+	title = flavor_mor.7.t
+	desc = flavor_mor.7.d
+	picture = CIVIL_WAR_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = wattasid_resolution
+	}
+	
+	option = {
+		name = flavor_mor.7.a
+		random_owned_province = {
+			limit = {
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				culture = berber
+				religion = sunni
+				leader = "Muhammad"
+				leader_dynasty = "ibn Yahya Wattasid"
+			}
+		}
+	}
+	
+}
+
+#Wattasid Ultimatum
+country_event = {
+	id = flavor_mor.8
+	title = flavor_mor.8.t
+	desc = flavor_mor.8.d
+	picture = CIVIL_WAR_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = MOR
+		has_country_flag = mor_wattasid_power
+		always = no #Removed
+	}
+	
+	#mean_time_to_happen = {
+	#	months = 30
+	#}
+	
+	immediate = {
+		set_country_flag = wattasid_resolution
+	}
+	
+	option = {
+		name = flavor_mor.8.a #Abdicate
+		ai_chance = { factor = 50 }
+		add_stability = -2
+		define_ruler = {
+			name = "Muhammad I"
+			dynasty = "Wattasid"
+			culture = berber
+		}
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = 1
+		}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = {}
+		}
+	}
+	
+	option = {
+		name = flavor_mor.8.b #This is my Throne!
+		ai_chance = { factor = 50 }
+		random_owned_province = {
+			limit = {
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				religion = sunni
+				culture = berber
+				leader = "Muhammad"
+				leader_dynasty = "ibn Yahya Wattasid"
+			}
+		}
+	}
+	
+}
 
 #The Sudanese Expedition
 country_event = {
@@ -101,26 +300,7 @@ country_event = {
 	desc = flavor_mor.9.d
 	picture = EXPLORERS_eventPicture
 	
-	fire_only_once = yes
-	
-	trigger = {
-		OR = {
-			AND = {
-				NOT = { has_dlc = "Golden Century" }
-				tag = MOR
-				is_year = 1550
-				OR = {
-					owns_core_province = 2466
-					owns_core_province = 2460
-				}
-				1127 = {
-					is_empty = yes
-				}
-				NOT = { owns = 1128 }
-			}
-			has_country_flag = mor_sudanese_expedition
-		}
-	}
+	is_triggered_only = yes
 	
 	immediate = {
 		hidden_effect = {
@@ -136,14 +316,18 @@ country_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 150
-	}
-	
 	option = {
 		name = flavor_mor.9.a #Let us cross the Sahara!
 		ai_chance = { factor = 1 }
-		5800 = {
+		5881 = {
+			add_core = MOR
+			cede_province = MOR
+		}
+		5883 = {
+			add_core = MOR
+			cede_province = MOR
+		}
+		5882 = {
 			add_core = MOR
 			cede_province = MOR
 		}
@@ -151,58 +335,49 @@ country_event = {
 			add_core = MOR
 			cede_province = MOR
 		}
-		5801 = {
+		5880 = {
 			add_core = MOR
 			cede_province = MOR
 		}
-		5803 = {
+		5884 = {
 			add_core = MOR
 			cede_province = MOR
 		}
-		5802 = {
+		5885 = {
 			add_core = MOR
 			cede_province = MOR
 		}
-		5804 = {
+		5892 = {
 			add_core = MOR
 			cede_province = MOR
 		}
-		5812 = {
+		5886 = {
 			add_core = MOR
 			cede_province = MOR
 		}
-		5805 = {
-			add_core = MOR
-			cede_province = MOR
-		}
-		5806 = {
-			add_core = MOR
-			cede_province = MOR
-		}
-		pr_africa_area_2 = {
+		
+		temp_area_sahara_6 = {
 			limit = {
 				NOT = { is_permanent_claim = ROOT	}
 				NOT = { is_core = ROOT	}
 				}
 			add_permanent_claim = ROOT
 		}
-		5809 = {
-				if = {
-					limit = {
-						NOT = {
-							is_permanent_claim = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-			}
 		western_sahara_area = {
 			limit = {
 				NOT = { is_permanent_claim = ROOT	}
 				NOT = { is_core = ROOT	}
 				}
 			add_permanent_claim = ROOT
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 1132
+					province_id = 2247
+				}
+			}
+			add_permanent_claim = MOR
 		}
 		every_country = {
 			limit = { has_country_flag = mor_crosses_sahara }
@@ -238,6 +413,31 @@ country_event = {
 					}
 				}
 				add_permanent_claim = MOR
+			}
+		}
+	}
+	
+}
+
+#Crisis of the Maghreb - Info Popup
+country_event = {
+	id = flavor_mor.11
+	title = flavor_mor.1.t
+	desc = flavor_mor.1.d
+	picture = FAMINE_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { tag = MOR }
+	}
+	
+	option = {
+		name = flavor_mor.1.a
+		tooltip = {
+			add_country_modifier = {
+			name = "mor_crisis"
+			duration = 1825
 			}
 		}
 	}

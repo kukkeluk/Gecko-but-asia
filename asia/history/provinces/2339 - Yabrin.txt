@@ -1,9 +1,11 @@
 #2339 - Yabrin
 
-owner = DAW
-controller = DAW
+#owner = DAW
+#controller = DAW
+owner = YAS
+controller = YAS
 culture = bedouin_arabic
-religion = sunni
+religion = ibadi
 capital = "Yabrin"
 trade_goods = grain
 hre = no
@@ -12,6 +14,7 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = DAW
+add_core = YAS
 discovered_by = muslim
 discovered_by = ottoman
 discovered_by = indian

@@ -1,7 +1,5 @@
 #944 - Potawatomi
 
-
-
 culture = mesquakie
 religion = totemism
 capital = "Potawatomi"
@@ -10,7 +8,7 @@ hre = no
 base_tax = 2
 base_production = 3
 base_manpower = 1
-
+is_city = yes
 native_size = 5
 native_ferocity = 1
 native_hostileness = 4

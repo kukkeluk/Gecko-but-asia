@@ -1,7 +1,7 @@
 #152 - Varazd
 
-owner = HUN
-controller = HUN
+owner = CRO
+controller = CRO
 culture = croatian
 religion = catholic
 capital = "Varazdin"
@@ -23,7 +23,7 @@ discovered_by = western
 discovered_by = eastern
 discovered_by = muslim
 discovered_by = ottoman
-center_of_trade = 1
+
 
 1456.11.9 = {
 	owner = HAB

@@ -1,0 +1,741 @@
+monkey_georgia_missions_1 = {
+	slot = 1
+	generic = no
+	ai yes
+	potential = {
+		tag = GEO
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	georgian_empire_mission={
+    icon = mission_conquer_50_development
+	required_missions={ }
+	position = 1
+    provinces_to_highlight={
+	region = caucasia_region
+	NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	}
+	trigger = {
+	if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+	caucasia_region = {
+	type = all
+	country_or_non_sovereign_subject_holds = ROOT
+	}
+	adm_tech = 10
+	}
+    effect = {
+	    	hidden_effect = {
+				complete_mission = georgian_empire_mission
+			}
+		if = {
+				limit = {
+					NOT = {
+						government_rank = 3
+					}
+				}
+				set_government_rank = 3
+			}
+		change_tag=GEE
+		custom_tooltip = GEO_upgrade
+		add_prestige = 50
+		country_event = { id = ideagroups.1 }
+	}
+  }
+	
+	conquer_circassia = {
+		icon = mission_persian_soldiers
+		required_missions = { Stabilize_the_nation }
+		position = 2
+		
+		Provinces_to_highlight = {
+			OR = {
+				area = circassia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			circassia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { 
+			add_prestige = 15
+			change_government_reform_progress = 30
+			astrakhan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	tame_the_steppes = {
+		icon = mission_impaled_soldies
+		required_missions = { conquer_circassia }
+		position = 3
+		
+		Provinces_to_highlight = {
+			OR = {
+				area = astrakhan_area
+				area = katoof_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			astrakhan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			katoof_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+
+			custom_tooltip = astrakhani_becomes_caucasian
+			hidden_effect = {
+			every_province = {
+				limit = {
+					culture = astrakhani
+				}
+				change_culture = astrakhani_caucasus
+			}
+			every_country = {
+				limit = {
+					primary_culture = astrakhani
+				}
+				change_primary_culture = astrakhani_caucasus
+				set_ruler_culture = astrakhani_caucasus
+				if = {
+					limit = {
+						has_heir = yes
+						heir_culture = astrakhani	
+					}
+					set_heir_culture = astrakhani_caucasus
+				}
+				if = {
+					limit = {
+						has_consort = yes
+						consort_culture = astrakhani
+					}
+					set_consort_culture = astrakhani_caucasus
+				}
+			}
+			}
+			
+			add_prestige = 10
+			change_government_reform_progress = 50
+			lower_don_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			lower_yik_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	Secure_the_frontier = {
+		icon = mission_steppe_warriors
+		required_missions = { tame_the_steppes }
+		position = 4
+		
+		Provinces_to_highlight = {
+			OR = {
+				area = katoof_area
+				area = lower_yik_area
+				area = lower_don_area
+			}
+			NOT = { 
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			lower_yik_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			katoof_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lower_don_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = { 
+			add_prestige = 15
+			add_country_modifier = {
+				name = "mjl_secure_the_frontier"
+				duration = -1
+			}
+		}
+	}
+}
+
+monkey_georgia_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = GEO
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	Stabilize_the_nation = {
+		icon = mission_scholar_officials
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			stability = 1
+		}
+		
+		effect = {
+			circassia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			shirvan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			add_patriarch_authority = 0.25
+		}
+	}
+	
+	conquer_shirvan = {
+		icon = mission_invade_island
+		required_missions = { Stabilize_the_nation }
+		position = 2
+		
+		Provinces_to_highlight = {
+			OR = {
+				area = shirvan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			shirvan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { 
+			add_prestige = 15
+			change_government_reform_progress = 30
+			421 = { add_center_of_trade_level = 1 }
+			armenia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	Secure_the_south = { 
+		icon = mission_colonial
+		required_missions = { conquer_shirvan }
+		position = 3
+		
+		Provinces_to_highlight = {
+			OR = {
+			province_id = 420
+			province_id = 2202
+			province_id = 2205
+			province_id = 419
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+	
+		trigger = {
+			if = {
+					limit = {
+						OR = {
+							was_player = yes
+							is_colonial_nation = yes
+						}
+					}
+					ai = no
+				}
+				armenia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+		}
+	
+		effect = {
+			419 = { add_province_modifier = {
+				name = "mjl_fortify_yerevan"
+				duration = 7300
+			}
+			}
+			tabarestan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}			
+		}
+	}
+	
+	Persian_foothold = {
+		icon = mission_central_asian_city
+		required_missions = { Secure_the_south }
+		position = 4
+		
+		Provinces_to_highlight = {
+			OR = {
+				area = tabarestan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			tabarestan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect ={
+			4341 = {
+			add_trade_modifier = {
+			who = root 
+			duration = 5475
+			power = 50
+			key = "mjl_persian_traders"
+			}
+			}
+		}	
+	}
+	
+}	
+
+monkey_georgia_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = GEO
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	geo_build_army_mission = { #Localized as reclaim_maine_title and reclaim_maine_desc
+		icon = mission_build_up_to_force_limit
+		required_missions = {  } #None
+		trigger = {
+			army_size_percentage = 1 #What you need to complete the mission, displayed for mission tooltip
+		}
+		effect = { #This is what you get after you finished your mission.
+			add_country_modifier = {
+				name = "thriving_arms_industry"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	geo_assemble_an_army = {
+		icon = mission_assemble_an_army
+		required_missions = { build_army_mission }
+		trigger = { army_size = 80 }
+		effect = {
+			add_country_modifier = {
+				name = "army_enthusiasm"
+				duration = 9125 #25 years
+			}
+		}
+	}
+}
+
+monkey_georgia_missions_4 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = GEO
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	geo_high_income_mission = {
+		icon = mission_high_income
+		required_missions = {  } #None
+		trigger = { share_of_starting_income = 1.5 }
+		effect = {
+			add_country_modifier = {
+				name = "growing_economy"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	geo_build_temples = {
+		icon = mission_early_game_buildings
+		required_missions = { geo_high_income_mission }
+		trigger = {
+			temple = 5
+			workshop = 5
+		}
+		effect = {
+			add_adm_power = 50
+			add_country_modifier = {
+				name = "building_spree"
+				duration = 9125
+			}
+		}
+	}
+	geo_build_treasury = {
+		icon = mission_war_chest
+		required_missions = { geo_build_temples }
+		trigger = { treasury = 2000 }
+		effect = {
+			add_country_modifier = {
+				name = "strong_treasury"
+				duration = 9125
+			}
+		}
+	}
+	geo_build_manufactories = {
+		icon = mission_have_manufactories
+		required_missions = { geo_build_treasury }
+		trigger = {
+			calc_true_if = {
+				desc = build_manufactories_mission_tooltip
+				all_owned_province = {
+					OR = {
+						has_building = mills
+						has_building = farm_estate
+						has_building = tradecompany
+						has_building = plantations
+						has_building = textile
+						has_building = weapons
+						has_building = wharf
+						has_building = furnace
+					}
+				}
+				amount = 20
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "proto_industrialization"
+				duration = 9125
+			}
+			add_years_of_income = 1.5
+		}
+	}
+	geo_imperial_ambition_mission = {
+		icon = mission_empire
+		required_missions = { geo_build_manufactories }
+		trigger = {
+			total_development = 1000
+		}
+		effect = {
+			add_prestige = 30
+			add_country_modifier = {
+				name = "imperial_ambition"
+				duration = 9125
+			}
+		}
+	}
+}
+
+monkey_georgia_missions_5 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = GEO
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	Reclaim_yerevan = {
+		icon = mission_hands_praying
+		required_missions = { }
+		position = 1
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 419
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		Trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			419 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		Effect = {
+			add_country_modifier = {
+			name = "mjl_yerevan_reclaimed"
+			duration = -1
+			}
+		}
+	}
+	
+	Reclaim_antioch = {
+		icon = mission_non-western_soldiers
+		required_missions = { }
+		position = 2
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2313
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		Trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			2313 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		Effect = {
+			add_country_modifier = {
+			name = "mjl_antioch_reclaimed"
+			duration = -1
+			}
+		}
+	}
+	
+	Reclaim_jerusalem = {
+		icon = mission_teutonic_knights
+		required_missions = { }
+		position = 3
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 379
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		Trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			379 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		Effect = {
+			add_country_modifier = {
+			name = "mjl_reclaim_jerusalem"
+			duration = -1
+			}
+		}
+	}
+	
+	Reclaim_constantinople = {
+		icon = mission_ottoman_harem
+		required_missions = { }
+		position = 4
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 151
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		Trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			151 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		Effect = {
+			add_country_modifier = {
+			name = "mjl_constantinople_reclaimed"
+			duration = -1
+			}
+		}
+	}
+	
+	Reclaim_mount_athos = {
+		icon = mission_pf_cross
+		required_missions = { }
+		position = 5
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 148
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		Trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			148 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		Effect = {
+			add_country_modifier = {
+			name = "mjl_reclaim_mount_athos"
+			duration = -1
+			}
+		}
+	}
+}

@@ -3,8 +3,13 @@ add_government_reform = steppe_horde
 technology_group = nomad_group
 religion = tengri_pagan_reformed
 primary_culture = oirats
-capital = 718
+#capital = 718
+capital = 2190 #Qaraqorum
 add_accepted_culture = khalkha
+add_country_modifier = {
+	name = "mjl_oirat_buffs"
+	duration = -1
+}
 
 #Khans of the Oirats (Kalmyks, Dzungars)
 1399.1.1 = {
@@ -30,7 +35,7 @@ add_accepted_culture = khalkha
 1408.1.1 = {
 	heir = {
 		name = "Esen"
-		monarch_name = "Esen"
+		monarch_name = "Esen Taishi"
 		dynasty = "Choros"
 		birth_date = 1393.1.1
 		death_Date = 1455.1.1
@@ -43,12 +48,22 @@ add_accepted_culture = khalkha
 
 1438.1.1 = {
 	monarch = {
-		name = "Esen"
+		name = "Esen Taishi"
 		dynasty = "Choros"
-		adm = 5
-		dip = 5
+		adm = 3
+		dip = 3
 		mil = 5
-		birth_date = 1420.1.1
+		birth_date = 1393.1.1
+		leader = {
+			name = "Esen Taishi"
+			type = general
+
+			fire = 2
+			shock = 5
+			manuever = 5
+			siege = 0
+			personality = goal_oriented_personality
+		}
 	}
 	add_ruler_personality = inspiring_leader_personality
 }

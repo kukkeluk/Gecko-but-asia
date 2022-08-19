@@ -1,7 +1,9 @@
 #835 - Panama 
 
 culture = muisca
-
+owner = MCA
+controller = MCA
+add_core = MCA
 
 
 discovered_by = south_american

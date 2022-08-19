@@ -126,7 +126,7 @@ groups = {
 			has_reform = steppe_horde
 		}
 	}
-	sub_saharan = { 
+	sub_saharan = { #West African
 		start_level = 3
 		start_cost_modifier = 0.6
 	}
@@ -150,8 +150,8 @@ groups = {
 		start_cost_modifier = 1.5
 		nation_designer_unit_type = south_american
 		is_primitive = yes
-	}	
-	aboriginal_tech = {
+	}
+		aboriginal_tech = {
 		start_level = 1
 		start_cost_modifier = 2.5
 		is_primitive = yes
@@ -177,7 +177,6 @@ groups = {
 			value = 50
 		}
 	}
-	
 	high_american = {
 		start_level = 3
 		start_cost_modifier = 0
@@ -195,10 +194,6 @@ groups = {
 		nation_designer_cost = {
 			value = 75
 		}
-	}
-	gunpowder_empire = {
-		start_level = 3
-		start_cost_modifier = 0.4
 	}
 }
 

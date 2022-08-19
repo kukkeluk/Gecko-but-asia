@@ -3,9 +3,7 @@ country_decisions = {
 	nepal_nation = {
 		major = yes
 		potential = {
-			tag = GRK
 			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_nepal_flag }
 			OR = {
 				ai = no
@@ -49,16 +47,15 @@ country_decisions = {
 			}
 		}
 		allow = {
-			tag = GRK
 			NOT = { exists = NPL }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
-			is_nomad = no
 			owns_core_province = 557
 			owns_core_province = 2070
 			owns_core_province = 4483
 			owns_core_province = 4484
 			owns_core_province = 4485
+			mil_tech = 8		
 		}
 		effect = {
 			if = {
@@ -82,6 +79,10 @@ country_decisions = {
 				limit = { NOT = { government_rank = 2 } }
 				set_government_rank = 2
 			}
+			if = {
+					limit = { is_revolutionary = no }
+					change_government_to_monarchy = yes
+				}
 			nepal_area = {
 				limit = {
 					NOT = { is_core = ROOT }

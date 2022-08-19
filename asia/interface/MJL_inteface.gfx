@@ -1,0 +1,75 @@
+spriteTypes = {	
+
+	###########
+	# AGES:
+	spriteType = {
+		name = "GFX_obj_unify_culture_2"
+		texturefile = "gfx/interface/ages/obj_large_forcelimit.dds"
+	}
+	spriteType = {
+		name = "GFX_ab_rival_change_2"
+		texturefile = "gfx/interface/ages/ab_yearly_absolutism.dds"
+	}
+	spriteType = {
+		name = "GFX_obj_humanism_religious_2"
+		texturefile = "gfx/interface/ages/obj_humanism_religious.dds"
+	}
+	
+	###########
+	# MISSIONS:
+	spriteType = {
+		name = "mission_weirdchimp"
+		texturefile = "gfx//interface/missions/mission_weirdchimp.dds"
+	}
+	
+	###########
+	# EVENTS:
+	spriteType = {
+		name = "Danny_eventPicture"
+		texturefile = "gfx/event_pictures/Danny_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "Harambe_eventPicture"
+		texturefile = "gfx/event_pictures/Harambe_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "Loaf_eventPicture"
+		texturefile = "gfx/event_pictures/Loaf_eventPicture.dds"
+		allwaystransparent = yes
+	}
+
+	###########
+	# IDEAS:
+    spriteType = {
+		name = "GFX_idea_modernization_ideas"
+		texturefile = "gfx//interface//ideas//idea_modernization_ideas.tga"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate_linear.lua"
+	}
+	spriteType = {
+		name = "GFX_idea_logistic_ideas"
+		texturefile = "gfx//interface//ideas//idea_logistic_ideas.tga"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate_linear.lua"
+	}
+	spriteType = {
+		name = "GFX_idea_assimilation_ideas"
+		texturefile = "gfx//interface//ideas//idea_assimilation_ideas.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate_linear.lua"
+    }
+	spriteType = {
+		name = "GFX_idea_manufacturing_ideas"
+		texturefile = "gfx//interface//ideas//idea_manufacturing_ideas.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate_linear.lua"
+    }
+	spriteType = {
+		name = "GFX_idea_bureaucratic_ideas"
+		texturefile = "gfx//interface//ideas//idea_bureaucratic_ideas.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate_linear.lua"
+	}
+}

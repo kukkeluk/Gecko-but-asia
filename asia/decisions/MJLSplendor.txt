@@ -1,0 +1,96 @@
+country_decisions = {	
+	mjl_recruit_general = {
+		major = no
+		potential = {
+			ai = no
+			OR = {
+			current_age = age_of_reformation
+			current_age = age_of_discovery
+			}
+       }
+		allow = {
+        splendor = 300
+		}
+		effect = {
+	    add_splendor = -150 
+		create_general = { tradition = 40 }
+		}
+	}
+	mjl_recruit_admiral = {
+		major = no
+		potential = {
+			ai = no
+			OR = {
+			current_age = age_of_reformation
+			current_age = age_of_discovery
+			}
+       }
+		allow = {
+        splendor = 300
+		}
+		effect = {
+	    add_splendor = -150 
+		create_admiral = { tradition = 40 }
+		}
+	}
+    mjl_recruit_general2 = {
+		major = no
+		potential = {
+			ai = no
+			OR = {
+			current_age = age_of_absolutism
+			current_age = age_of_revolutions
+			}
+       }
+		allow = {
+        splendor = 300
+		}
+		effect = {
+	    add_splendor = -150 
+		create_general = { tradition = 60 }
+		}
+	}
+	mjl_recruit_admiral2 = {
+		major = no
+		potential = {
+			ai = no
+			OR = {
+			current_age = age_of_absolutism
+			current_age = age_of_revolutions
+			}
+       }
+		allow = {
+        splendor = 300
+		}
+		effect = {
+	    add_splendor = -150 
+		create_admiral = { tradition = 60 }
+		}
+	}
+	mjl_recruit_commandant = {
+		major = no
+		potential = {
+			ai = no
+       }
+		allow = {
+        splendor = 300
+		}
+		effect = {
+	    add_splendor = -150 
+		create_advisor = commandant
+		}
+	}
+	mjl_recruit_army_reformer = {
+		major = no
+		potential = {
+			ai = no
+       }
+		allow = {
+        splendor = 300
+		}
+		effect = {
+	    add_splendor = -150 
+		create_advisor = army_reformer
+		}
+	}
+	}

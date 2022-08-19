@@ -7,11 +7,21 @@ religion = catholic
 technology_group = eastern
 capital = 153 # Buda
 historical_friend = HAB
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
 
 change_estate_land_share = {
-	estate = estate_church
-	share = -5
+	estate = estate_nobles
+	share = -0.5
 }
+
+
+#change_estate_land_share = {
+#	estate = estate_church
+#	share = -5
+#}
 
 1387.3.31 = {
 	monarch = {
@@ -25,7 +35,7 @@ change_estate_land_share = {
 }
 
 
-1437.1.1 = { leader = {	name = "János Hunyadi"         	type = general	fire = 4	shock = 4	manuever = 4	siege = 1	death_date = 1445.1.1 } }
+1437.1.1 = { leader = {	name = "János Hunyadi"         	type = general	fire = 4	shock = 4	manuever = 4	siege = 1 } }
 
 # Personal union with Habsburg under Albrecht II 1437-39
 # Personal union with Poland under Wladyslaw III 1439-44
@@ -33,18 +43,13 @@ change_estate_land_share = {
 1444.11.10 = {
 	monarch = {
 		name = "(Regency Council)"
-		adm = 4
-		mil = 5
-		dip = 4
+		adm = 0
+		mil = 0
+		dip = 0
 		regent = yes
 	}
 }
 
-1444.11.10 = { add_country_modifier = {
-				name = "hungary_unleashed"
-				duration = 5475 #15 years
-			}
-}
 # Personal union with Habsburg under Ladislaus the Posthumous 1452-1457
 1452.1.1 = {
 	monarch = {
@@ -54,7 +59,7 @@ change_estate_land_share = {
 		birth_date = 1440.2.22			
 		adm = 3
 		dip = 3
-		mil = 3
+		mil = 2
 	}
 }
 

@@ -1,0 +1,6 @@
+vassal = {
+	first = LWA
+	second = PHA
+	start_date = 1443.2.1
+	end_date = 1458.1.1
+}

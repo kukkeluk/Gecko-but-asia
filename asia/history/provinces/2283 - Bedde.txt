@@ -1,8 +1,12 @@
 # No previous file for Bedde
 
-owner = YAO
-controller = YAO
-add_core = YAO
+latent_trade_goods = {
+	coal
+}
+
+owner = KBO
+controller = KBO
+add_core = KBO
 is_city = yes
 culture = kanuri 
 religion = sunni

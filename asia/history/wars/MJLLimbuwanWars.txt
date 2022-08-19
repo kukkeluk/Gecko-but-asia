@@ -1,0 +1,16 @@
+name = "Mamluks-Fezzan War"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 5871
+}
+
+1443.1.1 = {
+	add_attacker = LWA
+	add_defender = KAC
+}
+# Peace
+1444.11.11 = {
+	rem_attacker = LWA
+	rem_defender = KAC
+}

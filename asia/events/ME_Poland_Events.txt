@@ -67,7 +67,7 @@ country_event = {
 		
 		ai_chance = { factor = 1 }
 		
-		add_years_of_income = -0.5
+		add_years_of_income = -0.33
 		4538 = {
 			change_province_name = "Zamosc"
 			rename_capital = "Zamosc"
@@ -283,7 +283,7 @@ country_event = {
 		
 		ai_chance = { factor = 0 }
 		
-		add_mil_power = 50
+		add_mil_power = 100
 	}
 }
 
@@ -356,13 +356,93 @@ country_event = {
 	major_trigger = {
 		continent = europe
 	}
+	
+	option = {
+		name = ME_Poland_Events.9.a 
 		
+		ai_chance = { factor = 1 }
+		
+		add_country_modifier = {
+			name = POL_recovering_piast_territories
+			duration = 7300
+		}
+		if = {
+			limit = {
+				NOT = { exists = SIL }
+				OR = {
+					SIL = { is_subject_of = ROOT }
+					SIL = { is_subject_of = BOH }
+				}
+			}
+			silesia_area = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				cede_province = SIL
+				add_core = SIL
+			}
+			create_subject = {
+				subject_type = vassal
+				subject = SIL
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { exists = OPL }
+				OR = {
+					OPL = { is_subject_of = ROOT }
+					OPL = { is_subject_of = BOH }
+				}
+			}
+			silesia_area = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				add_core = OPL
+				cede_province = OPL
+			}
+			create_subject = {
+				subject_type = vassal
+				subject = OPL
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { exists = GLG }
+				OR = {
+					GLG = { is_subject_of = ROOT }
+					GLG = { is_subject_of = BOH }
+				}
+			}
+			silesia_area = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				cede_province = GLG
+				add_core = GLG
+			}
+			create_subject = {
+				subject_type = vassal
+				subject = GLG
+			}
+		}
+		else = {
+			silesia_area = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+	}
+	
 	option = {
 		name = ME_Poland_Events.9.b
 		
 		ai_chance = { factor = 0 }
 		
-		add_prestige_or_monarch_power = { amount = 15 }
+		add_prestige = 15
 	}
 }
 
@@ -408,6 +488,15 @@ country_event = {
 									value = 4
 								}
 							}
+							if = {
+								limit = {
+									num_of_estate_privileges = {
+										estate = estate_nobles
+										value = 5
+									}
+								}							
+								add_mil_power = 25
+							}
 							add_mil_power = 25
 						}
 						add_mil_power = 25
@@ -420,7 +509,7 @@ country_event = {
 		custom_tooltip = POL_25_mil_power_per_privilege
 		add_country_modifier = {
 			name = POL_privileges_confirmed
-			duration = 10950
+			duration = 7300
 		}
 	}
 	
@@ -440,7 +529,6 @@ country_event = {
 		add_dip_power = 50
 		add_mil_power = 50
 	}
-	
 }
 
 country_event = {
@@ -450,45 +538,6 @@ country_event = {
 	desc = ME_Poland_Events.11.d
 
 	is_triggered_only = yes
-	
-	immediate = {
-		pick_best_provinces = {
-			scope = " every_owned_province "
-			global_trigger = " culture = polish "
-			event_target_name = "Polish_province_target"
-			scale = " higher_development_than "
-			3 = yes
-		}
-	}
-	option = {
-		name = ME_Poland_Events.11.a 
-		
-		ai_chance = { factor = 1 }
-		
-		goto = Polish_province_target_1
-		
-		event_target:Polish_province_target_1 = {
-			change_trade_goods = paper
-			add_province_modifier = {
-				name = POL_new_industry
-				duration = 9125
-			}
-		}
-		event_target:Polish_province_target_2 = {
-			change_trade_goods = glass
-			add_province_modifier = {
-				name = POL_new_industry
-				duration = 9125
-			}
-		}
-		event_target:Polish_province_target_3 = {
-			change_trade_goods = glass
-			add_province_modifier = {
-				name = POL_new_industry
-				duration = 9125
-			}
-		}
-	}
 	
 	option = {
 		name = ME_Poland_Events.11.b
@@ -698,134 +747,7 @@ country_event = {
 		
 		ai_chance = { factor = 0.5 }
 		
-		add_prestige_or_monarch_power = { amount = 20 }
-	}
-}
-
-province_event = {
-	id = ME_Poland_Events.15
-	title = ME_Poland_Events.15.t #Conversion to Polish
-	picture = MERCHANTS_TALKING_eventPicture
-	desc = ME_Poland_Events.15.d
-
-	goto = ROOT 
-
-	trigger = {
-		owner = {
-			has_country_flag = POL_mission
-			primary_culture = polish
-		}
-		has_province_flag = POL_can_convert
-		NOT = { culture = owner }
-	}
-	
-	mean_time_to_happen = {
-		months = 960
-		modifier = {
-			factor = 0.75
-			owner = { stability = 1 }
-		}
-		modifier = {
-			factor = 0.75
-			owner = { stability = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			owner = { stability = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { unrest = 0 }
-		}
-	}
-	
-	option = {
-		name = ME_Poland_Events.15.a 
-		
-		ai_chance = { factor = 0.1 }
-		
-		change_culture = owner
-	}
-}
-
-country_event = {
-	id = ME_Poland_Events.16
-	title = ME_Poland_Events.16.t #Rej
-	picture = MERCHANTS_TALKING_eventPicture
-	desc = ME_Poland_Events.16.d
-
-	trigger = {
-		had_country_flag = {
-			flag = POL_polish_renaissance
-			days = 14600
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 12
-	}
-	
-	fire_only_once = yes
-	
-	option = {
-		name = ME_Poland_Events.16.a 
-		
-		ai_chance = { factor = 0.5 }
-		
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = POL_completed_renaissance_mission
-				has_country_flag = POL_polish_renaissance
-			}
-		}
-		clr_country_flag = POL_polish_renaissance
-		set_country_flag = POL_polish_renaissance_2
-		add_country_modifier = {
-			name = POL_geese
-			duration = 14600
-		}
-	}
-}
-
-country_event = {
-	id = ME_Poland_Events.17
-	title = ME_Poland_Events.17.t #Kochanowski
-	picture = MERCHANTS_TALKING_eventPicture
-	desc = ME_Poland_Events.17.d
-
-	trigger = {
-		had_country_flag = {
-			flag = POL_polish_renaissance_2
-			days = 14600
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 12
-	}
-	
-	fire_only_once = yes
-	
-	option = {
-		name = ME_Poland_Events.17.a
-	
-		ai_chance = { factor = 1 }
-		
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = POL_completed_renaissance_mission
-				has_country_flag = POL_polish_renaissance_2
-			}
-		}
-		clr_country_flag = POL_polish_renaissance_2
-		define_advisor = {
-			type = artist
-			name = "Jan Kochanowski"
-			skill = 3
-			culture = ROOT
-			religion = ROOT
-			cost_multiplier = 0.4
-		}
+		add_prestige = 15
 	}
 }
 
@@ -956,9 +878,6 @@ country_event = {
 			duration = 9125
 		}
 	}
-	
-	
-	after = { clr_country_flag = POL_migrate_enabled }
 }
 
 province_event = {
@@ -1007,7 +926,7 @@ country_event = {
 		
 		add_country_modifier = {
 			name = POL_honorable_people
-			duration = 9125
+			duration = 3650
 		}
 	}
 	
@@ -1453,146 +1372,6 @@ country_event = {
 }
 
 country_event = {
-	id = ME_Poland_Events.27
-	title = ME_Poland_Events.27.t #Migration of Cossacks
-	picture = MERCHANTS_TALKING_eventPicture
-	desc = ME_Poland_Events.27.d
-
-	trigger = {
-		exists = ZAZ
-		tag = event_target:POL_overlord_of_sicz
-		ZAZ = {
-			NOT = {
-				any_neighbor_country = {
-					culture_group = tartar	
-				}
-			}
-		}
-	}
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					any_neighbor_country = {
-						culture_group = tartar	
-					}
-					
-				}
-				set_country_flag = POL_migrate_enabled
-				random_owned_province = {
-					limit = {
-						any_neighbor_province = {
-							owner = {
-								culture_group = tartar
-							}
-						}
-					}
-					save_event_target_as = POL_cossack_target_1
-				}
-				
-				random_owned_province = {
-					limit = {
-						any_neighbor_province = {
-							owner = {
-								culture_group = tartar
-							}
-						}
-						calc_true_if = {
-							all_neighbor_province = {
-								any_neighbor_province = {
-									owner = {
-										culture_group = tartar
-									}
-								}
-							}
-							amount = 1
-						}
-					}
-					save_event_target_as = POL_cossack_target_1
-				}
-				
-				random_owned_province = {
-					limit = {
-						any_neighbor_province = {
-							owner = {
-								culture_group = tartar
-							}
-						}
-						calc_true_if = {
-							all_neighbor_province = {
-								owned_by = ROOT
-								any_neighbor_province = {
-									owner = {
-										culture_group = tartar
-									}
-								}
-							}
-							amount = 2
-						}
-					}
-					save_event_target_as = POL_cossack_target_1
-				}
-				
-				event_target:POL_cossack_target_1 = {
-					random_neighbor_province = {
-						limit = {
-							owned_by = ROOT
-						}
-						save_event_target_as = POL_cossack_target_2
-					}
-					
-					random_neighbor_province = {
-						limit = {
-							owned_by = ROOT
-							any_neighbor_province = {
-								owner = {
-									culture_group = tartar
-								}
-							}
-						}
-						save_event_target_as = POL_cossack_target_2
-					}
-					
-					random_neighbor_province = {
-						limit = {
-							owned_by = ROOT
-							NOT = { province_id = event_target:POL_cossack_target_2 }
-						}
-						save_event_target_as = POL_cossack_target_3
-					}
-					
-					random_neighbor_province = {
-						limit = {
-							owned_by = ROOT
-							NOT = { province_id = event_target:POL_cossack_target_2 }
-							any_neighbor_province = {
-								owner = {
-									culture_group = tartar
-								}
-							}
-						}
-						save_event_target_as = POL_cossack_target_3
-					}
-				}
-			}
-		}
-	}
-	
-	
-	option = {
-		name = ME_Poland_Events.27.b
-	
-		ai_chance = { factor = 0 }
-		
-		inherit = ZAZ
-	}
-	
-	after = {
-		clr_country_flag = POL_migrate_enabled
-	}
-}
-
-country_event = {
 	id = ME_Poland_Events.28
 	title = ME_Poland_Events.28.t #Tadeusz Kosciuszko
 	picture = MERCHANTS_TALKING_eventPicture
@@ -1626,7 +1405,7 @@ country_event = {
 			skill = 3
 			culture = ROOT
 			religion = ROOT
-			cost_multiplier = 0.25
+			cost_multiplier = 0.50
 		}
 	}
 }
@@ -1661,45 +1440,6 @@ province_event = {
 		
 		set_global_flag = POL_occupied_moscow_flag
 	}
-}
-
-country_event = {
-	id = ME_Poland_Events.30
-	title = ME_Poland_Events.28.t #PO effect
-	picture = MERCHANTS_TALKING_eventPicture
-	desc = ME_Poland_Events.28.d
-
-	is_triggered_only = yes
-	fire_only_once = yes
-	hidden = yes
-	
-	option = {
-		name = ME_Poland_Events.28.a
-	
-		ai_chance = { factor = 1 }
-		
-		event_target:POL_Peace_Recipient = {
-			every_owned_province = {
-				add_devastation = 10
-				remove_loot = {
-					who = ROOT
-					amount = 100
-				}
-			}
-		}
-		ROOT = {
-			add_power_projection = {
-				type = mission_rewards_power_projection
-				amount = 40
-			}
-			remove_casus_belli = {
-				target = event_target:POL_Peace_Recipient
-				type = cb_poland_deluge
-			}
-		}
-		clear_global_event_target = POL_Peace_Recipient
-	}
-
 }
 
 country_event = {
@@ -1842,33 +1582,6 @@ province_event = {
 }
 
 country_event = {
-	id = ME_Poland_Events.34
-	title = ME_Poland_Events.34.t #Vassalize Danzig
-	picture = MERCHANTS_TALKING_eventPicture
-	desc = ME_Poland_Events.34.d
-
-	mean_time_to_happen = {
-		months = 3
-	}
-	
-	fire_only_once = yes
-	
-	trigger = {
-		mission_completed = POL_zwiazek_pruski
-		alliance_with = DNZ
-		DNZ = { ai = yes }
-	}
-	
-	option = {
-		name = ME_Poland_Events.34.a
-	
-		ai_chance = { factor = 1 }
-		
-		vassalize = DNZ
-	}
-}
-
-country_event = {
 	id = ME_Poland_Events.35 #Heir Needed
 	title = ME_Poland_Events.35.t
 	picture = MERCHANTS_TALKING_eventPicture
@@ -1904,7 +1617,6 @@ province_event = {
 
 	trigger = {
 		owner = {
-			mission_completed = POL_morze
 			primary_culture = polish
 		}
 		has_province_flag = POL_tuchola_and_gdansk
@@ -1958,7 +1670,7 @@ country_event = {
 		
 		ai_chance = { factor = 1 }
 		
-		add_prestige_or_monarch_power = { amount = 50 }
+		add_prestige = 25 
 		add_country_modifier = {
 			name = POL_bohemian_knights
 			duration = -1

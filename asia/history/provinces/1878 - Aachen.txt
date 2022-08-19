@@ -1,8 +1,5 @@
 #1878 - Aachen
 
-latent_trade_goods = {
-	coal
-}
 
 owner = AAC
 controller = AAC

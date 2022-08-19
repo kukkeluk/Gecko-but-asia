@@ -1,0 +1,35 @@
+country_decisions = {
+
+	Victory_decision = {
+		major = yes
+		potential = {
+			always = yes
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = Victory_decision_tooltip
+				always = no
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				has_terrain = victory_province_glacier
+				has_terrain = victory_province_farmlands
+				has_terrain = victory_province_forest
+				has_terrain = victory_province_hills
+				has_terrain = victory_province_woods
+				has_terrain = victory_province_mountain
+				has_terrain = victory_province_grasslands
+				has_terrain = victory_province_jungle
+				has_terrain = victory_province_marsh
+				has_terrain = victory_province_desert
+				has_terrain = victory_province_coastal_desert
+				has_terrain = victory_province_coastline
+				has_terrain = victory_province_drylands
+				has_terrain = victory_province_highlands
+				has_terrain = victory_province_savannah
+				has_terrain = victory_province_steppe			
+			}
+		}
+	}
+}

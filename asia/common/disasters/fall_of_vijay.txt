@@ -1,0 +1,54 @@
+fall_of_vijay = {
+	potential = {
+		tag = VIJ
+		normal_or_historical_nations = yes
+		is_free_or_tributary_trigger = yes
+		uses_doom = no
+		NOT = { has_country_flag = had_fall_of_vijay  }
+	}
+
+	can_start = {
+		current_age = age_of_discovery
+		has_any_disaster = no
+	}
+	
+	can_stop = { 
+		NOT = {
+			total_development = 100
+		}
+	}
+	
+	progress = {
+		modifier = {
+			factor = 50
+			total_development = 100
+		}
+	}
+	
+	can_end = {
+		NOT = { total_development = 100 }
+	}
+	
+	modifier = {
+		global_unrest = 25
+		stability_cost_modifier = 0.35
+	}	
+	
+	on_start = fall_of_vijay.1
+	on_end = fall_of_vijay.100
+	
+	on_monthly = {
+		events = {	}
+		random_events = {
+			100 = 0
+			200 = fall_of_vijay.2		
+			200 = fall_of_vijay.3
+			200 = fall_of_vijay.4
+			400 = fall_of_vijay.5
+			400 = fall_of_vijay.6
+			400 = fall_of_vijay.7
+			1000 = fall_of_vijay.4		
+		}
+	}
+}
+

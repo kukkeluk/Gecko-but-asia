@@ -7,10 +7,17 @@ capital = 526	# Mandu
 add_accepted_culture = rajput
 religious_school = hanafi_school
 historical_rival = BNG
-historical_rival = AFG
-historical_rival = MER
 historical_rival = BAH
 historical_rival = VIJ
+historical_rival = SRH
+historical_rival = DLH
+historical_rival = MER
+historical_rival = GUJ
+historical_rival = BGA
+historical_rival = KHD
+historical_rival = MAR
+historical_rival = MAD
+historical_rival = LWA
  
 #Sultans of Malwa
 1390.1.1 = {

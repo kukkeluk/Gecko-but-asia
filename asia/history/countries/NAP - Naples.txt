@@ -3,7 +3,7 @@ add_government_reform = feudalism_reform
 technology_group = western
 religion = catholic
 primary_culture = neapolitan
-capital = 122 # Napoli
+capital = 121 # Napoli
 
 1399.1.1 = {
 	monarch = { 
@@ -82,10 +82,10 @@ capital = 122 # Napoli
 1435.2.3 = {
 	monarch = { 
 		name = "Renato I"
-		dynasty = "de Napoli"
-		dip = 4
-		mil = 4
-		adm = 4
+		dynasty = "de Valois"
+		dip = 2
+		mil = 2
+		adm = 2
 	}
 }
 

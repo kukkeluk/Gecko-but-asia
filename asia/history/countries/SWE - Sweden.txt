@@ -6,27 +6,63 @@ primary_culture = swedish
 religion = catholic
 add_accepted_culture = finnish
 capital = 1	#Stockholm
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
+
 
 national_focus = MIL
 
-1440.4.9 = {
+#change_estate_land_share = {
+#	estate = estate_church
+#	share = -6
+#}
+#change_estate_land_share = {
+#	estate = estate_nobles
+#	share = 10
+#}
+
+change_estate_land_share = {
+	estate = estate_nobles
+	share = -0.5
+}
+
+
+1444.1.1 = {
 	monarch = {
-		name = "Bilnycklar I"
-		dynasty = "Vasa"
-		birth_date = 1426.2.26
+		name = "Jöns"
+		dynasty = "Bonde"
+		birth_date = 1419.1.1
+		adm = 5
+		dip = 2
+		mil = 3
+		
+	}
+}
+1448.6.20 = {
+	monarch = {
+		name = "Karl VIII"
+		dynasty = "Bonde"
+		birth_date = 1409.10.5
 		adm = 3
-		dip = 3
-		mil = 4
+		dip = 0
+		mil = 2
+		leader = {	name = "Karl VIII"   type = general	fire = 2	shock = 2	manuever = 3	siege = 0 }
 	}
-	clear_scripted_personalities = yes
-	add_ruler_personality = bold_fighter_personality
-}
-1443.1.1 = {
-	add_country_modifier = {
-			name = swedish_mercenary_core
-			duration = -1
+	queen = {
+		country_of_origin = SWE
+		name = "Katarina"
+		dynasty = "Gumsehuvud"
+		birth_date = 1418.1.1
+		death_date = 1451.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
 	}
 }
+
 1457.2.25 = { government = republic
 add_government_reform = noble_elite_reform
 set_legacy_government = noble_republic }

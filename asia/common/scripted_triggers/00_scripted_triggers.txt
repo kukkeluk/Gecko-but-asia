@@ -30,12 +30,6 @@ has_mil_advisor = {
 			advisor = recruitmaster
 			advisor = fortification_expert
 			advisor = quartermaster
-			advisor = cavalry_leader
-			advisor = infantry_leader
-			advisor = siege_specialist
-			advisor = gc_inquisitor
-			advisor = gc_arty_officer
-			advisor = gc_drill_master			
 		}
 	}
 }
@@ -51,12 +45,6 @@ has_mil_advisor_2 = {
 			recruitmaster = 2
 			fortification_expert = 2
 			quartermaster = 2
-			cavalry_leader = 2
-			infantry_leader = 2
-			siege_specialist = 2
-			gc_inquisitor = 2
-			gc_arty_officer = 2
-			gc_drill_master = 2	
 		}
 	}
 }
@@ -72,12 +60,6 @@ has_mil_advisor_3 = {
 			recruitmaster = 3
 			fortification_expert = 3
 			quartermaster = 3
-			cavalry_leader = 3
-			infantry_leader = 3
-			siege_specialist = 3
-			gc_inquisitor = 3
-			gc_arty_officer = 3
-			gc_drill_master = 3
 		}
 	}
 }
@@ -523,81 +505,67 @@ was_never_end_game_tag_trigger = {	#Country Scope
 	OR = {
 		NOT = { end_game_tags_blocked = yes }
 		AND = {
-			NOT = { was_tag = MUG }
 			NOT = { was_tag = TUR }
-			NOT = { was_tag = BYZ }
 			NOT = { was_tag = ROM }
 			NOT = { was_tag = HLR }
 			NOT = { was_tag = RUM }
-			NOT = { was_tag = QNG }
 			NOT = { was_tag = RUS }
-			NOT = { was_tag = PLC }
-			NOT = { was_tag = JAP }
-			NOT = { was_tag = YUA }
-			NOT = { was_tag = HIN }
-			NOT = { was_tag = BHA }
-			NOT = { was_tag = ARB }
 			NOT = { was_tag = PAP }
-			NOT = { was_tag = SPA }
-			NOT = { was_tag = GBR }
-			NOT = { was_tag = ITA }
 			NOT = { was_tag = GER }
 			NOT = { was_tag = MNG }
 			NOT = { was_tag = MGE }
 			NOT = { was_tag = SYN }
-			NOT = { was_tag = ADU }
-			NOT = { was_tag = LOT }
-			NOT = { tag = MUG }
+			NOT = { was_tag = AFR }
+			NOT = { was_tag = QIC }
+			NOT = { was_tag = CXI }
+			NOT = { was_tag = CSH }
+			NOT = { was_tag = WUU }
+			NOT = { was_tag = YUE }
+			NOT = { was_tag = CYI }
 			NOT = { tag = TUR }
-			NOT = { tag = BYZ }
 			NOT = { tag = ROM }
 			NOT = { tag = HLR }
 			NOT = { tag = RUM }
-			NOT = { tag = QNG }
 			NOT = { tag = RUS }
-			NOT = { tag = PLC }
-			NOT = { tag = JAP }
-			NOT = { tag = YUA }
-			NOT = { tag = HIN }
-			NOT = { tag = BHA }
-			NOT = { tag = ARB }
 			NOT = { tag = PAP }
-			NOT = { tag = SPA }
-			NOT = { tag = GBR }
-			NOT = { tag = ITA }
 			NOT = { tag = GER }
 			NOT = { tag = MNG }
 			NOT = { tag = MGE }
 			NOT = { tag = SYN }
-			NOT = { tag = ADU }
-			NOT = { tag = LOT }
+			NOT = { tag = AFR }
+			NOT = { tag = QIC }
+			NOT = { tag = CXI }
+			NOT = { tag = CSH }
+			NOT = { tag = WUU }
+			NOT = { tag = YUE }
+			NOT = { tag = CYI }
 		}
 	}
 }
 
 
 was_never_german_regional_tag_trigger = {	#Country Scope
-	NOT = { was_tag = BRA }
-	NOT = { was_tag = PRU }
-	NOT = { was_tag = POM }
-	NOT = { was_tag = SAX }
-	NOT = { was_tag = BAV }
-	NOT = { was_tag = HAB }
-	NOT = { was_tag = SWA }
-	NOT = { was_tag = FKN }
-	NOT = { was_tag = WES }
-	NOT = { was_tag = HAN }
+#	NOT = { was_tag = BRA }
+#	NOT = { was_tag = PRU }
+#	NOT = { was_tag = POM }
+#	NOT = { was_tag = SAX }
+#	NOT = { was_tag = BAV }
+#	NOT = { was_tag = HAB }
+#	NOT = { was_tag = SWA }
+#	NOT = { was_tag = FKN }
+#	NOT = { was_tag = WES }
+#	NOT = { was_tag = HAN }
 	
-	NOT = { tag = BRA }
-	NOT = { tag = PRU }
-	NOT = { tag = POM }
-	NOT = { tag = SAX }
-	NOT = { tag = BAV }
-	NOT = { tag = HAB }
-	NOT = { tag = SWA }
-	NOT = { tag = FKN }
-	NOT = { tag = WES }
-	NOT = { tag = HAN }
+#	NOT = { tag = BRA }
+#	NOT = { tag = PRU }
+#	NOT = { tag = POM }
+#	NOT = { tag = SAX }
+#	NOT = { tag = BAV }
+#	NOT = { tag = HAB }
+#	NOT = { tag = SWA }
+#	NOT = { tag = FKN }
+#	NOT = { tag = WES }
+#	NOT = { tag = HAN }
 }
 
 
@@ -726,25 +694,31 @@ root_can_build_manufactory_here_trigger = {
                 trade_goods = fish
                 trade_goods = salt
             }
+		 
 			ROOT = { dip_tech = 11 }
 		}
 		AND = {
+				 
             OR = {
                 trade_goods = copper
                 trade_goods = iron
             }
+		 
 			ROOT = { mil_tech = 11 }
 		}
 		AND = {
+				 
             OR = {
                 trade_goods = wool
                 trade_goods = cloth
                 trade_goods = silk
                 trade_goods = dyes
             }
+		 
 			ROOT = { adm_tech = 11 }
 		}
 		AND = {
+				 
             OR = {
                 trade_goods = coffee
                 trade_goods = cotton
@@ -753,9 +727,11 @@ root_can_build_manufactory_here_trigger = {
                 trade_goods = tea
                 trade_goods = cocoa
             }
+		 
 			ROOT = { adm_tech = 14 }
 		}
 		AND = {
+				 
             OR = {
                 trade_goods = ivory
                 trade_goods = slaves
@@ -764,17 +740,21 @@ root_can_build_manufactory_here_trigger = {
                 trade_goods = fur
                 trade_goods = incense
             }
+		 
 			ROOT = { dip_tech = 14 }
 		}
 		AND = {
+				 
             OR = {
                 trade_goods = grain
                 trade_goods = livestock
                 trade_goods = wine
             }
+		 
 			ROOT = { adm_tech = 6 }
 		}
 		AND = {
+				 
             OR = {
                 trade_goods = paper
                 trade_goods = gems
@@ -782,10 +762,13 @@ root_can_build_manufactory_here_trigger = {
                 trade_goods = glass
                 trade_goods = chinaware
             }
+		 
 			ROOT = { adm_tech = 16 }
 		}
 		AND = {
+				 
             trade_goods = coal
+		 
 			ROOT = { adm_tech = 21 }
 		}
 	}
@@ -879,7 +862,7 @@ has_dharma_elephants_trigger = {
 has_completed_all_reforms_trigger = {
 	custom_trigger_tooltip = {
 		tooltip = has_completed_all_reforms_trigger_tooltip
-		NOT = { has_dlc = "Origins" }
+		NOT = { has_dlc = "Emperor" }
 		OR = {
 			has_reform = political_absolutism_reform
 			has_reform = legislative_houses_reform
@@ -895,10 +878,8 @@ has_completed_all_reforms_trigger = {
 			has_reform = many_fingers_of_god_reform
 			has_reform = religious_permanent_revolution_reform
 			has_reform = religion_in_one_country_reform
-			has_reform = religion_in_one_country_reform
-			has_reform = gecko_noble_regiments_reform
-			has_reform = gecko_professional_army_reform
-			
+           	has_reform = native_remain_being_native_reform
+			has_reform = tribe_remain_tribal_reform
 		}
 	}
 }
@@ -922,8 +903,8 @@ has_final_tier_reforms_trigger = {
 			has_reform = many_fingers_of_god_reform
 			has_reform = religious_permanent_revolution_reform
 			has_reform = religion_in_one_country_reform
-			has_reform = gecko_noble_regiments_reform
-			has_reform = gecko_professional_army_reform
+			has_reform = native_remain_being_native_reform
+			has_reform = tribe_remain_tribal_reform
 		}
 	}
 }
@@ -1035,7 +1016,6 @@ has_forcelimit_building_trigger = {
 	OR = {
 		has_building = regimental_camp
 		has_building = conscription_center
-		has_building = armory
 	}
 }
 
@@ -1045,8 +1025,6 @@ has_courthouse_building_trigger = {
 		has_building = town_hall
 	}
 }
-
-
 has_fort_building_trigger = {
 	OR = {
 		has_building = fort_15th
@@ -1184,7 +1162,7 @@ province_has_current_tech_fort_trigger = {
 check_reducing_estate_revolt_size_trigger = {
 	if = {
 		limit = {
-			NOT = { num_of_cities = 16 }
+			NOT = { num_of_cities = 8 }
 		}
 		NOT = {
 			num_of_owned_provinces_with = {
@@ -1195,7 +1173,7 @@ check_reducing_estate_revolt_size_trigger = {
 	}
 	else_if = {
 		limit = {
-			NOT = { num_of_cities = 24 }
+			NOT = { num_of_cities = 12 }
 		}
 		NOT = {
 			num_of_owned_provinces_with = {
@@ -1206,7 +1184,7 @@ check_reducing_estate_revolt_size_trigger = {
 	}
 	else_if = {
 		limit = {
-			NOT = { num_of_cities = 36 }
+			NOT = { num_of_cities = 18 }
 		}
 		NOT = {
 			num_of_owned_provinces_with = {
@@ -1217,7 +1195,7 @@ check_reducing_estate_revolt_size_trigger = {
 	}
 	else_if = {
 		limit = {
-			NOT = { num_of_cities = 56 }
+			NOT = { num_of_cities = 28 }
 		}
 		NOT = {
 			num_of_owned_provinces_with = {
@@ -1228,7 +1206,7 @@ check_reducing_estate_revolt_size_trigger = {
 	}
 	else_if = {
 		limit = {
-			NOT = { num_of_cities = 80 }
+			NOT = { num_of_cities = 40 }
 		}
 		NOT = {
 			num_of_owned_provinces_with = {
@@ -1239,7 +1217,7 @@ check_reducing_estate_revolt_size_trigger = {
 	}
 	else_if = {
 		limit = {
-			NOT = { num_of_cities = 100 }
+			NOT = { num_of_cities = 50 }
 		}
 		NOT = {
 			num_of_owned_provinces_with = {
@@ -1328,16 +1306,18 @@ revolution_event_can_happen_trigger = {
 	OR = {
 		capital_scope = { 
 #			continent = europe 
-			controlled_by = revolutionary_rebels
+			controlled_by = REB
 		}
 		has_country_modifier = just_lost_to_revolutionary_rebels
 		has_country_flag = revolution_disaster_immediate_revolution
 	}
+	num_of_cities = 10
 	is_revolutionary = no
 }
 #country scope, used in election events to check whether generated rulers may be female
 republic_with_female_rulers_trigger = {
 	OR = {
+		#has_active_policy = mandatory_service
 		has_country_modifier = sister_suffragettes
 		has_country_modifier = mary_inheritance_reforms
 	}
@@ -1427,11 +1407,8 @@ is_volcanic_area = { #polynesia and indonesia
 		area = polynesia_area
 		area = melanesia_area
 		area = papua_area
-
-
 	}
 }
-
 #Country scope
 is_or_was_tag = {
 	OR = {
@@ -1445,15 +1422,15 @@ is_european_trade_node_province = {
 	OR = {
 		province_id = 1293
 		province_id = 1295
-		province_id = 109
-		province_id = 118
-		province_id = 151
-		province_id = 4312
+		province_id = 1298
+		province_id = 1308
+		province_id = 137
+		province_id = 1320
 		province_id = 1322
 		province_id = 280
 		province_id = 153
 		province_id = 134
-		#province_id = 61
+		province_id = 61
 		province_id = 45
 		province_id = 1876
 		province_id = 186
@@ -1462,11 +1439,9 @@ is_european_trade_node_province = {
 		province_id = 1975
 		province_id = 1926
 		province_id = 33
-		province_id = 295
-		#province_id = 1652
-		#province_id = 1082
+		province_id = 1652
+		province_id = 1082
 		province_id = 464
-		province_id = 262
 	}
 }
 
@@ -1484,9 +1459,9 @@ is_indian_trade_node_province = {
 
 has_any_colonist_idea = {
 	OR = {
-		#has_idea = colonial_ventures
-		#has_idea = additional_colonists
-		#has_idea = general_colonization_law
+		has_idea = colonial_ventures
+		has_idea = additional_colonists
+		has_idea = general_colonization_law
 		has_idea = pioneer_spirit
 		has_idea = manifest_destiny
 		has_idea = settling_the_interior
@@ -1669,14 +1644,14 @@ has_reached_government_reform_tier = {
 				has_reform = tribe_becomes_monarchy_reform
 				has_reform = tribe_becomes_republic_reform
 				has_reform = tribe_becomes_theocracy_reform
-				has_reform = gc_tribe_becomes_horde_reform
-				#has_reform = tribe_remain_tribal_reform
+				has_reform = tribe_becomes_horde_reform
+				has_reform = tribe_remain_tribal_reform
 				#Natives
 				has_reform = native_becomes_horde_reform
 				has_reform = native_becomes_monarchy_reform
 				has_reform = native_becomes_republic_reform
 				has_reform = native_becomes_theocracy_reform
-				#has_reform = native_remain_being_native_reform
+				has_reform = native_remain_being_native_reform
 			}
 		}
 	]
@@ -1717,6 +1692,8 @@ has_reached_government_reform_tier = {
 				has_reform = emperor_of_the_revolution_reform
 				has_reform = enlightened_monarchy_reform
 				has_reform = become_rev_republic_reform
+				has_reform = TH_expansion_into_the_outworld_reform
+				has_reform = TH_imperial_gensokyo_reform
 				#Republic
 				has_reform = political_principle_reform
 				has_reform = moral_principle_reform
@@ -1792,6 +1769,7 @@ has_completed_idea_group_of_category = {
 				full_idea_group = expansion_ideas
 				full_idea_group = administrative_ideas
 				full_idea_group = humanist_ideas
+				full_idea_group = bureaucratic_ideas
 			}
 		}
 	]
@@ -1805,6 +1783,8 @@ has_completed_idea_group_of_category = {
 				full_idea_group = exploration_ideas
 				full_idea_group = maritime_ideas
 				full_idea_group = influence_ideas
+				full_idea_group = manufacturing_ideas
+				full_idea_group = assimilation_ideas
 			}
 		}
 	]
@@ -1822,6 +1802,8 @@ has_completed_idea_group_of_category = {
 				full_idea_group = indigenous_ideas
 				full_idea_group = horde_gov_ideas
 				full_idea_group = plutocracy_ideas
+				full_idea_group = logistic_ideas
+				full_idea_group = modernization_ideas
 			}
 		}
 	]
@@ -2032,8 +2014,11 @@ has_better_tech_than_westerns = {
 		tooltip = has_better_tech_than_westerns_tt
 		NOT = {
 			any_country = {
+				   
 				tech_difference = 1
 				technology_group = western
+	 
+			  
 			}
 		}
 	}
@@ -2096,14 +2081,12 @@ mal_owns_provinces_in_region = {
 		AND = { has_country_flag = mal_journey_to_horn_of_africa	any_owned_province = { region = horn_of_africa_region	} }
 	}
 }
-
 province_is_or_accepts_culture = {
 	OR = {
 		has_owner_culture = yes
 		has_owner_accepted_culture = yes
 	}
 }
-
 secondary_religion_group = {
 	[[christian]
 		OR = {
@@ -2158,7 +2141,16 @@ secondary_religion_group = {
 		secondary_religion = zoroastrian
 	]
 }
-province_is_buddhist_or_accepts_buddhism = {
+
+# from custom danish events
+
+is_denmark_or_scandinavia = {
+	OR = {
+		tag = DAN
+		tag = SCA
+	}
+}
+ province_is_buddhist_or_accepts_buddhism = {
 	OR = {
 		custom_trigger_tooltip = {
 			tooltip = province_is_buddhist_or_accepts_buddhism_at
@@ -2226,6 +2218,7 @@ province_is_buddhist_or_accepts_buddhism = {
 			owner = { has_adopted_cult = buddhism_cult }
 			has_owner_religion = yes
 		}
+		 
 		#For the case the province has a religion which the player has already harmonized with and cannot convert
 		#It's a hidden trigger because the tooltip is already super flooded and it is incredibly niche
 		hidden_trigger = {
@@ -2301,7 +2294,7 @@ has_any_exploration_idea = {
 
 has_exempt_from_seize_land_for_estate_nobles = {
 	OR = {
-		has_estate_privilege = estate_nobles_levies
+		#has_estate_privilege = estate_nobles_levies
 		has_estate_privilege = estate_nobles_golden_liberty
 		has_estate_privilege = estate_nobles_decentralized_tribe
 		has_estate_privilege = estate_nobles_tribe_unification
@@ -2326,10 +2319,10 @@ has_exempt_from_seize_land_for_estate_jains = {
 	always = no	#Doesn't have Exempt from Seize Land privileges
 }
 has_exempt_from_seize_land_for_estate_maratha = {
-	OR = {
-		has_estate_privilege = estate_maratha_levies
+	#OR = {
+		#has_estate_privilege = estate_maratha_levies
 		has_estate_privilege = estate_maratha_special_privilege
-	}
+	#}
 }
 has_exempt_from_seize_land_for_estate_nomadic_tribes = {
 	always = no	#Doesn't have Exempt from Seize Land privileges

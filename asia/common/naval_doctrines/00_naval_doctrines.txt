@@ -1,45 +1,42 @@
-fleet_in_being =
-{
+fleet_in_being ={
 	can_select = {
 		is_primitive = no
+		NOT = { tag = LUS }
 	}
 	
 	country_modifier = {
-		allowed_marine_fraction = 0.1
-		siege_blockade_progress = 1		
+			allowed_marine_fraction = 0.2
 	}
 	
 	button_gfx = 1
 }
 
-free_oarsmen =
+free_oarsmen ={
+	can_select = {
+		is_primitive = no
+	}
+
+	country_modifier = {
+		galley_power = 0.10
+	}
+	
+	button_gfx = 2
+}
+
+merchant_navy =
 {
 	can_select = {
 		is_primitive = no
 	}
 
 	country_modifier = {
-		galley_power = 0.15
+		global_ship_trade_power = 0.33
 	}
 	
-	button_gfx = 2
+	button_gfx = 3
 }
 
-#merchant_navy =
-#{
-#	can_select = {
-#		is_primitive = no
-#	}
-#
-#	country_modifier = {
-#		global_ship_trade_power = 0.33
-#	}
-#	
-#	button_gfx = 3
-#}
-
-ship_boarding =
-{
+ship_boarding ={
 	can_select = {
 		is_primitive = no
 	}
@@ -51,22 +48,24 @@ ship_boarding =
 	button_gfx = 4
 }
 
-wooden_wall =
-{
+wooden_wall ={
 	can_select = {
 		is_primitive = no
-		culture_group = british
+		OR = {
+			culture_group = british
+			tag = LUS
+		}
 	}
 
 	country_modifier = {
-		own_coast_naval_combat_bonus = 1.0
+		siege_blockade_progress = 1
+		global_ship_trade_power = 0.33
 	}
 
 	button_gfx = 5
 }
 
-grand_armada =
-{
+grand_armada ={
 	can_select = {
 		is_primitive = no
 		NOT = {
@@ -79,14 +78,13 @@ grand_armada =
 	}
 
 	country_modifier = {
-		treasure_fleet_income = 0.1
+		treasure_fleet_income = 0.5
 	}
 
 	button_gfx = 6
 }
 
-portuguese_marines =
-{
+portuguese_marines ={
 	can_select = {
 		is_primitive = no
 		OR = {
@@ -98,7 +96,6 @@ portuguese_marines =
 	country_modifier = {
 		siege_blockade_progress = 1
 		global_naval_barrage_cost = -0.4
-		allowed_marine_fraction = 0.15
 	}
 
 	button_gfx = 7

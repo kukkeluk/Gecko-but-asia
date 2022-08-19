@@ -1,0 +1,69 @@
+spriteTypes = {
+##############
+#### MISSIONS
+
+	spriteType = {
+		name = "become_new_yemen_pic"
+		texturefile = "gfx//interface//missions//become_new_yemen_pic.dds"
+	}
+	
+	spriteType = {
+		name = "become_new_persia_pic"
+		texturefile = "gfx//interface//missions//become_new_persia_pic.dds"
+	}
+
+	spriteType = {
+		name = "back_to_our_roots_pic"
+		texturefile = "gfx//interface//missions//back_to_our_roots_pic.dds"
+	}
+
+	spriteType = {
+		name = "reclaim_danelaw_pic"
+		texturefile = "gfx//interface//missions//reclaim_danelaw_pic.dds"
+	}
+
+	spriteType = {
+		name = "reclaim_jorvik_pic"
+		texturefile = "gfx//interface//missions//reclaim_jorvik_pic.dds"
+	}
+
+	spriteType = {
+		name = "emirate_of_two_sicilies_pic"
+		texturefile = "gfx//interface//missions//emirate_of_two_sicilies_pic.dds"
+	}
+
+##############
+#### GOVERNMENT REFORMS
+	
+	spriteType = {
+		name = "government_reform_sea_barbary_states"
+		texturefile = "gfx//interface//government_reform_icons//sea_barbary_states.dds"
+	}
+
+##############
+#### EMBRACE MONKE
+	# Institution:
+	spriteType = {
+		name = "GFX_icon_institution_embracemonke"
+		texturefile = "gfx//interface//institutions//embracemonke.dds"
+		loadType = "INGAME"
+		transparencecheck = yes
+	}	
+
+	spriteType = {
+		name = "GFX_institution_tab_embracemonke"
+		texturefile = "gfx/interface/institutions//institution_tab_embracemonke.dds"
+		noOfFrames = 2
+		transparencecheck = yes
+	}
+	# Event:
+	spriteType = {
+		name = "Embracemonke_eventPicture"
+		texturefile = "gfx/event_pictures/Embracemonke_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "ImMonke_eventPicture"
+		texturefile = "gfx/event_pictures/ImMonke_eventPicture.dds"
+		allwaystransparent = yes
+}

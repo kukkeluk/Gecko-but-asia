@@ -1,0 +1,117 @@
+country_decisions = {
+	grow_cloves_in_zanzibar = {
+		potential = {
+			any_owned_province = {
+				trade_goods = cloves
+			}
+			NOT = {
+				OR = {
+					technology_group = indian
+					technology_group = chinese
+					technology_group = aboriginal_tech
+				}
+			}
+			NOT = {
+				1201 = {
+					trade_goods = cloves
+				}
+			}
+		}
+		allow = {
+			any_owned_province = {
+				trade_goods = cloves
+			}
+			1201 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {	
+			1201 = {
+				change_trade_goods = cloves
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}	
+	}
+	sinicize_culture = {
+		potential = {
+			culture_group = east_asian
+			NOT = { has_country_flag = sinicize_vietnam_culture_once }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = red_river_delta_area
+				area = vietnam_area
+			}
+		}
+		allow = {
+			is_year = 1550
+			AND = {
+			red_river_delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+			vietnam_area = {
+				type = all
+				owned_by = ROOT
+			}
+			}
+		}
+		effect = {
+			if = { #Sinicize Vietnamese
+				limit = {
+					primary_culture = vietnamese
+				}
+				change_primary_culture = vietnamese_new
+				set_ruler_culture = vietnamese_new
+			}
+				if = {
+					limit = {
+						has_heir = yes
+					}
+					set_heir_culture = vietnamese_new
+				}
+				if = {
+					limit = {
+						has_consort = yes
+						consort_culture = vietnamese
+					}
+					set_consort_culture = vietnamese_new
+				}
+				hidden_effect = {
+					every_province = {
+						limit = {
+							culture = vietnamese
+						}
+						change_culture = vietnamese_new
+					}
+					every_country = {
+						limit = {
+							primary_culture = vietnamese
+						}
+						change_primary_culture = vietnamese_new
+						set_ruler_culture = vietnamese_new
+						if = {
+							limit = {
+								has_heir = yes
+							}
+							set_heir_culture = vietnamese_new
+						}
+						if = {
+							limit = {
+								has_consort = yes
+								consort_culture = vietnamese
+							}
+							set_consort_culture = vietnamese_new
+						}
+					}
+				}
+			custom_tooltip = sinicize_culture_ct
+			set_country_flag = sinicize_vietnam_culture_once
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -1,0 +1,30 @@
+mjl_marathas_brahmins = {
+	icon = privilege_grant_new_world_charter
+	land_share = 5
+	max_absolutism = -5
+	loyalty = 0.10
+	influence = 0.10
+	
+	is_valid = {
+		tag = MAR
+	}
+	on_granted = {
+		custom_tooltip = mjl_marathas_pacify_brahmins_tooltip
+		hidden_effect = {
+			change_variable = {
+				which = MarBrahminSupport 
+				value = 1
+			}
+		}
+	}
+	
+	can_revoke = {
+	}	
+	on_revoked = {
+	
+	}
+	on_invalid = {
+	}
+	penalties = {
+	}
+}

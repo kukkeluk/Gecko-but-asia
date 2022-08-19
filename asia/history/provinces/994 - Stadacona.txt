@@ -1,6 +1,6 @@
 #994 - Stadacona
 
-
+is_city = yes
 culture = laurentian
 religion = totemism
 capital = "Stadacona"

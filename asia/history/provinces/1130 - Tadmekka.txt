@@ -13,7 +13,10 @@ base_tax = 1
 base_production = 1
 add_core = SON 
 
-
+add_permanent_province_modifier = {
+	name = Sahara_modifier
+	duration = -1
+}
 
 discovered_by = sub_saharan
 

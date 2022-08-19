@@ -1,9 +1,9 @@
 #2208 - Terek
 
-owner = GOL
-controller = GOL
+owner = GEO
+controller = GEO
 culture = dagestani
-religion = sunni
+religion = orthodox
 capital = "Mozdok"
 trade_goods = livestock
 hre = no
@@ -11,10 +11,7 @@ base_tax = 3
 base_production = 3
 base_manpower = 3
 is_city = yes
-add_core = GOL
-add_core = GAZ
-add_core = AST
-center_of_trade = 1
+add_core = GEO
 discovered_by = muslim
 discovered_by = ottoman
 discovered_by = eastern

@@ -4,10 +4,16 @@ primary_culture = georgian
 religion = orthodox
 technology_group = eastern
 capital = 423 # T'bilisi
-historical_rival = SME
-historical_rival = ARM
-historical_rival = IME
-historical_rival = TRE
+historical_rival = QAR
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
+
+change_estate_land_share = {
+	estate = estate_nobles
+	share = -0.502
+}
 
 1399.1.1 = {
 	monarch = {
@@ -92,9 +98,9 @@ historical_rival = TRE
 	monarch = {
 		name = "Vakhtang IV"
 		dynasty = "Bagrationi"
-		adm = 2
-		dip = 2
-		mil = 1
+		adm = 4
+		dip = 3
+		mil = 5
 	}
 }
 
@@ -106,9 +112,9 @@ historical_rival = TRE
 		birth_date = 1417.1.1
 		death_date = 1476.1.1
 		claim = 95
-		adm = 0
-		dip = 0
-		mil = 3
+		adm = 3
+		dip = 3
+		mil = 4
 	}
 }
 

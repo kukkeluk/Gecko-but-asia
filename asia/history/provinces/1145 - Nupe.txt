@@ -4,7 +4,7 @@ owner = NUP
 controller = NUP
 add_core = NUP
 is_city = yes
-culture = yorumba  
+culture = nupe  
 religion = shamanism #Fetishism
 capital = "Nupe"
 trade_goods = coffee #Kola nuts
@@ -15,7 +15,8 @@ base_manpower = 2
 native_size = 40
 native_ferocity = 4
 native_hostileness = 9 
-
+extra_cost = 8
+center_of_trade = 1
 
 
 discovered_by = sub_saharan

@@ -11,11 +11,11 @@ increase_taxes = {
 	}
 	
 	modifier = {
-		global_tax_modifier = 0.2
+		global_tax_modifier = 0.15
 	}
 	
 	chance = {
-		factor = 5
+		factor = 1
 		modifier = {
 			factor = 2
 			num_of_loans = 5

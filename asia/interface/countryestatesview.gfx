@@ -2,7 +2,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_estates_icons"
 		texturefile = "gfx//interface//estates_icons.dds"
-		noOfFrames = 14
+		noOfFrames = 11
 		loadType = "INGAME"
 	}
 	
@@ -134,11 +134,11 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_estates_icons_colour-stroke"
 		texturefile = "gfx/interface/estates_icons_colour-stroke.dds"
-		noOfFrames = 14
+		noOfFrames = 11
 		loadType = "INGAME"
 	}
 
-	spriteType = {
+		spriteType = {
 		name = "privilege_admin_power"
 		texturefile = "gfx/interface/privileges/privilege_admin_power.dds"
 	}
@@ -465,5 +465,5 @@ spriteTypes = {
 	spriteType = {
 		name = "privilege_centralized"
 		texturefile = "gfx/interface/privileges/privilege_centralized.dds"
-	}
+
 }

@@ -1,0 +1,575 @@
+mad_missions_three = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MAD
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mad_buildforces_dh = {
+		icon = mission_sea_battles
+		required_missions = { }
+		trigger = {
+			army_size_percentage = 0.8
+			manpower_percentage = 0.25
+			num_of_generals = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = "oma_buildforces_mod"
+				duration = 5475
+			}
+			kongu_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { country_or_non_sovereign_subject_holds = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			2026 = {
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			4415 = {
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			4416 = {
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+}
+
+
+mad_missions_one = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = MAD
+		has_dlc = "Dharma"
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mad_spy_vij = {
+		icon = mission_high_income
+		required_missions = { mad_buildforces_dh }
+		position = 2
+		trigger = {
+			has_spy_network_in = {
+				who = VIJ
+				value = 25
+			}
+		}
+		effect = {
+			add_dip_power = 50
+			538 = {
+				cede_province = MAD
+				add_core = MAD
+			}
+		}
+	}
+	
+	mad_inland_paradise = {
+		icon = mission_divert_trade_from_bengal
+		required_missions = { mad_conquer_sri_lanka }
+		position = 4
+		
+		provinces_to_highlight = {
+			province_id = 2099
+		}
+		trigger = {
+			2099 = {
+				development = 10
+				has_owner_religion = yes
+				has_owner_accepted_culture = yes
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			2099 = {
+				add_province_modifier = { 
+					name = sri_lanka_paradise
+					duration = -1  
+				}
+			}
+		}
+	}
+	
+	mad_develop_the_island = {
+		icon = mission_develop_the_capital
+		required_missions = { mad_inland_paradise }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+			province_id = 2099
+			province_id = 4407
+			province_id = 4409
+			province_id = 2100
+			province_id = 4408
+			province_id = 572
+			}
+		}
+		trigger = {
+			2099 = {
+				development = 20
+				has_building = temple
+				has_building = marketplace
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			4407 = {
+				has_owner_religion = yes
+				has_owner_accepted_culture = yes
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			4409 = {
+				has_owner_religion = yes
+				has_owner_accepted_culture = yes
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			2100 = {
+				has_owner_religion = yes
+				has_owner_accepted_culture = yes
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			4408 = {
+				has_owner_religion = yes
+				has_owner_accepted_culture = yes
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			572 = {
+				has_owner_religion = yes
+				has_owner_accepted_culture = yes
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			#Sinicize Sinhalese
+			hidden_effect = {
+				country_event = { 
+					id = badmjl.2
+				}
+			}
+			custom_tooltip = sinhalese_culture_ct_event
+			4407 = {
+				add_province_modifier = { 
+				name = sri_lanka_development
+				duration = -1  
+				}
+			}
+			4409 = {
+				add_province_modifier = { 
+				name = sri_lanka_development
+				duration = -1  
+				}
+			}
+			2100 = {
+				add_province_modifier = { 
+				name = sri_lanka_development
+				duration = -1  
+				}
+			}
+			4408 = {
+				add_province_modifier = { 
+				name = sri_lanka_development
+				duration = -1  
+				}
+			}
+			572 = {
+				add_province_modifier = { 
+				name = sri_lanka_development
+				duration = -1  
+				}
+			}
+		}
+	}
+	
+	mad_kandy_fortress = {
+		icon = mission_divert_trade_from_bengal
+		required_missions = { mad_develop_the_island }
+		position = 5
+		trigger = {
+			2099 = {
+				has_building = fort_17th
+			}
+		}
+		effect = {
+			add_prestige = 25
+			2099 = {
+				add_province_modifier = { 
+					name = fortress_lanka
+					duration = -1  
+				}
+			}
+		}
+	}
+}
+
+mad_missions_two = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Dharma"
+	}
+	potential = {
+		tag = MAD
+		has_dlc = "Dharma"
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mad_ship_vijay = {
+		icon = mission_coromandel_trade
+		required_missions = { mad_buildforces_dh }
+		position = 2
+		trigger = {
+			num_of_light_ship = 10
+		}
+		effect = {
+			add_adm_power = 50
+			534 = {
+				cede_province = MAD
+				add_core = MAD
+			}
+			lanka_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_lanka_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mad_conquer_sri_lanka = {
+		icon = mission_vedic_education
+		required_missions = { mad_ship_vijay }
+		position = 3
+		
+		provinces_to_highlight = {
+			OR = {
+			province_id = 4408
+			province_id = 4409
+			}
+		}
+			
+		trigger = {
+			owns_core_province = 4408
+			owns_core_province = 4409
+		}
+		effect = {
+			add_country_modifier = { 
+			name = way_of_tea
+			duration = -1  
+			}
+		}
+	}
+	
+	mad_colonial_ports = {
+		icon = mission_vedic_education
+		required_missions = { mad_conquer_sri_lanka }
+		position = 4
+		trigger = {		
+			estate_loyalty = {
+				estate = estate_vaisyas
+				loyalty = 60
+			}
+			dip = 4
+		}
+		effect = {
+			add_country_modifier = { 
+				name = mad_island_hopping
+				duration = 9125
+			}
+			create_explorer = { tradition = 50 }
+		}
+	}
+	
+	mad_take_the_islands = {
+		icon = mission_secure_the_malabar_coast
+		required_missions = { mad_colonial_ports }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+			province_id = 1248
+			province_id = 1101
+			}
+		}
+		
+		trigger = {		
+			owns_core_province = 1248
+			owns_core_province = 1101
+		}
+		effect = {
+			1101 = {
+				change_trade_goods = copper
+			}
+			create_explorer = { tradition = 50 }
+			add_country_modifier = { 
+			name = mad_colonisation_fever
+			duration = 9125
+			}
+			mascarenes_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			betsimasaraka_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			madagascar_highlands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			southern_madagascar = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			sakalava_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	mad_reach_the_bounty = {
+		icon = mission_the_chola_conquests
+		required_missions = { mad_take_the_islands }
+		position = 6
+		
+		provinces_to_highlight = {
+			OR = {
+			province_id = 1100
+			province_id = 1792
+			province_id = 4030
+			province_id = 1102
+			province_id = 1103
+			}
+		}
+		
+		trigger = {		
+			owns_core_province = 1100
+			owns_core_province = 1792
+			owns_core_province = 4030
+			owns_core_province = 1102
+			owns_core_province = 1103 
+		}
+		effect = {
+			country_event = { 
+				id = flavor_mad.1
+			}
+		}
+	}
+	
+}
+
+mad_missions_four = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Dharma"
+	}
+	potential = {
+		tag = MAD
+		has_dlc = "Dharma"
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mad_spy_vijay = {
+		icon = mission_conquer_50_development
+		required_missions = { mad_buildforces_dh }
+		position = 2
+		
+		provinces_to_highlight = {
+			province_id = 536
+		}
+		
+		trigger = {
+			536 = {
+				cavalry_in_province = 4
+			}
+		}
+		effect = {
+			add_mil_power = 50
+			2085 = {
+				cede_province = MAD
+				add_core = MAD
+			}
+		}
+	}
+	
+	mad_take_tanjore = {
+		icon = mission_conquer_50_development
+		required_missions = { mad_spy_vijay }
+		position = 3
+		
+		trigger = {
+			manpower = 10
+			mil_tech = 4
+		}
+		effect = {
+			tanjore_area = {
+				add_claim = MAD
+			}
+		}
+	}
+	
+	mad_consolidate_south = {
+		icon = mission_conquer_50_development
+		required_missions = { mad_take_tanjore }
+		position = 4
+		
+		provinces_to_highlight = {
+			area = tanjore_area
+		}
+		
+		trigger = { 
+			tanjore_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			south_carnatic_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mad_fish_merchants = {
+		icon = mission_conquer_50_development
+		required_missions = { mad_consolidate_south}
+		position = 4
+		
+		provinces_to_highlight = {
+			OR = {
+			province_id = 540
+			province_id = 1947
+			province_id = 2027
+			province_id = 539
+			province_id = 4417
+			}
+		}
+		trigger = { 
+			treasury = 750
+			540 = {
+				owned_by = MAD
+			}
+			1947 = {
+				owned_by = MAD
+			}
+			2027 = {
+				owned_by = MAD
+			}
+			539 = {
+				owned_by = MAD
+			}
+			4417 = {
+				owned_by = MAD
+			}
+			dip_tech = 7
+		}
+		effect = {
+			add_treasury = -750
+			540 = {
+			change_trade_goods = fish
+			add_province_modifier = { 
+			name = fish_merchants
+			duration = -1
+					}
+				}
+			1947 = {
+			change_trade_goods = fish
+			add_province_modifier = { 
+			name = fish_merchants
+			duration = -1
+					}
+		     }
+			2027 = {
+			change_trade_goods = fish
+			add_province_modifier = { 
+			name = fish_merchants
+			duration = -1
+					}
+				}
+			539 = {
+			change_trade_goods = fish
+			add_province_modifier = { 
+			name = fish_merchants
+			duration = -1
+					}
+				}
+			4417 = {
+			change_trade_goods = fish
+			add_province_modifier = { 
+			name = fish_merchants
+			duration = -1
+					}
+				}
+		}
+	}
+}

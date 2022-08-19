@@ -7,10 +7,10 @@ add_core = FIN
 culture = finnish
 religion = catholic
 hre = no
-base_tax = 2
+base_tax = 2 
 base_production = 1
-trade_goods = fish
-base_manpower = 1
+trade_goods = naval_supplies
+base_manpower = 2
 capital = "Borgå"
 is_city = yes
 

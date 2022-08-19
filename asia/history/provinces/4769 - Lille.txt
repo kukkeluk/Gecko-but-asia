@@ -3,7 +3,6 @@
 owner = BUR
 controller = BUR
 add_core = BUR
-add_core = FLA
 is_city = yes
 capital = "Lille"
 culture = wallonian
@@ -17,6 +16,8 @@ discovered_by = eastern
 discovered_by = western
 discovered_by = muslim
 discovered_by = ottoman
+fort_15th = yes
+
 
 1477.1.5 = { owner = HAB controller = HAB add_core = HAB }
 1519.1.12 = { owner = SPA controller = SPA add_core = SPA remove_core = HAB } # Charles V gets total control over his Burgundian inheritance

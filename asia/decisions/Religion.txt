@@ -385,7 +385,7 @@ country_decisions = {
 				name = "khalifah"
 				duration = -1
 			}
-			add_piety = 0.2
+			add_piety = 0.10
 		}
 		ai_will_do = {
 			factor = 1
@@ -410,7 +410,7 @@ country_decisions = {
 				name = "sect_practices"
 				duration = -1
 			}
-			add_piety = 0.2
+			add_piety = 0.10
 		}
 		ai_will_do = {
 			factor = 1
@@ -436,7 +436,7 @@ country_decisions = {
 				name = "islamic_scholarly_centre"
 				duration = -1
 			}
-			add_piety = 0.50
+			add_piety = 0.25
 		}
 		ai_will_do = {
 			factor = 1
@@ -1104,30 +1104,30 @@ country_decisions = {
 		}
 	}
 	
-	#tengri_black_shamanism = {
-	#	potential = {
-	#		NOT = { has_country_modifier = black_shamanism_modifier }
-	#		religion = tengri_pagan_reformed
-	#		NOT = { has_secondary_religion = yes }
-	#	}
-	#	allow = {
-	#		ADM = 3
-	#		NOT = { has_country_modifier = yellow_shamanism_modifier }
-	#	}
-	#	effect = {	
-	#		add_country_modifier = {
-	#			name = "black_shamanism_modifier"
-	#			duration = -1
-	#		}
-	#	}
-	#	ai_will_do = {
-	#		factor = 1
-	#		modifier = {
-	#			has_idea_group = humanist_ideas
-	#			factor = 0
-	#		}
-	#	}
-	#}
+	tengri_black_shamanism = {
+		potential = {
+			NOT = { has_country_modifier = black_shamanism_modifier }
+			religion = tengri_pagan_reformed
+			NOT = { has_secondary_religion = yes }
+		}
+		allow = {
+			ADM = 3
+			NOT = { has_country_modifier = yellow_shamanism_modifier }
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "black_shamanism_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = humanist_ideas
+				factor = 0
+			}
+		}
+	}
 	
 	tengri_expel_the_khojas = {
 		potential = {
@@ -1196,8 +1196,8 @@ country_decisions = {
 			religion = zoroastrian
 		}
 		allow = {
-			stability = 2
-			ADM = 3
+			stability = 1
+			ADM = 1
 			adm_power = 50
 		}
 		effect = {
@@ -1225,11 +1225,11 @@ country_decisions = {
 			OR = {
 				province_id = 2221 #Various locations suggested to have been the site of these fires.
 				province_id = 2207 #Various locations suggested to have been the site of these fires.
-				province_id = 2235 #Various locations suggested to have been the site of these fires.
-				province_id = 2236 #Various locations suggested to have been the site of these fires.
-				province_id = 2218 #Various locations suggested to have been the site of these fires.
-				province_id = 441 #Various locations suggested to have been the site of these fires.
-				province_id = 2223 #Various locations suggested to have been the site of these fires.
+				province_id = 446 #Various locations suggested to have been the site of these fires.
+				province_id = 522 #Various locations suggested to have been the site of these fires.
+				province_id = 504 #Various locations suggested to have been the site of these fires.
+				province_id = 421 #Various locations suggested to have been the site of these fires.
+				province_id = 408 #Various locations suggested to have been the site of these fires.
 			}
 			OR = {
 				NOT = { owned_by = root }
@@ -1240,13 +1240,12 @@ country_decisions = {
 			government_rank = 3
 			owns_core_province = 2221 #Various locations suggested to have been the site of these fires.
 			owns_core_province = 2207 #Various locations suggested to have been the site of these fires.
-			owns_core_province = 2235 #Various locations suggested to have been the site of these fires.
-			owns_core_province = 2236 #Various locations suggested to have been the site of these fires.
-			owns_core_province = 2218 #Various locations suggested to have been the site of these fires.
-			owns_core_province = 441 #Various locations suggested to have been the site of these fires.
-			owns_core_province = 2223 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 446 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 522 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 504 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 421 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 408 #Various locations suggested to have been the site of these fires.
 		}
-		major = yes
 		effect = {	
 			add_country_modifier = {
 				name = "royal_fires_modifier"
@@ -1259,11 +1258,11 @@ country_decisions = {
 				NOT = {
 					owns_core_province = 2221 #Various locations suggested to have been the site of these fires.
 					owns_core_province = 2207 #Various locations suggested to have been the site of these fires.
-					owns_core_province = 2235 #Various locations suggested to have been the site of these fires.
-					owns_core_province = 2236 #Various locations suggested to have been the site of these fires.
-					owns_core_province = 2218 #Various locations suggested to have been the site of these fires.
-					owns_core_province = 441 #Various locations suggested to have been the site of these fires.
-					owns_core_province = 2223 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 446 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 522 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 504 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 421 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 408 #Various locations suggested to have been the site of these fires.
 				}
 				factor = 0
 			}
@@ -1725,12 +1724,11 @@ country_decisions = {
 			stability = 1
 		}
 		effect = {
-			#add_prestige = -100
+			add_prestige = -100
 			add_stability = -2
 			change_religion = sikhism
 			if = {
 				limit = {
-					government = monarchy
 					reform_level = 2
 				}
 				add_government_reform = khalsa_reform
@@ -1844,117 +1842,5 @@ country_decisions = {
 			}
 		}
 	}
-	renovate_emerald_buddha_shrine = {
-		potential = {
-			OR = {
-				religion = buddhism
-				religion = mahayana
-				religion = vajrayana
-			}
-			any_owned_province = {
-				has_province_modifier = emerald_buddha
-			}
-		}
-		allow = {
-			years_of_income = 0.25
-		}
-		effect = {
-			add_years_of_income = -0.25
-			if = {
-				limit = {
-					any_owned_province = {
-						has_province_modifier = emerald_buddha
-					}
-				}
-				every_owned_province = {
-					remove_province_modifier = emerald_buddha
-				}
-				capital_scope = {
-					add_permanent_province_modifier = {
-						name = "emerald_buddha_alternate"
-						duration = -1
-					}
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}	
-	renovate_emerald_buddha_shrine_alternate = {
-		potential = {
-			OR = {
-				religion = buddhism
-				religion = mahayana
-				religion = vajrayana
-			}
-			any_owned_province = {
-				has_province_modifier = emerald_buddha_alternate
-			}
-		}
-		allow = {
-			years_of_income = 0.25
-		}
-		effect = {
-			add_years_of_income = -0.25
-			if = {
-				limit = {
-					any_owned_province = {
-						has_province_modifier = emerald_buddha_alternate
-					}
-				}
-				every_owned_province = {
-					remove_province_modifier = emerald_buddha_alternate
-				}
-				capital_scope = {
-					add_permanent_province_modifier = {
-						name = "emerald_buddha"
-						duration = -1
-					}
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	build_the_third_temple = {
-		potential = {
-			religion = jewish
-			NOT = {
-				379 = {
-					has_province_flag = third_temple_built
-				}
-			}
-			NOT = { has_country_flag = has_third_temple_event_going }
-		}
-		provinces_to_highlight = {
-			province_id = 379
-			OR = {
-				NOT = { is_core = ROOT }
-				NOT = { owned_by = ROOT }
-				NOT = { religion = jewish }
-			}
-		}
-		allow = {
-			religion = jewish
-			379 = {
-				owned_by = ROOT
-				is_core = ROOT
-				religion = jewish	
-			}
-		}
-		effect = {
-			country_event = { 
-				id = jewish_flavor.5
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { treasury = 6000 }
-			}
-		}
-	}	
+	
 }

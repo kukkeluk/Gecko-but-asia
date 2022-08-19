@@ -3,13 +3,43 @@ country_decisions = {
 	enthrone_timurid_prince = {
 		major = yes
 		potential = {
-		always = no
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { dynasty = "Timurid" }
+			NOT = { is_year = 1490 }
+			OR = {
+				government = monarchy
+				government = tribal
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = MUG }
+			NOT = { tag = PER }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+				tag = QOM
+				tag = KHO
+				tag = FRS
+				tag = YZD
+				tag = AFG
+				tag = TRS
+			}
+			OR = {
+				culture_group = iranian
+				primary_culture = uzbehk
+				primary_culture = turkmeni
+				primary_culture = gulf_arabic
+			}
+			NOT = { has_reform = tribal_federation }
+			NOT = { has_reform = feudal_theocracy }
+			religion_group = muslim
 		}
 		provinces_to_highlight = {
 			OR = {
 				province_id = 428	# Teheran/Rayy
 				province_id = 429	# Isfahan
-				province_id = 2221	# Mashhad
+				province_id = 446	# Herat
 				province_id = 451	# Kabul
 				province_id = 458	# Ferghana
 				province_id = 454	# Samarkand
@@ -27,7 +57,7 @@ country_decisions = {
 			OR = {
 				owns_core_province = 428	# Teheran/Rayy
 				owns_core_province = 429	# Isfahan
-				owns_core_province = 2221	# Mashhad
+				owns_core_province = 446	# Herat
 				owns_core_province = 451	# Kabul
 				owns_core_province = 458	# Ferghana
 				owns_core_province = 454	# Samarkand
@@ -46,9 +76,11 @@ country_decisions = {
 			}
 			add_legitimacy = 20
 			if = {
-				limit = { has_heir = yes }
-				kill_heir = {}
-			}	
+				limit = {
+					has_heir = yes
+				}
+				remove_heir = {}
+			}
 			define_heir = {
 				dynasty = "Timurid"
 			}
@@ -68,22 +100,40 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = MUG }
+			NOT = { tag = PER }
+			NOT = { tag = TIM }
+			NOT = { tag = ARB }
+			is_colonial_nation = no
 			OR = {
-				tag = AFG
-				tag = TRS
-				tag = ISF
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
 			}
+			OR = {
+				culture_group = iranian
+				primary_culture = uzbehk
+				primary_culture = turkmeni
+				primary_culture = gulf_arabic
+			}
+			religion_group = muslim
+			dynasty = "Timurid"
 		}
 		provinces_to_highlight = {
 			OR = {
-				#province_id = 429
-				#province_id = 2213
-				#province_id = 2218
-				#province_id = 465
-				province_id = 2221	# Mashhad
-				#province_id = 451
+				province_id = 429
+				province_id = 2213
+				province_id = 2218
+				province_id = 454
+				province_id = 446
+				province_id = 456
 				province_id = 445
-				#province_id = 428
+				province_id = 450
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -95,19 +145,26 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 454	# Samarkand
-			AND = {
-					owns_core_province = 2221	# Mashhad
-					owns_core_province = 445	# Merv
-					#owns_core_province = 465	# Nogai
+			owns_core_province = 446	# Herat
+			OR = {
+				AND = {
+					owns_core_province = 429	# Isfahan
+					owns_core_province = 2213	# Qom
+					owns_core_province = 2218	# Shiraz
 				}
-			army_size = 40
-			share_of_starting_income = 1.5 
+				AND = {
+					owns_core_province = 456	# Turkestan
+					owns_core_province = 445	# Merv
+					owns_core_province = 450	# Balkh
+				}
+			}
 		}
 		effect = {
 			454 = {
 				move_capital_effect = yes
 			}
 			change_tag = TIM
+			custom_tooltip = TIM_ideas_localisation
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
@@ -116,25 +173,17 @@ country_decisions = {
 				}
 				set_government_rank = 3
 			}
-			country_event = { #New Heir of Timur
-				id = gc_tim_events.1
-			}
+			add_prestige = 25
 			add_country_modifier = {
 				name = centralization_modifier
 				duration = 3650
 			}
-			change_primary_culture = khorasani
-			#change_government = tribal
-			#add_government_reform = tribal_federation
-			#change_technology_group = gunpowder_empire
-			change_unit_type = gunpowder_empire
-			#persia_region = {
-			#	limit = {
-			#		NOT = { owned_by = TIM }
-			#		NOT = { is_core = TIM }
-			#	}
-			#	add_permanent_claim = TIM
-			#}
+			if = {
+				limit = {
+					NOT = { primary_culture = uzbehk }
+				}
+				change_primary_culture = uzbehk
+			}
 			khorasan_region = {
 				limit = {
 					NOT = { owned_by = TIM }
@@ -184,48 +233,48 @@ country_decisions = {
 				}
 				add_permanent_claim = TIM
 			}
-			#basra_area = {
-			#	limit = {
-			#		NOT = { owned_by = TIM }
-			#		NOT = { is_core = TIM }
-			#	}
-			#	add_permanent_claim = TIM
-			#}
-			#iraq_arabi_area = {
-			#	limit = {
-			#		NOT = { owned_by = TIM }
-			#		NOT = { is_core = TIM }
-			#	}
-			#	add_permanent_claim = TIM
-			#}
-			#al_jazira_area = {
-			#	limit = {
-			#		NOT = { owned_by = TIM }
-			#		NOT = { is_core = TIM }
-			#	}
-			#	add_permanent_claim = TIM
-			#}
-			#armenia_area = {
-			#	limit = {
-			#		NOT = { owned_by = TIM }
-			#		NOT = { is_core = TIM }
-			#	}
-			#	add_permanent_claim = TIM
-			#}
-			#north_kurdistan_area = {
-			#	limit = {
-			#		NOT = { owned_by = TIM }
-			#		NOT = { is_core = TIM }
-			#	}
-			#	add_permanent_claim = TIM
-			#}
-			#erzurum_area = {
-			#	limit = {
-			#		NOT = { owned_by = TIM }
-			#		NOT = { is_core = TIM }
-			#	}
-			#	add_permanent_claim = TIM
-			#}
+			basra_area = {
+				limit = {
+					NOT = { owned_by = TIM }
+					NOT = { is_core = TIM }
+				}
+				add_permanent_claim = TIM
+			}
+			iraq_arabi_area = {
+				limit = {
+					NOT = { owned_by = TIM }
+					NOT = { is_core = TIM }
+				}
+				add_permanent_claim = TIM
+			}
+			al_jazira_area = {
+				limit = {
+					NOT = { owned_by = TIM }
+					NOT = { is_core = TIM }
+				}
+				add_permanent_claim = TIM
+			}
+			armenia_area = {
+				limit = {
+					NOT = { owned_by = TIM }
+					NOT = { is_core = TIM }
+				}
+				add_permanent_claim = TIM
+			}
+			north_kurdistan_area = {
+				limit = {
+					NOT = { owned_by = TIM }
+					NOT = { is_core = TIM }
+				}
+				add_permanent_claim = TIM
+			}
+			erzurum_area = {
+				limit = {
+					NOT = { owned_by = TIM }
+					NOT = { is_core = TIM }
+				}
+				add_permanent_claim = TIM
+			}
 			if = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas

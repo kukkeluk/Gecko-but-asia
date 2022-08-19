@@ -1,0 +1,21 @@
+#1240 - Hawaii
+
+culture = polynesian
+religion = animism
+hre = no
+capital = "Kailua-Kona"
+trade_goods = unknown
+base_tax = 3 
+base_production = 3
+base_manpower = 1
+native_size = 10
+native_ferocity = 2
+native_hostileness = 9
+discovered_by = OAH
+discovered_by = KAA
+discovered_by = MAU
+discovered_by = HAW
+add_permanent_claim = MAS
+
+1555.1.1 = { discovered_by = SPA }
+1778.1.1 = { discovered_by = GBR }

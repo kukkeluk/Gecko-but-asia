@@ -1,0 +1,448 @@
+fu_VOC_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential_on_load = { has_dlc = "Emperor" } 
+	potential = {
+		tag = VOC
+		if = {
+			limit = { has_global_flag = missions_expanded_mod_active }
+			NOT = { has_country_flag = use_missions_expanded_missions_instead_of_paradox }
+		}
+		has_dlc = "Emperor"
+	}
+	has_country_shield = yes
+	
+	emp_ned_seize_ceylon = {
+		icon = seize_ceylon
+		required_missions = { emp_ned_charter_the_voc }
+		position = 2
+		
+		provinces_to_highlight = {
+			area = lanka_area
+			NOT = { owned_by = ROOT }
+			has_discovered = ROOT
+		}
+		
+		trigger = {
+			lanka_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			630 = {
+				if = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			add_country_modifier = {
+				name = "ned_ceylon_mod"
+				duration = "5475"
+			}
+		}
+	}
+
+	emp_ned_found_batavia = {
+		icon = found_batavia
+		required_missions = { emp_ned_seize_ceylon }
+		position = 3
+		completed_by = 1660.1.1
+		
+		provinces_to_highlight = {
+			province_id = 630
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			630 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			630 = {
+				rename_capital = "Batavia"
+			}
+			malacca_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			} 
+		}
+	}
+	
+	emp_ned_conquer_malacca = {
+		icon = conquer_malacca
+		required_missions = { emp_ned_found_batavia }
+		position = 4
+		
+		provinces_to_highlight = {
+			area = malacca_area
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			malacca_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			taiwan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	emp_ned_dutch_formosa = {
+		icon = dutch_formosa
+		required_missions = { emp_ned_conquer_malacca }
+		position = 5
+
+		provinces_to_highlight = {
+			area = taiwan_area
+			NOT = { owned_by = ROOT }
+			has_discovered = ROOT
+		}
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = ned_taiwan.tooltip
+				taiwan_area = {
+					type = all
+					owned_by = ROOT
+					is_city = yes
+				}
+			}
+		}
+		
+		effect = {
+			taiwan_area = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+			add_mercantilism = 3
+		}
+	}
+	
+	emp_ned_secure_dejima = {
+		icon = secure_dejima
+		required_missions = { emp_ned_dutch_formosa }
+		position = 6
+		
+		provinces_to_highlight = {
+			province_id = 4182
+			NOT = { owned_by = ROOT }
+			has_discovered = ROOT
+		}
+		trigger = {
+			4182 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			1376 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 10950
+					power = 50
+					key = DUTCH_DEJIMA
+				}
+			}
+			add_mercantilism = 2 
+		}
+	}
+}
+
+fu_VOC_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential_on_load = { has_dlc = "Emperor" } 
+	potential = {
+		tag = VOC
+		if = {
+			limit = { has_global_flag = missions_expanded_mod_active }
+			NOT = { has_country_flag = use_missions_expanded_missions_instead_of_paradox }
+		}
+		has_dlc = "Emperor"
+	}
+	has_country_shield = yes
+	
+	emp_ned_charter_the_voc = {
+		icon = mission_trade_company_region_abroad
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			trade_company_indonesia = {
+				has_discovered = ROOT
+			}
+			trade_company_moluccas = {
+				has_discovered = ROOT
+			}
+		}
+		effect = {
+			lanka_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	emp_ned_control_coromandel_trade = {
+		icon = control_coromandel
+		required_missions = { emp_ned_seize_ceylon }
+		position = 3
+		
+		provinces_to_highlight = {
+			province_id = 1340
+			has_discovered = ROOT
+		}
+		trigger = {
+			1340 = {
+				is_strongest_trade_power = ROOT
+			}
+		}
+		effect = {
+			add_mercantilism = 2
+		}
+	}
+	
+	emp_ned_indonesia_cot = {
+		icon = indonesian_trade
+		required_missions = { emp_ned_conquer_malacca }
+		position = 5
+		
+		provinces_to_highlight = {
+			province_id = 1361
+			has_discovered = ROOT
+		}
+		
+		trigger = { 
+			1361 = {		# Straits of Johor
+				is_strongest_trade_power = ROOT
+			}
+		}
+	
+		effect = {
+			add_country_modifier = {
+				name = "por_johor_dominance"
+				duration = 7300
+			}
+		}
+	}
+	
+	emp_ned_dutch_east_indies = {
+		icon = dutch_east_indies
+		required_missions = { emp_ned_indonesia_cot }
+		position = 6
+		
+		provinces_to_highlight = {
+			OR = {
+				trade_company_region = trade_company_moluccas
+				trade_company_region = trade_company_indonesia
+			}
+			is_sea = no
+			NOT = { owned_by = ROOT }
+			has_discovered = ROOT
+		}
+		
+		trigger = { 
+			calc_true_if = {
+				all_owned_province = {
+					OR = {
+						trade_company_region = trade_company_moluccas
+						trade_company_region = trade_company_indonesia
+					}
+				}
+				amount = 15
+			}
+		}
+	
+		effect = {
+			1357 = {
+				add_trade_modifier = {
+					who = root
+					duration = 7300
+					power = 50
+					key = DUTCH_EAST_INDIES_TRADE
+				}
+			}
+			1361 = {
+				add_trade_modifier = {
+					who = root
+					duration = 7300
+					power = 50
+					key = DUTCH_EAST_INDIES_TRADE
+				}
+			}
+		}
+	}
+}
+
+fu_VOC_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential_on_load = { has_dlc = "Emperor" } 
+	potential = {
+		tag = VOC
+		if = {
+			limit = { has_global_flag = missions_expanded_mod_active }
+			NOT = { has_country_flag = use_missions_expanded_missions_instead_of_paradox }
+		}
+		has_dlc = "Emperor"
+	}
+	has_country_shield = yes
+	
+	emp_ned_colonize_the_cape = {
+		icon = colonize_the_cape
+		required_missions = { emp_ned_charter_the_voc }
+		position = 2
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 833
+				province_id = 1177
+				province_id = 1179
+			}
+			NOT = { owned_by = ROOT }
+			has_discovered = ROOT
+		}
+				
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = ned_south_africa_colony.tooltip
+				OR = {
+					833 = {
+						owned_by = ROOT
+						is_city = yes
+					}
+					1177 = {
+						owned_by = ROOT
+						is_city = yes
+					}
+					1179 = {
+						owned_by = ROOT
+						is_city = yes
+					}
+				}
+			}
+		}
+		
+		effect = {
+			add_treasury = 300
+		}
+	}
+	
+	emp_ned_discover_australia = {
+		icon = colonize_australia
+		required_missions = { emp_ned_colonize_the_cape }
+		position = 3
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = ned_spice_australia.tooltip
+				colonial_australia = {
+					has_discovered = ROOT
+				}
+			}
+		}
+		
+		effect = {
+			create_admiral = {
+				tradition = 80
+			}
+			set_country_flag = ned_nova_hollandia_flag
+		}
+	}
+}
+
+fu_VOC_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential_on_load = { has_dlc = "Emperor" } 
+	potential = {
+		tag = VOC
+		if = {
+			limit = { has_global_flag = missions_expanded_mod_active }
+			NOT = { has_country_flag = use_missions_expanded_missions_instead_of_paradox }
+		}
+		has_dlc = "Emperor"
+	}
+	has_country_shield = yes
+	
+	fu_gen_hre_financial_centre = {
+		icon = appease_the_estates
+		required_missions = { high_income_mission }
+		position = 2
+
+		provinces_to_highlight = {
+			is_capital_of = root
+		}
+
+		trigger = {
+			capital_scope = {
+				development = 25
+				has_tax_building_trigger = yes
+				has_production_building_trigger = yes
+				has_trade_building_trigger = yes
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = republic_bourgeois_center
+				duration = 5475
+			}
+		}
+	}
+	
+	fu_gen_hre_republic_reform_government = {
+		icon = mission_early_modern_university
+		required_missions = { fu_gen_hre_financial_centre }
+		position = 4
+
+		trigger = {
+			has_final_tier_reforms_trigger = yes
+			OR = {
+				crown_land_share = 70
+				AND = {
+					estate_loyalty = {
+						estate = estate_burghers
+						loyalty = 60
+					}
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 60
+					}
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 60
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = voc_stable_administration_modifier
+				duration = -1
+			}
+		}
+	}

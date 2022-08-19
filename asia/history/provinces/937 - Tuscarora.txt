@@ -1,5 +1,6 @@
 #937 - Tuscarora
 
+is_city = yes
 culture = iroquois
 religion = totemism
 capital = "Tuscarora"

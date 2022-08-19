@@ -1,4 +1,11 @@
 # Kalmar Union
+union = {
+	first = DAN
+	second = SWE
+	#start_date = 1397.6.17
+	start_date = 1397.6.17
+	end_date = 1443.1.1
+}
 
 # Kalmar Union
 union = {
@@ -25,13 +32,13 @@ union = {
 }
 
 # Denmark-Norway
-#union = {
-#	first = DAN
-#	second = NOR
-#	start_date = 1397.6.17
-#	#start_date = 1444.1.1
-#	end_date = 1449.11.20
-#}
+union = {
+	first = DAN
+	second = NOR
+	#start_date = 1397.6.17
+	start_date = 1442.1.1
+	end_date = 1443.1.1
+}
 
 # Sweden-Norway
 union = {
@@ -87,7 +94,7 @@ alliance = {
 	start_date = 1618.5.22
 	end_date = 1629.5.22
 }
-# Denmark-Lüneburg
+# Denmark-LÃ¼neburg
 alliance = {
 	first = DAN
 	second = LUN
@@ -143,7 +150,7 @@ alliance = {
 	end_date = 1648.10.24
 }
 
-# First northern war, Treaty of Königsberg
+# First northern war, Treaty of KÃ¶nigsberg
 alliance = {
 	first = SWE
 	second = BRA
@@ -272,7 +279,7 @@ royal_marriage = {
 	end_date = 1809.3.13
 }
 
-# Swedish vassal, Treaty of Königsberg
+# Swedish vassal, Treaty of KÃ¶nigsberg
 vassal = {
 	first = SWE
 	second = BRA
@@ -281,9 +288,9 @@ vassal = {
 }
 
 # Danish vassal, Holstein
-#vassal = {
-#	first = DAN
-#	second = SHL
-#	start_date = 1444.1.1
-#	end_date = 1460.3.6
-#}
+vassal = {
+	first = DAN
+	second = SHL
+	start_date = 1444.1.1
+	end_date = 1460.3.6
+}

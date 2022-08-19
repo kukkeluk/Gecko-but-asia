@@ -2,29 +2,217 @@
 # these are checked for each countries once/month and then applied.
 #
 # Effects are fully scriptable here.
+###########################################
+# AI Stuff
+###########################################
+#ai_colony_nation_loyalty = {
+#	potential = {
+#		was_player = yes
+#		is_colonial_nation = yes
+#	}
+#	trigger = {
+#		ai = yes
+#	}
+#
+#	liberty_desire = -30
+#}
+#ai_african_colonist_debuff = {
+#	potential = {
+#		has_reform = african_colonists_reform
+#	}
+#	trigger = {
+#		ai = yes
+#	}
+#
+#	global_colonial_growth = -15
+#	colonists = -1
+#}
+###########################################
+# Too many player colonies
+###########################################
+overlord_with_too_many_colonies = {
+	potential = {
+		ai = no
+		OR = {
+			capital_scope = {
+				continent = north_america
+			}
+			capital_scope = {
+				continent = south_america
+			}	
+			capital_scope = {
+				continent = oceania
+			}	
+		}
+		is_subject = yes
+	}
+	trigger = {
+		colonial_parent = {
+			custom_trigger_tooltip = {
+				tooltip = more_than_four_colonial_players_tt
+				calc_true_if = {
+					amount = 4
+					all_subject_country = {
+						AND = {
+							ai = no
+							OR = {
+								capital_scope = {
+									continent = north_america
+								}
+								capital_scope = {
+									continent = south_america
+								}	
+								capital_scope = {
+									continent = oceania
+								}	
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
+	discipline = -0.05
+}
+###########################################
+# ANTI MARCH SWARM MODIFIER
+###########################################
+#anti_march_swarm_modifier = {
+#	potential = {
+#		ai = no
 
+#	}
+#	trigger = {
+#		num_of_non_tributary_subjects = 20
+#	}
+#
+#	vassal_forcelimit_bonus = -5
+#}
+###########################################
+# ANTI MP BANKING MODIFIER
+###########################################
+#anti_manpower_banking_modifier = {
+#	potential = {
+#		ai = no
+#	}
+#	trigger = {
+#		manpower_percentage = 2.00
+#	}
+#
+#	manpower_recovery_speed = -1.5
+#}
+###########################################
+# HRE SPY NETWORK BOOST
+###########################################
+#hre_player_nation = {
+#	potential = {
+#		is_part_of_hre = yes
+#	}
+#	trigger = {
+#		was_player = yes
+#		capital_scope = {
+#			is_part_of_hre = yes
+#		}
+#		NOT = { is_year = 1650 }
+#	}
+#
+#	spy_offence = 0.2
+#}
+###########################################
+# quick build testing
+###########################################
+#player_fast_build = {
+#	trigger = {
+#		was_player = yes
+#	}
+#	
+#	build_time = -1
+#}
+###########################################
+# Player in new world nerf
+###########################################
+new_world_player_nerf = {
+	potential = {
+		OR = {
+			capital_scope = {
+				continent = north_america
+			}
+			capital_scope = {
+				continent = south_america
+			}	
+			capital_scope = {
+				continent = oceania
+			}	
+		}
+		was_player = yes
+	}
+
+	trigger = {
+		total_development = 300
+	}
+
+	manpower_recovery_speed = -0.10
+	sailors_recovery_speed = -0.15
+	global_sailors_modifier = -0.20
+	naval_forcelimit_modifier = -0.1
+	land_forcelimit_modifier = -0.1
+}
+new_world_player_nerf_600 = {
+	potential = {
+		OR = {
+			capital_scope = {
+				continent = north_america
+			}
+			capital_scope = {
+				continent = south_america
+			}	
+			capital_scope = {
+				continent = oceania
+			}	
+		}
+		was_player = yes
+	}
+
+	trigger = {
+		total_development = 600
+	}
+
+	global_manpower_modifier = -0.1
+	manpower_recovery_speed = -0.10
+	sailors_recovery_speed = -0.15
+	global_sailors_modifier = -0.20
+	naval_forcelimit_modifier = -0.15
+	land_forcelimit_modifier = -0.15
+	amount_of_banners = -0.1
+}
 ###########################################
 # Discovery of the East Indian trade route.
 ###########################################
 east_indian_trade_route = {
 	potential = {
-		always = no
 		num_of_ports = 1
 		NOT = {
 			capital_scope = {
 				continent = asia
 			}
 		}
+		NOT = {
+			capital_scope = {
+				continent = oceania
+			}
+		}
+		
 	}
 
 	trigger = {
 		has_discovered = 1460 # Cape of Good Hope
 		num_of_ports = 4
-		#has_idea = quest_for_the_new_world
+		has_idea = quest_for_the_new_world
 		any_active_trade_node = {
 			has_merchant = ROOT
 			OR = {
+				province_id = 1361 # Straits of Johor
 				province_id = 1343 # Ganges Delta
 				province_id = 504 # Sind
 				province_id = 1340 # Comorin Cape
@@ -255,11 +443,11 @@ custodian_of_the_two_holy_mosques = {
 
 	trigger = {
 		is_free_or_tributary_trigger = yes
-		owns = 385
-		owns = 384
+		owns_or_vassal_of = 385
+		owns_or_vassal_of = 384
 	}
 
-	prestige = 0.5
+	legitimacy = 0.5
 	missionaries = 1
 }
 ###########################################
@@ -287,60 +475,48 @@ custodian_of_the_two_holy_mosques = {
 ######################################
 # Catholic control of Rome.
 ######################################
-catholic_rome = {
-	potential = {
-		normal_or_historical_nations = yes
-		has_discovered = 118	# Roma
-		#religion = catholic
-		NOT = { tag = PAP }
-		NOT  = { is_year = 1550}
-	}
+#catholic_rome = {
+#	potential = {
+#		normal_or_historical_nations = yes
+#		has_discovered = 118	# Roma
+#		religion = catholic
+#		NOT = { tag = PAP }
+#	}
+#
+#	trigger = {	
+#		NOT = { overlord_of = PAP }
+#		owns_or_vassal_of = 118 # Roma		
+#		NOT = { tag = ITA }
+#		NOT = { tag = ROM }
+#		ai = yes
+#	}
+#
+#	papal_influence = -10
+#	diplomatic_reputation = -1
+#	#icon = 9
+#}
 
-	trigger = {	
-		NOT = { overlord_of = PAP }
-		#owns_or_vassal_of = 118 # Roma
-		num_of_owned_provinces_with = {
-				value = 20
-				region = italy_region
-				is_core = root
-			}
-		NOT = { tag = ITA }
-		NOT = { tag = ROM }
-		NOT = { tag = VEN }
-		NOT = { tag = MLO }
-		NOT = { tag = SIC }
-		NOT = { tag = TTS }
-	}
-
-	#papal_influence = -10
-	production_efficiency = 0.1
-	global_tax_modifier = 0.1
-	global_manpower_modifier = 0.1
-	#icon = 9
-}
-
-papal_subjugation = {
-	potential = {
-		always = no
-		normal_or_historical_nations = yes
-		has_discovered = 118	# Roma
-		religion = catholic
-		NOT = { tag = PAP }
-	}
-
-	trigger = {	
-		overlord_of = PAP
-		NOT = { tag = ITA }
-	}
-
-	diplomatic_reputation = -2
-	#icon = 9
-}
+#papal_subjugation = {
+#	potential = {
+#		normal_or_historical_nations = yes
+#		has_discovered = 118	# Roma
+#		religion = catholic
+#		NOT = { tag = PAP }
+#	}
+#
+#	trigger = {	
+#		overlord_of = PAP
+#		NOT = { tag = ITA }
+#		ai = yes
+#	}
+#
+#	diplomatic_reputation = -2
+#	#icon = 9
+#}
 
 
 rapid_collapse_of_society = {
 	potential = {
-		always = no
 		normal_or_historical_nations = yes
 		capital_scope = {
 			OR = {
@@ -376,7 +552,6 @@ rapid_collapse_of_society = {
 ######################################
 submission_to_emperor = {
 	potential = {
-		always = no
 		has_global_flag = italians_leave_hre
 		NOT = { has_country_flag = reined_in_for_shadow_kingdom }
 		is_part_of_hre = yes
@@ -405,10 +580,8 @@ submission_to_emperor = {
 ######################################
 counter_revolution = {
 	potential = {
-		always = no
 		revolution_target_exists = yes
 		is_revolutionary = no
-		always = no
 		any_country = {
 			is_revolution_target = yes
 			capital_scope = {
@@ -444,10 +617,8 @@ counter_revolution = {
 ######################################
 reaction = {
 	potential = {
-		always = no
 		revolution_target_exists = yes
 		is_revolutionary = no
-		always = no
 		any_country = {
 			is_revolution_target = yes
 			capital_scope = {
@@ -495,9 +666,7 @@ crusader = {
 		land_maintenance = 1.0
 	}
 
-	global_unrest = -2
-	manpower_recovery_speed = 0.25
-	#global_manpower_modifier = 0.3
+	global_manpower_modifier = 0.3
 	global_tax_modifier = 0.1
 	land_morale = 0.05
 	prestige = 1
@@ -531,7 +700,6 @@ excommunication = {
 ##################################################
 pentarchy_mod = {
 	potential = {
-		always = no
 		normal_or_historical_nations = yes
 		religion = orthodox
 		OR = {
@@ -581,7 +749,6 @@ the_mandate_of_heaven = {
 
 the_mandate_of_heaven_lost = {
 	potential = {
-		always = no
 		has_reform = celestial_empire
 		NOT = { has_dlc = "Mandate of Heaven" }
 	}
@@ -601,7 +768,6 @@ the_mandate_of_heaven_lost = {
 
 lost_control_of_beijing = {
 	potential = {
-		always = no
 		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 	}
@@ -618,7 +784,6 @@ lost_control_of_beijing = {
 
 lost_control_of_nanjing = {
 	potential = {
-		always = no
 		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 	}
@@ -635,7 +800,6 @@ lost_control_of_nanjing = {
 
 lost_control_of_canton = {
 	potential = {
-		always = no
 		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 	}
@@ -652,7 +816,6 @@ lost_control_of_canton = {
 
 waging_war_for_china = {
 	potential = {
-		always = no
 		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 	}
@@ -748,7 +911,6 @@ hre_dominant_reformed = {
 
 synthetic_remnants = {
 	potential = {
-		always = no
 		has_global_flag = synthetics_defeated
 	}
 	trigger = {
@@ -761,22 +923,21 @@ synthetic_remnants = {
 # The Golden Age of Piracy
 ######################################
 
-#golden_age_of_piracy = {
-#	potential = {
-#		always = no
-#		has_global_flag = golden_age_of_piracy
-#		NOT = { # lasts 50 years
-#			had_global_flag = { flag = golden_age_of_piracy days = 18250 }
-#		}
-#		1516 = { has_discovered = ROOT }
-#	}
-#	trigger = {
-#		1516 = {
-#			privateer_power = { country = ROOT share = 1 }
-#		}
-#	}
-#	privateer_efficiency = 0.2
-#}
+golden_age_of_piracy = {
+	potential = {
+		has_global_flag = golden_age_of_piracy
+		NOT = { # lasts 50 years
+			had_global_flag = { flag = golden_age_of_piracy days = 18250 }
+		}
+		1516 = { has_discovered = ROOT }
+	}
+	trigger = {
+		1516 = {
+			privateer_power = { country = ROOT share = 1 }
+		}
+	}
+	privateer_efficiency = 0.2
+}
 
 ######################################
 # The Great Peasants' War
@@ -784,23 +945,20 @@ synthetic_remnants = {
 
 great_peasants_war_triggered_modifier = {
 	potential = {
-		always = no
 		has_global_flag = great_peasants_war_flag
 		capital_scope = {
 			continent = europe
 		}
 	}
 	trigger = {
-		always = no
 		is_part_of_hre = yes
 		NOT = { has_reform = peasants_republic }
 	}
-	global_unrest = 1
+	global_unrest = 6
 }
 
 great_peasants_war_concessions_triggered_modifier = {
 	potential = {
-		always = no
 		OR = {
 			has_global_flag = gpw_peasants_win_major
 			has_global_flag = gpw_peasants_win_minor
@@ -810,7 +968,6 @@ great_peasants_war_concessions_triggered_modifier = {
 		}
 	}
 	trigger = {
-		always = no
 		is_part_of_hre = yes
 		NOT = { has_reform = peasants_republic }
 	}
@@ -821,18 +978,18 @@ great_peasants_war_concessions_triggered_modifier = {
 # Pope is in the empire
 ######################################
 
-#pope_in_hre_triggered_modifier = {
-#	potential = {
-#		PAP = { is_part_of_hre = yes }
-#		religion = catholic
-#	}
-#	trigger = {
-#		PAP = { is_part_of_hre = yes }
-#		religion = catholic
-#		NOT = { is_part_of_hre = yes }
-#	}
-#	prestige = 0
-#}
+pope_in_hre_triggered_modifier = {
+	potential = {
+		PAP = { is_part_of_hre = yes }
+		religion = catholic
+	}
+	trigger = {
+		PAP = { is_part_of_hre = yes }
+		religion = catholic
+		NOT = { is_part_of_hre = yes }
+	}
+	prestige = -0.5
+}
 
 ######################################
 # The Italian Wars
@@ -867,8 +1024,7 @@ italian_wars_triggered_modifier = {
 			}
 		}
 	}
-	mercenary_cost = -0.10
-	mercenary_discipline = 0.05
+	amount_of_banners = 0.1
 }
 
 ######################################
@@ -877,7 +1033,6 @@ italian_wars_triggered_modifier = {
 
 defense_of_the_empire_modifier = {
 	potential = {
-		always = no
 		has_dlc = "Emperor"
 		OR = {
 			is_emperor = yes
@@ -892,4 +1047,34 @@ defense_of_the_empire_modifier = {
 		}
 	}
 	war_taxes_cost_modifier = -1.0
+}
+######################################
+# Judaism Defensive Aspect
+######################################
+
+judaism_yom_kippur_aspect_war_modifier = {
+	potential = {
+		religion = jewish
+		has_church_aspect = judaism_yom_kippur_aspect
+	}
+	trigger = {
+		is_at_war = yes
+	}
+	manpower_recovery_speed = 0.1
+	church_power_modifier = 0.05
+}
+
+judaism_yom_kippur_aspect_defensive_war_modifier = {
+	potential = {
+		religion = jewish
+		has_church_aspect = judaism_yom_kippur_aspect
+	}
+	trigger = {
+		is_at_war = yes
+		is_in_war = {
+			defenders = ROOT
+		}
+	}
+	manpower_recovery_speed = 0.1
+	church_power_modifier = 0.05
 }

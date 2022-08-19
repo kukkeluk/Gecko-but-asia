@@ -1,6 +1,6 @@
 government = republic
-add_government_reform = venice_merchants_reform
-mercantilism = 10
+add_government_reform = signoria_reform
+mercantilism = 25
 primary_culture = venetian
 religion = catholic
 elector = yes
@@ -10,8 +10,13 @@ technology_group = western
 capital = 112 # Venezia
 fixed_capital = 112 # Cannot move capital away from this province & no power cost to move to it
 historical_friend = KNI
-national_focus = MIL
-add_army_professionalism = 0.15
+national_focus = DIP
+add_army_professionalism = 0.05
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
+
 
 1380.1.1 = { leader = {	name = "Carlo Zeno"	type = admiral	fire = 3	shock = 3	manuever = 4	siege = 0	death_date = 1404.1.1 } }
 
@@ -47,14 +52,11 @@ add_army_professionalism = 0.15
 1423.4.5 = {
 	monarch = {
 		name = "Francesco Foscari"
-		birth_date = 1420.1.1
+		birth_date = 1413.1.1
 		adm = 4
 		dip = 4
 		mil = 4
 	}
-	clear_scripted_personalities = yes
-	#add_ruler_personality = careful_personality
-	add_ruler_personality = well_connected_personality
 }
 
 1425.1.1 = { leader = {	name = "Francesco da Carmagnola" type = general	fire = 3	shock = 3	manuever = 4	siege = 0	death_date = 1432.5.5 } }

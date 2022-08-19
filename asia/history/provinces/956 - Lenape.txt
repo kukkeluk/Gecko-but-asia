@@ -1,5 +1,6 @@
 #956 - Lenape
 
+is_city = yes
 culture = delaware
 religion = totemism
 capital = "Lenape"

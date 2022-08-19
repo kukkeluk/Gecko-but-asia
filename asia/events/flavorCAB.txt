@@ -1,0 +1,81 @@
+########################################
+# Events for the Carib
+#
+# written by Henrik Lohmander
+########################################
+
+namespace = flavor_cab
+normal_or_historical_nations = yes
+
+#The Orinoco Trade
+country_event = {
+	id = flavor_cab.1
+	title = flavor_cab.1.t
+	desc = flavor_cab.1.d
+	picture = TRADEGOODS_eventPicture
+	fire_only_once = yes
+
+	trigger = {
+		tag = CAB
+		OR = {
+			owns = 2803 #Orinoco Delta
+			owns = 2805 #Uyapari
+			owns = 2939 #Zaraza
+			owns = 742 #Angostura
+			owns = 2811 #Atabapo
+			owns = 2809 #Llanos
+			owns = 2810 #Apure
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = flavor_cab.1.a #The Orinoco is our territory.
+		ai_chance = { factor = 80 }
+		every_province = {
+			limit = {
+				or = {
+					province_id = 2803 #Orinoco Delta
+					province_id = 2805 #Uyapari
+					province_id = 2939 #Zaraza
+					province_id = 742 #Angostura
+					province_id = 2811 #Atabapo
+					province_id = 2809 #Llanos
+					province_id = 2810 #Apure
+				}
+				NOT = { is_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+	}
+	option = {
+		name = flavor_cab.1.b #We can dominate the river through trade alone.
+		#ai_chance = { factor = 20 }
+		ai_chance = { factor = 0 } #Will just migrate out of here.
+		add_dip_power = -100
+		random_owned_province = {
+			limit = {
+				or = {
+					province_id = 2803 #Orinoco Delta
+					province_id = 2805 #Uyapari
+					province_id = 2939 #Zaraza
+					province_id = 742 #Angostura
+					province_id = 2811 #Atabapo
+					province_id = 2809 #Llanos
+					province_id = 2810 #Apure
+				}
+			}
+			add_province_modifier = {	#Lasts for as long as the area remains under Carib control.
+				name = "hub_of_orinoco_trade"
+				duration = -1
+			}
+		}
+	}
+}
+
+#Refugees from the Carib Wars, Carib Expulsion, etc
+
+#Arawak settle the mouth of the Orinoco

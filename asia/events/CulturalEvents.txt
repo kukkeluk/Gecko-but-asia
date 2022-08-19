@@ -99,7 +99,10 @@ country_event = {
 
 	trigger = {
 		has_institution = renaissance
+		OR = {
 		religion_group = christian
+		religion = zoroastrian
+		}
 		current_age = age_of_discovery
 		NOT = {
 			exists = BYZ
@@ -113,9 +116,12 @@ country_event = {
 		dip_power = 50
 		adm_power = 30
 		prestige = 30
-		dip = 4
+		dip = 3
 		capital_scope = {
-			continent = europe
+		OR = {	
+		    continent = europe
+			region = mashriq_region
+		}
 		}
 	}
 	
@@ -197,7 +203,17 @@ country_event = {
 	picture = TOURNAMENT_eventPicture
 
 	trigger = {
-		always = no
+		religion_group = christian
+		has_institution = feudalism
+		capital_scope = { continent = europe }
+		government = monarchy
+		current_age = age_of_discovery
+		NOT = {
+			has_country_flag = last_jousting_tournament_held
+		}
+		army_tradition = 15
+		adm_power = 30
+		years_of_income = 0.2
 	}
 	
 	mean_time_to_happen = {

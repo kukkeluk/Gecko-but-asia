@@ -1,0 +1,511 @@
+mar_missions_one = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = MAR
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mar_combat_brahmins = {
+		icon = mission_brahmin_administrators
+		required_missions = { }
+		trigger = {
+			stability = 1
+			has_personal_deity = shakti
+			custom_trigger_tooltip = {
+				tooltip = mjl_anti_brahmins_tt
+				NOT = {
+					has_country_flag = working_with_brahmins_flag
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = brahmins_opposed
+			hidden_effect = {
+				change_variable = {
+					which = MarBrahminOppose
+					value = 1
+				}
+				set_country_flag = combating_the_brahmins_flag
+			}
+			konkan_area = {
+				add_local_autonomy = -30
+				add_base_production = -1
+			}	
+		}
+	}
+	
+	mar_combat_in_desh = {
+		icon = mission_conquer_kannauj
+		required_missions = { mar_combat_brahmins }
+		position = 2
+		trigger = {
+			has_estate_privilege = mjl_marathas_brahmins
+			treasury = 100
+		}
+		effect = {
+			custom_tooltip = brahmins_opposed
+			hidden_effect = {
+				change_variable = {
+					which = MarBrahminOppose
+					value = 1
+				}
+			}
+			add_years_of_income = 1
+			desh_area = {
+				add_base_tax = -1
+				add_local_autonomy = -30
+			}	
+		}
+	}
+	conquer_outwards_two = {
+		icon = mission_conquer_andhra_vij
+		required_missions = { mar_stabilize_the_nation }
+		position = 5
+		trigger = {
+			MAR = {
+				owns_core_province = 4438
+				owns_core_province = 2028
+				owns_core_province = 4444
+			}
+		}
+		effect = {
+			add_dip_power = 100
+		}
+	}
+}
+
+mar_missions_two = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = MAR
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mar_marathas_education = {
+		icon = mission_court_education
+		required_missions = { mar_combat_brahmins }
+		position = 2
+		trigger = {
+			employed_advisor = {
+				category = MIL
+			}
+		}
+		effect = {
+			custom_tooltip = brahmins_opposed
+			change_mil = 1
+			add_ruler_modifier = {
+				name = marathas_educated 
+				duration = -1
+				desc = marathas_educated_desc
+			}
+			hidden_effect = {
+				change_variable = {
+					which = MarBrahminOppose
+					value = 1
+				}
+			}	
+		}
+	}
+	
+	mar_stabilize_the_nation = {
+		icon = mission_rule_the_garjats
+		required_missions = { mar_integrate_south }
+		position = 4
+		trigger = {
+			NOT = {
+				average_autonomy = 20
+			}
+		}
+		effect = {
+			berar_area = {
+				add_claim = MAR
+			}
+			telingana_area = {
+				add_claim = MAR
+			}
+		}
+	}
+	
+	conquer_outwards = {
+		icon = mission_spoils_of_war
+		required_missions = { mar_stabilize_the_nation }
+		position = 5
+		trigger ={
+			MAR = {
+				owns_core_province = 546
+				owns_core_province = 4443
+				owns_core_province = 548
+				owns_core_province = 2050
+			}
+		}
+		effect = {
+			add_mil_power = 100
+		}
+	}
+	
+	conquer_bidar = {
+		icon = mission_conquer_maharashtra
+		required_missions = { 
+			conquer_outwards 
+			conquer_outwards_two 
+        }
+		position = 6
+		trigger ={
+			MAR = {
+				owns_core_province = 1948
+			}
+			1948 = {
+				development = 20
+				province_trade_power = 30
+			}
+		}
+		effect = {
+			1948 = {
+				add_province_modifier = { 
+					name = bidar_new_captial
+					duration = -1  
+				}
+			}
+		}
+	}
+}
+
+mar_missions_five = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = MAR
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mar_help_brahmins = {
+		icon = mission_integrate_the_gonds
+		required_missions = { }
+		position = 1
+		trigger = {
+			stability = 1
+			has_personal_deity = surya
+			custom_trigger_tooltip = {
+				tooltip = mjl_pro_brahmins_tt
+				NOT = {
+					has_country_flag = combating_the_brahmins_flag
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = brahmins_pacified
+			hidden_effect = {
+				change_variable = {
+					which = MarBrahminSupport 
+					value = 1
+				}
+				set_country_flag = working_with_brahmins_flag
+			}
+			konkan_area = {
+				add_base_tax = 1
+				add_local_autonomy = -10
+			}	
+		}
+	}
+	
+	mar_help_in_desh = {
+		icon = mission_patronize_sufi_scholars
+		required_missions = { mar_help_brahmins }
+		position = 2
+		trigger = {
+			has_estate_privilege = mjl_marathas_brahmins
+			estate_loyalty = {
+				estate = estate_brahmins
+				loyalty = 55
+			}
+		}
+		effect = {
+			custom_tooltip = brahmins_pacified
+			hidden_effect = {
+				change_variable = {
+					which = MarBrahminSupport 
+					value = 1
+				}
+				set_country_flag = working_with_brahmins_flag
+			}
+			desh_area = {
+				add_base_tax = 1
+				add_local_autonomy = -10
+			}	
+		}
+	}
+	
+	mar_develop_the_nation = {
+		icon = mission_rein_in_the_velamas
+		required_missions = { mar_integrate_south }
+		position = 4
+		trigger = {
+			545 = {
+				has_building = temple
+			}
+			2089 = {
+				has_building = marketplace
+			}
+			1946 = {
+				has_building = temple
+			}
+		}
+		effect = {
+			545 = {
+				add_base_tax = 1
+			}
+			2089 = {
+				add_base_tax = 1
+			}
+			1946 = {
+				add_base_tax = 1
+			}
+		}
+	}
+	mar_squash_rebels = {
+		icon = mission_prepare_an_invasion_force
+		required_missions = { mar_develop_the_nation }
+		position = 5
+		trigger = {
+			NOT = { average_unrest = 0.1 }
+		}
+		effect = {
+			add_stability = 1
+		}
+	}
+	mar_reduce_inflation = {
+		icon = mission_bankers_of_cambay
+		required_missions = { 
+			mar_squash_rebels 
+			mar_fix_the_banks
+		}
+		position = 6
+		trigger = {
+			NOT = { inflation = 1 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "marathas_loans"
+				duration = -1
+				desc = marathas_loans_desc_tooltip
+			}
+		}
+	}
+}
+
+###################################
+
+mar_missions_four = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = MAR
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mar_brahmin_education = {
+		icon = mission_the_chola_campaigns
+		required_missions = { mar_help_brahmins }
+		position = 2
+		trigger = {
+			employed_advisor = {
+				category = DIP
+			}
+		}
+		effect = {
+			custom_tooltip = brahmins_pacified
+			change_adm = 1
+			add_ruler_modifier = {
+				name = brahmin_educated 
+				duration = -1
+				desc = brahmin_educated_desc
+			}
+			hidden_effect = {
+				change_variable = {
+					which = MarBrahminSupport 
+					value = 1
+				}
+			}	
+		}
+	}
+	
+	mar_fix_the_banks = {
+		icon = mission_reliable_allies
+		required_missions = { mar_develop_the_nation }
+		position = 5
+		trigger = {
+			NOT = { num_of_loans = 1 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "marathas_debt_free_trading"
+				duration = 3650
+				desc = marathas_debt_free_trading_desc_tooltip
+			}
+		}
+	}
+}
+
+mar_missions_three = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MAR
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mar_preparations = {
+		icon = mission_lower_burma_campaign
+		position = 1
+		trigger = {
+         stability = 1
+		 army_size_percentage = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = "bng_orissa_conquest"
+				duration = 3650
+			}
+			4431 = {
+				add_claim = MAR
+			}
+		maidan_area  = {
+			limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+		 add_permanent_claim = ROOT
+		}
+		khandesh_area  = {
+			limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+		 add_permanent_claim = ROOT
+		}
+		}
+	}
+	
+	mar_sieze_the_coast = {
+		icon = mission_conquer_andhra_bah
+		required_missions = { mar_preparations }
+		position = 2
+		provinces_to_highlight ={
+		province_id = 4431
+		}
+		trigger = {
+			share_of_starting_income = 1.5
+		}
+		effect = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = 5475
+				power = 20
+				key = STRONG_MERCHANTS
+			}
+			4431 = {
+				cede_province = MAR
+				add_core = MAR
+			}
+		}
+	}
+	
+	
+	mar_integrate_south = {
+		icon = mission_cromandel_coast
+		required_missions = { mar_sieze_the_coast }
+		position = 3
+		trigger = {
+         OR = {
+		 mission_completed = mar_brahmin_education
+		 mission_completed = mar_marathas_education
+		 }
+		 adm_power = 100
+		 mil_power = 100
+		}
+		
+		effect = {
+			add_adm_power = -75
+			add_mil_power = -75
+			4429 = {
+				add_base_tax = 2
+				add_base_manpower = 2
+			}
+			4431 = {
+				add_base_tax = 2
+				add_base_manpower = 2
+			}
+			konkan_area = {
+				add_prosperity = 50
+			}
+			desh_area = {
+				add_prosperity = 50
+			}
+		}
+	}
+	mar_a_shining_star = {
+		icon = mission_divert_trade_from_bengal
+		required_missions = { 
+			conquer_bidar 
+			mar_reduce_inflation
+		}
+		position = 7
+		trigger = {
+			grown_by_development = 200
+		}
+		effect = {
+			add_country_modifier = {
+				name = "marathas_schools"
+				duration = -1
+				desc = marathas_schools_desc_tooltip
+			}
+		}
+	}
+	mar_a_jewel = {
+		icon = mission_annex_prome
+		required_missions = { 
+			mar_a_shining_star 
+		}
+		position = 8
+		trigger = {
+			grown_by_development = 500
+		}
+		effect = {
+			add_country_modifier = {
+				name = "marathas_academies"
+				duration = -1
+				desc = marathas_academies_desc_tooltip
+			}
+		}
+	}
+	
+	mar_an_empire = {
+		icon = mission_defy_the_dragon
+		required_missions = { 
+			mar_a_jewel
+		}
+		position = 9
+		trigger = {
+			grown_by_development = 1500
+		}
+		effect = {
+			add_country_modifier = {
+				name = "marathas_institutes"
+				duration = -1
+				desc = marathas_institutes_desc_tooltip
+			}
+		}
+	}
+}

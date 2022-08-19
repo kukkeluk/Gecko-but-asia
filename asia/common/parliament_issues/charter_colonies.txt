@@ -3,8 +3,10 @@ charter_colonies = {
 	category = 2
 
 	allow = {
-		num_of_colonists = 1 
-		was_player = yes
+		OR = {
+			full_idea_group = expansion_ideas
+			full_idea_group = exploration_ideas
+		}
 	}
 	
 	effect = {
@@ -13,7 +15,6 @@ charter_colonies = {
 	
 	modifier = {
 		colonists = 1
-		global_colonial_growth = 20
 	}
 	
 	chance = {

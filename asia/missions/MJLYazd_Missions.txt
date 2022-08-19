@@ -1,0 +1,428 @@
+pedja_yazd_missions1 = {
+   slot = 1
+   generic = no 
+   potential = {
+		tag = YZD
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+   establish_the_marzban_of_azerbaijan = {
+   	icon = mission_arabian_fort
+	required_missions = {recover_the_north}
+	position = 3
+   	provinces_to_highlight = {
+	area = azerbaijan_area
+	}
+  trigger = {
+  azerbaijan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				NOT = { local_autonomy = 25 }
+			}
+   2212 = {
+   base_manpower= 4
+   base_tax = 4
+   }
+   2215 = {
+   base_manpower = 4
+   base_tax = 4
+   }
+   4300 = {
+   base_manpower = 4
+   base_tax = 4
+   }
+   4338 = {
+   base_manpower = 4
+   base_tax = 4
+   }
+   }
+  effect = {
+  add_manpower = 10
+  change_government_reform_progress = 50
+  	azerbaijan_area = {
+	add_province_modifier = {
+	name = "marzban_of_azerbaijan"
+	duration = -1
+	}
+	}
+  }
+   }
+}
+pedja_yazd_missions2 = {
+   slot = 2
+   generic = no 
+   potential = {
+		tag = YZD
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	recover_the_north = {
+	icon = mission_arabian_fort
+	required_missions = {prepare_our_return}
+	position = 2
+	provinces_to_highlight = {
+			OR = {
+				area = azerbaijan_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+    trigger = {
+		   azerbaijan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			}
+	effect = {
+	add_mil_power = 50
+			iraq_arabi_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			luristan_area  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			shahrizor_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			basra_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+	
+	}
+	}
+   the_old_heartland = {
+   	icon = mission_arabian_fort
+	required_missions = {recover_the_north}
+	position = 3
+   provinces_to_highlight = {
+			OR = {
+				area = iraq_arabi_area
+				area = luristan_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+   	trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+	   luristan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	   iraq_arabi_area = {
+				type = all
+				owned_by = ROOT
+			}
+	   }
+	effect = {
+	410 = {
+	change_culture = persian
+	change_religion = zoroastrian
+	add_base_manpower = 2
+	add_base_production = 2
+	add_base_tax = 2
+	add_local_autonomy = -50
+	}
+	
+	add_stability = 1
+   }
+}
+}
+pedja_yazd_missions3 = {
+   slot = 3
+   generic = no 
+   potential = {
+		tag = YZD
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+   
+    prepare_our_return = {
+	icon = mission_non-western_cavalry_raid
+	position = 1
+		required_missions = { }
+
+		provinces_to_highlight = {
+		}
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			army_size_percentage = 1
+			num_of_generals = 1
+		}
+	effect = {
+			add_country_modifier = {
+				name = "thriving_arms_industry"
+				duration = 9125 #25 years
+			}
+			farsistan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			azerbaijan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			tabarestan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+	
+	}
+	}
+	reconquer_the_homeland = {
+    	icon = mission_restore_caliphate_of_cordoba
+        required_missions = { prepare_our_return }
+		position = 2
+	    provinces_to_highlight = {
+		 area = farsistan_area 
+		 NOT = {
+		country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+	trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+	   farsistan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	   }
+   effect = {
+               farsistan_area = {
+	            add_local_autonomy = -50
+                }
+	add_adm_power = 100
+	add_manpower = 10
+			4288 = {
+				if = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+				}
+			}
+			408 = {
+				if = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+				}
+			}
+			
+			al_muthanna_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+
+		    khuzestan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+	}
+	}
+    take_the_ports = {
+	    icon = mission_restore_caliphate_of_cordoba
+        required_missions = { reconquer_the_homeland }
+		position = 3
+	    provinces_to_highlight = {
+		 OR = {
+		 area = al_muthanna_area
+         area = basra_area
+		  }		 
+		 NOT = {
+		country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+    trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+	   basra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	   }
+	effect = {
+     add_treasury = 200 
+	}	
+	}
+}
+pedja_yazd_missions4 = {
+   slot = 4
+   generic = no 
+   potential = {
+		tag = YZD
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+   integrate_the_branch_dynasty_yazd = {
+   position = 1
+   icon = mission_alliances
+   required_missions = { }
+  trigger = {
+   OR = { AND = {
+         YZD = {
+		 total_own_and_non_tributary_subject_development = 300
+		 }
+         alliance_with = TAB
+		  marriage_with = TAB
+		  TAB = {
+		  NOT = { num_of_cities = 5 }
+		  }
+		  }
+          NOT = { exists = TAB }
+         }
+   }
+   effect = {
+   if = {
+    limit = {
+	exists = TAB
+	}
+	inherit = TAB
+	add_dip_power = -200
+   }
+   else_if = {
+   add_adm_power = 100
+   }
+   }
+   }
+   }
+pedja_yazd_missions42 = {
+   slot = 4
+   generic = no 
+   potential = {
+		tag = YZD
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+    
+    subjegate_the_merchants = {
+	icon = mission_establish_mint_towns
+    required_missions = { prepare_our_return }
+	position = 2
+	provinces_to_highlight = {
+		 OR = {
+		 area = tabarestan_area
+		 }		 
+		 NOT = {
+		country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+    	trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+	   tabarestan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				NOT = { local_autonomy = 50 }
+			}
+	   }
+	effect = {
+	     add_prestige = 10
+	       add_country_modifier = {
+	            name = "yazd_persian_traders"
+	            duration = 7300
+	    }
+	}
+	}
+	
+   seize_persian_trade = {
+   position = 3
+   icon = mission_jawal_silver_mine
+   required_missions = { subjegate_the_merchants }
+   provinces_to_highlight = {
+   }
+   
+   trigger = {
+			home_trade_node = {
+				trade_share = {
+					country = ROOT
+					share = 55
+				}
+			}
+		OR = { 
+				estate_loyalty = { estate = estate_burghers loyalty = 60 }
+				estate_loyalty = { estate = estate_vaisyas loyalty = 60 }
+			}
+		}
+	effect = {
+		tabarestan_area = {
+	        add_province_modifier = {
+	        name = "yazd_trade_centers"
+	        duration = 3650
+	    }
+	}
+   }
+}
+}

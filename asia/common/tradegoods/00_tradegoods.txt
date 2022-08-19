@@ -248,10 +248,10 @@ wool = {
 cloth = {
 	color = { 0.86 0.19 0.19 }
 	modifier = {
-		merc_maintenance_modifier = -0.15
+		land_maintenance_modifier = -0.05
 	}
 	province = {
-		local_development_cost = -0.05
+		local_development_cost = -0.1
 	}
 	chance = {
 		factor = 10
@@ -261,11 +261,11 @@ cloth = {
 		}
 		modifier = {
 			factor = 0
-			NOT = { development_discounting_tribal = 18 }
+			NOT = { development = 18 }
 		}
 		modifier = {
 			factor = 2.0
-			development_discounting_tribal = 22
+			development = 22
 		}
 	}
 }
@@ -276,7 +276,7 @@ fish = {
 		global_sailors_modifier = 0.25
 	}
 	province = {
-		local_manpower = 0.25
+		local_sailors_modifier = 0.25
 	}
 	chance = {
 		factor = 20
@@ -346,7 +346,6 @@ fur = {
 				region = south_africa_region
 				region = australia_region
 				region = central_africa_region
-				region = guinea_region
 				area = newfoundland_area
 			}
 		}
@@ -440,7 +439,7 @@ naval_supplies = {
 		naval_forcelimit_modifier = 0.20
 	}
 	province = {
-		local_sailors = 250
+		naval_forcelimit = 0.5
 	}
 
 	chance = {
@@ -491,8 +490,8 @@ naval_supplies = {
 		modifier = {
 			factor = 1.5
 			OR = {
-				#has_terrain = forest
-				#has_terrain = woods
+				has_terrain = forest
+				has_terrain = woods
 				has_terrain = hills
 				has_terrain = jungle
 			}
@@ -552,6 +551,10 @@ copper = {
 			NOT = { region = west_siberia_region }
 			NOT = { region = east_siberia_region }
 			NOT = { region = central_africa_region }
+			NOT = { region = california_region }
+			NOT = { region = cascadia_region }
+			NOT = { region = australia_region }
+			
 		}
 		modifier = {
 			factor = 0
@@ -586,6 +589,9 @@ copper = {
 				area = south_iroquoisia_area
 				region = west_siberia_region
 				region = east_siberia_region
+				region = california_region
+				region = cascadia_region
+				region = australia_region
 			}
 		}
 	}
@@ -596,7 +602,7 @@ gold = {
 	#no modifiers
 	
 	chance = {
-		factor = 5
+		factor = 3
 		modifier = {
 			factor = 0
 			area = newfoundland_area
@@ -606,27 +612,8 @@ gold = {
 			is_random_new_world = no
 			NOT = { region = west_siberia_region }
 			NOT = { region = east_siberia_region }
-			NOT = { region = cascadia_region }
-			NOT = { region = australia_region }
-			NOT = { region = california_region }
 			NOT = { region = south_africa_region }
 			NOT = { region = central_africa_region }
-			NOT = { region = peru_region }
-			NOT = { region = upper_peru_region }
-			NOT = { region = mexico_region }
-			NOT = { region = rio_grande_region }
-			NOT = { region = central_america_region }
-			NOT = { area = goias_area }
-			NOT = { area = pontal_area }
-			NOT = { area = mato_grosso_area }
-			NOT = { area = ofaie_area }
-			NOT = { area = minas_gerais_area }
-			NOT = { area = diamantina_area }
-			NOT = { area = guapore_area }
-			NOT = { area = grao_para_area }
-			NOT = { area = amapa_area }
-			NOT = { area = ucayali_area }
-			NOT = { area = amazon_area }
 		}
 		modifier = {
 			factor = 0
@@ -634,7 +621,6 @@ gold = {
 			NOT = { continent = new_world }
 			NOT = { region = west_siberia_region }
 			NOT = { region = east_siberia_region }
-			NOT = { region = australia_region }
 			NOT = { region = south_africa_region }
 			NOT = { region = central_africa_region }
 		}
@@ -664,35 +650,6 @@ gold = {
 		modifier = {
 			factor = 1.5
 			normal_or_historical_nations = no
-		}
-		modifier = {
-			factor = 3.5
-			region = peru_region
-		}
-		modifier = {
-			factor = 4.0
-			OR = {
-				province_id = 852		# Mexico
-				province_id = 853		# Huastec
-				province_id = 854		# Sayultecas
-				province_id = 2617		# Huichol
-				province_id = 856		# Zacatecas
-				province_id = 857		# Guichichil
-				province_id = 858		# Tamaulipas
-				province_id = 2615		# Guamares
-				province_id = 4781		# Transvaal (Johannesburg mines)
-			}
-		}
-		modifier = {
-			factor = 3.5
-			OR = {
-				area = minas_gerais_area
-				area = diamantina_area
-				area = mato_grosso_area
-				area = ofaie_area
-				area = goias_area
-				area = pontal_area
-			}
 		}
 		modifier = {
 			factor = 2
@@ -726,6 +683,9 @@ iron = {
 			NOT = { region = west_siberia_region }
 			NOT = { region = east_siberia_region }
 			NOT = { region = central_africa_region }
+			NOT = { region = california_region }
+			NOT = { region = cascadia_region }
+			NOT = { region = australia_region }
 			NOT = { province_id = 990 }
 			NOT = { area = great_valley_area }
 			NOT = { area = susquehanna_area }
@@ -768,16 +728,17 @@ iron = {
 slaves = {
 	color = { 0.0 0.0 0.0 }
 	modifier = {
-		manpower_recovery_speed = 0.10
-
+		global_tariffs = 0.25
 	}
 	province = {
-		local_manpower_modifier = 0.10
-		
+		local_missionary_strength = 0.01
 	}
 	chance = {
 		factor = 15
-
+		modifier = {
+			factor = 0
+			holy_order = dominican_order
+		}
 		modifier = {
 			factor = 0
 			area = newfoundland_area
@@ -882,7 +843,7 @@ ivory = {
 tea = {
 	color = { 0.07 0.33 0.09 }
 	modifier = {
-		advisor_pool = 1
+		advisor_cost = -0.10
 	}
 	province = {
 		garrison_growth = 0.25
@@ -903,6 +864,7 @@ tea = {
 			NOT = { region = south_china_region }
 			NOT = { region = xinan_region }
 			NOT = { region = japan_region }
+			NOT = { area = taiwan_area }
 			NOT = { area = assam_area }
 			NOT = { area = banda_oriental_area } #Yerba Mate
 			NOT = { area = rio_grande_do_sol_area } #Yerba Mate
@@ -1009,14 +971,14 @@ chinaware = {
 		}
 		modifier = {
 			factor = 0
-			NOT = { development_discounting_tribal = 8 }
+			NOT = { development = 8 }
 		}
 		modifier = {
 			factor = 2.0
 			FROM = {
 				has_country_flag = encourage_cash_crops_flag
 			}
-		}			
+		}
 	}
 }
 
@@ -1089,7 +1051,7 @@ spices = {
 coffee = {
 	color = { 0.22 0.15 0.09 }
 	modifier = {
-		technology_cost  = -0.05
+		global_institution_spread = 0.05
 	}
 	province = {
 		local_institution_spread = 0.1
@@ -1155,7 +1117,7 @@ cotton = {
 		global_colonial_growth = 20
 	}
 	province = {
-		local_development_cost = -0.05
+		local_development_cost = -0.1
 	}
 	chance = {
 		factor = 20
@@ -1353,17 +1315,17 @@ tobacco = {
 			FROM = {
 				has_country_flag = encourage_cash_crops_flag
 			}
-		}	
+		}
 	}
 }
 
 cocoa = {
 	color = { 0.45 0.21 0.09 }
 	modifier = {
-		global_tariffs = 0.25
+		manpower_recovery_speed = 0.05
 	}
 	province = {
-		local_missionary_strength = 0.01
+		local_manpower_modifier = 0.10
 	}
 
 	chance = {
@@ -1459,14 +1421,14 @@ silk = {
 				region = deccan_region
 				region = coromandel_region
 			}
-			development_discounting_tribal = 20
+			development = 20
 		}
 		modifier = {
 			factor = 2.0
 			FROM = {
 				has_country_flag = encourage_cash_crops_flag
 			}
-		}	
+		}
 	}
 }
 
@@ -1560,10 +1522,10 @@ tropical_wood = {
 livestock = {
 	color = { 0.72 0.49 0.44 }
 	modifier = {
-		cavalry_power = 0.1
+		cavalry_cost = -0.1
 	}
 	province = {
-		local_tax_modifier = 0.15
+		supply_limit_modifier = 0.5
 	}
 	chance = {
 		factor = 30
@@ -1715,11 +1677,11 @@ glass = {
 		}
 		modifier = {
 			factor = 0
-			NOT = { development_discounting_tribal = 18 }
+			NOT = { development = 18 }
 		}
 		modifier = {
 			factor = 2.0
-			development_discounting_tribal = 22
+			development = 22
 		}
 	}
 }
@@ -1740,11 +1702,11 @@ paper = {
 		}
 		modifier = {
 			factor = 0
-			NOT = { development_discounting_tribal = 18 }
-		}	
+			NOT = { development = 18 }
+		}
 		modifier = {
 			factor = 2.0
-			development_discounting_tribal = 22
+			development = 22
 		}
 	}
 }
@@ -1755,7 +1717,7 @@ gems = {
 		inflation_reduction = 0.05
 	}
 	province = {
-		trade_value_modifier = 0.1
+		local_tax_modifier = 0.15
 	}
 	chance = {
 		factor = 5
@@ -1917,10 +1879,14 @@ coal = {
 	
 	trigger = {
 		OR = {
-			development_discounting_tribal = 20
+			development = 20
 			owner = { innovativeness = 20 }
 		}
-		is_year = 1650
+		provincial_institution_progress = {
+			which = enlightenment
+			value = 100
+		}
+		owner = { has_institution = enlightenment }
 	}
 	
 	modifier = {
@@ -1945,7 +1911,7 @@ cloves = {
 		province_trade_power_modifier = 0.2
 	}
 	chance = {
-		factor = 150
+		factor = 130
 		modifier = {
 			factor = 0
 			NOT = {
@@ -1964,7 +1930,19 @@ cloves = {
 	}
 }
 
-
 unknown = {
 	color = { 0.5 0.5 0.5 }
+}
+
+bananas = {
+	color = { 1.0 0.88 0.21 }
+	modifier = {
+		spy_offence = 0.1
+	}
+	province = {
+		local_development_cost = -0.05
+	}
+	chance = {
+		factor = 0
+	}
 }

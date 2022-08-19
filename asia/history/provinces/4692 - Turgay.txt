@@ -1,6 +1,7 @@
 # 4692 - Turgay
 
-
+owner = SHY
+controller = SHY
 culture = khazak
 religion = sunni
 capital = "Zhakeikin"
@@ -10,7 +11,8 @@ base_tax = 1
 base_production = 1
 base_manpower = 1
 is_city = yes
-
+add_core = KZH
+add_core = SHY
 
 
 

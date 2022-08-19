@@ -1,30 +1,30 @@
 interaction = {
     key = sale_of_titles
     random_seed = crown_land_share
-	cooldown_months = 120
+	cooldown_months = 60
 
     trigger = {
         crown_land_share = 0.1
-       #NOT = { num_of_rebel_armies = 1 }
+        #NOT = { num_of_rebel_armies = 1 }
 		#NOT = { num_of_rebel_controlled_provinces = 1 }
 		hidden_trigger = { has_any_estates = yes }
     }
     effect = {
-	 if = {
+		if = {
             limit = { current_age = age_of_discovery }
-            add_years_of_estate_land_income = 1.25
+            add_years_of_estate_land_income = 1.2
         }
         else_if = {
             limit = { current_age = age_of_reformation }
-            add_years_of_estate_land_income = 0.875
+            add_years_of_estate_land_income = 0.8
         }
         else_if = {
             limit = { current_age = age_of_absolutism }
-            add_years_of_estate_land_income = 0.5
+            add_years_of_estate_land_income = 0.6
         }
         else_if = {
             limit = { current_age = age_of_revolutions }
-            add_years_of_estate_land_income = 0.25
+            add_years_of_estate_land_income = 0.4
         }
         custom_tooltip = ESTATES_SALE_OF_TITLES_DESC
         give_estate_land_share_gigantic = { estate = all }
@@ -42,34 +42,35 @@ interaction = {
 		set_country_flag = recent_land_distribution
     }
 	ai_will_do = {
-		factor = 2000
+		factor = 25
 		modifier = {
 			factor = 0
+			OR = {
+				NOT = { crown_land_share = 25 }
+				AND = {
+					is_absolutism_active = yes
+					NOT = { crown_land_share = 40 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				NOT = { crown_land_share = 35 }
 				AND = {
 					is_absolutism_active = yes
 					NOT = { crown_land_share = 50 }
 				}
+			}
 		}
 		modifier = {
 			factor = 0
-			NOT = { has_estate_privilege = estate_nobles_nobility_primacy }	
+			NOT = { num_of_loans = 1 }
 		}
 		modifier = {
-			factor = 0
-			NOT = { has_estate_privilege = estate_burghers_land_of_commerce }
+			factor = 0.5
+			is_in_deficit = no
 		}
-		modifier = {
-			factor = 0
-			NOT = { has_estate_privilege = estate_church_religious_state }
-		}
-		modifier = {
-			factor = 0
-			technology_group = indian
-		}
-		modifier = {
-			factor = 0
-			is_nomad = yes
-		}		
 		modifier = {
 			factor = 1.25
 			has_any_disaster = yes
@@ -109,6 +110,20 @@ interaction = {
 			crown_land_share = 80
 		}
 		modifier = {
+			factor = 0.75
+			num_of_powerful_estates = 1
+		}
+		modifier = {
+			factor = 0.8
+			has_country_flag = recent_land_distribution
+			NOT = {
+				had_country_flag = {
+					flag = recent_land_distribution
+					days = 5475
+				}
+			}
+		}
+		modifier = {
 			factor = 1.2
 			had_country_flag = {
 				flag = recent_land_distribution
@@ -116,14 +131,14 @@ interaction = {
 			}
 		}
 		modifier = {
-			factor = 0
+			factor = 0.5
 			has_country_flag = recent_land_seizure
 			NOT = {
 				had_country_flag = {
 					flag = recent_land_seizure
-					days = 2706
+					days = 5475
 				}
-			}	
+			}
 		}
 	}
 }
@@ -131,7 +146,7 @@ interaction = {
 interaction = {
     key = summon_the_diet
     random_seed = random
-	cooldown_months = 45
+	cooldown_months = 60
 
     trigger = {
         NOT = { has_any_active_estate_agenda = yes }
@@ -175,13 +190,11 @@ interaction = {
 interaction = {
     key = seize_land
     random_seed = random
-	cooldown_months = 120
+	cooldown_months = 60
 
     trigger = {
 		hidden_trigger = { has_any_estates = yes }
         NOT = { crown_land_share = 100 }
-        #NOT = { num_of_rebel_armies = 1 }
-		#NOT = { num_of_rebel_controlled_provinces = 1 }
 		#The following if/else_if-statements match those in estate_privileges_and_agendas_events.2.a. If those change, these should too.
 		if = {
 			limit = {
@@ -232,6 +245,7 @@ interaction = {
 			}
 			NOT = { has_estate_privilege = estate_church_statutory_rights }
 		}
+        #is_at_war = no
     }
     effect = {
         custom_tooltip = ESTATES_SEIZE_LAND_DESC
@@ -245,13 +259,15 @@ interaction = {
 			clr_country_flag = recent_land_seizure
 		}
 		set_country_flag = recent_land_seizure
-
+        change_estate_land_share = {
+            estate = all
+            share = -0.01
+        }
         add_estate_loyalty = {
             estate = all
             loyalty = -20
             short = yes
         }
-		re_add_loyalty_from_seized_land = yes
 		custom_tooltip = seize_land_rebels_tt
 		if = {
 			limit = {
@@ -277,37 +293,33 @@ interaction = {
 				}
 				estate_influence = {
 					estate = all
-					influence = 1
-				}	
+					influence = 0
+				}
 			}
 			spawn_rebels_seize_land_switch = yes
 		}
 	}
 	ai_will_do = {
-		factor = 1000
+		factor = 25
 		modifier = {
 			factor = 0
-					NOT = { has_estate_privilege = estate_nobles_nobility_primacy }
+			crown_land_share = 30
+			has_any_disaster = yes
+			NOT = { #sorry, scripted triggers glitched out
+				OR = {
+					has_disaster = estate_brahmins_disaster
+					has_disaster = estate_burghers_disaster
+					has_disaster = estate_church_disaster
+					has_disaster = estate_cossacks_disaster
+					has_disaster = estate_dhimmi_disaster
+					has_disaster = estate_jains_disaster
+					has_disaster = estate_maratha_disaster
+					has_disaster = estate_nobility_disaster
+					has_disaster = estate_nomadic_tribes_disaster
+					has_disaster = estate_rajput_disaster
+					has_disaster = estate_vaisyas_disaster
+				}
 			}
-		modifier = {
-			factor = 0
-					NOT = { has_estate_privilege = estate_burghers_land_of_commerce }
-			}
-		modifier = {
-			factor = 0
-					NOT = { has_estate_privilege = estate_church_religious_state }	
-			}
-		modifier = {
-			factor = 0
-			technology_group = indian
-		}
-		modifier = {
-			factor = 0
-			is_nomad = yes
-		}
-		modifier = {
-			factor = 0
-			NOT = { num_of_cities = 2 }
 		}
 		modifier = {
 			factor = 0
@@ -399,7 +411,34 @@ interaction = {
 			NOT = { average_unrest = 1 }
 			NOT = { num_of_rebel_armies = 1 }
 		}
-		
+		modifier = {
+			factor = 2
+			NOT = { crown_land_share = 20 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { crown_land_share = 30 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { crown_land_share = 35 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { crown_land_share = 50 }
+		}
+		modifier = {
+			factor = 1.1
+			stability = 2
+		}
+		modifier = {
+			factor = 1.1
+			stability = 3
+		}
+		modifier = {
+			factor = 0.5
+			average_unrest = 3
+		}
 		modifier = {
 			factor = 0.5
 			has_country_flag = recent_land_seizure
@@ -419,6 +458,56 @@ interaction = {
 					days = 10950
 				}
 			}
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = recent_land_distribution
+			NOT = {
+				had_country_flag = {
+					flag = recent_land_distribution
+					days = 5475
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				estate_loyalty = {
+					estate = all
+					loyalty = 50
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				estate_loyalty = {
+					estate = all
+					loyalty = 40
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				estate_loyalty = {
+					estate = all
+					loyalty = 35 # Estate is almost disloyal
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				estate_loyalty = {
+					estate = all
+					loyalty = 30 # Estate is basically disloyal
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { num_of_owned_areas = 2 }
 		}
 		modifier = {
 			factor = 10

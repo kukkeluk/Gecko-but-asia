@@ -1,6 +1,5 @@
 #936 - Cheraw
 
-
 culture = catawba
 religion = totemism
 capital = "Cheraw"
@@ -12,7 +11,7 @@ base_manpower = 1
 native_size = 10
 native_ferocity = 7
 native_hostileness = 2
-
+is_city = yes
 
 
 

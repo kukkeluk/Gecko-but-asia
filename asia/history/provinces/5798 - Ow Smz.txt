@@ -1,0 +1,21 @@
+#5798 - OW SMZ
+
+culture = kyushuan
+religion = shinto
+capital = "OW SMZ"
+trade_goods = fish
+hre = no
+base_tax = 1
+base_manpower = 1
+base_production = 1
+is_city = yes
+discovered_by = chinese
+discovered_by = MCH
+discovered_by = KHA
+discovered_by = OIR
+discovered_by = QNG
+
+add_permanent_province_modifier = {
+	name = jap_ow_teleporter
+	duration = -1
+}

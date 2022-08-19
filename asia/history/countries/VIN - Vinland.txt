@@ -1,0 +1,30 @@
+government = republic
+primary_culture = danish
+religion = catholic
+technology_group = western
+capital = 1004
+
+1423.1.1 = {
+	monarch = {
+		name = "Freydis"
+		dynasty = "Eiriksdottir"
+		female = yes
+		adm = 4
+		dip = 2
+		mil = 5
+	}
+}
+1439.11.14 = {
+	heir = {
+		name = "Saga"
+		monarch_name = "Saga I"
+		female = yes
+		dynasty = "Eiriksdottir"
+		birth_date = 1434.1.1
+		death_date = 1445.1.1
+		claim = 95
+		adm = 4
+		dip = 4
+		mil = 3
+	}
+}

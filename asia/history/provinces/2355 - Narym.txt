@@ -1,11 +1,14 @@
 # 2355 - Narym
 
-owner = SHY
-controller = SHY
+owner = TRG
+controller = TRG
+add_core = TRG
+#owner = SHY
+#controller = SHY
 culture = khazak
-religion = sunni
+religion = tengri_pagan_reformed
 capital = "Narym"
-trade_goods = fish
+trade_goods = livestock
 hre = no
 base_tax = 1 
 base_production = 1

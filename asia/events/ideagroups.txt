@@ -915,8 +915,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = plutocracy_ideas
-		is_year = 1500	
+		has_idea_group = plutocracy_ideas	
 		NOT = {	has_country_modifier =  "mercenaries_to_the_standard" }
 	}
 
@@ -1466,7 +1465,7 @@ country_event = {
 	trigger = {
 		has_idea_group = religious_ideas
 		NOT = { religion = jewish } #Has no heretic religions
-		NOT = { has_reform = pope_reform }
+		NOT = { has_reform = papacy_reform }
 		NOT = { has_reform = leading_clergy_reform }
 		OR = {
 			NOT = { religion = catholic }
@@ -3047,7 +3046,7 @@ country_event = {
 	}
 }
 
-# Our Army's �lan strikes fear into the enemy
+# Our Army's Élan strikes fear into the enemy
 country_event = {
 	id = ideagroups.707
 	title = "EVTNAME6312"
@@ -3260,7 +3259,7 @@ country_event = {
 # Defensive Ideas
 #######################################
 
-# Aristocrats don�t want to serve
+# Aristocrats don’t want to serve
 country_event = {
 	id = ideagroups.800   
 	title = "EVTNAME833"
@@ -6534,10 +6533,6 @@ country_event = {
 			}
 			add_reform_progress_small_effect = yes
 		}
-		custom_tooltip = add_5_crown_land_share
-		hidden_effect = {
-			take_estate_land_share_massive = { estate = all }
-		}
 		add_country_modifier = {
 			name = "centralised_state"
 			duration = 3650
@@ -6670,7 +6665,6 @@ country_event = {
 	
 	trigger = {
 		has_idea_group = administrative_ideas
-		is_year = 1500
 		NOT = { has_country_modifier = "glut_of_mercs" }
 	}
 
@@ -7563,7 +7557,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 		NOT = { has_country_modifier = "free_freethinkers" }
 	}
 
@@ -7598,7 +7592,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 		NOT = { has_country_modifier = "fair_laws" }
 	}
 
@@ -7626,7 +7620,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 	}
 
 	mean_time_to_happen = {
@@ -7664,7 +7658,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 	}
 
 	mean_time_to_happen = {
@@ -7696,7 +7690,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 		any_owned_province = {
 			has_owner_accepted_culture = yes
 		}
@@ -7726,7 +7720,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 		any_owned_province = {
 			has_owner_religion = no
 			is_reformation_center = no
@@ -7763,7 +7757,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 		any_owned_province = {
 			has_owner_religion = no
 			is_reformation_center = no
@@ -7802,7 +7796,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 		any_owned_province = {
 			nationalism = 1
 		}
@@ -7844,9 +7838,9 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 		NOT = { religion = jewish } #Has no heretic religions
-		NOT = { has_reform = pope_reform }
+		NOT = { has_reform = papacy_reform }
 		NOT = { has_reform = leading_clergy_reform }
 		OR = {
 			NOT = { religion = catholic }
@@ -8055,7 +8049,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 		any_owned_province = {
 			has_owner_religion = no
 			has_missionary = yes
@@ -8092,9 +8086,9 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_idea_group = maritime_ideas
+		has_idea_group = humanist_ideas
 		any_neighbor_country = {
-			NOT = { has_idea_group = maritime_ideas }
+			NOT = { has_idea_group = humanist_ideas }
 		}
 	}
 
@@ -8107,7 +8101,7 @@ country_event = {
 		add_piety = -0.05
 		every_neighbor_country = {
 			limit = {
-				NOT = { has_idea_group = maritime_ideas }
+				NOT = { has_idea_group = humanist_ideas }
 			}
 			add_opinion = {
 				who = ROOT
@@ -8116,7 +8110,7 @@ country_event = {
 		}
 	}
 }
-		
+
 #######################################
 # Horde Ideas
 #######################################
@@ -8717,7 +8711,7 @@ country_event = {
 	}
 }
 
-# Täuferreich von Münster / extra event
+# TÃ¤uferreich von MÃ¼nster / extra event
 country_event = {
 	id = ideagroups.1921
 	title = ideagroups.1921.t
@@ -8727,7 +8721,7 @@ country_event = {
 	
 	trigger = {
 		has_idea_group = theocracy_gov_ideas
-		owns = 86 #Münster
+		owns = 86 #MÃ¼nster
 		is_year = 1533
 		NOT = { is_year = 1536 }
 		NOT = { has_country_modifier = "le_prophete" }	

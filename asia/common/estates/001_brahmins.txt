@@ -9,7 +9,10 @@ estate_brahmins = {
 			AND = {
 				technology_group = indian
 				religion_group = muslim
-				NOT = { has_country_flag = gained_dhimmi_estate }
+			}
+			AND = {
+			technology_group = indian
+			religion_group = zoroastrian
 			}
 			religion = hinduism
 		}
@@ -140,11 +143,9 @@ estate_brahmins = {
 	
 	privileges = {
 		estate_brahmins_land_rights
-		
 		estate_brahmins_brahmin_governance
 		estate_brahmins_legitimacy_to_rule
 		estate_brahmins_flexible_deities
-		estate_brahmins_brahmin_leadership
 		estate_brahmins_loyalty_privilege
 		estate_brahmins_guaranteed_autonomy
 		estate_brahmins_for_the_faith
@@ -152,9 +153,15 @@ estate_brahmins = {
 		estate_brahmins_monopoly_of_incense
 		estate_brahmins_monopoly_of_wool
 		estate_brahmins_statutory_rights
-		#estate_brahmins_religious_diplomats
+		mjl_estate_church_mer_tamed_deserts
+		mjl_marathas_brahmins
+		estate_nobles_neighbor_raid_brahmins
+		mjl_special_regiments_brahmins
+		estate_brahmins_temples_tax
+		estate_clergy_centralize_power
+		mjl_church_guarantee_monastic_lands
+		mjl_clergy_appropriate_monastery
 		estate_brahmins_one_faith_one_culture
-		estate_church_brahmins_at_court
 	}
 
 	agendas = {

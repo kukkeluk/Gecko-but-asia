@@ -1,21 +1,31 @@
 government = monarchy
-add_government_reform = prussian_monarchy
+add_government_reform = brandenburger_monarchy
 government_rank = 1
 elector = yes
 technology_group = western
 primary_culture = saxon
 religion = catholic
 capital = 50	# Berlin
-
-change_estate_land_share = {
-	estate = estate_church
-	share = -10
-}
-change_estate_land_share = {
-	estate = estate_burghers
-	share = 10
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
 }
 
+
+#change_estate_land_share = {
+#	estate = estate_church
+#	share = -10
+#}
+#change_estate_land_share = {
+#	estate = estate_burghers
+#	share = 10
+#}
+
+
+change_estate_land_share = {
+	estate = estate_nobles
+	share = -0.502
+}
 
 1378.12.9 = { 
 	monarch = {
@@ -57,7 +67,7 @@ change_estate_land_share = {
 		birth_date = 1371.9.21
 		adm = 3
 		dip = 3
-		mil = 4
+		mil = 2
 	}
 }
 
@@ -82,7 +92,7 @@ change_estate_land_share = {
 		birth_date = 1413.11.19
 		adm = 3
 		dip = 3
-		mil = 4
+		mil = 3
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = incorruptible_personality
@@ -96,7 +106,7 @@ change_estate_land_share = {
 		female = yes
 		adm = 3
 		dip = 3
-		mil = 3
+		mil = 2
 	}
 	heir = {
 		name = "Albrecht Achilles"
@@ -105,9 +115,9 @@ change_estate_land_share = {
 		birth_date = 1414.11.9
 		death_date = 1486.3.11
 		claim = 95
-		adm = 3
-		dip = 3
-		mil = 3
+		adm = 2
+		dip = 2
+		mil = 4
 	}
 	set_country_flag = albrecht_achilles_flag
 }

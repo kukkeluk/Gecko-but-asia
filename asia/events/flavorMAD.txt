@@ -1,0 +1,39 @@
+namespace = flavor_mad
+normal_or_historical_nations = yes
+
+	
+country_event = {
+	id = flavor_mad.1
+	title = flavor_mad.1.t
+	desc = flavor_mad.1.d
+	picture = ASSASSINATION_eventPicture
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = flavor_mad.1.a #IMPROVE AT HOME
+		536 = {
+			add_center_of_trade_level = 1
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = madura_area
+					area = malabar_area
+				}
+			}
+			add_base_tax = 2
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+	
+	option = { 
+		name = flavor_mad.2.a #IMPROVE THE COLONIES
+		add_country_modifier = { 
+			name = colonisation_fever
+			duration = -1  
+		}
+	}
+}

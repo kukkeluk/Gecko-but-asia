@@ -5,7 +5,7 @@ primary_culture = albanian
 religion = catholic
 technology_group = eastern
 capital = 4175 # Lezhe
-
+historical_friend = TUR
 # The League of Lezhe
 1443.3.4 = {
 	monarch = {
@@ -15,7 +15,7 @@ capital = 4175 # Lezhe
 		adm = 6
 		dip = 5
 		mil = 6
-		#leader = {	name = "Skanderbeg"            	type = general	fire = 5	shock = 5	manuever = 5	siege = 0}
+		leader = {	name = "Skanderbeg"            	type = general	fire = 5	shock = 5	manuever = 5	siege = 0}
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = inspiring_leader_personality

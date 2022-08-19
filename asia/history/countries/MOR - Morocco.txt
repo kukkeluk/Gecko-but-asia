@@ -6,18 +6,23 @@ technology_group = muslim
 capital = 344 # Marrakech
 add_accepted_culture = berber
 religious_school = maliki_school
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
+
 
 change_estate_land_share = {
 	estate = estate_nobles
-	share = 10
-}
-change_estate_land_share = {
-	estate = estate_church
-	share = -5
+	share = 4.498
 }
 change_estate_land_share = {
 	estate = estate_burghers
-	share = -5
+	share = 5
+}
+change_estate_land_share = {
+	estate = estate_church
+	share = -10
 }
 
 1399.1.1 = {
@@ -49,15 +54,25 @@ change_estate_land_share = {
 	monarch = {
 		name = "Abdalhaqq II"
 		dynasty = "Marinid"
-		adm = 4
-		dip = 3
-		mil = 4
+		adm = 3
+		dip = 2
+		mil = 3
 	}
+	add_ruler_personality = bold_fighter_personality
 	capital = 343 # Fez
-	
-	add_country_modifier = {
-		name = "berber_fury_2"
-		duration = 1825
+}
+
+1430.1.1 = {
+	heir = {
+		name = "Soussouni"
+		monarch_name = "'Abd Allâh"
+		dynasty = "Marinid"
+		birth_date = 1430.1.1
+		death_date = 1470.1.24
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
 	}
 }
 

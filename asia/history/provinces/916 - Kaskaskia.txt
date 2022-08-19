@@ -1,5 +1,6 @@
 #916 - Kaskaskia
 
+is_city = yes
 culture = illini
 religion = totemism
 capital = "Kaskaskia"

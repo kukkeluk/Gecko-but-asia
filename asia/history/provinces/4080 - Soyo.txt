@@ -12,9 +12,9 @@ base_production = 3
 base_manpower = 4
 add_local_autonomy = 25
 is_city = yes
+center_of_trade = 1
 discovered_by = central_african
 discovered_by = sub_saharan
-discovered_by = east_african
 
 1483.1.1 = { discovered_by = POR } # Diogo Cão
 1590.1.1 = {

@@ -47,7 +47,8 @@ return_manpower_modifier = {
 		always = yes
 	}
 
-	may_return_manpower_on_disband = yes
+	#may_return_manpower_on_disband = yes
+	reserves_organisation = 0.25
 }
 
 general_cost_modifier = {
@@ -61,7 +62,7 @@ general_cost_modifier = {
 		always = yes
 	}
 
-	reserves_organisation = 0.5
+	reserves_organisation = 0.25
 }
 
 reserves_organisation_modifier = {
@@ -75,6 +76,6 @@ reserves_organisation_modifier = {
 		always = yes
 	}
 
-	general_cost = -0.25
+	#general_cost = -0.5
 	drill_gain_modifier = 1
 }

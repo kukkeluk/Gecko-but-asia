@@ -5,134 +5,42 @@ swiss_missions_1 = {
 	ai = yes
 	potential = {
 		tag = SWI 
+		if = {
+			limit = { has_global_flag = missions_expanded_mod_active }
+			NOT = { has_country_flag = use_missions_expanded_missions_instead_of_paradox }
+		}
 	}
 	has_country_shield = yes
 	
-	swi_protect_cantons = {
-		icon = consolidate_switzerland
-		required_missions = { }
-		position = 1
-		trigger = {
-			army_size_percentage = 0.9 
-			custom_trigger_tooltip = {
-				tooltip = swi_had_canton_event_tt
-				has_country_flag = swi_had_canton_event_flag
-			}
-			has_mil_advisor = yes 
-		}
-		effect = {
-			romandie_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					is_empty = no
-				}
-				add_core = ROOT
-			}
-			switzerland_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					is_empty = no
-				}
-				add_core = ROOT
-			}
-			bern_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					is_empty = no
-				}
-				add_core = ROOT
-			}
-			grisons_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					is_empty = no
-				}
-				add_core = ROOT
-			}
-			hidden_effect = {
-				clr_country_flag = swi_had_canton_event_flag
-			}
-		}
-	}
-	
 	swi_three_leagues = {
 		icon = integrate_the_three_leagues
-		required_missions = { swi_protect_cantons }
+		required_missions { swi_protect_cantons }
 		position = 2
 		provinces_to_highlight = {
-			OR = {
-				province_id = 4722
-				province_id = 1873
-				province_id = 6175
-			}
+			area = switzerland_area 
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
-			OR = {
+			AND = {
 				TTL = { is_subject_of = ROOT }
-				ZGB = { is_subject_of = ROOT }
-				4722 = {
-					country_or_non_sovereign_subject_holds = ROOT
-				}
-				1873 = {
-					country_or_non_sovereign_subject_holds = ROOT
-				}
-				6175 = {
-					country_or_non_sovereign_subject_holds = ROOT
+				switzerland_area = {
+					type = all 
+					owned_by = ROOT 
 				}
 			}
 		}
 		effect = {
-			if = {
-				limit = {
-				 OR = {
-					TTL = { 
-						is_subject_of = ROOT 
-						NOT = { is_subject_of_type = canton } 
-					}
-					ZGB = { 
-						is_subject_of = ROOT 
-						NOT = { is_subject_of_type = canton } 
-					}
-				 }	
-				}
-				create_subject = {
-					subject_type = canton
-					subject = TTL 
-				}
-				create_subject = {
-					subject_type = canton
-					subject = ZGB
-				}
-			}
-			else = {
-				switzerland_area = { add_base_tax = 1 }
-			}
+			add_prestige = 10
+			switzerland_area = { add_base_tax = 1 }
 			change_government_reform_progress = 50 
 		}
 	}
 	
 	swi_federal_diet = {
 		icon = catholic_volunteers
-		required_missions = { swi_three_leagues swi_republic_geneva }
+		required_missions { swi_three_leagues }
 		position = 4
 		trigger = {
-			if = {
-				limit = { 
-					canton = 1 
-				}
-				custom_trigger_tooltip = {
-					tooltip = swi_all_subject_lib_desire_tt
-					NOT = {
-						any_subject_country = {
-							liberty_desire = 5
-						}
-					}
-				}
-			}
 			if = {
 				limit = { has_estate = estate_church }
 				estate_loyalty = {
@@ -177,58 +85,20 @@ swiss_missions_1 = {
 	
 	swi_defend_alps = {
 		icon = the_alpine_wall
-		required_missions = { swi_federal_diet swi_coalition_turin }
-		position = 7
+		required_missions { swi_federal_diet swi_coalition_turin }
+		position = 6
 		provinces_to_highlight = {
-			OR = {
-				province_id = 205
-				province_id = 166
-				province_id = 4727
-				province_id = 1873
-			}
+			has_terrain = mountain
+			owned_by = ROOT
+			NOT = { fort_level = 3 }
 		}
 		trigger = {
-			205 = { 
-				country_or_non_sovereign_subject_holds = ROOT 
-				OR = {
-					has_building = fort_15th
-					has_building = fort_16th
-					has_building = fort_17th
-					has_building = fort_18th
-				}
-				has_building = ramparts
+			num_of_owned_provinces_with = {
+				value = 5
+				fort_level = 3
+				has_terrain = mountain
 			}
-			166 = { 
-				country_or_non_sovereign_subject_holds = ROOT 
-				OR = {
-					has_building = fort_15th
-					has_building = fort_16th
-					has_building = fort_17th
-					has_building = fort_18th
-				}
-				has_building = ramparts
-			}
-			4727 = { 
-				country_or_non_sovereign_subject_holds = ROOT 
-				OR = {
-					has_building = fort_15th
-					has_building = fort_16th
-					has_building = fort_17th
-					has_building = fort_18th
-				}
-				has_building = ramparts
-			}
-			1873 = { 
-				country_or_non_sovereign_subject_holds = ROOT 
-				OR = {
-					has_building = fort_15th
-					has_building = fort_16th
-					has_building = fort_17th
-					has_building = fort_18th
-				}
-				has_building = ramparts
-			}
-			 fortification_expert = 1 
+			fortification_expert = 1 
 		}
 		effect = {
 			custom_tooltip = swi_every_province_with_fort_1_manpower_tt
@@ -245,6 +115,14 @@ swiss_missions_1 = {
 					add_base_manpower = 1 
 				}
 			}
+			tooltip = {
+				add_country_modifier = {
+					name = swi_the_swiss_defense_modifier
+					duration = -1 
+				}
+			}
+			custom_tooltip = swi_complement_reward_tt 
+			hidden_effect = {
 			if = {
 				limit = { full_idea_group = defensive_ideas } 
 				add_country_modifier = {
@@ -258,17 +136,17 @@ swiss_missions_1 = {
 					duration = -1 
 				}
 			}
-			custom_tooltip = swi_complement_reward_tt 			
+			}			
 		}
 	}
 
 	swi_university_basel = {
 		icon = appease_the_estates
-		required_missions = { }
+		required_missions { }
 		position = 8
-		provinces_to_highlight = { province_id = 6169 }
+		provinces_to_highlight = { province_id = 5827 }
 		trigger = {
-			6169 = {
+			5827 = {
 				owned_by = ROOT 
 				num_of_times_improved = 5 
 				renaissance = 100 
@@ -276,7 +154,7 @@ swiss_missions_1 = {
 			}
 		}
 		effect = {
-			6169 = {
+			5827 = {
 				if = {
 					limit = { 
 						NOT = { has_building = university }
@@ -293,13 +171,13 @@ swiss_missions_1 = {
 	
 	swi_st_gallen_textiles = {
 		icon = fu_gallen_textiles
-		required_missions = { swi_university_basel }
+		required_missions { swi_university_basel }
 		position = 10
 		provinces_to_highlight = { province_id = 1870 }
 		trigger = {
 			1870 = {
 				owned_by = ROOT 
-				base_production = 15 
+				base_production = 10 
 				has_manufactory_trigger = yes 
 			}
 		}
@@ -315,49 +193,188 @@ swiss_missions_2 = {
 	ai = yes
 	potential = {
 		tag = SWI 
+		if = {
+			limit = { has_global_flag = missions_expanded_mod_active }
+			NOT = { has_country_flag = use_missions_expanded_missions_instead_of_paradox }
+		}
 	}
 	has_country_shield = yes
 	
-	
-	swi_republic_geneva = {
-		icon = sway_geneva
-		required_missions = {
-			swi_secure_swiss_plateau
+	swi_protect_cantons = {
+		icon = consolidate_switzerland
+		required_missions { }
+		position = 1
+		trigger = {
+			army_size_percentage = 0.9
+			stability = 1
+			has_mil_advisor = yes 
 		}
-		position = 3
+		effect = {
+			custom_tooltip = swiss_tax_tooltip
+			hidden_effect = {
+				every_owned_province = {
+					add_province_modifier = {
+						name = swiss_tax
+						duration = 7300
+					}
+				}
+			}
+			1871 = { add_core = ROOT }			
+			5828 = { add_core = ROOT }
+			5829 = { add_core = ROOT }
+				
+			granbunden_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					is_empty = no
+				}
+				add_permanent_claim = ROOT
+			}
+			ticino_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					is_empty = no
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	emp_swi_geneva = {
+		icon = sway_geneva
+		required_missions = { swi_protect_cantons }
+		position = 2
 		provinces_to_highlight = {
 			province_id = 4720
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			4720 = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				4720 = { country_or_non_sovereign_subject_holds = ROOT }
+				GNV = {
+					is_at_war = no
+					NOT = { is_subject_of = ROOT }
+					has_opinion = { who = ROOT value = 75 }
+					NOT = { num_of_cities = 2 }
+				}
+			}
 		}
 		effect = {
 			if = {
 				limit = {
-					GNV = { 
-						is_subject_of = ROOT 
-						NOT = { is_subject_of_type = canton } 
+					NOT = { owns = 4720 }
+					GNV = {
+						NOT = { is_subject_of = ROOT }
 					}
 				}
-				create_subject = {
-					subject_type = canton
-					subject = GNV 
-				}
-				add_adm_power = 50 
+				custom_tooltip = swi_geneva_mission_tt
 			}
-			else = {
-				add_republican_tradition = 5 
-				add_legitimacy = 10 
-				add_adm_power = 50 
+			if = {
+				limit = {
+					GNV = {
+						is_subject = no
+						has_opinion = { who = ROOT value = 75 }
+						NOT = { num_of_cities = 2 }
+						is_at_war = no
+					}
+				}
+				country_event = { id = emp_mission_events.2 }		
+			}
+			else_if = {
+				limit = {
+					GNV = {
+						is_subject = yes
+						is_at_war = no
+						NOT = { is_subject_of = ROOT }
+						NOT = { num_of_cities = 2 }
+						has_opinion = { who = ROOT value = 75 }
+					}
+				}
+				GNV = {
+					add_liberty_desire = 100
+					overlord = {
+						country_event = { id = emp_mission_events.4 }
+					}
+				}
+				support_independence_of = GNV
+			}
+			add_mil_power = 50
+		}
+	}
+	
+	emp_swi_swiss_guard = {
+		icon = expand_the_swiss_guard
+		required_missions = { emp_swi_geneva }
+		position = 3
+		provinces_to_highlight = {
+			owned_by = PAP
+		}
+		trigger = {
+			if = {
+				limit = {
+					exists = PAP
+				}
+				PAP = {
+					has_opinion = { who = ROOT value = 100 }
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					religion = catholic 
+				}
+				add_papal_influence = 20
+			}
+			add_country_modifier = {
+				name = "swi_expanded_papal_guard"
+				duration = 7300
 			}
 		}
 	}
 	
+	
+	
+	#swi_republic_geneva = {
+	#	icon = sway_geneva
+	#	required_missions {
+	#		swi_secure_swiss_plateau
+	#	}
+	#	position = 3
+	#	provinces_to_highlight = {
+	#		province_id = 4720
+	#		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+	#	}
+	#	trigger = {
+	#		4720 = { country_or_non_sovereign_subject_holds = ROOT }
+	#	}
+	#	effect = {
+	#		if = {
+	#			limit = {
+	#				GNV = { 
+	#					is_subject_of = ROOT 
+	#					NOT = { is_subject_of_type = canton } 
+	#				}
+	#			}
+	#			create_subject = {
+	#				subject_type = canton
+	#				subject = GNV 
+	#			}
+	#			add_adm_power = 50 
+	#		}
+	#		else = {
+	#			add_republican_tradition = 5 
+	#			add_legitimacy = 10 
+	#			add_adm_power = 50 
+	#		}
+	#	}
+	#}
+	
 	swi_coalition_turin = {
 		icon = glory_to_turin
-		required_missions = { swi_cross_gotthard_pass }
-		position = 6
+		required_missions { emp_swi_swiss_guard }
+		position = 5
 		provinces_to_highlight = {
 			area = piedmont_area 
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -382,30 +399,27 @@ swiss_missions_2 = {
 		}
 	}
 	
-	swi_reislaufer = {
-		icon = expand_the_swiss_guard
-		required_missions = {	}
-		position = 8
+	emp_swi_mercs = {
+		icon = mission_italian_condottiere
+		required_missions = { }
+		position = 7
+		
 		trigger = {
-			num_of_hired_mercenary_companies = 1 
-			army_size_percentage = 1 
-			OR = {
-				has_leader_with = { fire = 4 }
-				has_leader_with = { shock = 4 }
+			grown_by_development = 400
 			}
-		}
+			
 		effect = {
-				add_country_modifier = {
-					name = swi_swiss_mercenaries_modifier2 
-					duration = -1 
-				}
+			add_country_modifier = {
+				name = swi_mercs
+				duration = -1
+			}
 		}
 	}
 	
 	swi_hintersassen_citizenship = {
 		icon = return_visby_to_the_league
-		required_missions = {
-			swi_university_basel swi_reislaufer
+		required_missions {
+			swi_university_basel emp_swi_mercs
 		}
 		position = 9
 		provinces_to_highlight = {
@@ -419,7 +433,7 @@ swiss_missions_2 = {
 			num_accepted_cultures = 2 
 			if = {
 				limit = { government = republic }
-				republican_tradition = 60 
+				republican_tradition = 50 
 			}
 			else_if = {
 				limit = { government = monarchy }
@@ -436,7 +450,7 @@ swiss_missions_2 = {
 	
 	swi_caseus_helveticus = {
 		icon = fu_caseus_helveticus
-		required_missions = {
+		required_missions {
 			swi_hintersassen_citizenship
 		}
 		position = 10
@@ -503,6 +517,10 @@ swiss_missions_3 = {
 	ai = yes
 	potential = {
 		tag = SWI 
+		if = {
+			limit = { has_global_flag = missions_expanded_mod_active }
+			NOT = { has_country_flag = use_missions_expanded_missions_instead_of_paradox }
+		}
 	}
 	has_country_shield = yes
 	
@@ -513,15 +531,13 @@ swiss_missions_3 = {
 		provinces_to_highlight = { 
 			OR = { 
 				province_id = 1871 
-				province_id = 1867 
-				province_id = 6171
+				province_id = 5828 
 			}
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			1871 = { owned_by = ROOT }
-			1867 = { owned_by = ROOT }
-			6171 = { owned_by = ROOT }
+			5828 = { owned_by = ROOT }
 		}
 		effect = {
 			add_mil_power = 50 
@@ -540,45 +556,10 @@ swiss_missions_3 = {
 		}
 	}
 	
-	swi_eradicate_savoy = {
-		icon = unify_piedmont
-		required_missions = { swi_secure_swiss_plateau }
-		position = 3 
-		provinces_to_highlight = {
-		}
-		trigger = {
-			army_size = SAV 
-			total_development = SAV 
-		}
-		effect = {
-			add_prestige = 20 
-			add_power_projection = {
-				type = mission_rewards_power_projection
-				amount = 25
-			}
-			lombardy_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					is_empty = no
-				}
-				add_permanent_claim = ROOT
-			}
-			torino_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					is_empty = no
-				}
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-	
 	swi_cross_gotthard_pass = {
 		icon = up_the_adige
-		required_missions = { swi_eradicate_savoy }
-		position = 5 
+		required_missions = { swi_secure_swiss_plateau }
+		position = 4 
 		provinces_to_highlight = { 
 			area = lombardy_area 
 			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
@@ -640,10 +621,6 @@ swiss_missions_3 = {
 		required_missions = { }
 		position = 8 
 		provinces_to_highlight = {
-			any_owned_province = {
-				unrest = 1 
-				average_autonomy_above_min = 10
-			}
 			province_id = 1869 
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -656,18 +633,14 @@ swiss_missions_3 = {
 				NOT = { devastation = 1 }
 				num_of_times_improved = 3 
 			}
-			any_owned_province = {
-				NOT = { unrest = 1 }
-				NOT = { average_autonomy_above_min = 10 }
-			}
 		}
 		effect = {
 			1869 = {
 				if = {
 					limit = {
-						NOT = { has_building = textile }
+						NOT = { has_building = state_house }
 					}
-					add_building = textile
+					add_building = state_house 
 				}
 			}
 			add_country_modifier = {
@@ -718,24 +691,84 @@ swiss_missions_4 = {
 	ai = yes
 	potential = {
 		tag = SWI 
+		if = {
+			limit = { has_global_flag = missions_expanded_mod_active }
+			NOT = { has_country_flag = use_missions_expanded_missions_instead_of_paradox }
+		}
 	}
 	has_country_shield = yes
+	
+	emp_swi_defend = {
+		icon = switzerland_and_the_empire
+		position = 1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			OR = {
+			defensive_war_with = BUR
+			defensive_war_with = LOT
+			defensive_war_with = HAB
+			}
+			NOT = {is_year = 1460}
+		}
+		effect = {
+		add_country_modifier = {
+				name = "defend_the_confederation"
+				duration = 3650
+			}
+		}
+	}
 	
 	swi_expand_oath_alliance = {
 		icon = republican_yearnings 
 		required_missions = { swi_imperial_immediacy }
 		position = 2 
 		trigger = {
-			canton = 3 
-			OR = {
-				has_parliament = yes 
-				full_idea_group = influence_ideas 
-			}
+			num_of_allies = 2
+			grown_by_development = 10
 		}
 		effect = {
+			add_country_modifier= {
+			name="swiss_diplomacy"
+			duration = 5475
+			}
 			add_country_modifier = {
 				name = swi_eidgenossenschaft_modifier
 				duration = -1 
+			}
+		}
+	}
+	
+	swi_eradicate_savoy = {
+		icon = unify_piedmont
+		required_missions = { swi_secure_swiss_plateau }
+		position = 3 
+		provinces_to_highlight = {
+			OR = {
+				province_id = 205 
+				province_id = 4719
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			205 = { country_or_non_sovereign_subject_holds = ROOT }
+			4719 = { country_or_non_sovereign_subject_holds = ROOT }
+			army_size = SAV 
+			total_development = SAV 
+		}
+		effect = {
+			add_prestige = 20 
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 25
+			}
+			lombardy_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					is_empty = no
+				}
+				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -767,76 +800,6 @@ swiss_missions_4 = {
 				}
 				add_base_production = 2
 			}
-			#switzerland_area = {
-			#	add_province_modifier = {
-			#		 name = swabian_trade
-			#		duration = -1
-			#		hidden = yes
-			#	}
-			#}
-			#grisons_area = {
-			#	add_province_modifier = {
-			#		 name = swabian_trade
-			#		duration = -1
-			#		hidden = yes
-			#	}
-			#}
-			#bern_area = {
-			#	add_province_modifier = {
-			#		 name = swabian_trade
-			#		duration = -1
-			#		hidden = yes
-			#	}
-			#}
-			#romandie_area = {
-			#	add_province_modifier = {
-			#		 name = swabian_trade
-			#		duration = -1
-			#		hidden = yes
-			#	}
-			#}
-			#alsace_area = {
-			#	add_province_modifier = {
-			#		 name = swabian_trade
-			#		duration = -1
-			#		hidden = yes
-			#	}
-			#}
-			#lower_swabia_area = {
-			#	add_province_modifier = {
-			#		 name = swabian_trade
-			#		duration = -1
-			#		hidden = yes
-			#	}
-			#}
-			#upper_swabia_area = {
-			#	add_province_modifier = {
-			#		 name = swabian_trade
-			#		duration = -1
-			#		hidden = yes
-			#	}
-			#}
-			#upper_rhineland_area = {
-			#	add_province_modifier = {
-			#		 name = swabian_trade
-			#		duration = -1
-			#		hidden = yes
-			#	}
-			#}
-			#palatinate_area = {
-			#	add_province_modifier = {
-			#		 name = swabian_trade
-			#		duration = -1
-			#		hidden = yes
-			#	}
-			#}
-			#franconia_area = {
-			#	add_province_modifier = {
-			#		 name = swabian_trade
-			#		duration = -1
-			#		hidden = yes
-			#	}
-			#}
 		}
 	}
 	
@@ -846,7 +809,7 @@ swiss_missions_4 = {
 		position = 7
 		provinces_to_highlight = {
 			province_id = 186 
-			province_id = 109
+			province_id = 1298 
 			NOT = {
 				OR = {
 					has_merchant = yes 
@@ -866,7 +829,7 @@ swiss_missions_4 = {
 				}
 				has_merchant = yes 
 			}
-			109 = {
+			1298 = {
 				trade_share = {
 					country = ROOT 
 					share = 33 
@@ -883,6 +846,31 @@ swiss_missions_4 = {
 		}
 	}
 	
+	emp_swi_end_the_habsburgs = {
+		icon = end_the_habsburgs
+		required_missions = { swi_flow_of_trade swi_harness_south_germany }
+		provinces_to_highlight = {
+			owner = {
+				dynasty = "von Habsburg"
+			}
+		}
+		position = 8
+		trigger = {
+			NOT = { exists = HAB }
+			NOT = {
+				any_country = {
+					dynasty = "von Habsburg"
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "ended_the_habsburgs"
+				duration = -1
+			}
+		}
+	}
+	
 	swi_of_peace_and_stability = {
 		icon = mission_wine_monopolies
 		required_missions = { swi_stanser_verkommnis }
@@ -893,20 +881,17 @@ swiss_missions_4 = {
 				tooltip = swi_prosperous_romandie_tt 
 				capital_scope = { is_prosperous = yes }
 			}
-			OR = {
-				has_idea = oasis_of_peace_and_prosperity
 				AND = {
 					NOT = { average_autonomy_above_min = 5 }
 					NOT = { average_unrest = 1 } 
 					has_any_disaster = no 
-					legitimacy_equivalent = 80
+					legitimacy_equivalent = 50
 				}
-			}
 		}
 		effect = {
 			add_country_modifier = {
 				name = swi_period_of_stability_modifier 
-				duration = 7300
+				duration = -1 
 			}
 		}
 	}
@@ -914,7 +899,7 @@ swiss_missions_4 = {
 	swi_prosperous_neutrality = {
 		icon = austria_prospers 
 		required_missions = { swi_of_peace_and_stability }
-		position = 11 
+		position = 10 
 		trigger = {
 			OR = {
 				current_age = age_of_revolutions 
@@ -949,6 +934,10 @@ swiss_missions_5 = {
 	ai = yes
 	potential = {
 		tag = SWI 
+		if = {
+			limit = { has_global_flag = missions_expanded_mod_active }
+			NOT = { has_country_flag = use_missions_expanded_missions_instead_of_paradox }
+		}
 	}
 	has_country_shield = yes
 	
@@ -975,83 +964,72 @@ swiss_missions_5 = {
 				estate = estate_nobles
 				loyalty = 15 
 			}
-			bourgogne_area = {
+			every_province = {
 				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					is_empty = no
-				}
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-
-	swi_invade_burgundy = {
-		icon = conquer_burgundy
-		required_missions = { swi_imperial_immediacy swi_secure_swiss_plateau }
-		position = 3 
-		provinces_to_highlight = {
-			area = bourgogne_area 
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			bourgogne_area = {
-				type = all 
-				country_or_non_sovereign_subject_holds = ROOT 
-			}
-		}
-		effect = {
-			192 = { add_center_of_trade_level = 1 }
-			west_burgundy_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					is_empty = no
-				}
-				add_permanent_claim = ROOT
-			}
-			lorraine_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					is_empty = no
+					OR = {
+						province_id = 4712
+						province_id = 72
+						province_id = 1880
+					}
 				}
 				add_permanent_claim = ROOT
 			}
 		}
 	}
 	
-	swi_ewige_richtung = {
-		icon = balance_of_power 
-		required_missions = { }
-		position = 4
-		trigger = {
-			OR = {
-				AND = {
-					1880 = { country_or_non_sovereign_subject_holds = ROOT }
-					72 = { country_or_non_sovereign_subject_holds = ROOT }
-				}
-				emperor = {
-					alliance_with = ROOT 
-					has_opinion = {
-						who = ROOT
-						value = 150
-					}
-					owns = 1880
-					owns = 72
-				}
-			}
+	swi_konstanz = {
+		icon = end_genoese_competition
+		required_missions = { swi_imperial_immediacy }
+		position = 3
+		
+		provinces_to_highlight = {
+			province_id = 4712
 		}
+		
+		trigger = {
+			4712 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
 		effect = {
-			if = {
-				limit = {
-					1880 = { country_or_non_sovereign_subject_holds = ROOT }
-					72 = { country_or_non_sovereign_subject_holds = ROOT }
-				}
+			add_prestige = 20
 				add_country_modifier = {
 					name = swi_cutthroat_diplomacy 
 					duration = 7300
 				}
+				lower_swabia_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+						is_empty = no
+					}
+					add_permanent_claim = ROOT
+				}
+				upper_swabia_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+						is_empty = no
+					}
+					add_permanent_claim = ROOT
+				}
+		}
+	}
+	
+	swi_ewige_richtung = {
+		icon = balance_of_power 
+		required_missions = { swi_konstanz }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1880
+				province_id = 72
+			}
+		}
+		trigger = {
+			1880 = { country_or_non_sovereign_subject_holds = ROOT }
+			72 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {				
 				alsace_area = {
 					limit = {
 						NOT = { owned_by = ROOT }
@@ -1068,28 +1046,6 @@ swiss_missions_5 = {
 					}
 					add_permanent_claim = ROOT
 				}
-			}
-			else = {
-				emperor = { 
-					country_event = { id = FU_Switzerland_Events.3 }
-				}
-				alsace_area = {
-					limit = {
-						NOT = { owned_by = ROOT }
-						NOT = { is_core = ROOT }
-						is_empty = no
-					}
-					add_permanent_claim = ROOT
-				}
-				upper_rhineland_area = {
-					limit = {
-						NOT = { owned_by = ROOT }
-						NOT = { is_core = ROOT }
-						is_empty = no
-					}
-					add_permanent_claim = ROOT
-				} 
-			}
 		}
 	}
 	
@@ -1191,11 +1147,19 @@ swiss_missions_5 = {
 		}
 		trigger = {
 			has_adm_advisor = yes 
+			if = {
+				limit = { has_global_flag = advisors_expanded_mod_active }
+				AND = { 
+					statesman = 3 
+					diplomat = 3 
+				}
+			}
+			else = {
 				OR = {
 					diplomat = 1 
 					statesman = 1 
 				}
-			
+			}
 			capital_scope = {
 				has_building = courthouse
 			}
@@ -1206,9 +1170,6 @@ swiss_missions_5 = {
 				duration = -1 
 			}
 			every_subject_country = {
-				limit = {
-					is_subject_of_type = canton 
-				}
 				add_country_modifier = {
 					name = swi_signed_the_treaty_of_stans_subject_modifier
 					duration = -1 
@@ -1249,7 +1210,7 @@ swiss_missions_5 = {
 					name = "Huldrych Zwingli"
 					type = theologian
 					skill = 3 
-					cost_multiplier = 0.75
+					cost_multiplier = 0.25
 				}
 			}
 			if = {
@@ -1276,7 +1237,7 @@ swiss_missions_5 = {
 				define_advisor = {
 					type = inquisitor
 					skill = 3 
-					cost_multiplier = 0.75
+					cost_multiplier = 0.25
 				}
 				add_papal_influence = 25
 			}
@@ -1303,6 +1264,10 @@ swiss_missions_5 = {
 								religion = anglican 
 								religion = orthodox
 							}
+						}
+						add_opinion = {
+							who = ROOT 
+							modifier = swi_peaceful_coexistence_of_beliefs_modifier
 						}
 					}
 				}

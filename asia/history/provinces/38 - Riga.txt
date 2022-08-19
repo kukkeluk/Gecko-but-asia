@@ -1,5 +1,7 @@
 #Riga Bight, incl. the city of Riga, and Dünamünde.
-
+latent_trade_goods = {
+	coal
+}
 owner = RIG
 controller = RIG
 add_core = RIG

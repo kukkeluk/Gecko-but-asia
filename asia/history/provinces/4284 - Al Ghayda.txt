@@ -3,7 +3,7 @@
 owner = MHR
 controller = MHR
 culture = mahri_culture
-religion = sunni
+religion = ibadi
 capital = "Al Ghaydah"
 trade_goods = fish
 hre = no

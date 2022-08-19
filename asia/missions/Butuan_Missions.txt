@@ -1,0 +1,1413 @@
+monkey_RZW_1 = {
+	slot = 1
+	generic = no
+	ai yes
+	potential = {
+		tag = RZW
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	zim_annex_vassals = {
+		icon = mission_have_two_subjects
+		required_missions = {  }
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				owner = {
+					tag = ZIM
+				}
+				AND = {
+					province_id = 1184
+					OR = {
+						NOT = { is_core = ROOT }
+						NOT = { owned_by = ROOT }
+					}
+				}
+			}
+		}
+		trigger = {
+			NOT = { exists = ZIM }
+			owns_core_province = 1184
+		}
+		effect = {
+			custom_tooltip = zim_annex_vassals_ct
+			hidden_effect = {
+				set_country_flag = zim_enabled_butua_warriors
+			}
+			add_dip_power = 50
+		}
+	}
+	
+	zim_strong_rulership = {
+		icon = mission_zim_strong_rulership
+		required_missions = {
+			zim_annex_vassals
+			zim_cults
+		}
+		position = 2
+		trigger = {
+			OR = {
+				NOT = { has_reform = sacred_kingdom }
+				OR = {
+					has_adm_advisor_2 = yes
+					has_dip_advisor_2 = yes
+					has_mil_advisor_2 = yes
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = zim_sacred_court
+				duration = 9125
+			}
+		}
+	}
+	
+	#Dominate South Africa
+	zim_dominate_south_africa = {
+		icon = colonize_the_cape
+		required_missions = { 
+			zim_strong_rulership
+			zim_discover_the_cape
+		}
+		position = 4
+		provinces_to_highlight = {
+			region = south_africa_region
+			OR = {
+				NOT = { is_core = ROOT }
+				NOT = { owned_by = ROOT }
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 20
+				region = south_africa_region
+				is_city = yes
+			}
+		}
+		effect = {
+			south_africa_region = {
+				add_province_modifier = {
+					name = zim_mutapan_influence
+					duration = 9125
+				}
+			}
+		}
+	}
+	#Become a great power
+	zim_amongst_the_great_powers = {
+		icon = mission_zim_amongst_the_great_powers
+		required_missions = { 
+			zim_dominate_south_africa
+			zim_modernize_state
+		}
+		position = 5
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						has_dlc = "Emperor"
+						has_dlc = "Rights of Man"
+					}
+				}
+				NOT = { great_power_rank = 4 }
+			}
+			else = {
+				total_own_and_non_tributary_subject_development = 700
+			}
+			army_size = 300
+		}
+		effect = {
+			unlock_cult = jewish_cult
+			custom_tooltip = jewish_cult_tooltip
+			add_power_projection = {
+				type = zim_african_great_power
+				amount = 10
+			}
+			custom_tooltip = zim_amongst_the_great_powers_tt
+			add_prestige = 50
+		}
+	}
+}
+
+monkey_RZW_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = RZW
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	#Build temples
+	zim_cults = {
+		icon = mission_zim_cults
+		required_missions = {  }
+		position = 1
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_tax_building_trigger = no
+		}
+		trigger = {
+			stability = 1
+			religion = shamanism
+			num_of_owned_provinces_with = {
+				has_tax_building_trigger = yes
+				value = 5
+			}
+			if = {
+				limit = {
+					has_dlc = "Rights of Man"
+				}
+				has_adopted_cult = mwari_cult
+				has_estate_privilege = estate_church_embrace_singluar_cult
+			}
+			else = {
+				religion = shamanism
+				religious_unity = 1
+			}
+		}
+		effect = {
+			add_stability = 1
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 15
+			}
+		}
+	}
+	
+	#Develop capital back to former glory
+	zim_restore_the_city = {
+		icon = mission_sw_paquime
+		required_missions = { Stabilize_the_country }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 1184
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		trigger = {
+			owns_core_province = 1184
+			1184 = {
+				development = 20
+				has_tax_building_trigger = yes
+				has_trade_building_trigger = yes
+			}
+			stability = 2
+		}
+		effect = {
+			1184 = {
+				remove_province_modifier = zim_declining_city
+				add_province_modifier = {
+					name = zim_restored_capital
+					duration = -1
+				}
+				if = {
+					limit = {
+						NOT = { province_has_center_of_trade_of_level = 2 }
+					}
+					add_center_of_trade_level = 1
+				}
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+					}
+					set_great_project_tier_2 = {
+						type = khami_ruins
+					}
+				}
+			}
+		}
+	}
+
+	#Discover the South
+	zim_discover_the_cape = {
+		icon = mission_sw_against_the_desert
+		required_missions = { 
+			zim_restore_the_city
+		}
+		position = 3
+		provinces_to_highlight = {
+			province_id = 1177
+			NOT = { has_discovered = ROOT }
+		}
+		trigger = {
+			has_discovered = 1177
+		}
+		effect = {
+			south_africa_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					1177 = {
+						is_empty = yes
+					}
+				}
+				create_colony_mission_reward = {
+					province = 1177
+				}
+			}
+			add_temporary_colonist = {
+				duration = 36500
+			}
+			custom_tooltip = mjl_non_africa_province_gov_colonised_tt
+		}
+	}
+	zim_modernize_state = {
+		icon = mission_mal_fighting_musa
+		required_missions = { 
+			zim_discover_the_cape
+		}
+		position = 4
+		trigger = {
+			has_reached_government_reform_tier = {
+				tier_4 = yes
+			}
+			has_more_institutions_than_westerns = yes
+		}
+		effect = {
+			#if = {
+			#	limit = {
+			#		has_reform = sacred_kingdom
+			#	}
+			#	country_event = {
+			#		id = flavor_zim.3
+			#	}
+			#}
+			#else = {
+				add_stability = 1
+			#}
+			if = {
+				limit = {
+					has_dlc = "Rule Britannia"
+				}
+				change_innovativeness = 5
+			}
+			else = {
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+			}
+		}
+	}
+	
+	#Reform army
+	zim_reform_army = {
+		icon = mission_african_soldier
+		required_missions = { zim_modernize_state }
+		position = 5
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				army_professionalism = 0.25
+			}
+			else = {
+				army_tradition = 25
+			}
+			has_mil_advisor_3 = yes
+		}
+		effect = {
+			unlock_cult = norse_cult
+			custom_tooltip = Freyja
+			add_country_modifier = {
+				name = zim_advanced_military
+				duration = 9125
+			}
+		}
+	}
+	
+	#The Nguni
+	zim_learn_from_the_nguni = {
+		icon = mission_kon_conquer_ksj
+		required_missions = { zim_reform_army }
+		position = 6
+		provinces_to_highlight = {
+			has_discovered = ROOT
+			culture = nguni
+			owned_by = ROOT
+			OR = {
+				NOT = { base_manpower = 5 }
+				has_manpower_building_trigger = no
+			}
+		}
+		trigger = {
+			OR = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					culture = nguni
+					base_manpower = 5
+					has_manpower_building_trigger = yes
+					value = 4
+				}
+				any_subject_country = {
+					primary_culture = nguni
+					land_forcelimit = 20
+					has_global_modifier_value = {
+						which = discipline
+						value = 0.1
+					}
+				}
+			}
+		}
+		effect = {
+			add_yearly_manpower = 1
+			add_army_tradition = 15
+			add_army_professionalism = 0.2
+		}
+	}
+	
+}	
+
+monkey_RZW_3 = {
+    slot = 3
+    generic = no
+    ai = yes
+    potential = {
+        tag = RZW
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
+	
+	Stabilize_the_country = {
+		icon = mission_scholar_officials
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			stability = 1
+			army_size_percentage = 1
+		}
+		
+		effect = {
+			zimbabwe_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shire_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ngonde_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_zambezi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			quelimane_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mozambique_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			central_swahili_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ruvuma_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			uticulo_makuana_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	#Conquer Kalonga
+	zim_conquer_north = {
+		icon = mission_son_own_develop_clothes_and_salt
+		required_missions = { Stabilize_the_country }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4040
+				province_id = 4039
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 4039
+			owns_or_non_sovereign_subject_of = 4040
+			owns_or_non_sovereign_subject_of = 4037
+		}
+		effect = {
+			4040 = {
+				add_province_modifier = {
+					name = zim_weapon_forgery
+					duration = 9125
+				}
+			}
+			4039 = {
+				add_province_modifier = {
+					name = zim_uniform_tailoring
+					duration = 9125
+				}
+			}
+			create_conquistador = {
+				tradition = 25
+			}
+			create_colony_mission_reward = {
+				province = 4035
+			}
+			create_colony_mission_reward = {
+				province = 4036
+			}
+			create_colony_mission_reward = {
+				province = 4043
+			}
+			create_colony_mission_reward = {
+				province = 4042 
+			}
+			create_colony_mission_reward = {
+				province = 4041
+			}
+		}
+	}
+	
+	Butuan_supremacy = {
+		icon = mission_pf_map_table
+		position = 3
+		required_missions = { zim_conquer_north zim_conquer_coast zim_restore_the_city  }
+			
+		trigger = {
+				num_of_infantry = 150 # how many of which unit?
+			}
+		effect = {
+		unlock_cult = zoroastrian_cult
+		custom_tooltip = zoroastrian_cult_tooltip
+		add_country_modifier = {
+		name = "butuan_supremacy"
+		duration = -1
+		}
+		# get a mediocre mil modifier
+		}
+	}
+	
+	but_colonize_teleporter = {
+		icon = mission_iroquois_warriors
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			num_of_colonists = 1
+		}
+		
+		effect = {
+			5806 = {
+			cede_province = ROOT
+			}
+			5806 = {
+			add_core = ROOT
+			}
+			hidden_effect = {
+				1084 = {
+					discover_country = ROOT
+				}
+				4864 = {
+					discover_country = ROOT
+				}
+				4863 = {
+					discover_country = ROOT
+				}
+				2727 = {
+					discover_country = ROOT
+				}
+				1411 = {
+					discover_country = ROOT
+				}
+			}
+		}
+	}
+	
+  #Become filthy rich
+	zim_zanzibar_greatest_market = {
+		icon = mission_african_trade_post
+		required_missions = { zim_european_contact }
+		position = 5
+		trigger = {
+			trade_income_percentage = 0.3
+			treasury = 1000
+			NOT = { num_of_loans = 1 }
+			custom_trigger_tooltip = {
+				tooltip = zim_zanzibar_greatest_market_at
+				OR = {
+					1460 = {
+						is_strongest_trade_power = ROOT
+						highest_value_trade_node = yes
+					}
+					1448 = {
+						is_strongest_trade_power = ROOT
+						highest_value_trade_node = yes
+					}
+					4346 = {
+						is_strongest_trade_power = ROOT
+						highest_value_trade_node = yes
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = zim_zanzibar_greatest_market_bt
+				OR = {
+					504 = {
+						OR = {
+							is_strongest_trade_power = ROOT
+							trade_share = {
+								country = ROOT
+								share = 10
+							}
+						}
+					}
+					1340 = {
+						OR = {
+							is_strongest_trade_power = ROOT
+							trade_share = {
+								country = ROOT
+								share = 10
+							}
+						}
+					}
+					1361 = {
+						OR = {
+							is_strongest_trade_power = ROOT
+							trade_share = {
+								country = ROOT
+								share = 10
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = zim_zanzibar_greatest_market_tt
+			hidden_effect = {
+				1460 = {
+					add_trade_modifier = {
+						who = ROOT
+						duration = -1
+						power = 15
+						key = ZIM_TRADE_DOMINANCE
+					}
+				}
+				1448 = {
+					add_trade_modifier = {
+						who = ROOT
+						duration = -1
+						power = 15
+						key = ZIM_TRADE_DOMINANCE
+					}
+				}
+				4346 = {
+					add_trade_modifier = {
+						who = ROOT
+						duration = -1
+						power = 15
+						key = ZIM_TRADE_DOMINANCE
+					}
+				}
+				504 = {
+					add_trade_modifier = {
+						who = ROOT
+						duration = -1
+						power = 15
+						key = ZIM_TRADE_DOMINANCE
+					}
+				}
+				1340 = {
+					add_trade_modifier = {
+						who = ROOT
+						duration = -1
+						power = 15
+						key = ZIM_TRADE_DOMINANCE
+					}
+				}
+				1361 = {
+					add_trade_modifier = {
+						who = ROOT
+						duration = -1
+						power = 15
+						key = ZIM_TRADE_DOMINANCE
+					}
+				}
+				1371 = {
+					add_trade_modifier = {
+						who = ROOT
+						duration = -1
+						power = 15
+						key = ZIM_TRADE_DOMINANCE
+					}
+				}
+				684 = {
+					add_trade_modifier = {
+						who = ROOT
+						duration = -1
+						power = 15
+						key = ZIM_TRADE_DOMINANCE
+					}
+				}
+				4233 = {
+					add_trade_modifier = {
+						who = ROOT
+						duration = -1
+						power = 15
+						key = ZIM_TRADE_DOMINANCE
+					}
+				}
+			}
+			add_country_modifier = {
+				name = zim_trade_dominance
+				duration = -1
+			}
+		}
+	}
+}
+
+monkey_RZW_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = RZW
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	#Develop Gold
+	zim_develop_gold = {
+		icon = mission_war_chest
+		required_missions = {  }
+		position = 1
+		provinces_to_highlight = {
+			trade_goods = gold
+			owned_by = ROOT
+			NOT = { development = 8 }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				trade_goods = gold
+				development = 8
+				value = 2
+			}
+		}
+		effect = {
+			add_prestige = 20
+			add_years_of_owned_provinces_production_income = {
+				years = 2
+				trigger = {
+					trade_goods = gold
+				}
+				custom_tooltip = MONOPOLY_INCOME_GOLD_DESC
+			}
+			unlock_estate_privilege = {
+				estate_privilege = estate_burghers_control_over_the_mint
+			}
+		}
+	}
+	
+	#Sea access please
+	zim_conquer_coast = {
+		icon = mission_great_trading_houses
+		required_missions = { 
+			zim_develop_gold
+			Stabilize_the_country
+		}
+		position = 2
+		provinces_to_highlight = {
+			province_id = 1186
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 1186
+		}
+		effect = {
+			create_explorer = { tradition = 50 }
+			country_event = {
+				id = flavor_zim.7
+			}
+			1186 = {
+				if = {
+					limit = {
+						NOT = { province_has_center_of_trade_of_level = 2 }
+					}
+					add_center_of_trade_level = 1
+				}
+				add_latest_building = {
+					trade = yes
+					builder = ROOT
+				}
+			}
+			sakalava_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			betsimasaraka_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			madagascar_highlands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			southern_madagascar = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			mozambique_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				galley = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				light_ship = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				light_ship = PREV
+				}
+			}
+			1186 = {
+				ROOT = {
+				light_ship = PREV
+				}
+			}
+		}
+	}
+	
+	#Trade fleet
+	zim_build_navy = {
+		icon = mission_polynesian_navy_build
+		required_missions = {
+			zim_conquer_coast
+		}
+		position = 3
+		provinces_to_highlight = {
+			province_id = 1448
+		}
+		trigger = {
+			num_of_light_ship = 10
+			1448 = {
+				OR = {
+					is_strongest_trade_power = ROOT
+					trade_share = {
+						country = ROOT
+						share = 30
+					}
+				}
+			}
+		}
+		effect = {
+			add_mercantilism = 5
+			country_event = {
+				id = flavor_zim.8
+			}
+			custom_tooltip = zim_build_navy_tt
+			hidden_effect = {
+				horn_of_africa_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+						has_port = yes
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	
+	zim_european_contact = {
+		icon = mission_son_fetishist_alliances
+		required_missions = { zim_build_navy }
+		position = 4
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = zim_european_contact_tt
+				europe = {
+					is_capital = yes
+					owner = {
+						OR = {
+							alliance_with = ROOT
+							has_opinion = {
+								who = ROOT
+								value = 75
+							}
+							has_guaranteed = ROOT
+							overlord_of = ROOT
+							is_subject_of = ROOT
+						}
+						religion_group = christian
+					}
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = flavor_zim.5
+			}
+		}
+	}
+	
+	#Have a merchant in any indian trade node
+	zan_trade_of_the_east = {
+		icon = mission_indian_empire
+		required_missions = { zim_european_contact }
+		position = 5
+		provinces_to_highlight = {
+			is_indian_trade_node_province = yes
+		}
+		trigger = {
+			OR = {
+				504 = { has_trader = ROOT }
+				507 = { has_trader = ROOT }
+				524 = { has_trader = ROOT }
+				1343 = { has_trader = ROOT }
+				1948 = { has_trader = ROOT }
+				1340 = { has_trader = ROOT }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = zan_trade_with_india
+				duration = 9125
+			}
+			create_explorer = {
+				tradition = 40
+			}
+		}
+	}
+	
+	zan_explore_the_malacca_trade = {
+		icon = mission_malayan_viceroyalty
+		required_missions = { zan_trade_of_the_east }
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				region = indonesia_region
+				region = malaya_region
+			}
+			NOT = { has_discovered = ROOT }
+		}
+		trigger = {
+			indonesia_region = {
+				has_discovered = ROOT
+			}
+			malaya_region = {
+				NOT = { province_id = 1248 }
+				has_discovered = ROOT
+			}
+		}
+		effect = {
+			custom_tooltip = zan_explore_the_malacca_trade_tt
+			hidden_effect = {
+				minangkabau_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				south_sumatra_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				north_sumatra_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				central_sumatra_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				batak_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				jambi_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				west_java_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				central_java_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				east_java_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				banten_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				surabaya_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	zan_dominate_moluccas = {
+		icon = mission_rb_colonise_spice_islands
+		required_missions = { zan_explore_the_malacca_trade }
+		position = 8
+		provinces_to_highlight = {
+			province_id = 1357
+		}
+		trigger = {
+			1357 = {
+				has_trader = ROOT
+				OR = {
+					trade_share = {
+						country = ROOT
+						share = 25
+					}
+					is_strongest_trade_power = ROOT
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = zan_colonial_ambition
+				duration = 9125
+			}
+		}
+	}
+ }
+
+monkey_RZW_5 = {
+	slot = 5
+	generic = no
+	ai = no
+	potential = {
+		tag = RZW
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	but_build_army_mission = { #Localized as reclaim_maine_title and reclaim_maine_desc
+		icon = mission_build_up_to_force_limit
+		position = 1
+		required_missions = {  } #None
+		trigger = {
+			army_size_percentage = 1 #What you need to complete the mission, displayed for mission tooltip
+		}
+		effect = { #This is what you get after you finished your mission.
+			add_country_modifier = {
+				name = "thriving_arms_industry"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	but_assemble_an_army = {
+		icon = mission_assemble_an_army
+		position = 2
+		required_missions = { build_army_mission }
+		trigger = { army_size = 80 }
+		effect = {
+			add_country_modifier = {
+				name = "army_enthusiasm"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	Madagascan_invasion = {
+		icon = mission_central_asian_city
+		required_missions = { zim_conquer_coast }
+		position = 3
+		
+		Provinces_to_highlight = {
+			OR = {
+				province_id = 4020
+				area = sakalava_area
+				area = betsimasaraka_area
+				area = madagascar_highlands_area
+				area = southern_madagascar
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			if = {
+				limit = {
+					OR = {
+						was_player = yes
+						is_colonial_nation = yes
+					}
+				}
+				ai = no
+			}
+			mozambique_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			sakalava_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			betsimasaraka_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			madagascar_highlands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			southern_madagascar = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+	effect ={
+		sakalava_area = {
+         change_trade_goods = slaves
+         add_province_modifier = {
+                 name = "madagasc_development"
+                 duration = -1
+   }
+   }
+   madagascar_highlands_area = {
+         change_trade_goods = slaves
+         add_province_modifier = {
+                 name = "madagasc_development"
+                 duration = -1
+   }
+   }
+   betsimasaraka_area = {
+         change_trade_goods = slaves
+         add_province_modifier = {
+                 name = "madagasc_development"
+                 duration = -1
+   }
+   }
+  southern_madagascar = {
+         change_trade_goods = slaves
+         add_province_modifier = {
+                 name = "madagasc_development"
+                 duration = -1
+		}
+		}
+			change_price = {
+				trade_goods = slaves
+				key = slaves_boom
+				value = 0.1
+				duration = -1
+			}
+			
+			define_advisor = {
+				type = treasurer
+				name = "Chimp Chimpesen"
+				skill = 3
+				culture = norwegian
+				religion = norse_pagan_reformed
+				cost_multiplier = 0.50
+			}
+			define_consort = {
+				name = "Sous Souni"
+				culture = french
+				adm = 6
+				dip = 6
+				mil = 6
+				age = 69
+				male = yes
+			}
+		1084 = {
+			create_colony = 800
+		}
+		add_country_modifier = {
+			name = butuan_colonialism
+			duration = 5475 #15 years
+			}
+		}	
+	}
+	australia = {
+		icon = mission_colonial
+		required_missions = { Madagascan_invasion }
+		position = 4
+		
+		provinces_to_highlight = {
+			province_id = 1084
+		}
+
+		trigger = {
+			if = {
+				owns_core_province = 1084
+			}
+		}
+		
+		effect = {
+			add_prestige = 20
+		}
+	}
+	
+	australian_colony = {
+		icon = mission_alliances
+		required_missions = { australia }
+		position = 5
+		
+		provinces_to_highlight = {
+			region = australia_region
+		}
+		
+		trigger = {
+			colony = 1
+		}
+		
+		effect = {
+			add_prestige = 20
+			add_country_modifier = {
+				name = "butuan_navy"
+				duration = -1
+			}
+		}
+	}
+	
+	zan_dominate_the_malacca_trade = {
+		icon = mission_market_place_with_asian_traders
+		required_missions = { zan_explore_the_malacca_trade }
+		position = 7
+		provinces_to_highlight = {
+			province_id = 1361
+		}
+		trigger = {
+			1361 = {
+				has_trader = ROOT
+				OR = {
+					trade_share = {
+						country = ROOT
+						share = 5
+					}
+					is_strongest_trade_power = ROOT
+				}
+			}
+		}
+		effect = {
+			define_advisor = {
+				type = trader
+				discount = yes
+				skill = 2
+			}
+			country_event = {
+				id = flavor_zan.21
+			}
+		}
+	}
+	zan_trade_with_china = {
+		icon = mission_asian_city
+		required_missions = { zan_dominate_the_malacca_trade }
+		position = 8
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1371
+				province_id = 684
+			}
+		}
+		trigger = {
+			OR = {
+				1371 = {
+					OR = {
+						is_strongest_trade_power = ROOT
+						trade_share = {
+							country = ROOT
+							share = 25
+						}
+					}
+				}
+				684 = {
+					OR = {
+						is_strongest_trade_power = ROOT
+						trade_share = {
+							country = ROOT
+							share = 25
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = zan_riches_of_china
+				duration = -1
+			}
+		}
+	}
+}
+

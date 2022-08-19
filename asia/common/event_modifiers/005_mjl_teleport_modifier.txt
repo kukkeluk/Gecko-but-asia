@@ -1,0 +1,138 @@
+mjl_teleport_modifier = {
+local_development_cost = 5
+local_warscore_cost_modifier = 6
+}
+mjl_teleport_movement_modifier_ow = {
+local_friendly_movement_speed = 2.0
+local_hostile_movement_speed = -0.65
+}
+mjl_teleport_movement_modifier_nw = {
+local_friendly_movement_speed = 2.0
+local_hostile_movement_speed = 2.0
+}
+
+expensive_devving = {
+local_development_cost = 1
+allowed_num_of_buildings = -3
+supply_limit_modifier = 0.14
+}
+
+#Denmark
+dan_ow_teleporter = {
+local_friendly_movement_speed = 20
+local_hostile_movement_speed = -0.5
+local_warscore_cost_modifier = 1.5
+}
+dan_nw_teleporter = {
+local_friendly_movement_speed = 20
+local_hostile_movement_speed = 20
+local_warscore_cost_modifier = 1.5
+}
+
+#England
+eng_ow_teleporter = {
+local_friendly_movement_speed = 15
+local_hostile_movement_speed = -0.5
+local_warscore_cost_modifier = 1.5
+}
+eng_nw_teleporter = {
+local_friendly_movement_speed = 15
+local_hostile_movement_speed = 15
+local_warscore_cost_modifier = 1.5
+}
+
+#France
+fra_ow_teleporter = {
+local_friendly_movement_speed = 19
+local_hostile_movement_speed = -0.5
+local_warscore_cost_modifier = 1.5
+}
+fra_nw_teleporter = {
+local_friendly_movement_speed = 19
+local_hostile_movement_speed = 19
+local_warscore_cost_modifier = 1.5
+}
+
+#Portugal
+por_ow_teleporter = {
+local_friendly_movement_speed = 14
+local_hostile_movement_speed = -0.5
+local_warscore_cost_modifier = 1.5
+}
+por_nw_teleporter = {
+local_friendly_movement_speed = 14
+local_hostile_movement_speed = 14
+local_warscore_cost_modifier = 1.5
+}
+
+#Morocco
+mor_ow_teleporter = {
+local_friendly_movement_speed = 14
+local_hostile_movement_speed = -0.5
+local_warscore_cost_modifier = 1.5
+}
+mor_nw_teleporter = {
+local_friendly_movement_speed = 14
+local_hostile_movement_speed = 14
+local_warscore_cost_modifier = 1.5
+}
+
+#Mali
+mal_ow_teleporter = {
+local_friendly_movement_speed = 4
+local_hostile_movement_speed = -0.5
+local_warscore_cost_modifier = 1.5
+}
+mal_nw_teleporter = {
+local_friendly_movement_speed = 4
+local_hostile_movement_speed = 4
+local_warscore_cost_modifier = 1.5
+}
+
+#Kongo
+kon_ow_teleporter = {
+local_friendly_movement_speed = 17
+local_hostile_movement_speed = -0.5
+local_warscore_cost_modifier = 1.5
+}
+kon_nw_teleporter = {
+local_friendly_movement_speed = 17
+local_hostile_movement_speed = 17
+local_warscore_cost_modifier = 1.5
+}
+
+#Butua
+but_ow_teleporter = {
+local_friendly_movement_speed = 19
+local_hostile_movement_speed = -0.5
+local_warscore_cost_modifier = 1.5
+}
+but_nw_teleporter = {
+local_friendly_movement_speed = 19
+local_hostile_movement_speed = 19
+local_warscore_cost_modifier = 1.5
+}
+
+#madyas
+mas_ow_teleporter = {
+local_friendly_movement_speed = 33
+local_hostile_movement_speed = -0.5
+local_warscore_cost_modifier = 1.5
+}
+mas_nw_teleporter = {
+local_friendly_movement_speed = 33
+local_hostile_movement_speed = 33
+local_warscore_cost_modifier = 1.5
+}
+
+#Japan
+jap_ow_teleporter = {
+local_friendly_movement_speed = 20
+local_hostile_movement_speed = -0.5
+local_warscore_cost_modifier = 1.5
+}
+jap_nw_teleporter = {
+local_friendly_movement_speed = 20
+local_hostile_movement_speed = 20
+local_warscore_cost_modifier = 1.5
+}

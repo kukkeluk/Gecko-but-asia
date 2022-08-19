@@ -1,9 +1,11 @@
 #396 - Bahrain
 
-owner = ALH
-controller = ALH
+#owner = ALH
+#controller = ALH
+owner = ORM
+controller = ORM
 culture = gulf_arabic
-religion = shiite
+religion = ibadi
 capital = "Manama"
 trade_goods = gems #Pearls
 hre = no

@@ -1,6 +1,6 @@
 #917 - Cahokia
 
-
+is_city = yes
 culture = illini
 religion = totemism
 capital = "Cahokia"

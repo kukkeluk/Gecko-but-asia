@@ -49,10 +49,7 @@ country_event = {
 		
 		remove_government_reform = elective_monarchy
 		#set_legacy_government = administrative_monarchy
-		if = {
-				limit = { has_heir = yes }
-				kill_heir = {}
-			}
+		remove_heir = {}
 		add_absolutism = 10
 
 		hidden_effect = {
@@ -105,7 +102,7 @@ country_event = {
 	}
 }
 
-# Estates bailing out the player PR event removed from the game
+# Estates bailing out the player
 country_event = {
 	id = estate_privileges_and_agendas_events.2
 	title = estate_privileges_and_agendas_events.2.name
@@ -114,7 +111,6 @@ country_event = {
 
 	trigger = {
 		
-		always = no
 		NOT = { crown_land_share = 11 }
 		OR = {
 			AND = {
@@ -147,27 +143,30 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 128
+		months = 5000
 		modifier = {
-			factor = 0.5
+			factor = 5.5
 			NOT = { crown_land_share = 6 }
 		}
 		modifier = {
-			factor = 0.5
+			factor = 5.5
 			NOT = { crown_land_share = 4 }
 		}
 		modifier = {
-			factor = 0.5
+			factor = 5.5
 			NOT = { crown_land_share = 2 }
 		}
 		modifier = {
-			factor = 0.5
+			factor = 5.5
 			NOT = { crown_land_share = 1 }
 		}
 	}
 
 	option = { # Accept the Bail Out
 		name = estate_privileges_and_agendas_events.2.a
+		trigger = { 
+			ai = no
+		}
 		custom_tooltip = seize_land_unavailable_from_privilege
 		if = {
 			limit = {
@@ -749,7 +748,6 @@ country_event = {
 	hidden = yes
 
 	trigger = {
-		always = no
 		OR = {
 			has_estate_privilege = estate_nobles_supremacy_over_crown
 			has_estate_privilege = estate_brahmins_supremacy_over_crown
@@ -765,7 +763,6 @@ country_event = {
 		name = estate_privileges_and_agendas_events.4.a
 	}
 }
-
 country_event = {
 	id = estate_privileges_and_agendas_events.5 #Tropical City Planning Update
 	title = estate_privileges_and_agendas_events.5.name

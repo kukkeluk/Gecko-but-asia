@@ -39,14 +39,23 @@ country_event = { #Swiss Cheese
 	desc = FU_Switzerland_Events.2.d 
 	picture = fu_swiss_cheese_eventPicture
 	
-	is_triggered_only = yes 
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWI
+		current_age = age_of_discovery
+		is_at_war = no 
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
 	
 	option = {
 		name = FU_Switzerland_Events.2.a 
 		
-			add_years_of_income = 2 
-			add_prestige = 25
-		
+		add_years_of_income = 0.5 
+		add_prestige = 10
 	}
 }
 
@@ -56,29 +65,32 @@ country_event = { #Swiss Cheese
 	desc = FU_Switzerland_Events.3.d 
 	picture = fu_swiss_cheese_eventPicture
 	
-	is_triggered_only = yes 
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWI
+		is_at_war = no 
+		AND = {
+			owns_core_province = 1880
+			owns_core_province = 72
+		}
+	}
 
 	option = {
 		name = FU_Switzerland_Events.3.a 
 		
 		1880 = { 
-			remove_core = ROOT 
-			add_core = SWI
 			change_culture = swiss
-			cede_province = SWI
 		}
 		72 = { 
-			remove_core = ROOT
-			add_core = SWI
 			change_culture = swiss  
-			cede_province = SWI
 		}
 	}
 	
 	option = {
 		name = FU_Switzerland_Events.3.b 
 		
-		add_prestige = 5
+		add_prestige = 10
 		
 		ai_chance = { factor = 0 }
 	}
@@ -113,32 +125,53 @@ country_event = { #William Tell and Arnold von Winkelried
 	}
 }
 
-country_event = { #The Swiss Confederation
-	id = FU_Switzerland_Events.5
-	title = FU_Switzerland_Events.5.t 
-	desc = FU_Switzerland_Events.5.d 
-	picture = fu_swiss_cantons_eventPicture
+#country_event = { #The Swiss Confederation
+#	id = FU_Switzerland_Events.5
+#	title = FU_Switzerland_Events.5.t 
+#	desc = FU_Switzerland_Events.5.d 
+#	picture = fu_swiss_cantons_eventPicture
+#	
+#	fire_only_once = yes 
+#	
+#	trigger = {
+#		tag = SWI
+#		
+#		current_age = age_of_discovery
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1000
+#	}
+#	
+#	option = {
+#		name = FU_Switzerland_Events.5.a 
+#		
+#		custom_tooltip = swi_enable_cantons_tt 
+#		hidden_effect = { 
+#			set_country_flag = can_make_canton 
+#			set_country_flag = swi_had_canton_event_flag
+#		}
+#	}
+#}
+
+country_event = {
+	id = FU_Switzerland_Events.6
+	title = FU_Switzerland_Events.6.t 
+	desc = FU_Switzerland_Events.6.d 
+	picture = fu_swiss_cheese_eventPicture 
 	
-	fire_only_once = yes 
+	hidden = yes 
 	
 	trigger = {
-		tag = SWI  
-		current_age = age_of_discovery
-	}
-	
-	mean_time_to_happen = {
-		months = 1 
+		tag = SWI 
+		has_country_modifier = swi_period_of_stability_modifier
+		NOT = { stability = 2 }
 	}
 	
 	option = {
-		name = FU_Switzerland_Events.5.a 
+		name = FU_Switzerland_Events.6.a 
 		
-		custom_tooltip = swi_enable_cantons_tt 
-		hidden_effect = { 
-			set_country_flag = can_make_canton 
-			set_country_flag = swi_had_canton_event_flag
-		}
+		remove_country_modifier = swi_period_of_stability_modifier
 	}
 }
-
 

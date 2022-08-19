@@ -1,0 +1,15 @@
+name= "Austria-Augsburg War"
+war_goal= {
+type=take_capital_throne
+casus_belli = cb_claim_throne
+TAG=HAB
+}
+1443.1.1 = {
+	add_attacker = HAB
+	add_defender = AUG
+}
+# Peace
+1444.11.11 = {
+	rem_attacker = HAB
+	rem_defender = AUG
+}

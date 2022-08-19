@@ -4,16 +4,16 @@ owner = SIC
 controller = SIC
 culture = sicilian 
 religion = catholic 
-hre = yes
-base_tax = 8 
-base_production = 8
-trade_goods = silk
-base_manpower = 8
+hre = no 
+base_tax = 6 
+base_production = 6
+trade_goods = fish
+base_manpower = 5
 fort_15th = yes #Numerous forts, Castello Maniace and Castello di Milazzo being the prominent.
 capital = "Messina"
 is_city = yes 
-#add_core = NAP
 add_core = SIC
+#add_core = NAP
 
 
 
@@ -22,6 +22,12 @@ discovered_by = eastern
 discovered_by = muslim
 discovered_by = ottoman
 
+
+#1409.7.25 = {
+#	owner = ARA
+#	controller = ARA
+#	add_core = ARA
+#} # Martin I inherits Sicily from his son
 1516.1.23 = {
 	owner = SPA
 	controller = SPA

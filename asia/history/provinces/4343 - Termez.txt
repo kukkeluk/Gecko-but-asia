@@ -1,5 +1,7 @@
 #4343 - Termez
 
+#owner = TIM
+#controller = TIM
 owner = TRS
 controller = TRS
 culture = uzbehk
@@ -11,6 +13,7 @@ base_tax = 1
 base_production = 1
 base_manpower = 2
 is_city = yes
+#add_core = TIM
 add_core = TRS
 discovered_by = KAS
 discovered_by = muslim

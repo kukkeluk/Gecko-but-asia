@@ -1,0 +1,110 @@
+########################################
+# PR Events                            #
+########################################
+
+namespace = PR_events
+
+# Revealing Africa to Africans
+country_event = {
+    id = PR_events.1
+    title = "PR_events.1.t"
+    desc = "PR_events.1.d"
+    picture = COURT_eventPicture
+
+    trigger = {
+	OR = {
+		tag = MOR
+		tag = TUN
+		tag = MAM
+		tag = ETH
+		tag = AJU
+		tag = ZAN
+		tag = RZW
+		tag = MIR
+		tag = KON
+		tag = SON
+		tag = MAL
+	}
+        NOT = { 
+			has_country_flag = PR_discover_africa_flag
+		}
+    }
+	
+    mean_time_to_happen = {
+        days = 1
+    }
+	
+    immediate = {
+		hidden_effect = {
+			set_country_flag = PR_discover_africa_flag
+			africa_superregion = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}			
+			southern_africa_superregion = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			near_east_superregion = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			4322 = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			4321 = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			1793 = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			1794 = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			1795 = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			1796 = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			1797 = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			1801 = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			1449 = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+		}
+	}
+	
+	option = {
+        name = "PR_events.1.a"
+		custom_tooltip = PR_events.1.a
+		ai_chance = {
+		}
+    }
+}
+

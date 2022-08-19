@@ -1,0 +1,10 @@
+government = republic
+mercantilism = 30
+add_government_reform = merchants_reform
+primary_culture = dutch
+religion = catholic
+technology_group = western
+capital = 624 # Banten
+add_army_professionalism = 0.1
+add_republican_tradition = 100
+

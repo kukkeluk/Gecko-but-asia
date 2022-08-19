@@ -1,10 +1,11 @@
-government = republic
+government = theocracy
 add_government_reform = free_city
 government_rank = 1
 primary_culture = swabian
 religion = catholic
 technology_group = western
 capital = 1868
+historical_rival = HAB
 fixed_capital = 1868 # Cannot move capital away from this province & no power cost to move to it
 
 1373.1.1 = {

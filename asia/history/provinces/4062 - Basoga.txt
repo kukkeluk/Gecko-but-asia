@@ -1,8 +1,8 @@
 #Basoga
 
-owner = BSG
-controller = BSG
-add_core = BSG
+owner = BNY
+controller = BNY
+add_core = BNY
 culture = masaba
 religion = shamanism #Fetishism
 capital = "Bukaleeba"

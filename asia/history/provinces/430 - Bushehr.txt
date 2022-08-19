@@ -3,7 +3,7 @@
 owner = FRS
 controller = FRS
 culture = persian
-religion = shiite
+religion = ibadi
 capital = "Bushehr"
 trade_goods = silk
 hre = no

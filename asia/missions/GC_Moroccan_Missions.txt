@@ -19,7 +19,6 @@ gc_morocco_1 = {
 		provinces_to_highlight = {
 			OR = {
 				province_id = 343
-				province_id = 344
 				province_id = 342
 				province_id = 2467
 			}
@@ -33,13 +32,6 @@ gc_morocco_1 = {
 		
 		trigger = {
 			343 = {
-				owned_by = ROOT
-				OR = {
-					has_building = temple
-					development = 15
-				}
-			}
-			344 = {
 				owned_by = ROOT
 				OR = {
 					has_building = temple
@@ -101,13 +93,11 @@ gc_morocco_1 = {
 			}
 		}		
 		effect = {
+			add_prestige = 20
 			if = {
 				limit = {
 					1127 = {
 						is_empty = yes
-						any_neighbor_province = {
-							owned_by = ROOT
-						}
 					}
 				}
 				set_country_flag = mor_sudanese_expedition
@@ -117,6 +107,7 @@ gc_morocco_1 = {
 				name = mor_saharan_trade
 				duration = 7300
 			}
+			custom_tooltip = tun_cross_sahara_tooltip
 		}
 	}
 	gc_mor_timbuktu = {
@@ -151,6 +142,7 @@ gc_morocco_1 = {
 		}
 		
 		effect = {
+			add_prestige = 10
 			sahel_region = {
 				discover_country = ROOT
 			}
@@ -190,8 +182,6 @@ gc_morocco_1 = {
 		provinces_to_highlight = {
 			OR = {
 				area = niger_bend_area
-				area = western_sahara_area
-				area = dendi_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -203,17 +193,10 @@ gc_morocco_1 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
 			}
-			western_sahara_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
-			dendi_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
 		}
 		
 		effect = {
+			add_prestige = 10
 			azbin_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -435,15 +418,47 @@ gc_morocco_2 = {
 	}
 	has_country_shield = yes
 	
-	mor_high_income_mission = {
-		icon = mission_high_income
-		required_missions = {  } #None
+	mor_colonize_teleporter = {
+		icon = mission_iroquois_warriors
+		required_missions = { }
 		position = 1
-		trigger = { share_of_starting_income = 1.5 }
+		
+		trigger = {
+			num_of_colonists = 1
+		}
+		
 		effect = {
-			add_country_modifier = {
-				name = "gc_growing_economy"
-				duration = 9125 #25 years
+			5803 = {
+			cede_province = ROOT
+			}
+			5803 = {
+			add_core = ROOT
+			}
+			hidden_effect = {
+				491 = {
+					discover_country = ROOT
+				}
+				2806 = {
+					discover_country = ROOT
+				}
+				830 = {
+					discover_country = ROOT
+				}
+				4610 = {
+					discover_country = ROOT
+				}
+				4611 = {
+					discover_country = ROOT
+				}
+				2807 = {
+					discover_country = ROOT
+				}
+				2808 = {
+					discover_country = ROOT
+				}
+				2920 = {
+					discover_country = ROOT
+				}
 			}
 		}
 	}
@@ -454,16 +469,11 @@ gc_morocco_2 = {
 		position = 2
 		
 		provinces_to_highlight = {
-			province_id = 341
+			province_id = 1293
 		}
 		
 		trigger = {
-			341 = {
-				trade_share = {
-						country = ROOT
-						share = 50
-					}
-			}
+			num_of_galley = 20
 		}
 		
 		effect = {
@@ -478,17 +488,17 @@ gc_morocco_2 = {
 		required_missions = { gc_mor_privateer }
 		
 		provinces_to_highlight = {
-			province_id = 227
+			province_id = 224
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			NOT = { controlled_by = ROOT }
 		}
 		
 		trigger = {
 			OR = {
-				227 = {
+				224 = {
 					controlled_by = ROOT
 				}
-				227 = {
+				224 = {
 					country_or_non_sovereign_subject_holds = ROOT
 				}
 			}
@@ -505,7 +515,7 @@ gc_morocco_2 = {
 	}
 	gc_mor_black_guard = {
 		icon = mission_establish_the_black_guard
-		required_missions = {  gc_mor_timbuktu }
+		required_missions = { gc_mor_palace gc_mor_timbuktu }
 		
 		provinces_to_highlight = {
 			province_id = 1132
@@ -608,9 +618,17 @@ gc_morocco_3 = {
 			stability = 1
 			NOT = { num_of_rebel_armies = 1 }
 			NOT = { num_of_rebel_controlled_provinces = 1 }
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = gc_mor_wattasid_tt
+					has_country_flag = wattasid_resolution
+				}
+				is_year = 1500
+				army_size_percentage = 1
+			}
 		}
 		effect = {
-			tunisia_area  = {
+			algiers_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -624,14 +642,97 @@ gc_morocco_3 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			ouled_nail_area = {
+			hautes_plaines_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-			north_saharan_area = {
+			tafilalt_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	gc_mor_algiers = {
+		icon = mission_conquer_algiers
+		required_missions = { gc_mor_wattasid }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2461
+				province_id = 337
+				province_id = 338
+				area = algiers_area
+				area = tafilalt_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			2461 = {
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			338 = {
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			337 = {
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			algiers_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			tafilalt_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		
+		effect = {
+			add_navy_tradition = 25
+			add_country_modifier = {
+				name = "mor_barbary_pirate_coast"
+				duration = 7300
+			}
+		}
+	}
+	gc_mor_pirates = {
+		icon = mission_pirate_havens
+		required_missions = { gc_mor_algiers gc_mor_privateer }
+		
+		provinces_to_highlight = {
+			province_id = 1298
+		}
+		
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 8
+				OR = {
+					has_building = dock
+					has_building = drydock
+				}
+			}
+		}
+		
+		effect = {
+			north_atlantic_region = {
+				discover_country = ROOT
+			}
+			kabylia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			tunisia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -652,117 +753,6 @@ gc_morocco_3 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			kabylia_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-	
-	gc_mor_algiers = {
-		icon = mission_conquer_algiers
-		required_missions = { gc_mor_wattasid }
-		provinces_to_highlight = {
-			OR = {
-				area = algiers_area
-				area = barbary_coast_area
-				area = hautes_plaines_area
-				area = tafilalt_area
-				area = kabylia_area
-			}
-			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		
-		trigger = {
-			algiers_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
-			barbary_coast_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
-			hautes_plaines_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
-			tafilalt_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
-			kabylia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
-		}
-		
-		effect = {
-			corsica_sardinia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			sicily_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			western_sicily_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			add_country_modifier = {
-				name = "berber_fury"
-				duration = 5475
-			}
-		}
-	}
-	gc_mor_pirates = {
-		icon = mission_pirate_havens
-		required_missions = { gc_mor_algiers gc_mor_privateer }
-		
-		provinces_to_highlight = {
-			OR = {
-				area = sicily_area
-				area = western_sicily_area
-				area =corsica_sardinia_area
-			}
-		}
-		
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 8 # out of 10
-				OR = {
-					area = sicily_area
-					area = western_sicily_area
-					area = corsica_sardinia_area
-				}
-			}
-				118 = {
-					trade_share = {
-						country = ROOT
-						share = 25
-					}
-				}
-		}
-		
-		effect = {
-			north_atlantic_region = {
-				discover_country = ROOT
-			}
-			
 			370 = {
 				if = {
 					limit = {
@@ -783,27 +773,6 @@ gc_morocco_3 = {
 					discover_country = ROOT
 				}
 			}
-			naples_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			calabria_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			apulia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
 		}
 	}
 	gc_mor_iceland = {
@@ -823,7 +792,6 @@ gc_morocco_3 = {
 		trigger = {
 			OR = {
 				370 = {
-					devastation = 25
 					owner = {
 						war_with = ROOT
 					}
@@ -852,6 +820,40 @@ gc_morocco_3 = {
 				add_permanent_claim = ROOT
 				discover_country = ROOT
 			}
+		}
+	}
+	gc_mor_north_sea = {
+		icon = mission_corsairs_of_the_north_sea
+		required_missions = { gc_mor_iceland }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = kingdom_of_the_isles_area
+				area = subarctic_islands_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			1975 = {
+				privateer_power = {
+					country = ROOT
+					share = 15
+				}
+			}
+			kingdom_of_the_isles_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			subarctic_islands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
 			add_country_modifier = {
 				name = "mor_north_sea_corsairs"
 				duration = -1
@@ -874,17 +876,62 @@ gc_morocco_4 = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	gc_mor_flagship = {
-		icon = mission_launch_a_flagship
-		required_missions = {  }
+	
+	mor_colonize_por_teleporter = {
+		icon = mission_iroquois_warriors
+		required_missions = { }
 		position = 1
-		trigger = {
-			has_flagship = yes
+		
+		provinces_to_highlight = {
+			OR = {
+				area = alentejo_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
+		
+		trigger = {
+			POR	= {
+				Not = {
+					total_development = 50
+				}
+			}
+	
+			alentejo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			num_of_colonists = 1
+		}
+		
 		effect = {
-			add_navy_tradition = 20
+			5802 = {
+			cede_province = ROOT
+			}
+			5802 = {
+			add_core = ROOT
+			}
+			hidden_effect = {
+				2658 = {
+					discover_country = ROOT
+				}
+				490 = {
+					discover_country = ROOT
+				}
+				4621 = {
+					discover_country = ROOT
+				}
+				492 = {
+					discover_country = ROOT
+				}
+				487 = {
+					discover_country = ROOT
+				}
+			}
 		}
 	}
+	
 	gc_mor_ceuta = {
 		icon = mission_reconquer_ceuta
 		required_missions = { gc_mor_wattasid }
@@ -952,13 +999,6 @@ gc_morocco_4 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			cordoba_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
 			221 = {
 				if = {
 					limit = {
@@ -994,6 +1034,45 @@ gc_morocco_4 = {
 			}
 		}
 	}
+	gc_mor_tunis = {
+		icon = mission_conquer_tunis
+		required_missions = { gc_mor_pirates }
+		provinces_to_highlight = {
+			OR = {
+				area = kabylia_area
+				area = tunisia_area
+				area = djerba_area
+				area = tripolitania_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			kabylia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tunisia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			djerba_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tripolitania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "mor_tunis_conquest"
+				duration = 7300
+			}
+		}
+	}
 }
 
 gc_morocco_5 = {
@@ -1011,32 +1090,33 @@ gc_morocco_5 = {
 	}
 	has_country_shield = yes
 	
-	gc_mor_canaries = {
+	gc_mor_coro = {
 		icon = mission_claim_the_canaries
 		required_missions = {  }
 		
 		provinces_to_highlight = {
 			OR = {
-				province_id = 366
-				province_id = 4565
+				province_id = 2808
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		
 		trigger = {
-			num_of_explorers = 1
+			2808 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		
 		effect = {
 			add_country_modifier = {
-				name = "mor_tunis_conquest"
+				name = "mor_beyond_the_canaries"
 				duration = 7300
 			}
 		}
 	}
 	gc_mor_brazil = {
 		icon = mission_colonize_the_west
-		required_missions = { gc_mor_canaries }
+		required_missions = { gc_mor_coro }
 		
 		provinces_to_highlight = {
 			colonial_region = colonial_brazil
@@ -1080,8 +1160,7 @@ gc_morocco_5 = {
 		
 		provinces_to_highlight = {
 			OR = {
-				colonial_region = colonial_the_carribean
-				colonial_region = colonial_colombia
+				colonial_region = colonial_brazil
 			}
 			OR = {
 				is_city = no
@@ -1095,22 +1174,12 @@ gc_morocco_5 = {
 				limit = {
 					is_random_new_world = no
 				}
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					value = 10
-					colonial_region = colonial_the_carribean
-					is_city = yes
-				}
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					value = 10
-					colonial_region = colonial_colombia
-					is_city = yes
-				}
 				custom_trigger_tooltip = {
 					tooltip = mor_big_colony.tooltip
 					any_country = {
 						is_subject_of = ROOT
 						is_subject_of_type = colony
-						num_of_cities = 25
+						num_of_cities = 20
 					}
 				}
 			}
@@ -1120,7 +1189,7 @@ gc_morocco_5 = {
 					any_country = {
 						is_subject_of = ROOT
 						is_subject_of_type = colony
-						num_of_cities = 25
+						num_of_cities = 20
 					}
 				}
 			}
@@ -1141,7 +1210,6 @@ gc_morocco_5 = {
 		provinces_to_highlight = {
 			OR = {
 				area = lower_andalucia_area
-				area = cordoba_area
 				province_id = 221
 				province_id = 4547
 				province_id = 218
@@ -1151,10 +1219,6 @@ gc_morocco_5 = {
 		
 		trigger = {
 			lower_andalucia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			cordoba_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

@@ -1,16 +1,20 @@
 government = monarchy
-add_government_reform = feudalism_reform
+add_government_reform = negusa_nagast
 government_rank = 3
 primary_culture = amhara
 religion = coptic
 technology_group = east_african
 unit_type = sub_saharan
-capital = 1224		# Gonder
-add_historical_rival = ADA
+capital = 2772
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
+
 
 change_estate_land_share = {
 	estate = estate_nobles
-	share = 12
+	share = 11.498
 }
 change_estate_land_share = {
 	estate = estate_church
@@ -123,56 +127,55 @@ change_estate_land_share = {
 	}
 }
 
-#1430.1.1 = {
-#	heir = {
-#		name = "Amda Iyasus"
-#		monarch_name = "Amda Iyasus"
-#		dynasty = "Solomonid"
-#		birth_date = 1410.1.1
-#		death_date = 1434.6.2
-#		claim = 95
-#		adm = 2
-#		dip = 1
-#		mil = 2
-#	}
-#}
+1430.1.1 = {
+	heir = {
+		name = "Amda Iyasus"
+		monarch_name = "Amda Iyasus"
+		dynasty = "Solomonid"
+		birth_date = 1410.1.1
+		death_date = 1434.6.2
+		claim = 95
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
 
-#1433.1.1 = {
-#	monarch = {
-#		name = "Amda Iyasus"
-#		dynasty = "Solomonid"
-#		adm = 2
-#		dip = 1
-#		mil = 2
-#	}
-#}
+1433.1.1 = {
+	monarch = {
+		name = "Amda Iyasus"
+		dynasty = "Solomonid"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
 
-#1433.1.1 = {
-#	heir = {
-#		name = "Zar'a Quastantînôs"
-#		monarch_name = "Zar'a Quastantînôs III"
-#		dynasty = "Solomonid"
-#		birth_date = 1410.1.1
-#		death_date = 1468.9.7
-#		claim = 95
-#		adm = 6
-#		dip = 5
-#		mil = 5
-#	}
-#}
+1433.1.1 = {
+	heir = {
+		name = "Zar'a Quastantînôs"
+		monarch_name = "Zar'a Quastantînôs III"
+		dynasty = "Solomonid"
+		birth_date = 1410.1.1
+		death_date = 1468.9.7
+		claim = 95
+		adm = 4
+		dip = 5
+		mil = 5
+	}
+}
 
 1434.6.2 = {
 	monarch = {
 		name = "Zara Yakob"
 		dynasty = "Solomonid"
-		birth_date = 1410.1.1
-		adm = 6
-		dip = 5
+		adm = 4
+		dip = 4
 		mil = 5
 	}
 	
 	clear_scripted_personalities = yes
-	add_ruler_personality = just_personality
+	add_ruler_personality = zealot_personality
 	add_ruler_personality = righteous_personality
 }
 

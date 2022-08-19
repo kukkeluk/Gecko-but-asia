@@ -1,0 +1,4 @@
+﻿l_english:
+ Victory_decision_title:0 "Victory Points"
+ Victory_decision_desc:0 "To see a summary of your Victory Points Gained, hover over the 'requirements' for this decision."
+ Victory_decision_tooltip:0 "\nThe current Victory point multiplier is: §G[This.Victory_Multiplier.GetValue]§!  \n\n Summary of your progress: \n   §G[This.Victory_Provinces.GetValue]§! Victory provinces \n   §G[This.Victory_Points_Year.GetValue]§! Victory points last year \n   §G[This.Victory_Points_Total.GetValue]§! total Victory points"

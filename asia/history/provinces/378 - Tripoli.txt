@@ -7,11 +7,11 @@ religion = shiite
 capital = "Trablos" #Tripoli in the East.
 trade_goods = grain
 hre = no
-base_tax = 2
-base_production = 2
-base_manpower = 3
+base_tax = 6 
+base_production = 6
+base_manpower = 4
 is_city = yes
-#add_core = LEB
+add_core = LEB
 add_core = SYR
 add_core = MAM
 discovered_by = muslim
@@ -23,8 +23,7 @@ discovered_by = indian
 discovered_by = east_african
 extra_cost = 8
 center_of_trade = 1
-fort_15th = yes
-#ramparts = yes
+
 
 1516.8.24 = {
 	owner = TUR

@@ -1,7 +1,11 @@
 #2341 - Sharqiyah
 
-owner = OMA
-controller = OMA
+latent_trade_goods = {
+	coal
+}
+
+owner = ORM
+controller = ORM
 culture = omani_culture
 religion = ibadi
 capital = "Masirah"
@@ -11,6 +15,7 @@ base_tax = 1
 base_production = 1
 base_manpower = 1
 is_city = yes
+add_core = ORM
 add_core = OMA
 discovered_by = muslim
 discovered_by = ottoman

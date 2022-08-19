@@ -3,21 +3,18 @@ add_government_reform = steppe_horde
 technology_group = nomad_group
 religion = sunni
 primary_culture = uzbehk
-add_accepted_culture = khazak
-capital = 476 #Chimgi-Tura
+#capital = 1075 #Chimgi-Tura
+capital = 476 #Sarysu aka Kipchak
 historical_rival = TIM
-historical_rival = CHG
-historical_rival = KHO
-historical_rival = NOG
-historical_rival = OIR
 historical_rival = AFG
-historical_rival = ARL
-historical_rival = GOL
-historical_rival = KAZ
-historical_rival = CRI
-historical_rival = QOM
-historical_rival = KRM
+historical_rival = DLH
+historical_rival = SRH
+historical_rival = KHO
 historical_rival = FRS
+historical_rival = CHG
+historical_rival = NOG
+historical_rival = KAZ
+historical_rival = GOL
 religious_school = hanafi_school
 
 1425.1.1 = { 
@@ -27,19 +24,6 @@ religious_school = hanafi_school
 		dip = 2 
 		adm = 4
 		mil = 5
-	}
-}
-
-1444.1.1 = {
-	heir = {
-		name = "Muhammad"
-		dynasty = "Shaybanid "
-		birth_date = 1429.1.1
-		death_date = 1495.1.1
-		claim = 95
-		adm = 3
-		dip = 3
-		mil = 3
 	}
 }
 

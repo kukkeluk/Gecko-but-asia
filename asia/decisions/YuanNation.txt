@@ -3,14 +3,40 @@ country_decisions = {
 	from_great_yuan = {
 		major = yes
 		potential = {
-			always = no
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_yuan_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = YUA }
+			NOT = { tag = MUG }
+			NOT = { tag = QNG }
+			NOT = { tag = MNG }
+			NOT = { tag = MCH }
+			culture_group = altaic
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
 		}
 		provinces_to_highlight = {
 			OR = {
 				province_id = 723 #Xilin Gol
-				province_id = 1816 #Beijing
 				province_id = 2190 #Qaraqorum
-				province_id = 2136 #Xuanha
+				#province_id = 2136 #Xuanha
 				AND = {
 					culture = mongol
 					NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -37,14 +63,10 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			culture_group = altaic
 			is_at_war = no
-			stability = 2
-			owns_core_province = 723 	#Xilin Gol
-			owns_core_province = 2190 	#Qaraqorum
-			owns_core_province = 2136 	#Xuanha
-			owns_core_province = 1816 	#Beijing
-			1816 = {					#Beijing
-				is_state = yes
-			}
+			#stability = 2
+			owns_core_province = 723 #Xilin Gol
+			owns_core_province = 2190 #Qaraqorum
+			#owns_core_province = 2136 #Xuanha
 			custom_trigger_tooltip = {
 				tooltip = subject_all_mongols
 				NOT = {
@@ -92,14 +114,7 @@ country_decisions = {
 			}
 		}
 		effect = {
-			1816 = {
-				add_base_tax = 1
-				add_base_production = 1
-				add_base_manpower = 1
-				change_province_name = Khanbaliq
-				rename_capital = Khanbaliq
-				move_capital_effect = yes
-			}
+			add_adm_power = 150
 			723 = {
 				change_province_name = Xanadu
 				rename_capital = Xanadu 
@@ -109,8 +124,11 @@ country_decisions = {
 				rename_capital = Zhongdu 
 			}
 			change_tag = YUA
+			custom_tooltip = YUA_ideas_localisation
+			restore_country_name = yes
 			remove_non_electors_emperors_from_empire_effect = yes
-			china_superregion = {
+			swap_non_generic_missions = yes
+			north_china_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}

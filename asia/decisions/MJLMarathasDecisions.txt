@@ -1,0 +1,34 @@
+country_decisions = {
+	expand_marathas_holdings = {
+		major = no
+		potential = {
+			ai = no
+			tag = MAR
+			has_country_flag = working_with_brahmins_flag		
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = mjl_marathas_level_three_tt
+				check_variable = {
+					which = MarBrahminSupport 
+					value = 5
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = mjl_brahmin_temples
+			random_owned_province = {
+				limit = {
+					has_province_modifier = brahmin_resistance
+				}
+				add_building = temple
+			}
+			random_owned_province = {
+				limit = {
+					has_province_modifier = brahmin_resistance
+				}
+				add_building = temple
+			}
+		}
+	}
+}

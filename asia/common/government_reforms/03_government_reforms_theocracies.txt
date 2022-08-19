@@ -7,6 +7,7 @@ theocracy_mechanic = {
 	different_religion_group_acceptance = -50
 	religion = yes
 	heir = yes
+	can_customise_heir = no				
 	basic_reform = yes # = invisible/does not take up a slot
 	valid_for_nation_designer = no
 
@@ -28,7 +29,7 @@ leading_clergy_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
 	modifiers = {
-		global_tax_modifier = 0.1
+		global_tax_modifier = 0.05
 	}
 }
 
@@ -72,7 +73,7 @@ papacy_reform = {
 	custom_attributes = {
 		locked_government_type = yes
 	}
-}				 
+}
 
 #Internal vs External Mission
 
@@ -80,12 +81,7 @@ internal_mission_reform = {
 	icon = "clergyman"
 	allow_normal_conversion = yes
 	modifiers = {
-		governing_capacity = 100
-	}
-	conditional = {
-		allow = {
-		}
-		claim_states = yes
+		tolerance_own = 2
 	}
 }
 
@@ -94,11 +90,6 @@ external_mission_reform = {
 	allow_normal_conversion = yes
 	modifiers = {
 		manpower_recovery_speed = 0.1
-	}
-	conditional = {
-		allow = {
-		}
-		claim_states = yes
 	}
 }
 
@@ -116,18 +107,12 @@ mission_to_civilize_reform = {
 		native_assimilation = 0.35
 		native_uprising_chance = -0.5
 	}
-	conditional = {
-		allow = {
-		}
-		claim_states = yes
-	}
 }
 
 mission_to_kill_pirates_reform = {
 	icon = "mission_to_kill_pirates_reform"
 	allow_normal_conversion = yes
 	potential = {
-		tag = ULM
 		capital_scope = {
 			has_port = yes
 		}
@@ -141,11 +126,6 @@ mission_to_kill_pirates_reform = {
 		global_sailors_modifier = 0.2
 		naval_forcelimit_modifier = 0.25
 		capture_ship_chance = 0.33
-	}
-	conditional = {
-		allow = {
-		}
-		claim_states = yes
 	}
 }
 
@@ -164,7 +144,7 @@ combat_heresy_reform = {
 	allow_normal_conversion = yes
 	modifiers = {
 		land_morale = 0.075
-		possible_policy = 1	}
+	}
 }
 
 expel_heathens_reform = {
@@ -202,8 +182,7 @@ subservient_administrators_reform = {
 	icon = "paper_with_seal"
 	allow_normal_conversion = yes
 	modifiers = {
-		governing_capacity_modifier = 0.05
-		monthly_reform_progress_modifier = -0.05
+		yearly_corruption = -0.1
 	}
 }
 
@@ -211,8 +190,7 @@ religious_administrators_reform = {
 	icon = "paper_with_seal_3"
 	allow_normal_conversion = yes
 	modifiers = {
-		monthly_reform_progress_modifier = 0.05
-		governing_capacity_modifier = -0.05
+		stability_cost_modifier = -0.1
 	}
 }
 
@@ -245,11 +223,7 @@ loyal_nobility_reform = {
 
 monastic_breweries_reform = {
 	potential = {
-		OR = {
-			religion = catholic
-			culture_group = gaelic
-			primary_culture = scottish
-		}
+     always = no
 	}
 	trigger = {
 		OR = {
@@ -267,50 +241,10 @@ monastic_breweries_reform = {
 	icon = "monastic_breweries_reform"
 	allow_normal_conversion = yes
 	modifiers = {
-		#global_trade_goods_size_modifier = 0.1
+		global_trade_goods_size_modifier = 0.01
 	}
-	effect = {
-		custom_tooltip = producing_wine_and_grain_tt
-		hidden_effect = {
-			every_owned_province = {
-				if = {
-					limit = {
-						trade_goods = wine
-					}
-					add_province_modifier = { 
-						name = wine_bonus_prod
-						duration = -1
-						hidden = yes
-					}
-				}
-				if = {
-					limit = {
-						trade_goods = grain
-					}
-					add_province_modifier = { 
-						name = grain_bonus_prod
-						duration = -1
-						hidden = yes
-					}
-				}
-			}
-		}
+	
 	}
-	removed_effect = {
-		hidden_effect = {
-			every_owned_province = {
-				limit = {
-					OR = {
-						has_province_modifier = wine_bonus_prod
-						has_province_modifier = grain_bonus_prod
-					}
-				}
-				remove_province_modifier = wine_bonus_prod
-				remove_province_modifier = grain_bonus_prod
-			}
-		}
-	}
-}
 
 warrior_monks_reform = {
 	potential = {
@@ -331,9 +265,9 @@ warrior_monks_reform = {
 	icon = "warrior_monks_reform"
 	allow_normal_conversion = yes
 	modifiers = {
-		discipline = 0.05
 		infantry_power = 0.05
-		mercenary_manpower = 0.1
+		cavalry_power = 0.05
+		amount_of_banners = 0.05
 	}
 }
 
@@ -366,7 +300,7 @@ partial_secularisation_reform = {
 	icon = "partial_secularisation_reform"
 	allow_normal_conversion = yes
 	modifiers = {
-		idea_cost = -0.1
+		idea_cost = -0.05
 		global_institution_spread = 0.05
 	}
 }
@@ -375,13 +309,13 @@ battle_pope_reform = {
 	icon = "soldiers_6"
 	allow_normal_conversion = yes
 	potential = {
-		tag = PAP
+		has_reform = papacy_reform
 	}
 
 	rulers_can_be_generals = yes
 
 	modifiers = {
-		#manpower_in_true_faith_provinces = 0.15
+		manpower_in_true_faith_provinces = 0.10
 		leader_land_fire = 1
 	}
 	ai = {
@@ -396,7 +330,7 @@ conciliarism_reform = {
 		tag = PAP
 	}
 	modifiers = {
-		appoint_cardinal_cost = -0.5
+		appoint_cardinal_cost = -0.3
 	}
 	ai = {
 		factor = 3
@@ -516,9 +450,12 @@ theocratic_democracy_reform = {
 	
 	trigger = {
 		NOT = { has_reform = monastic_order_reform }
-		OR = {
-			NOT = { has_estate = estate_nobles }
-			crown_stronger_than_estate = { estate = estate_nobles }
+		if = {
+			limit = { has_dlc = "Common Sense" }
+			OR = {
+				NOT = { has_estate = estate_nobles }
+				crown_stronger_than_estate = { estate = estate_nobles }
+			}
 		}
 	}
 
@@ -575,9 +512,12 @@ regionally_elected_commanders = {
 			has_reform = monastic_order_reform
 			tag = KOJ
 		}
-		OR = {
-			NOT = { has_estate = estate_nobles }
-			crown_stronger_than_estate = { estate = estate_nobles }
+		if = {
+			limit = { has_dlc = "Common Sense" }
+			OR = {
+				NOT = { has_estate = estate_nobles }
+				crown_stronger_than_estate = { estate = estate_nobles }
+			}
 		}
 	}
 
@@ -643,14 +583,15 @@ monastic_elections_reform = {
 		election_on_death = yes
 		states_general_mechanic = {
 			militarists = {
-				manpower_recovery_speed = 0.2
-				warscore_cost_vs_other_religion = -0.15
-				army_tradition_from_battle = 0.5
+				manpower_recovery_speed = 0.1
+				warscore_cost_vs_other_religion = -0.05
+				army_tradition_from_battle = 0.1
 			}
 
 			theocrats = {
 				tolerance_own = 2
 				global_missionary_strength = 0.02
+				production_efficiency = 0.1
 				devotion = 0.5
 			}
 		}
@@ -676,7 +617,7 @@ commander_king_reform = {
 			has_reform = monastic_order_reform
 			tag = KOJ
 		}
-		full_idea_group = aristocracy_ideas
+		full_idea_group = theocracy_gov_ideas
 	}
 	modifiers = {
 		devotion = 0.1
@@ -700,7 +641,6 @@ admiral_king_reform = {
 	allow_normal_conversion = yes
 	fixed_rank = 0
 	potential = {
-		tag = ULM
 		OR = {
 			has_reform = monastic_order_reform
 			tag = KOJ
@@ -714,7 +654,7 @@ admiral_king_reform = {
 			has_reform = monastic_order_reform
 			tag = KOJ
 		}
-   	has_reform = mission_to_kill_pirates_reform
+		has_reform = mission_to_kill_pirates_reform
 		OR = {
 			full_idea_group = maritime_ideas
 			full_idea_group = naval_ideas
@@ -722,13 +662,14 @@ admiral_king_reform = {
 	}
 	modifiers = {
 		devotion = 0.1
-		naval_morale = 0.15
 		leader_naval_fire = 1
 	}
 	custom_attributes = {
 		admirals_become_rulers = yes
 	}
 	has_term_election = no
+	queen = yes
+	royal_marriage = yes
 	heir = no
 	ai = {
 		factor = 0.1
@@ -832,7 +773,7 @@ religion_in_one_country_reform = {
 religious_permanent_revolution_reform = {
 	icon = "religious_permanent_revolution_reform"
 	allow_normal_conversion = yes
-	force_conversion_gives_global_holy_war_released_modifier = yes														   
+	#force_conversion_gives_global_holy_war_released_modifier = yes
 	potential = {
 		NOT = {
 			religion = confucianism
@@ -846,9 +787,10 @@ religious_permanent_revolution_reform = {
 		}
 	}
 	effect = {
+		custom_tooltip = world_crusade_tt
 	}
 	modifiers = {
-		yearly_army_professionalism= 0.00250
+		enforce_religion_cost = -0.25
 	}
 	ai = {
 		factor = 3
@@ -881,7 +823,7 @@ priestly_autonomy_reform = {
 	}
 	
 	modifiers = {
-		governing_capacity = 150
+		governing_capacity = 250
 	}
 	ai = {
 		factor = 3
@@ -908,7 +850,7 @@ proclaim_religious_head_reform = {
 		}
 	}
 	modifiers = {
-		warscore_cost_vs_other_religion = -0.25
+		warscore_cost_vs_other_religion = -0.05
 		diplomatic_reputation = 1
 	}
 	ai = {
@@ -926,8 +868,8 @@ all_under_tengri_reform = {
 		religion = tengri_pagan_reformed
 	}
 	modifiers = {
-		cavalry_power = 0.10
-		cavalry_cost = -0.1
+		cavalry_power = 0.1
+		cav_to_inf_ratio = 0.25
 	}
 	ai = {
 		factor = 3

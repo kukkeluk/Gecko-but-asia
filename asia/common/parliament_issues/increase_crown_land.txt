@@ -10,12 +10,12 @@ increase_crown_land_share = {
 	effect = {
 		custom_tooltip = add_5_crown_land_share
 		hidden_effect = {
-			take_estate_land_share_massive = { estate = all }
+			take_estate_land_share_large = { estate = all }
 		}
 	}
 	
 	chance = {
-		factor = 5
+		factor = 1
 		modifier = {
 			factor = 0.5
 			crown_land_share = 50

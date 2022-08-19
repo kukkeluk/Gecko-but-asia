@@ -1,7 +1,7 @@
 ########################################
 # Flavor Events for Brandenburg - Prussia
 #
-# written by Sara Wendel-Örtqvist
+# written by Sara Wendel-Ã–rtqvist
 ########################################
 
 namespace = flavor_brapru
@@ -70,9 +70,9 @@ country_event = {
 	
 	option = {
 		name = "flavor_brapru.EVTOPTA3518"
-		add_army_tradition = 25
+		add_army_tradition = 20
 		add_mil_power = 150
-		add_army_professionalism = 0.1
+		add_army_professionalism = 0.02
 	}
 }
 
@@ -388,7 +388,7 @@ country_event = {
 	}
 }
 
-# University of Königsberg
+# University of KÃ¶nigsberg
 country_event = {
 	id = flavor_brapru.11
 	title = "flavor_brapru.EVTNAME3"
@@ -537,120 +537,137 @@ country_event = {
 	}
 }
 
-##Teutons Pawn Neumark?
-#country_event = {
-#	id = flavor_brapru.15
-#	title = "flavor_brapru.15.t"
-#	desc = "flavor_brapru.15.d"
-#	picture = DIPLOMACY_eventPicture
-#	
-#	fire_only_once = yes
-#	
-#	trigger = {
-#		tag = BRA
-#		NOT = { num_of_loans = 4 }
-#		OR = {
-#			49 = {
-#				owned_by = TEU
-#				controlled_by = TEU
-#			}
-#			4747 = {
-#				owned_by = TEU
-#				controlled_by = TEU
-#			}
-#		}
-#		TEU = { #The Teutonic order hasn't connected their lands to Neumark
-#			NOT = { owns = 48 } #Kolberg
-#			NOT = { owns = 254 } #Poznan
-#			NOT = { owns = 1858 } #Stettin
-#			NOT = { owns = 2963 } #Notec
-#			NOT = { owns = 2994 } #Greifswald
-#			NOT = { owns = 2995 } #Stolp
-#		}
-#		NOT = { war_with = TEU }
-#		NOT = { is_year = 1466 }
-#	}
-#	
-#	mean_time_to_happen = {
-#		months = 1
-#	}
-#	
-#	option = {
-#		name = "flavor_brapru.15.a" #Offer the Teutons to pawn back Neumark for 40 000 Guilders
-#		ai_chance = {
-#			factor = 75
-#		}
-#		custom_tooltip = flavor_brapru.15.a.tt
-#		TEU = {
-#			country_event = { id = flavor_brapru.16 }
-#		}
-#	}
-#	option = { #We could not afford that.
-#		name = "flavor_brapru.15.b"
-#		ai_chance = {
-#			factor = 25
-#		}
-#		custom_tooltip = flavor_brapru.15.b.tt
-#		add_prestige = -5
-#	}
-#}
-#
-#The fate of Neumark
-#country_event = {
-#	id = flavor_brapru.16
-#	title = "flavor_brapru.16.t"
-#	desc = "flavor_brapru.16.d"
-#	picture = DIPLOMACY_eventPicture
-#	
-#	fire_only_once = yes
-#	
-#	is_triggered_only = yes
-#	
-#	option = {
-#		name = "flavor_brapru.16.a" #We need the money.
-#		ai_chance = { factor = 100 }
-#		tooltip = {
-#			49 = {
-#				if = {
-#					limit = {
-#						owned_by = TEU
-#						controlled_by = TEU
-#					}
-#					cede_province = BRA
-#					add_core = BRA
-#				}
-#			}
-#			4747 = {
-#				if = {
-#					limit = {
-#						owned_by = TEU
-#						controlled_by = TEU
-#					}
-#					cede_province = BRA
-#					add_core = BRA
-#				}
-#			}
-#		}
-#		add_treasury = 100
-#		FROM = {
-#			country_event = { id = flavor_brapru.17 }
-#			add_opinion = {
-#				who = ROOT
-#				modifier = pawning_of_neumark
-#			}
-#		}
-#	}
-#	option = {
-#		name = "flavor_brapru.16.b" #Neumark shall remain ours!
-#		ai_chance = { factor = 0 }
-#		custom_tooltip = flavor_brapru.16.b.tt
-#		FROM = {
-#			country_event = { id = flavor_brapru.18 }
-#		}
-#	}
-#}
+#Teutons Pawn Neumark?
+country_event = {
+	id = flavor_brapru.15
+	title = "flavor_brapru.15.t"
+	desc = "flavor_brapru.15.d"
+	picture = DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BRA
+		NOT = { num_of_loans = 4 }
+		OR = {
+			49 = {
+				owned_by = TEU
+				controlled_by = TEU
+			}
+			4747 = {
+				owned_by = TEU
+				controlled_by = TEU
+			}
+			5877 = {
+				owned_by = TEU
+				controlled_by = TEU
+			}
+		}
+		TEU = { #The Teutonic order hasn't connected their lands to Neumark
+			NOT = { owns = 48 } #Kolberg
+			NOT = { owns = 254 } #Poznan
+			NOT = { owns = 1858 } #Stettin
+			NOT = { owns = 2963 } #Notec
+			NOT = { owns = 2994 } #Greifswald
+			NOT = { owns = 2995 } #Stolp
+		}
+		NOT = { war_with = TEU }
+		NOT = { is_year = 1466 }
+	}
+	
+	mean_time_to_happen = {
+		months = 44 #Reduced due to trigger inflexibility
+	}
+	
+	option = {
+		name = "flavor_brapru.15.a" #Offer the Teutons to pawn back Neumark for 40 000 Guilders
+		ai_chance = {
+			factor = 75
+		}
+		custom_tooltip = flavor_brapru.15.a.tt
+		TEU = {
+			country_event = { id = flavor_brapru.16 }
+		}
+	}
+	option = { #We could not afford that.
+		name = "flavor_brapru.15.b"
+		ai_chance = {
+			factor = 25
+		}
+		custom_tooltip = flavor_brapru.15.b.tt
+		add_prestige = -5
+	}
+}
 
-#Treaty of Cölln
+#The fate of Neumark
+country_event = {
+	id = flavor_brapru.16
+	title = "flavor_brapru.16.t"
+	desc = "flavor_brapru.16.d"
+	picture = DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_brapru.16.a" #We need the money.
+		ai_chance = { factor = 100 }
+		tooltip = {
+			49 = {
+				if = {
+					limit = {
+						owned_by = TEU
+						controlled_by = TEU
+					}
+					cede_province = BRA
+					add_core = BRA
+					remove_core = TEU
+				}
+			}
+			4747 = {
+				if = {
+					limit = {
+						owned_by = TEU
+						controlled_by = TEU
+					}
+					cede_province = BRA
+					add_core = BRA
+					remove_core = TEU
+				}
+			}
+			5877 = {
+				if = {
+					limit = {
+						owned_by = TEU
+						controlled_by = TEU
+					}
+					cede_province = BRA
+					add_core = BRA
+					remove_core = TEU
+				}
+			}
+		}
+		add_treasury = 25
+		FROM = {
+			country_event = { id = flavor_brapru.17 }
+			add_opinion = {
+				who = ROOT
+				modifier = pawning_of_neumark
+			}
+		}
+	}
+	option = {
+		name = "flavor_brapru.16.b" #Neumark shall remain ours!
+		ai_chance = { factor = 0 }
+		custom_tooltip = flavor_brapru.16.b.tt
+		FROM = {
+			country_event = { id = flavor_brapru.18 }
+		}
+	}
+}
+
+#Treaty of CÃ¶lln
 country_event = {
 	id = flavor_brapru.17
 	title = "flavor_brapru.17.t"
@@ -672,6 +689,8 @@ country_event = {
 					}
 					cede_province = BRA
 					add_core = BRA
+					remove_core = TEU
+					add_local_autonomy = -50
 				}
 			}
 			4747 = {
@@ -682,10 +701,23 @@ country_event = {
 					}
 					cede_province = BRA
 					add_core = BRA
+					remove_core = TEU
+					add_local_autonomy = -50
+				}
+			}
+			5877 = {
+				if = {
+					limit = {
+						owned_by = TEU
+						controlled_by = TEU
+					}
+					cede_province = BRA
+					add_core = BRA
+					remove_core = TEU
 				}
 			}
 		}
-		add_treasury = -100
+		add_treasury = -25
 		FROM = {
 			add_opinion = {
 				who = ROOT
@@ -1043,7 +1075,7 @@ country_event = {
 			}
 		}
 	}
-	option = {  #This is only a problem in families that don’t stick together.
+	option = {  #This is only a problem in families that donâ€™t stick together.
 		name = flavor_brapru.25.b
 		ai_chance = { factor = 50 }
 		#Keep union over Ansbach and suffer internal instability OR you dont have Ansbach and your choice is the modifier above or a stab/prestige bonus instead. Emperor will dislike you regardless.
@@ -1175,7 +1207,7 @@ country_event = {
 		}
 	}
 	
-	option = { #Yes! Start in God’s name!
+	option = { #Yes! Start in Godâ€™s name!
 		name = flavor_brapru.27.a
 		ai_chance = {
 			factor = 75
@@ -1192,7 +1224,7 @@ country_event = {
 			duration = -1
 		}
 	}
-	option = { #We have no time for legal Procedure and other formalities…
+	option = { #We have no time for legal Procedure and other formalitiesâ€¦
 		name = flavor_brapru.27.b
 		ai_chance = {
 			factor = 25
@@ -1347,7 +1379,7 @@ country_event = {
 			type = army_reformer
 			name = "Carl von Clausewitz"
 			culture = saxon
-			skill = 5
+			skill = 3
 			discount = yes
 		}
 		
@@ -1359,8 +1391,8 @@ country_event = {
 		}
 		define_general = {
 			name = "Carl von Clausewitz"
-			shock = 5
-			fire = 6
+			shock = 3
+			fire = 4
 			manuever = 4
 			siege = 1
 		}
@@ -1374,7 +1406,7 @@ country_event = {
 	}
 }
 
-# The Burghers of Königsberg (Hieronymus Roth)
+# The Burghers of KÃ¶nigsberg (Hieronymus Roth)
 country_event = {
 	id = flavor_brapru.30
 	title = flavor_brapru.30.t
@@ -1665,7 +1697,7 @@ country_event = {
 	}
 }
 
-# Construction of Canals to Berlin-Cölln has run out of funding
+# Construction of Canals to Berlin-CÃ¶lln has run out of funding
 country_event = {
 	id = flavor_brapru.34
 	title = "flavor_brapru.34.t"
@@ -1780,7 +1812,7 @@ country_event = {
 		add_prestige = 10
 		define_advisor = {
 			type = artist
-			name = "Johann Crüger"
+			name = "Johann CrÃ¼ger"
 			skill = 3
 			discount = yes
 		}

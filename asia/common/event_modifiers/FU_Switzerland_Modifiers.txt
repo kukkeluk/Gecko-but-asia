@@ -1,13 +1,13 @@
 swi_period_of_stability_modifier = {
-	development_cost = -0.1 
-	stability_cost_modifier = -0.25 
+	build_cost = -0.05 
+	stability_cost_modifier = -0.10
 }
 swi_swiss_linen_industry_modifier = {
 	trade_goods_size = 1 
 }
 swi_swiss_cheese_modifier = {
 	trade_goods_size_modifier = 0.1 
-	trade_value_modifier = 0.2
+	trade_value_modifier = 0.1
 }
 swi_direct_democracy_modifier = {
 	yearly_corruption = -0.1
@@ -18,7 +18,7 @@ swi_the_swiss_defense_modifier = {
 }
 swi_the_swiss_defense_modifier2 = {
 	defensiveness = 0.1
-	garrison_size = 0.25 
+	garrison_size = 0.20 
 }
 swi_founded_basel_university_modifier = {
 	technology_cost = -0.05 
@@ -82,11 +82,11 @@ swi_treaty_of_stans_modifier = {
 }
 swi_signed_the_treaty_of_stans_subject_modifier = {
 	global_unrest = -1 
-	global_tax_modifier = 0.0
+	global_tax_modifier = 0.15
 }
 swi_peaceful_debate_of_ideas_modifier = {
 	idea_cost = -0.1 
-	advisor_cost = -0.10
+	advisor_cost = -0.15
 }
 swi_standarization_of_designs_modifier = {
 	global_ship_cost = -0.05
@@ -94,7 +94,7 @@ swi_standarization_of_designs_modifier = {
 }	
 swi_tales_of_legends_modifier = {
 	war_exhaustion = -0.05
-	prestige_from_land = 1
+	prestige_from_land = 0.25
 }
 swi_canton_republican_ties_modifier = {
 	republican_tradition = 0.05

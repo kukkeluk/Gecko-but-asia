@@ -1,21 +1,24 @@
 government = monarchy
 add_government_reform = english_monarchy
-mercantilism = 10
+mercantilism = 25
 technology_group = western
 primary_culture = english
+add_accepted_culture = welsh
 religion = catholic
 capital = 236 # London
-national_focus = MIL
-add_accepted_culture = normand
-add_army_professionalism = 0.15
+national_focus = DIP
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
 
 change_estate_land_share = {
 	estate = estate_church
-	share = -10
+	share = -7
 }
 change_estate_land_share = {
 	estate = estate_burghers
-	share = -10
+	share = -10.08
 }
 
 #1422.8.31 = { #Succession
@@ -31,17 +34,20 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 		name = "Henry VI"
 		dynasty = "Lancaster"
 		birth_date = 1421.12.6
-		adm = 1
-		dip = 1
-		mil = 1
+		adm = 0
+		dip = 0
+		mil = 0
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = infertile_personality
+	add_ruler_modifier = {
+		name = mjl_english_cuck
+	}
 }
 
 #1434.1.1 = { leader = {	name = "Richard Neville"	type = general	fire = 3	shock = 3	manuever = 3	siege = 0	death_date = 1460.12.31 } }
 
-#1444.1.1 = { leader = {	name = "John Talbot"	type = general	fire = 2	shock = 4	manuever = 3	siege = 2	death_date = 1453.7.17 } }
+1444.1.1 = { leader = {	name = "John Talbot"	type = general	fire = 2	shock = 4	manuever = 3	siege = 0	death_date = 1453.7.17 } }
 
 1445.4.23 = {
 	queen = {

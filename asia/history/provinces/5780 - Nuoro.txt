@@ -12,6 +12,7 @@ base_manpower = 2
 capital = "Nuoro" 
 is_city = yes 
 add_core = SAR
+add_core = SAR
 
 
 

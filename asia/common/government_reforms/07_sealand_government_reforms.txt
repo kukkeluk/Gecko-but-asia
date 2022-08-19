@@ -1,0 +1,65 @@
+# Fatimid Caliphate:
+fatimid_government = {
+	icon = "mamluk_government"
+	allow_normal_conversion = yes
+	potential = {
+		tag = FAT
+	}
+	valid_for_nation_designer = no
+	lock_level_when_selected = yes
+
+	modifiers = {
+		num_accepted_cultures = 3
+		global_autonomy = -0.05
+		governing_capacity = 150
+		country_admin_power = 1
+		country_diplomatic_power = 1
+		country_military_power = 1
+	}
+
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			mamluk_mechanic
+		}
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		has_pashas = yes
+	}
+	effect = {
+		add_country_modifier = {
+			name = fatimid_government_janissaries_boost_0
+			duration = -1
+		}
+	}
+	removed_effect = {
+		if = {
+			limit = {
+				has_country_modifier = fatimid_government_janissaries_boost_0
+			}
+			remove_country_modifier = fatimid_government_janissaries_boost_0
+		}
+		if = {
+			limit = {
+				has_country_modifier = fatimid_government_janissaries_boost_1
+			}
+			remove_country_modifier = fatimid_government_janissaries_boost_1
+		}
+		if = {
+			limit = {
+				has_country_modifier = fatimid_government_janissaries_boost_2
+			}
+			remove_country_modifier = fatimid_government_janissaries_boost_2
+		}
+		if = {
+			limit = {
+				has_country_modifier = fatimid_government_janissaries_boost_3
+			}
+			remove_country_modifier = fatimid_government_janissaries_boost_3
+		}
+	}
+	ai = {
+		factor = 1000
+	}
+}

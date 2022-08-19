@@ -1,6 +1,6 @@
 #838 - Mosquito
 
-
+is_city = yes
 culture = miskito 
 religion = animism 
 capital = "Mosquito" 

@@ -1,12 +1,15 @@
 # 2368 - Karamegdan
 
-owner = CHG
-controller = CHG
-add_core = CHG
+owner = ZUN
+controller = ZUN
+add_core = ZUN
+#owner = CHG
+#controller = CHG
+#add_core = CHG
 culture = khazak
-religion = sunni
+religion = tengri_pagan_reformed
 capital = "Karamegdan"
-trade_goods = wool
+trade_goods = salt
 hre = no
 base_tax = 2 
 base_production = 2

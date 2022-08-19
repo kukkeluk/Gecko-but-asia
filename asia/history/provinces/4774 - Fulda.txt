@@ -2,12 +2,13 @@
 owner = HES
 controller = HES
 add_core = HES
+add_core = WBG
 culture = hessian
 religion = catholic
-base_tax = 5
-base_production = 5
+base_tax = 3
+base_production = 3
 trade_goods = grain
-base_manpower = 3
+base_manpower = 4
 capital = "Fulda"
 hre = yes
 

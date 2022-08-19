@@ -1,7 +1,11 @@
 #76 - Salzburg
 
+#owner = SLZ
+#controller = SLZ 
+#add_core = SLZ
 owner = HAB
-controller = HAB
+controller = HAB 
+add_core = HAB
 culture = bavarian
 religion = catholic
 capital = "Salzburg"
@@ -11,10 +15,7 @@ base_tax = 5
 base_production = 5
 base_manpower = 4
 is_city = yes
-add_core = HAB
-center_of_trade = 2
-
-fort_15th = yes
+center_of_trade = 1
 
 
 
@@ -42,7 +43,7 @@ discovered_by = ottoman
 	controller = BAV
 	add_core = BAV
 	remove_core = HAB
-} # Treaty of Schï¿½nbrunn
+} # Treaty of Schönbrunn
 1814.5.30 = {
 	owner = HAB
 	controller = HAB

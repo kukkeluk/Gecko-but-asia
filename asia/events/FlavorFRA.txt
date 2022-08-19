@@ -117,8 +117,8 @@ country_event = {
 
 	option = {			# Time to build a stronger nation
 		name = "flavor_fra.EVTOPTA3104"
-		#add_stability_or_adm_power = yes
-		add_adm_power = 175
+		add_stability_or_adm_power = yes
+		add_adm_power = 50
 	}
 }
 
@@ -529,6 +529,7 @@ country_event = {
 		tag = FRA
 		is_year = 1621
 		NOT = { is_year = 1642 }
+		NOT = { advisor_exists = 429 }
 	}
 	
 	mean_time_to_happen = {
@@ -771,6 +772,17 @@ country_event = {
 		add_country_modifier = {
 			name = versailles
 			duration = -1
+		}
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+			}
+			183 = {
+				add_great_project_tier = {
+					type = versailles
+					tier = 1
+				}
+			}
 		}
 
 	}
@@ -1067,7 +1079,7 @@ country_event = {
 				tag = FRA
 				is_year = 1700
 				NOT = { is_year = 1750 }
-				colonial_eastern_america = {
+				colonial_mexico = {
 					country_or_vassal_holds = FRA
 				}
 			}
@@ -1102,7 +1114,7 @@ country_event = {
 	trigger = {
 		tag = FRA
 		had_country_flag = { flag = mississippi_trade_company days = 1825 }
-		colonial_eastern_america = {
+		colonial_mexico = {
 			country_or_vassal_holds = FRA
 		}
 	}
@@ -1134,7 +1146,7 @@ country_event = {
 	trigger = {
 		tag = FRA
 		had_country_flag = { flag = mississippi_trade_company days = 1825 }
-		colonial_eastern_america = {
+		colonial_mexico = {
 			country_or_vassal_holds = FRA
 		}
 		
@@ -1670,15 +1682,16 @@ country_event = {
 		exists = FRA
 		NOT = { alliance_with = FRA }
 		NOT = { war_with = FRA }
-		#NOT = { truce_with = FRA }
-		#1879 = {
-		#	OR = {
-		#		owned_by = ENG
-		#		owner = {
-		#			is_subject_of = ENG
-		#		}
-		#	}
-		#}
+		NOT = { is_year = 1450 }
+		NOT = { truce_with = FRA }
+		177 = {
+			OR = {
+				owned_by = ENG
+				owner = {
+					is_subject_of = ENG
+				}
+			}
+		}
 		FRA = {
 			is_subject = no
 		}
@@ -1695,118 +1708,98 @@ country_event = {
 			factor = 25
 		}
 		tooltip = {
-				1879 = {
-					cede_province = FRA
-					hidden_effect = { add_local_autonomy = -90 }
-				}
-				4385 = {
-					cede_province = FRA
-				}
-				168 = {
-					cede_province = FRA
-				}
-				6081 = {
-					cede_province = FRA
-				}
-				6082 = {
-					cede_province = FRA 
-				}
-				167 = {
-					cede_province = FRA
-				}
-				87 = {
-				cede_province = BUR
-				hidden_effect = { add_local_autonomy = -90 }
-			}				
+			177 = {
+				cede_province = FRA
+			}
 			add_truce_with = FRA
 		}
 		FRA = { country_event = { id = flavor_fra.8 } }
-		#add_prestige = -10
-		#add_stability = -1
+		add_prestige = -10
+		add_stability = -1
 		set_country_flag = rb_gave_up_maine
 	}
-	#option = {
-	#	name = "flavor_fra.6.b"
-	#	ai_chance = {
-	#		factor = 75
-	#		modifier = {
-	#			factor = 0
-	#			is_at_war = yes
-	#		}
-	#		modifier = {
-	#			factor = 0
-	#			has_any_disaster = yes
-	#		}
-	#	}
-	#	custom_tooltip = flavor_fra.6.a.tt
-	#	FRA = { country_event = { id = flavor_fra.7 } }
-	#}
+	option = {
+		name = "flavor_fra.6.b"
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+		custom_tooltip = flavor_fra.6.a.tt
+		FRA = { country_event = { id = flavor_fra.7 } }
+	}
 }
 
 # The Surrender of Maine
-#country_event = {
-#	id = flavor_fra.7
-#	title = "flavor_fra.7.t"
-#	desc = "flavor_fra.7.d"
-#	picture = SIEGE_eventPicture
-#	
-#	is_triggered_only = yes
-#
-#	major = yes
-#	
-#	option = {
-#		name = "flavor_fra.7.a" #'teach them how to war' /Reversed Henry V
-#		ai_chance = {
-#			factor = 100 #Shouldn't take this from them really.
-#			modifier = {
-#				factor = 0
-#				is_at_war = yes
-#			}
-#			modifier = {
-#				factor = 0
-#				has_any_disaster = yes
-#			}
-#		}
-#		ENG = {
-#			declare_war_with_cb = {
-#				who = FRA
-#				casus_belli = cb_restore_personal_union
-#			}
-#		}
-#		#177 = {
-#		#	change_controller = FRA
-#		#}
-#	}
-#	option = {
-#		name = "flavor_fra.7.b" #Unpopular but preserves the peace?
-#		ai_chance = {
-#			factor = 1
-#		}
-#		#add_prestige = -10
-#		FROM = {
-#			add_truce_with = ROOT
-#		}
-#		add_truce_with = FROM
-#		if = {
-#			limit = { exists = PRO }
-#			PRO = {
-#				add_opinion = {
-#					who = ROOT
-#					modifier = fra_gave_up_on_maine
-#				}
-#			}
-#		}
-#		if = {
-#			limit = {
-#				has_estate = estate_nobles
-#			}
-#			add_estate_loyalty = {
-#				estate = estate_nobles
-#				loyalty = -10
-#			}
-#		}
-#	}
-#}
+country_event = {
+	id = flavor_fra.7
+	title = "flavor_fra.7.t"
+	desc = "flavor_fra.7.d"
+	picture = SIEGE_eventPicture
+	
+	is_triggered_only = yes
+
+	major = yes
+	
+	option = {
+		name = "flavor_fra.7.a" #'teach them how to war' /Reversed Henry V
+		ai_chance = {
+			factor = 100 #Shouldn't take this from them really.
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+		ENG = {
+			declare_war_with_cb = {
+				who = FRA
+				casus_belli = cb_restore_personal_union
+			}
+		}
+		177 = {
+			change_controller = FRA
+		}
+	}
+	option = {
+		name = "flavor_fra.7.b" #Unpopular but preserves the peace?
+		ai_chance = {
+			factor = 1
+		}
+		add_prestige = -10
+		FROM = {
+			add_truce_with = ROOT
+		}
+		add_truce_with = FROM
+		if = {
+			limit = { exists = PRO }
+			PRO = {
+				add_opinion = {
+					who = ROOT
+					modifier = fra_gave_up_on_maine
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -10
+			}
+		}
+	}
+}
 
 # The Surrender of Maine
 country_event = {
@@ -1828,34 +1821,9 @@ country_event = {
 			}
 		}
 		add_truce_with = FROM
-		add_truce_with = BUR
-		1879 = {
+		177 = {
 			cede_province = FRA
-			hidden_effect = { add_local_autonomy = -90 }
-		}
-		4385 = {
-			cede_province = FRA
-			hidden_effect = { add_local_autonomy = -90 }
-		}
-		168 = {
-			cede_province = FRA
-			hidden_effect = { add_local_autonomy = -90 }
-		}
-		6081 = {
-			cede_province = FRA
-			hidden_effect = { add_local_autonomy = -90 }
-		}
-		6082 = {
-			cede_province = FRA
-			hidden_effect = { add_local_autonomy = -90 }
-		}
-		167 = {
-			cede_province = FRA
-			hidden_effect = { add_local_autonomy = -90 }
-		}
-		87 = {
-			cede_province = BUR
-			hidden_effect = { add_local_autonomy = -90 }
+			hidden_effect = { add_local_autonomy = -50 }
 		}
 	}
 }
@@ -1957,7 +1925,7 @@ country_event = {
 					culture_group = latin
 					culture_group = west_slavic
 					culture_group = east_slavic
-					#culture_group = byzantine
+					culture_group = byzantine
 				}
 				root = {
 					consort_culture = prev

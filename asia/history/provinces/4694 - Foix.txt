@@ -12,12 +12,16 @@ base_manpower = 2
 add_core = FOI
 add_core = GUY
 add_core = AMG
-add_core = FRA
+
 discovered_by = eastern
 discovered_by = western
 discovered_by = muslim
 discovered_by = ottoman
-add_local_autonomy = 50
+
+1444.1.1 = {
+	owner = FOI
+	controller = FOI
+}
 
 
 1479.2.13 = {	owner = NAV

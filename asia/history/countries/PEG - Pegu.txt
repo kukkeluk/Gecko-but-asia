@@ -4,7 +4,8 @@ primary_culture = mon
 religion = buddhism
 technology_group = chinese
 capital = 586	# Pegu
-
+historical_rival = LXA
+historical_rival = AYU
 
 1384.1.23 = {
 	monarch = {

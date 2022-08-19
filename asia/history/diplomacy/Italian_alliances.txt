@@ -6,23 +6,20 @@ vassal = {
 	end_date = 1534.1.1
 }
 
-# Venice and Aquileia
-#vassal = {
-#	first = VEN
-#	second = AQU
-#	start_date = 1444.1.1
-#	end_date = 1534.1.1
-#}
-
-
 # Montferrat and Savoy
 vassal = {
-	first = MLO
+	first = SAV
 	second = MFA
 	start_date = 1444.1.1
 	end_date = 1445.3.12
 }
-
+# Venice and Aquilea
+vassal = {
+	first = VEN
+	second = AQU
+	start_date = 1444.1.1
+	end_date = 1445.3.12
+}
 # Naples and Provence
 union = {
 	first = NAP

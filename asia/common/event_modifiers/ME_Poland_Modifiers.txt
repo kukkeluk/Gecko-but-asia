@@ -60,6 +60,11 @@ POL_supporting_eastern_catholicization= {
 	devotion = 1
 }
 
+west_slavic_union = {
+	administrative_efficiency = 0.05
+	general_cost = -0.1
+}
+
 POL_papal_favour = {
 	papal_influence = 1
 }
@@ -76,7 +81,7 @@ POL_recovering_piast_territories = {
 
 POL_reputation = {
 	diplomatic_reputation = 1
-	curia_powers_cost = -0.4
+	curia_powers_cost = -0.20
 }
 
 POL_return = {
@@ -87,12 +92,16 @@ POL_return = {
 }
 
 POL_a_piast_ruler = {
-	global_unrest = -3
+	global_unrest = -1
 }
 
 POL_king_of_bohemia = {
 	reduced_liberty_desire = 10
 	global_autonomy = -0.05
+}
+
+POL_additional_privileges = {
+	prestige_decay = -0.01
 }
 
 POL_privileges_confirmed = {
@@ -105,8 +114,8 @@ POL_new_industry = {
 }
 
 POL_cloth_reinforced = {
-	trade_goods_size_modifier = 0.25
-	local_development_cost = -0.1
+	trade_goods_size_modifier = 0.10
+	local_development_cost = -0.05
 }
 
 POL_country_stabilized = {
@@ -124,7 +133,7 @@ POL_cost = {
 }
 
 POL_contesting_bohemia = {
-	prestige = 1
+	prestige = 0.5
 }
 
 POL_knowledge_of_bibliotheca = {
@@ -177,15 +186,15 @@ POL_autorament_cudzoziemski = {
 }
 
 POL_autorament_narodowy = {
-	army_tradition = 0.5
+	army_tradition = 0.25
 }
 
 POL_skarb_rawski = {
-	land_maintenance_modifier = -0.05
+	regiment_recruit_speed = -0.10
 }
 
 POL_zaluski_library = {
-	innovativeness_gain = 0.5
+	innovativeness_gain = 0.33
 	local_institution_spread = 0.33
 	local_prosperity_growth = 2
 }
@@ -202,12 +211,12 @@ POL_university_of_vilnius = {
 
 POL_rejoice_mother_poland = {
  	papal_influence = 2
-	land_morale = 0.05
+	land_morale = 0.025
 	global_manpower_modifier = 0.10
 }
 
 POL_honorable_people = {
-	land_morale = 0.075
+	land_morale = 0.05
 }
 
 POL_few_indeed = {
@@ -243,13 +252,13 @@ POL_protecting_the_flank = {
 }
 
 POL_settle_the_east = {
-	build_cost = -0.1
+	build_cost = -0.05
 	state_maintenance_modifier = -0.2
 }
 
 POL_growing_aglomeration = {	
-	trade_goods_size_modifier = 0.1
-	province_trade_power_modifier = 0.25
+	trade_goods_size_modifier = 0.05
+	province_trade_power_modifier = 0.10
 }
 
 POL_golden_age_of_a_power = {
@@ -271,8 +280,8 @@ POL_defeated_the_ottoman_empire = {
 }
 
 POL_growing_population = {
-	global_manpower_modifier = 0.1
-	global_tax_modifier = 0.10
+	global_manpower_modifier = 0.075
+	global_tax_modifier = 0.075
 }
 
 POL_sluck_sashes = {
@@ -318,7 +327,7 @@ POL_mending_the_government = {
 
 POL_third_may_constitution = {
 	adm_tech_cost_modifier = -0.1
-	stability_cost_modifier = -0.25
+	stability_cost_modifier = -0.10
 }
 
 POL_enlightened_thought = {
@@ -328,7 +337,7 @@ POL_enlightened_thought = {
 
 POL_sarmatism = {
 	nobles_loyalty_modifier = 0.05
-	global_manpower_modifier = 0.1
+	global_manpower_modifier = 0.05
 }
 
 POL_victory_in_russia = {
@@ -341,12 +350,11 @@ POL_dissemination = {
 }
 
 POL_cossack_host = {
- 	cavalry_cost = -0.05
-	cavalry_power = 0.05
+ 	special_unit_forcelimit = 0.1
 }
 
 POL_industrial_exploitation = {
-	build_cost = -0.1
+	build_cost = -0.05
 	production_efficiency = 0.1
 }
 
@@ -360,7 +368,7 @@ POL_polish_land = {
 }
 
 POL_in_eastern_markets = {
-	trade_efficiency = 0.1
+	trade_efficiency = 0.05
 }
 
 POL_recruiting_from_russians = {
@@ -373,13 +381,12 @@ POL_kremlin = {
 }
 
 POL_cossack_sich_grows = {
-	cavalry_cost = -0.1
-	cavalry_shock = 0.1
+	cavalry_cost = -0.05
+	cavalry_shock = 0.05
 }
 
 POL_lisowczycy = {
-	mercenary_cost = -0.1
-	cavalry_power = 0.15
+	cavalry_power = 0.05
 }
 
 POL_religious_minority = {
@@ -419,7 +426,7 @@ POL_west = {
 }
 
 POL_reconquests_in_the_west = {
-	infantry_power = 0.1
+	cavalry_power = 0.05
 	state_maintenance_modifier = -0.1
 }
 
@@ -431,11 +438,4 @@ POL_dominance_over_hre = {
 POL_recovering_the_grody_of_the_march = {
 	land_morale = 0.1
 	legitimacy = 1
-}
-
-LIT_kiev_modifier = {
-	local_unrest = -2
-	local_tax_modifier = 0.2
-	trade_goods_size_modifier = 0.1
-	local_prosperity_growth = 1
 }

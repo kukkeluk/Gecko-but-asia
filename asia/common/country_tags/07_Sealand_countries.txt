@@ -1,0 +1,8 @@
+#
+SJK = "countries/SeaSeljukEmpire.txt"
+NSE = "countries/SeaNorthSeaEmpire.txt"
+KLU = "countries/SeaKalmarUnion.txt"
+ABA = "countries/AbbasidCaliphate.txt"
+LUS = "countries/Lusitania.txt"
+ETS = "countries/SeaEmirateofTwoSicilies.txt"
+FAT = "countries/SeaFatimidCaliphates.txt"

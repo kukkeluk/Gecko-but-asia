@@ -1,6 +1,6 @@
 #1151 - Bonny
 
-culture = sawabantu
+culture = yoruba
 religion = shamanism #Fetishism
 capital = "Bonny"
 trade_goods = slaves

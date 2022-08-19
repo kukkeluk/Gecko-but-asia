@@ -1,0 +1,87 @@
+MAD_ideas = {
+	start = {
+		discipline = 0.05
+		navy_tradition = 0.25
+	}
+	
+	bonus = {
+		artillery_fire = 0.75
+	}
+	
+	trigger = {
+		tag = MAD
+	}
+	free = yes
+	
+		
+	MAD_trade_eff = {
+		trade_efficiency = 0.10
+	}	
+	MAD_autonomy = {
+		global_autonomy = -0.1
+	}
+    MAD_tradition = {
+		navy_tradition_decay = -0.01
+		army_tradition = 0.5
+	}
+	MAD_trade_power = {
+		global_trade_power = 0.2
+	}
+	MAD_colonists = {
+		leader_land_manuever = 1
+		colonists = 1	
+	}
+	MAD_fort_island = {
+		defensiveness = 0.25
+	}
+	MAD_morale = {
+		land_morale = 0.1
+	}
+}
+
+MAR_ideas = {
+	start = {
+	    global_manpower_modifier = 0.10
+		core_creation = -0.10
+	}
+	
+	bonus = {
+		land_forcelimit_modifier = 0.2
+	}
+	
+	trigger = {
+		OR = {
+			tag = MAR	#Marathas
+			tag = BDA	#Baroda
+			AND = {
+				TAG = GWA
+				primary_culture = marathi
+			} #Sindhias of Gwalior
+		}
+	}
+	free = yes
+	
+	tradition_of_military_service = {
+		infantry_power = 0.1
+	}
+	forts_of_maharashtra = {
+		fire_damage_received = -0.1
+		land_morale = 0.05
+	}
+	peasant_soldiers = {
+		infantry_cost = -0.1
+	}
+	office_of_the_peshwa = {
+			manpower_recovery_speed = 0.15
+	}
+	encourage_ties_with_brahmin_financial_families = {
+		reform_progress_growth = 0.15
+		possible_adm_policy = 1
+	}
+	reform_the_bureaucracy = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	expand_maratha_navy = {
+		trade_efficiency = 0.1
+	}
+}

@@ -1,5 +1,6 @@
 #2014 - Natchitoches
 
+is_city = yes
 culture = caddo
 religion = totemism
 capital = "Natchitoches"

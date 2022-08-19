@@ -1,0 +1,249 @@
+namespace = victory_point_event
+
+country_event = {
+	id = victory_point_event.1
+	title = victory_point_event.1.t
+	desc = victory_point_event.1.d
+	picture = REFORM_eventPicture
+	hidden = yes
+	mean_time_to_happen = {
+		days =1
+	}
+	# victory_province_
+	trigger = {	
+		OR = {
+			ai = no
+			was_player = yes
+		}
+		NOT = { has_country_flag = victory_count}
+		NOT = {is_month = 1}
+		}
+	immediate = {
+		clr_country_flag = victory_count
+		set_country_flag = victory_count
+
+		set_variable = {
+			which = Victory_Provinces
+			value = 0
+		}
+
+		every_owned_province  = {
+			limit = {
+				OR = {
+					has_terrain = victory_province_glacier
+					has_terrain = victory_province_farmlands
+					has_terrain = victory_province_forest
+					has_terrain = victory_province_hills
+					has_terrain = victory_province_woods
+					has_terrain = victory_province_mountain
+					has_terrain = victory_province_grasslands
+					has_terrain = victory_province_jungle
+					has_terrain = victory_province_marsh
+					has_terrain = victory_province_desert
+					has_terrain = victory_province_coastal_desert
+					has_terrain = victory_province_coastline
+					has_terrain = victory_province_drylands
+					has_terrain = victory_province_highlands
+					has_terrain = victory_province_savannah
+					has_terrain = victory_province_steppe	
+				}
+			} 
+			owner = { 
+					change_variable = { which = Victory_Provinces value = 1 }
+			}
+		}
+		ROOT = { 
+			every_subject_country  = { 
+				every_owned_province  = {
+					limit = {
+						OR = {
+							has_terrain = victory_province_glacier
+							has_terrain = victory_province_farmlands
+							has_terrain = victory_province_forest
+							has_terrain = victory_province_hills
+							has_terrain = victory_province_woods
+							has_terrain = victory_province_mountain
+							has_terrain = victory_province_grasslands
+							has_terrain = victory_province_jungle
+							has_terrain = victory_province_marsh
+							has_terrain = victory_province_desert
+							has_terrain = victory_province_coastal_desert
+							has_terrain = victory_province_coastline
+							has_terrain = victory_province_drylands
+							has_terrain = victory_province_highlands
+							has_terrain = victory_province_savannah
+							has_terrain = victory_province_steppe	
+						}
+					}
+					ROOT = { 
+						change_variable = { which = Victory_Provinces value = 1 }
+					}
+				}
+			}
+		}
+
+		trigger_switch = {
+			on_trigger = is_year
+			1800 = {Set_variable = {which = Victory_Multiplier value = 7  }}
+			1775 = {Set_variable = {which = Victory_Multiplier value = 7  }}
+			1750 = {Set_variable = {which = Victory_Multiplier value = 7  }}
+			1725 = {Set_variable = {which = Victory_Multiplier value = 6  }}
+			1700 = {Set_variable = {which = Victory_Multiplier value = 6  }}
+			1675 = {Set_variable = {which = Victory_Multiplier value = 5  }}
+			1650 = {Set_variable = {which = Victory_Multiplier value = 5  }}
+			1625 = {Set_variable = {which = Victory_Multiplier value = 4  }}
+			1600 = {Set_variable = {which = Victory_Multiplier value = 4  }}
+			1575 = {Set_variable = {which = Victory_Multiplier value = 3  }}
+			1550 = {Set_variable = {which = Victory_Multiplier value = 3  }}
+			1500 = {Set_variable = {which = Victory_Multiplier value = 2  }}
+			1475 = {Set_variable = {which = Victory_Multiplier value = 2  }}
+			1444 = {Set_variable = {which = Victory_Multiplier value = 2  }}	
+		}
+		set_variable = { 
+			which = Victory_Points_Year
+			which = Victory_Provinces
+		}
+
+		multiply_variable = {
+			which = Victory_Points_Year
+			which = Victory_Multiplier
+		}
+
+		change_variable = {
+			which = Victory_Points_Total
+			which = Victory_Points_Year
+		
+		}
+		set_variable = {
+			which = Victory_Points_Total
+			which = Victory_Points_Total
+		}
+		country_event = {
+				id =  victory_point_event.2
+				days = 366
+		}		
+	}
+
+	
+	option = {
+		name = victory_point_event.1.a
+		ai_chance = { factor = 100}
+	}
+}
+
+country_event = {
+	id = victory_point_event.2
+	title = victory_point_event.2.t
+	desc = victory_point_event.2.d
+	picture = REFORM_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	# victory_province_
+	immediate = {
+		set_variable = {
+			which = Victory_Provinces
+			value = 0
+		}
+
+		every_owned_province  = {
+			limit = {
+				OR = {
+					has_terrain = victory_province_glacier
+					has_terrain = victory_province_farmlands
+					has_terrain = victory_province_forest
+					has_terrain = victory_province_hills
+					has_terrain = victory_province_woods
+					has_terrain = victory_province_mountain
+					has_terrain = victory_province_grasslands
+					has_terrain = victory_province_jungle
+					has_terrain = victory_province_marsh
+					has_terrain = victory_province_desert
+					has_terrain = victory_province_coastal_desert
+					has_terrain = victory_province_coastline
+					has_terrain = victory_province_drylands
+					has_terrain = victory_province_highlands
+					has_terrain = victory_province_savannah
+					has_terrain = victory_province_steppe	
+				}
+			} 
+			owner = { 
+					change_variable = { which = Victory_Provinces value = 1 }
+			}
+		}
+		ROOT = { 
+			every_subject_country  = { 
+				every_owned_province  = {
+					limit = {
+						OR = {
+							has_terrain = victory_province_glacier
+							has_terrain = victory_province_farmlands
+							has_terrain = victory_province_forest
+							has_terrain = victory_province_hills
+							has_terrain = victory_province_woods
+							has_terrain = victory_province_mountain
+							has_terrain = victory_province_grasslands
+							has_terrain = victory_province_jungle
+							has_terrain = victory_province_marsh
+							has_terrain = victory_province_desert
+							has_terrain = victory_province_coastal_desert
+							has_terrain = victory_province_coastline
+							has_terrain = victory_province_drylands
+							has_terrain = victory_province_highlands
+							has_terrain = victory_province_savannah
+							has_terrain = victory_province_steppe	
+						}
+					}
+					ROOT = { 
+						change_variable = { which = Victory_Provinces value = 1 }
+					}
+				}
+			}
+		}		
+		trigger_switch = {
+			on_trigger = is_year
+			1800 = {Set_variable = {which = Victory_Multiplier value = 7  }}
+			1775 = {Set_variable = {which = Victory_Multiplier value = 7  }}
+			1750 = {Set_variable = {which = Victory_Multiplier value = 7  }}
+			1725 = {Set_variable = {which = Victory_Multiplier value = 6  }}
+			1700 = {Set_variable = {which = Victory_Multiplier value = 6  }}
+			1675 = {Set_variable = {which = Victory_Multiplier value = 5  }}
+			1650 = {Set_variable = {which = Victory_Multiplier value = 5  }}
+			1625 = {Set_variable = {which = Victory_Multiplier value = 4  }}
+			1600 = {Set_variable = {which = Victory_Multiplier value = 4  }}
+			1575 = {Set_variable = {which = Victory_Multiplier value = 3  }}
+			1550 = {Set_variable = {which = Victory_Multiplier value = 3  }}
+			1500 = {Set_variable = {which = Victory_Multiplier value = 2  }}
+			1475 = {Set_variable = {which = Victory_Multiplier value = 2  }}
+			1444 = {Set_variable = {which = Victory_Multiplier value = 2  }}	
+		}
+		set_variable = { 
+			which = Victory_Points_Year
+			which = Victory_Provinces
+		}
+
+		multiply_variable = {
+			which = Victory_Points_Year
+			which = Victory_Multiplier
+		}
+
+		change_variable = {
+			which = Victory_Points_Total
+			which = Victory_Points_Year
+		
+		}
+		set_variable = {
+			which = Victory_Points_Total
+			which = Victory_Points_Total
+		}
+		country_event = {
+				id =  victory_point_event.2
+				days = 366
+		}		
+	}
+
+
+	option = {
+		name = victory_point_event.2.a
+		ai_chance = { factor = 100}
+	}
+}

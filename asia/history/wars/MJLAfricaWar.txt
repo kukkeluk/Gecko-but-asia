@@ -1,0 +1,18 @@
+name = "Kilwa-Madagascar War"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 1194
+}
+
+1443.1.1 = {
+	add_attacker = ZAN
+	add_defender = SKA
+}
+# Peace
+1444.11.11 = {
+	rem_attacker = ZAN
+	rem_defender = SKA
+}
+
+

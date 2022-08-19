@@ -14,7 +14,7 @@ charter_university = {
 	}
 	
 	chance = {
-		factor = 5
+		factor = 1
 		modifier = {
 			factor = 2
 			any_neighbor_country = {

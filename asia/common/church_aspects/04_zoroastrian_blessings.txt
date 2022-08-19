@@ -1,0 +1,54 @@
+yasna_blessing = {
+    is_blessing = yes
+modifier = {
+monarch_diplomatic_power = 1
+}
+ai_will_do = {
+factor = 10
+}
+}
+
+
+haoma_blessing = {
+   is_blessing = yes
+   modifier = {
+   global_trade_goods_size_modifier = 0.05
+   build_time = -0.10
+   }
+   ai_will_do ={
+   factor = 5
+   }
+   }
+   
+navjote_blessing = {
+  is_blessing = yes
+  
+  modifier = {
+  cavalry_power = 0.1
+  }
+  ai_will_do = {
+  factor = 6
+  }
+  }
+  
+manthras_blessing = {
+   is_blessing = yes
+modifier = {
+
+global_missionary_strength = 0.02
+}
+ai_will_do = {
+factor = 2
+}
+}
+
+dakhma_blessing = {
+ is_blessing = yes
+ modifier = {
+  mil_tech_cost_modifier = -0.05
+  land_forcelimit_modifier = 0.1
+  }
+  ai_will_do = {
+  factor = 1
+  }
+  }

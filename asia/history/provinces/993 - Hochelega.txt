@@ -1,6 +1,6 @@
 #993 - Hochelega
 
-
+is_city = yes
 culture = laurentian
 religion = totemism
 capital = "Hochelega"

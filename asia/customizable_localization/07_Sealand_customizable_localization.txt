@@ -1,0 +1,160 @@
+#Change Muslim School:
+defined_text = {
+	name = GetMonthName_change_school_modifier
+	random = no
+
+	text = {
+		localisation_key = January
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 0 } }
+	}
+	text = {
+		localisation_key = February
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 1 } }
+	}
+	text = {
+		localisation_key = March
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 2 } }
+	}
+	text = {
+		localisation_key = April
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 3 } }
+	}
+	text = {
+		localisation_key = May
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 4 } }
+	}
+	text = {
+		localisation_key = June
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 5 } }
+	}
+	text = {
+		localisation_key = July
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 6 } }
+	}
+	text = {
+		localisation_key = August
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 7 } }
+	}
+	text = {
+		localisation_key = September
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 8 } }
+	}
+	text = {
+		localisation_key = October
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 9 } }
+	}
+	text = {
+		localisation_key = November
+		trigger = { is_variable_equal = { which = change_school_modifier_was_set_month value = 10 } }
+	}
+	text = {
+		localisation_key = December
+	}
+}
+
+# Piety Legalism:
+defined_text = {
+	name = GetMonthName_mjl_piety_legalism_change_modifier
+	random = no
+
+	text = {
+		localisation_key = January
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 0 } }
+	}
+	text = {
+		localisation_key = February
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 1 } }
+	}
+	text = {
+		localisation_key = March
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 2 } }
+	}
+	text = {
+		localisation_key = April
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 3 } }
+	}
+	text = {
+		localisation_key = May
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 4 } }
+	}
+	text = {
+		localisation_key = June
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 5 } }
+	}
+	text = {
+		localisation_key = July
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 6 } }
+	}
+	text = {
+		localisation_key = August
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 7 } }
+	}
+	text = {
+		localisation_key = September
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 8 } }
+	}
+	text = {
+		localisation_key = October
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 9 } }
+	}
+	text = {
+		localisation_key = November
+		trigger = { is_variable_equal = { which = mjl_piety_legalism_change_modifier_was_set_month value = 10 } }
+	}
+	text = {
+		localisation_key = December
+	}
+}
+# Piety Mysticism:
+defined_text = {
+	name = GetMonthName_mjl_piety_mysticism_change_modifier
+	random = no
+
+	text = {
+		localisation_key = January
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 0 } }
+	}
+	text = {
+		localisation_key = February
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 1 } }
+	}
+	text = {
+		localisation_key = March
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 2 } }
+	}
+	text = {
+		localisation_key = April
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 3 } }
+	}
+	text = {
+		localisation_key = May
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 4 } }
+	}
+	text = {
+		localisation_key = June
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 5 } }
+	}
+	text = {
+		localisation_key = July
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 6 } }
+	}
+	text = {
+		localisation_key = August
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 7 } }
+	}
+	text = {
+		localisation_key = September
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 8 } }
+	}
+	text = {
+		localisation_key = October
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 9 } }
+	}
+	text = {
+		localisation_key = November
+		trigger = { is_variable_equal = { which = mjl_piety_mysticism_change_modifier_was_set_month value = 10 } }
+	}
+	text = {
+		localisation_key = December
+	}
+}

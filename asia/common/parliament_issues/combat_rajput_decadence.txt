@@ -1,0 +1,29 @@
+combat_janissary_decadence = {
+
+	category = 1
+
+	allow = {
+		num_of_rajput = 10
+	}
+	
+	modifier = {
+		is_rajput_modifier = yes
+		discipline = 0.05
+	}
+	
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			num_of_rajput = 20
+		}
+		modifier = {
+			factor = 2
+			num_of_rajput = 25
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}

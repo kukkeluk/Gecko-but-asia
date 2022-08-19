@@ -2,17 +2,18 @@
 
 #owner = SHY
 #controller = SHY
-#add_core = SIB
 #add_core = SHY
 culture = ostyaki
-religion = sunni
+religion = tengri_pagan_reformed
 capital = "Yugan"
 trade_goods = fur
 hre = no
 base_tax = 1 
 base_production = 1
 base_manpower = 1
-is_city = yes
+native_size = 5
+native_ferocity = 1
+native_hostileness = 1
 
 
 

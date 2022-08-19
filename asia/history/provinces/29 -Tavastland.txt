@@ -12,6 +12,7 @@ base_production = 1
 trade_goods = fur
 base_manpower = 1
 capital = "Tavastehus"
+add_local_autonomy = 85
 is_city = yes
 #fort_15th = yes
 discovered_by = western

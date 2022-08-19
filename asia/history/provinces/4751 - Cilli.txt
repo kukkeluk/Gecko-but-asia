@@ -1,7 +1,10 @@
 # 4751 - Cilli
-owner = CLI
-controller = CLI
-add_core = CLI
+#owner = CLI
+#controller = CLI
+#add_core = CLI
+owner = HAB
+controller = HAB
+add_core = HAB
 culture = slovene
 religion = catholic
 base_tax = 3

@@ -27,14 +27,14 @@ apostolicae_servitutis = {
         is_papal_controller = yes
     }
     ai_will_do = {
-        factor = 5
+        factor = 0
     }
 }
 
 praeclara_carissimi = {
     modifier = {
 		tolerance_heathen = 2
-        development_cost = -0.05
+        build_cost = -0.05
     }
     trigger = {
         is_papal_controller = yes
@@ -58,7 +58,7 @@ immensa_aeterni_dei = {
     ai_will_do = {
         factor = 0
         modifier = {
-            factor = 2
+            factor = 5
             is_lacking_institutions = yes
         }
     }
@@ -66,19 +66,29 @@ immensa_aeterni_dei = {
 
 libertas_ecclesiae = {
     modifier = {
-       technology_cost = -0.05
+        imperial_authority = 0.2
+		imperial_reform_catholic_approval = 15
     }
     trigger = {
         is_papal_controller = yes
+        is_emperor = yes
+    	hre_religion = catholic
+        hre_religion_locked = yes
     }
     ai_will_do = {
         factor = 0
+        modifier = {
+            factor = 6
+            is_emperor = yes
+            hre_religion = catholic
+            hre_religion_locked = yes
+        }
     }
 }
 
 dei_gratia_rex = {
     modifier = {
-        manpower_in_true_faith_provinces = 0.10
+        yearly_absolutism = +0.5
         unrest_catholic_provinces = -2
         drill_decay_modifier = -0.25
     }
@@ -87,5 +97,17 @@ dei_gratia_rex = {
     }
     ai_will_do = {
         factor = 1
+        modifier = {
+            factor = 1
+            average_unrest = 2
+        }
+        modifier = {
+            factor = 1
+            average_unrest = 4
+        }
+        modifier = {
+            factor = 1
+            average_unrest = 6
+        }
     }
 }

@@ -17,27 +17,13 @@ gc_tunis_1 = {
 		
 		provinces_to_highlight = {
 			OR = {
-				province_id = 4567
-				province_id = 2449
-				province_id = 2448
 				area = north_saharan_area
 				area = ouled_nail_area
-				area = tripolitania_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = tun_tribes_tooltip
-				fezzan_area = {
-					type = all
-					OR = {
-						country_or_non_sovereign_subject_holds = ROOT
-						is_empty = yes
-					}
-				}
-			}
 			north_saharan_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -46,15 +32,51 @@ gc_tunis_1 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			tripolitania_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
 		}
 		effect = {
 			add_country_modifier = {
 				name = "tun_berbers_pacified"
-				duration = 7300
+				duration = -1
+			}
+			352 = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+			350 = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+			351 = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+			5863 = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+			2456 = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+			2450 = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+			2472 = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+			2457 = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
 			}
 		}
 	}
@@ -98,11 +120,33 @@ gc_tunis_1 = {
 		effect = {
 			if = {
 				limit = {
-					2474 = {
+					5893 = {
 						is_empty = yes
 					}
 				}
-				2474 = {
+				5893 = {
+					add_core = ROOT
+					cede_province = ROOT
+				}
+			}
+			if = {
+				limit = {
+					5894 = {
+						is_empty = yes
+					}
+				}
+				5894 = {
+					add_core = ROOT
+					cede_province = ROOT
+				}
+			}
+			if = {
+				limit = {
+					5896 = {
+						is_empty = yes
+					}
+				}
+				5896 = {
 					add_core = ROOT
 					cede_province = ROOT
 				}
@@ -118,174 +162,87 @@ gc_tunis_1 = {
 					cede_province = ROOT
 				}
 			}
-			#gecko corridor
 			if = {
 				limit = {
-					5813 = {
+					5901 = {
 						is_empty = yes
 					}
 				}
-				5813 = {
+				5901 = {
 					add_core = ROOT
 					cede_province = ROOT
 				}
 			}
 			if = {
 				limit = {
-					5814 = {
+					5898 = {
 						is_empty = yes
 					}
 				}
-				5814 = {
+				5898 = {
 					add_core = ROOT
 					cede_province = ROOT
 				}
 			}
 			if = {
 				limit = {
-					5815 = {
+					5903 = {
 						is_empty = yes
 					}
 				}
-				5815 = {
+				5903 = {
 					add_core = ROOT
 					cede_province = ROOT
 				}
 			}
 			if = {
 				limit = {
-					5816 = {
+					5900 = {
 						is_empty = yes
 					}
 				}
-				5816 = {
+				5900 = {
 					add_core = ROOT
 					cede_province = ROOT
 				}
 			}
 			if = {
 				limit = {
-					5821 = {
+					5899 = {
 						is_empty = yes
 					}
 				}
-				5821 = {
+				5899 = {
 					add_core = ROOT
 					cede_province = ROOT
 				}
 			}
-			if = {
-				limit = {
-					2474 = {
-						is_empty = yes
-					}
-				}
-				2474 = {
-					add_core = ROOT
-					cede_province = ROOT
-				}
-			}
-			if = {
-				limit = {
-					5828 = {
-						is_empty = yes
-					}
-				}
-				5828 = {
-					add_core = ROOT
-					cede_province = ROOT
-				}
-			}
-			if = {
-				limit = {
-					5822 = {
-						is_empty = yes
-					}
-				}
-				5822 = {
-					add_core = ROOT
-					cede_province = ROOT
-				}
-			}
-			if = {
-				limit = {
-					5818 = {
-						is_empty = yes
-					}
-				}
-				5818 = {
-					add_core = ROOT
-					cede_province = ROOT
-				}
-			}
-			if = {
-				limit = {
-					5823 = {
-						is_empty = yes
-					}
-				}
-				5823 = {
-					add_core = ROOT
-					cede_province = ROOT
-				}
-			}
-			if = {
-				limit = {
-					5819 = {
-						is_empty = yes
-					}
-				}
-				5819 = {
-					add_core = ROOT
-					cede_province = ROOT
-				}
-			}
-			if = {
-				limit = {
-					5820 = {
-						is_empty = yes
-					}
-				}
-				5820 = {
-					add_core = ROOT
-					cede_province = ROOT
-				}
-			}
-			if = {
-				limit = {
-					5824 = {
-						is_empty = yes
-					}
-				}
-				5824 = {
-					add_core = ROOT
-					cede_province = ROOT
-				}
-			}
-			if = {
-				limit = {
-					5829 = {
-						is_empty = yes
-					}
-				}
-				5829 = {
-					add_core = ROOT
-					cede_province = ROOT
-				}
-			}
-			if = {
-				limit = {
-					5817 = {
-						is_empty = yes
-					}
-				}
-				5817 = {
-					add_core = ROOT
-					cede_province = ROOT
-				}
-			}
-			#
 			azbin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				discover_country = ROOT	
+				add_permanent_claim = ROOT
+			}
+			temp_area_sahara_1 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				discover_country = ROOT	
+				add_permanent_claim = ROOT
+			}
+			
+			temp_area_sahara_2 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				discover_country = ROOT	
+				add_permanent_claim = ROOT
+			}
+			temp_area_sahara_3 = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -482,7 +439,7 @@ gc_tunis_3 = {
 		required_missions = { }
 		
 		trigger = {
-			naval_forcelimit = 20
+			naval_forcelimit = 15
 			num_of_light_ship = 5
 		}
 		effect = {
@@ -574,6 +531,38 @@ gc_tunis_3 = {
 				name = "tun_med_conquest"
 				duration = 7300
 			}
+			
+			custom_tooltip = sicilian_becomes_maghrebi
+			hidden_effect = {
+			every_province = {
+				limit = {
+					culture = sicilian
+				}
+				change_culture = sicilian_maghrebi
+			}
+			every_country = {
+				limit = {
+					primary_culture = sicilian
+				}
+				change_primary_culture = sicilian_maghrebi
+				set_ruler_culture = sicilian_maghrebi
+				if = {
+					limit = {
+						has_heir = yes
+						heir_culture = sicilian	
+					}
+					set_heir_culture = sicilian_maghrebi
+				}
+				if = {
+					limit = {
+						has_consort = yes
+						consort_culture = sicilian
+					}
+					set_consort_culture = sicilian_maghrebi
+				}
+			}
+			}
+			
 			163 = {
 				if = {
 					limit = {
@@ -701,6 +690,49 @@ gc_tunis_4 = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
+	gc_tun_restore_emirate_of_sicily = {
+		icon = mission_control_the_barbary_coast
+		required_missions = { }
+		position = 1
+	  provinces_to_highlight = {
+            OR = {
+                    area = baleares_area
+                    area = corsica_sardinia_area 
+                    area = corsica_area
+                    area = western_sicily_area 
+                    area = sicily_area
+
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+	  trigger = {
+                    baleares_area = {
+                        type = all
+                        country_or_non_sovereign_subject_holds = ROOT
+                    }
+                    corsica_sardinia_area = {
+                        type = all
+                        country_or_non_sovereign_subject_holds = ROOT
+                    }
+                    corsica_area = {
+                        type = all
+                        country_or_non_sovereign_subject_holds = ROOT
+                    }
+                    western_sicily_area = {
+                        type = all
+                        country_or_non_sovereign_subject_holds = ROOT
+                    }
+                    sicily_area = {
+                        type = all
+                        country_or_non_sovereign_subject_holds = ROOT
+                    }
+		}
+        effect = {
+            set_country_flag = tunis_emirate_proclaimed
+            add_government_reform = tunisian_emirate
+			custom_tooltip = Emirate_of_sicily
+        }
+	}
 	gc_tun_barbary_coast = {
 		icon = mission_control_the_barbary_coast
 		required_missions = { gc_tun_fleet }
@@ -768,7 +800,7 @@ gc_tunis_4 = {
 			1298 = {
 				privateer_power = {
 					country = ROOT
-					share = 25
+					share = 15
 				}
 			}
 			338 = { 
@@ -857,6 +889,30 @@ gc_tunis_5 = {
 	}
 	has_country_shield = yes
 	
+	mjl_tun_dev_copper = {
+		icon = mission_jawal_silver_mine
+		required_missions = {  }
+		position = 1
+		
+		provinces_to_highlight = {
+			province_id = 2454
+		}
+		
+		trigger = {	
+			2454 = {
+				owned_by = ROOT
+				is_core = ROOT
+				development = 10
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "mjl_tun_income_boost"
+				duration = -1
+			}
+		}
+	}
+
 	gc_tun_ottomans = {
 		icon = mission_ottoman_diplomacy
 		required_missions = {  }

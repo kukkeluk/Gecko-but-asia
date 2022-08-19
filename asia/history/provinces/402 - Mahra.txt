@@ -3,7 +3,7 @@
 owner = MHR
 controller = MHR
 culture = mahri_culture
-religion = sunni
+religion = ibadi
 capital = "Qishn"
 trade_goods = incense
 hre = no

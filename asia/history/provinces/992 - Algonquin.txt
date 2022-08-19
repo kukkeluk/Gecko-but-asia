@@ -1,6 +1,6 @@
 #992 - Algonquin
 
-
+is_city = yes
 culture = algonquin
 religion = totemism
 capital = "Algonquin"

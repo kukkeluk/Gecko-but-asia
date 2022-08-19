@@ -1,7 +1,7 @@
 #2055 - Gorakhpur
 
-owner = JNP
-controller = JNP
+owner = DNG
+controller = DNG
 culture = bihari
 religion = hinduism
 capital = "Gorakhpur"
@@ -11,8 +11,7 @@ base_tax = 3
 base_production = 3
 base_manpower = 2
 is_city = yes
-add_core = JNP
-#add_core = DLH
+add_core = DNG
 discovered_by = indian
 discovered_by = muslim 
 discovered_by = ottoman

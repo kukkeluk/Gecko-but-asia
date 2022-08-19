@@ -1,0 +1,203 @@
+spriteTypes = {
+
+		spriteType = {
+		name = "GFX_great_project_german_reichstag"	
+		texturefile = "gfx//interface//great_projects//great_project_german_reichstag.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_sanssouci_palace"	
+		texturefile = "gfx//interface//great_projects//great_project_sanssouci_palace.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_brandenburger_tor"	
+		texturefile = "gfx//interface//great_projects//great_project_brandenburger_tor.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_castle_heidelberg"	
+		texturefile = "gfx//interface//great_projects//great_project_castle_heidelberg.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_zweibruecken_castle"	
+		texturefile = "gfx//interface//great_projects//great_project_zweibruecken_castle.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_speyer_cathedral"	
+		texturefile = "gfx//interface//great_projects//great_project_speyer_cathedral.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_dresdner_zwinger"	
+		texturefile = "gfx//interface//great_projects//great_project_dresdner_zwinger.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_kaiserburg_nuernberg"	
+		texturefile = "gfx//interface//great_projects//great_project_kaiserburg_nuernberg.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_marienplatz_munich"	
+		texturefile = "gfx//interface//great_projects//great_project_marienplatz_munich.dds"
+	}
+		
+		spriteType = {
+		name = "GFX_great_project_neuschwanstein_castle"	
+		texturefile = "gfx//interface//great_projects//great_project_neuschwanstein_castle.dds"
+	}
+		
+		spriteType = {
+		name = "GFX_great_project_vienna_hofburg"	
+		texturefile = "gfx//interface//great_projects//great_project_vienna_hofburg.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_marienburg_castle"	
+		texturefile = "gfx//interface//great_projects//great_project_marienburg_castle.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_stephens_cathedral"	
+		texturefile = "gfx//interface//great_projects//great_project_stephens_cathedral.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_graz_castle"	
+		texturefile = "gfx//interface//great_projects//great_project_graz_castle.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_karlsbruecken"	
+		texturefile = "gfx//interface//great_projects//great_project_karlsbruecken.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_vitus_cathedral"	
+		texturefile = "gfx//interface//great_projects//great_project_vitus_cathedral.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_aachen_cathedral"	
+		texturefile = "gfx//interface//great_projects//great_project_aachen_cathedral.dds"
+	}
+		
+		spriteType = {
+		name = "GFX_great_project_siegessaule"	
+		texturefile = "gfx//interface//great_projects//great_project_siegessaule.dds"
+	}
+		
+		spriteType = {
+		name = "GFX_great_project_prague_castle"	
+		texturefile = "gfx//interface//great_projects//great_project_prague_castle.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_hofbrauhaus"	
+		texturefile = "gfx//interface//great_projects//great_project_hofbrauhaus.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_frankfurter_roemer"	
+		texturefile = "gfx//interface//great_projects//great_project_frankfurter_roemer.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_frankfurt_paulskirche"	
+		texturefile = "gfx//interface//great_projects//great_project_frankfurt_paulskirche.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_vienna_belvedere"	
+		texturefile = "gfx//interface//great_projects//great_project_vienna_belvedere.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_ulm_minster_ger"	
+		texturefile = "gfx//interface//great_projects//great_project_ulm_minster_ger.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_trier_cathedral"	
+		texturefile = "gfx//interface//great_projects//great_project_trier_cathedral.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_herrenhausen_palace"	
+		texturefile = "gfx//interface//great_projects//great_project_herrenhausen_palace.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_august_library"	
+		texturefile = "gfx//interface//great_projects//great_project_august_library.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_hamburg_neustadt"	
+		texturefile = "gfx//interface//great_projects//great_project_hamburg_neustadt.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_holsten_gate"	
+		texturefile = "gfx//interface//great_projects//great_project_holsten_gate.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_market_square"	
+		texturefile = "gfx//interface//great_projects//great_project_market_square.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_long_market"	
+		texturefile = "gfx//interface//great_projects//great_project_long_market.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_wurzburg_residence"	
+		texturefile = "gfx//interface//great_projects//great_project_wurzburg_residence.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_chillon_castle"	
+		texturefile = "gfx//interface//great_projects//great_project_chillon_castle.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_ludwigsburg_palace"	
+		texturefile = "gfx//interface//great_projects//great_project_ludwigsburg_palace.dds"
+	}
+		spriteType = {
+		name = "GFX_great_project_konigstein_castle"	
+		texturefile = "gfx//interface//great_projects//great_project_konigstein_castle.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_bremen_schutting"	
+		texturefile = "gfx//interface//great_projects//great_project_bremen_schutting.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_dresden_frauenkirche"	
+		texturefile = "gfx//interface//great_projects//great_project_dresden_frauenkirche.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_hohensalzburg_fortress"	
+		texturefile = "gfx//interface//great_projects//great_project_hohensalzburg_fortress.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_admont_abbey"	
+		texturefile = "gfx//interface//great_projects//great_project_admont_abbey.dds"
+	}
+	
+		spriteType = {
+		name = "GFX_great_project_ruhr_valley"	
+		texturefile = "gfx//interface//great_projects//great_project_ruhr_valley.dds"
+	}
+	
+
+}

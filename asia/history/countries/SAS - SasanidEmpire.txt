@@ -1,0 +1,11 @@
+government = monarchy
+add_government_reform = sasanid_government
+primary_culture = persian
+add_accepted_culture = al_iraqiya_arabic
+religion = zoroastrian
+technology_group = muslim
+historical_rival = TUR
+historical_rival = BYZ
+historical_rival = RUM
+historical_rival = MAM
+capital = 410 

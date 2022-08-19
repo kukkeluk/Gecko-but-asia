@@ -1,12 +1,13 @@
 # 2126 - Chuy
 
-owner = CHG
-controller = CHG
+owner = ZUN
+controller = ZUN
+add_core = ZUN
 add_core = CHG
 culture = kirgiz
-religion = sunni
-capital = "Chuy"
-trade_goods = wool
+religion = tengri_pagan_reformed
+capital = "Bishkek"
+trade_goods = grain
 hre = no
 base_tax = 1 
 base_production = 1

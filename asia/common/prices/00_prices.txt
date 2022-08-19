@@ -53,10 +53,10 @@ iron = {
 
 # African Resources
 slaves = {
-	base_price = 3
+	base_price = 2
 }
 ivory = {
-	base_price = 3 
+	base_price = 4 
 }
 
 
@@ -76,7 +76,7 @@ spices = {
 
 # New World Resources
 coffee = {
-	base_price = 3.5
+	base_price = 3
 }
 
 cotton = {
@@ -116,7 +116,7 @@ livestock = {
 }
 
 incense = {
-	base_price = 3
+	base_price = 2.5
 }
 
 glass = {
@@ -132,7 +132,7 @@ paper = {
 }
 
 coal = {
-	base_price = 10
+	base_price = 8
 }
 
 cloves = {
@@ -142,3 +142,8 @@ cloves = {
 unknown = {
 	base_price = 0
 }
+
+bananas = {
+	base_price = 4.5
+}
+

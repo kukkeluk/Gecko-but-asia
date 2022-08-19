@@ -1,0 +1,287 @@
+namespace = flavor_sas
+
+# Turko-Persian Tension
+country_event = {
+	id = flavor_sas.3563
+	title = "flavor_sas.EVTNAME3563"
+	desc = "flavor_sas.EVTDESC3563"
+	picture = LAND_MILITARY_eventPicture
+
+	trigger = {
+		NOT = { has_country_flag = PER_had_event_3563 }
+		is_year = 1600
+		NOT = { is_year = 1650 }
+		tag = SAS
+		any_neighbor_country = {
+			tag = TUR
+			any_owned_province = {
+				controlled_by = REB
+			}
+		}
+		TUR = { is_free_or_tributary_trigger = yes }
+		NOT = { alliance_with = TUR }
+		NOT = { war_with = TUR }
+	}
+
+	mean_time_to_happen = {
+		months = 1000
+	}
+	
+	immediate = {
+		set_country_flag = PER_had_event_3563
+	}
+
+	option = {		# Support the Turkish rebels and prepare for war
+		name = "flavor_sas.EVTOPTA3563"
+		add_years_of_income = -0.2
+		TUR = {
+			add_opinion = {
+				who = ROOT
+				modifier = supported_rebels
+			}
+			country_event = { id = flavor_tur.3363 days = 10 tooltip = "flavor_per.EVTTOOLTIP3560" }
+		}
+	}
+	option = {		# Concentrate on internal issues
+		name = "flavor_sas.EVTOPTB3563"
+		add_adm_power = 25
+	}
+}
+
+# The Advisors of Abbas the Great
+country_event = {
+	id = flavor_sas.3
+	title = "flavor_sas.EVTNAME3"
+	desc = "flavor_sas.EVTDESC3"
+	picture = ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SAS
+		is_year = 1590
+		owns = 429
+		NOT = {
+			is_year = 1640
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 150
+	}
+	
+	option = { # Hire the English advisors
+		name = "flavor_sas.EVTOPTA3"
+		if = {
+			limit = {
+				NOT = { has_completed_all_reforms_trigger = yes }
+			}
+			add_reform_progress_small_effect = yes
+		}
+		add_ruler_modifier = { name = per_abbas_advisors }
+		add_stability = -1
+	}
+	option = { # Rely on ones
+		name = "flavor_sas.EVTOPTB3"
+		add_stability_or_adm_power = yes
+	}
+}
+
+# Political Turmoil
+country_event = {
+	id = flavor_per.44
+	title = "flavor_sas.EVTNAME4"
+	desc = "flavor_sas.EVTDESC4"
+	picture = LIBERUM_VETO_eventPicture
+	
+	trigger = {
+		NOT = { has_country_flag = PER_had_event_4 }
+		tag = SAS
+		is_year = 1580
+		NOT = {
+			has_country_modifier = per_political_turmoil_timer
+		}
+		NOT = {
+			mil = 4
+		}
+		NOT = {
+			dip = 4
+		}
+		NOT = {
+			adm = 4
+		}
+		has_regency = no
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+	}
+	
+	option = { #Let the Clans fight
+		name = "flavor_sas.EVTOPTA4"
+		hidden_effect = {
+			add_country_modifier = {
+				name = per_political_turmoil_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+		add_stability = -1
+	}
+	option = { #Buy the loyalty of the Clans
+		name = "flavor_sas.EVTOPTB4"
+		hidden_effect = {
+			add_country_modifier = {
+				name = per_political_turmoil_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+		add_years_of_income = -1
+	}
+}
+
+# Political Fragmentation
+country_event = {
+	id = flavor_sas.5
+	title = "flavor_sas.EVTNAME5"
+	desc = "flavor_sas.EVTDESC5"
+	picture = LIBERUM_VETO_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SAS
+		is_year = 1635
+		NOT = {
+			has_country_modifier = per_political_fragmentation_timer
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	}
+	
+	option = { # Let the factions conspire
+		name = "flavor_sas.EVTOPTA5"
+		hidden_effect = {
+			add_country_modifier = {
+				name = per_political_fragmentation_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+		add_stability_or_adm_power = yes
+	}
+	option = { # Tighten state control
+		name = "flavor_sas.EVTOPTB5"
+		hidden_effect = {
+			add_country_modifier = {
+				name = per_political_fragmentation_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+		add_stability = -1
+		random_owned_province = {
+			limit = {
+				is_core = PER
+			}
+			add_base_tax = 1
+			add_base_manpower = 1
+		}
+	}
+}
+
+#The Afghan Rebellions
+country_event = {
+	id = flavor_sas.6
+	title = "flavor_sas.EVTNAME6"
+	desc = "flavor_sas.EVTDESC6"
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SAS
+		NOT = { primary_culture = afghani }
+		NOT = { exists = AFG }
+		any_owned_province = { culture = afghani }
+	}
+
+	mean_time_to_happen = {
+		months = 2000
+	}
+	
+	option = { #Curses!
+		name = "flavor_sas.EVTOPTA6"
+		random_owned_province = {
+			limit = { culture = afghani }
+			area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = add_unrest_10_modifier
+					duration = 1825
+				}
+			}
+		}
+	}
+}
+
+#Persian Miniature Painting
+country_event = {
+	id = flavor_sas.7
+	title = flavor_sas.7.t
+	desc = flavor_sas.7.d
+	picture = BIG_BOOK_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SAS
+		NOT = { is_year = 1600 }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = { #Ok
+		name = flavor_sas.7.a
+		add_prestige = 10
+		add_country_modifier = {
+				name = per_miniature_school
+				duration = 3650
+		}
+	}
+}
+
+#Iskander Munshi
+country_event = {
+	id = flavor_sas.8
+	title = flavor_sas.8.t
+	desc = flavor_sas.8.d
+	picture = BIG_BOOK_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SAS
+		is_year = 1620
+		NOT = { is_year = 1635 }
+	}
+
+	mean_time_to_happen = {
+		months = 45
+	}
+	
+	option = { #
+		name = flavor_sas.8.a
+		add_legitimacy = 10
+		add_prestige = 5
+	}
+}
+
+

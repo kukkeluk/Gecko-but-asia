@@ -1,0 +1,76 @@
+graphical_culture = westerngfx
+color = { 0  128  0 }
+revolutionary_colors = { 10 20 10 }
+
+historical_idea_groups = {
+	plutocracy_ideas
+	trade_ideas
+	economic_ideas
+	defensive_ideas
+	maritime_ideas
+	administrative_ideas
+	offensive_ideas
+	quantity_ideas
+}
+
+historical_units = {
+	western_medieval_infantry
+	chevauchee
+	western_longbow
+	gaelic_mercenary
+	gaelic_free_shooter
+	french_caracolle
+	irish_charge
+	anglofrench_line
+	french_dragoon
+	british_redcoat
+	british_hussar
+	british_square
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
+}
+
+monarch_names = {
+	"Leif #3" = 20
+	"Eirik #3" = 20
+	"Eydís #0" = -20
+	"Skaði #0" = -20
+}
+
+leader_names = {
+	Leif Amundson 
+	Eirik Snarr
+	Hálfdanr Svarti
+	Egilson Eirikson 
+	Haraldson Blátönn
+	Lúfa Leifson 
+	Hárfagri
+	Rauðitönn
+	Nansen Norheim 
+	Olafson 
+	Svereson Arason 
+	Torgeirson Nikulason 
+	Palson
+}
+
+ship_names = {
+	Dreki
+	Ormslíki
+	Orm
+	Rauði
+	Rauði Orm
+	Reginn
+	Fáfnir
+	Niðhöggr
+	Draupnir
+	Garðr
+	Löngu
+	Viðara
+	Ryðja
+	Seiðr
+	Sveipa
+	Fýsa
+}
+

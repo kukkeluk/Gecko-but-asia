@@ -16,14 +16,16 @@ base_manpower = 1
 capital = "Cagliari" 
 is_city = yes # Estimated 
 add_core = SAR
-center_of_trade = 1
-add_province_triggered_modifier=gc_cagliari_copper
+
+
+
 discovered_by = western
 discovered_by = eastern
 discovered_by = muslim
 discovered_by = ottoman
 
 
+# 1420.1.1 = { owner = ARA add_core = ARA controller = ARA } # Conquered by Aragon
 1516.1.23 = {	owner = SPA
 	controller = SPA
 	add_core = SPA

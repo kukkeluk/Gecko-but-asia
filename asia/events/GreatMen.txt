@@ -11,23 +11,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -73,23 +73,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -141,27 +141,26 @@ country_event = {
 	trigger = {
 		army_reformer = 3
 		NOT = { has_country_flag = army_reformer }
-		is_year = 1460
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -215,23 +214,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -286,24 +285,24 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -358,24 +357,24 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 	
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -430,24 +429,24 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -502,24 +501,24 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -575,23 +574,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -646,23 +645,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -717,23 +716,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -782,23 +781,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -846,24 +845,24 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -918,23 +917,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -986,28 +985,28 @@ country_event = {
 	trigger = {
 		grand_captain = 3
 		NOT = { has_country_modifier = PR_grand_captain_cooldown }
-		NOT = { has_country_modifier = grand_captain_cooldown }
+		NOT = { has_country_flag = grand_captain }
 		is_year = 1460
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -1026,12 +1025,7 @@ country_event = {
 			name = "grand_captain_boost"
 			duration = 2190
 		}		
-		#set_country_flag = grand_captain
-		add_country_modifier = { 
-			name = grand_captain_cooldown
-			duration = 36500
-			hidden = yes
-		}
+		set_country_flag = grand_captain
 	}
 
 	option = {
@@ -1049,18 +1043,12 @@ country_event = {
 			name = "grand_captain_boost"
 			duration = 2190
 		}
-		#set_country_flag = grand_captain
-		add_country_modifier = { 
-			name = grand_captain_cooldown
-			duration = 36500
-			hidden = yes
-		}
+		set_country_flag = grand_captain
 	}
 	
 	option = {
 		name = "PR_grand_captain_cooldown_tooltip"	# PR advisor cooldown
-		ai_chance = { 
-			factor = 0
+		ai_chance = {
 		}
 		add_country_modifier = {
 			name = "PR_grand_captain_cooldown"
@@ -1079,28 +1067,27 @@ country_event = {
 	
 	trigger = {
 		army_organiser = 3
-		is_year = 1460
 		NOT = { has_country_flag = army_organiser }
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -1147,34 +1134,34 @@ country_event = {
 	id = 4116
 	title = "EVTNAME4116"
 	desc = "EVTDESC4116"
-	picture = ADVISOR_eventPicture
+	picture = Harambe_eventPicture
 	
 	trigger = {
 		commandant = 3
 		NOT = { has_country_modifier = PR_commandant_cooldown }
-		NOT = { has_country_modifier = commandant_cooldown }
+		NOT = { has_country_flag = commandant }
 		is_year = 1460
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -1193,12 +1180,7 @@ country_event = {
 			name = "commandant_boost"
 			duration = 2190
 		}		
-		#set_country_flag = commandant
-		add_country_modifier = { 
-			name = commandant_cooldown
-			duration = 36500
-			hidden = yes
-		}
+		set_country_flag = commandant
 	}
 
 	option = {
@@ -1216,18 +1198,12 @@ country_event = {
 			name = "commandant_boost"
 			duration = 2190
 		}
-		add_country_modifier = { 
-			name = commandant_cooldown
-			duration = 36500
-			hidden = yes
-		}
-		#set_country_flag = commandant
+		set_country_flag = commandant
 	}
 	
 	option = {
 		name = "PR_commandant_cooldown_tooltip"	# PR advisor cooldown
 		ai_chance = {
-			factor = 0
 		}
 		add_country_modifier = {
 			name = "PR_commandant_cooldown"
@@ -1250,23 +1226,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -1321,23 +1297,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -1392,23 +1368,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	
@@ -1463,24 +1439,24 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 150
 		
 		
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 4
+			innovativeness_ideas = 4
 		}
 		modifier = {
 			factor = 0.9
-			administrative_ideas = 6
+			innovativeness_ideas = 6
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 4 }
+			NOT = { innovativeness_ideas = 4 }
 		}
 		modifier = {
 			factor = 1.1
-			NOT = { administrative_ideas = 2 }
+			NOT = { innovativeness_ideas = 2 }
 		}
 	}
 	

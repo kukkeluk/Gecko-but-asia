@@ -1,8 +1,8 @@
 #Makua
 
-owner = ZAN
-controller = ZAN
-add_core = ZAN
+owner = MKU
+controller = MKU
+add_core = MKU
 culture = makua
 religion = shamanism #Fetishism
 capital = "Makua"

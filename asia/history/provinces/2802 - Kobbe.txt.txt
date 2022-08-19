@@ -3,20 +3,18 @@
 owner = NUB
 controller = NUB
 add_core = NUB
-is_city = yes
-
-culture = nubian 
-religion = shamanism #Fetishism
+culture = tunjur 
+religion = coptic
 capital = "Kobbe"
 add_core = DAR
-trade_goods = livestock
+native_size = 50
+native_ferocity = 4
+native_hostileness = 9 
+trade_goods = unknown
 hre = no
 base_tax = 1 
 base_production = 1
 base_manpower = 1
-
-discovered_by = east_african
-discovered_by = sub_saharan
 
 1596.1.1 = {
 	owner = DAR

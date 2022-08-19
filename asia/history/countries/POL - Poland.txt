@@ -7,19 +7,29 @@ historical_friend = LIT
 historical_rival = TEU
 capital = 262 # Krakow
 add_accepted_culture = ruthenian
-add_army_professionalism = 0.15
-#national_focus = ADM
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
 
-#1444.10.1 = {
-	#set_estate_privilege = estate_nobles_golden_liberty
-#}
+
+change_estate_land_share = {
+	estate = estate_nobles
+	share = -0.5
+}
+
+national_focus = ADM
+
+1444.10.1 = {
+	set_estate_privilege = estate_nobles_golden_liberty
+}
 
 1444.11.11 = {
 	monarch = {
 		name = "(Interregnum)"
-		adm = 5
-		mil = 6
-		dip = 4
+		adm = 0
+		mil = 0
+		dip = 0
 		regent = yes
 	}
 }

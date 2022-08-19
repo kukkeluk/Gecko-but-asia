@@ -4,8 +4,20 @@ primary_culture = bengali
 religion = sunni
 technology_group = indian
 capital = 563	# Pandua
-religious_school = maliki_school
+religious_school = hanafi_school
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
 
+
+change_estate_land_share = {
+	estate = estate_church
+	share = 12.26
+}
+change_brahmins_or_church_land_share_effect = {
+	share = -5
+}
 
 #Sultans of Bengal
 1390.1.1 = {

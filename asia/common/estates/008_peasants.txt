@@ -1,0 +1,113 @@
+estate_peasants = {
+   icon = 9
+   color = { 52 235 55 }
+	trigger = {
+		NOT = { has_government_attribute = is_merchant_republic }
+		NOT = { has_reform = pirate_republic_reform }
+		NOT = { has_reform = veche_republic }
+		NOT = { government = native }
+		NOT = { has_reform = trading_city }
+		NOT = { has_reform = siberian_tribe }
+		NOT = { is_revolutionary_republic_trigger = yes }
+		NOT = { has_reform = revolutionary_empire_reform }
+		NOT = { has_reform = peasants_republic }
+		NOT = { has_reform = kongsi_federation }
+		NOT = { has_reform = american_republic }
+		NOT = { has_reform = federal_republic }
+		is_nomad = no
+		is_colonial_nation = no
+		NOT = { has_reform = revolutionary_empire_reform }
+		}
+
+    country_modifier_happy = {
+		global_prosperity_growth = 0.03
+	    production_efficiency = 0.1
+	}
+	country_modifier_neutral = {
+	  production_efficiency = 0.1
+	}	
+	country_modifier_angry = {
+	  global_monthly_devastation = 0.01
+	  production_efficiency = -0.1
+	}
+	land_ownership_modifier = {
+	peasants_loyalty_modifier = 0.2
+	}
+    province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			culture_group = owner
+			religion_group = owner
+		}
+		modifier = {
+			factor = 1.5
+			base_manpower = 5
+		}
+		modifier = {
+			factor = 0.75
+			development = 20
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { is_state_core = owner }
+		}
+	}
+	base_influence = 5
+    
+	
+   	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			OR = {
+				has_disaster = estate_church_disaster
+				has_disaster = estate_burghers_disaster
+				has_disaster = estate_brahmins_disaster
+				has_disaster = estate_vaisyas_disaster
+				has_disaster = estate_jains_disaster
+			}
+		}	
+		influence = -40
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			OR = {
+				has_disaster = estate_church_disaster
+				has_disaster = estate_burghers_disaster
+				has_disaster = estate_brahmins_disaster
+				has_disaster = estate_vaisyas_disaster
+				has_disaster = estate_jains_disaster
+			}
+		}
+		loyalty = -20
+	}
+
+    privileges = {
+	estate_peasants_high_taxes
+	estate_peasants_land_rights
+	estate_peasants_parliament_seats
+	estate_peasants_establish_schools
+	estate_peasants_improve_roads
+	estate_peasants_abolish_corvee
+	mjl_peasants_compulsory_military_service
+	mjl_peasants_colective_farms
+	mjl_peasants_abolish_noble_steadings
+	mjl_peasants_accept_petitions
+	mjl_shun_mountains
+	mjl_persian_mountains
+	mjl_caucasian_mountains
+	mjl_estate_church_orm_tamed_deserts
+	mjl_estate_church_trs_tamed_deserts
+	mjl_tunisian_deserts
+	mjl_swiss_mountains
+	}
+    agendas = {
+	
+	
+	}
+
+   influence_from_dev_modifier = 1.0
+
+}

@@ -4,8 +4,39 @@ primary_culture = kannada
 religion = hinduism
 technology_group = indian
 capital = 541	# Vijayanagara
+historical_rival = MLW
+historical_rival = YOR
+historical_rival = MYS
+historical_rival = KLN
+historical_rival = KRK
+historical_rival = TNJ
+historical_rival = GNG
+historical_rival = BIJ
+historical_rival = GOC
+historical_rival = TLG
+historical_rival = ORI
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
+add_country_modifier = {
+	name = "fall_of_vijay"
+	duration = -1
+}
 
 
+change_brahmins_or_church_land_share_effect = {
+	share = -5
+}
+
+change_vaisyas_or_burghers_land_share_effect = {
+	share = 5.211
+}
+
+change_rajputs_or_marathas_or_nobles_land_share_effect = {
+	share = 7
+}
+add_manpower = -8
 1377.1.1 = {
 	monarch = {
 		name = "Harihara II"
@@ -133,11 +164,10 @@ capital = 541	# Vijayanagara
 		dynasty = "Sangama"
 		ADM = 3
 		DIP = 3
-		MIL = 4
+		MIL = 2
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = scholar_personality
-	add_ruler_personality = tolerant_personality
 	#add_ruler_personality = righteous_personality
 	add_heir_personality = naive_personality
 	heir = {

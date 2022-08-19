@@ -1,0 +1,76 @@
+country_decisions = {
+	
+	lan_adjust_city_plans = {
+		major = yes 
+		potential = { 
+			OR = { 
+				tag = LAN
+				tag = TUS
+			}
+			NOT = { has_country_flag = lan_city_planning_flag }
+		}
+		allow = { 
+			116 = { 
+				owned_by = ROOT 
+				NOT = { devastation = 1 }
+			}
+			is_at_war = no 
+			is_bankrupt = no 
+			adm = 3
+			years_of_income = 0.25
+		}
+		effect = { 
+			add_adm_power = -50
+			add_years_of_income = -0.25
+			tuscany_area = {
+				limit = { country_or_non_sovereign_subject_holds = ROOT } 
+				add_province_modifier = { 
+					name = lan_adjusted_city_plans_modifier
+					duration = 5475
+				}
+				add_base_tax = 1 
+			}
+			change_estate_land_share = {
+				estate = crown 
+				share = 2.5
+			}
+			set_country_flag = lan_city_planning_flag 
+			set_country_flag = lan_adjusted_city_plans_flag
+		}
+	}
+	
+	lan_treaty_eight_saints_decision = {
+		major = yes 
+		potential = { has_country_flag = lan_eight_saints_treaty_flag }
+		allow = { 
+			PAP = { 
+				exists = yes 
+				NOT = { is_rival = ROOT }
+				is_at_war = no 
+			}
+			is_at_war = no 
+			is_bankrupt = no 
+		}
+		effect = { 
+			add_dip_power = -100 
+			add_historical_friend = PAP
+			PAP = { add_historical_friend = ROOT } 
+			if = {
+				limit = {
+					religion = catholic
+					NOT = { has_global_flag = had_a_medici_pope }
+				}
+				custom_tooltip = emp_lan_next_pope_medici_tt
+				set_global_flag = had_a_medici_pope
+				set_country_flag = our_medici_pope
+				PAP = { set_country_flag = medici_pope_next }
+			}
+			else = {
+				add_prestige = 25
+			}
+			clr_country_flag = lan_eight_saints_treaty_flag 
+			set_country_flag = lan_signed_treaty_eight_saints_flag
+		}
+	}
+}	
+

@@ -1,0 +1,14 @@
+mjl_roads = {
+movement_speed = 0.10
+}
+
+mjl_expanded_production_quotas = {
+allowed_num_of_manufactories = 1
+allowed_num_of_buildings = 1
+local_development_cost = 0.05
+}
+mjl_peasant_farms = {
+local_manpower = -0.75
+local_tax_modifier = 0.2
+local_production_efficiency = 0.1
+}

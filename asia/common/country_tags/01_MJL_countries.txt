@@ -1,0 +1,24 @@
+# China
+#CHN = "countries/China.txt"
+CKS = "countries/KingdomofShu.txt"
+CWU = "countries/KingdomofWu.txt"
+CWE = "countries/KingdomofWei.txt"
+# Africans
+CHW = "countries/Bachwezi.txt"
+AFR = "countries/Toto.txt"
+GEE = "countries/GeorgianEmpire.txt"
+ROW = "countries/RowziEmpire.txt"
+#Sassanids
+SAS = "countries/SasanidEmpire.txt"
+#ColonialFormables
+VIN = "countries/Vinland.txt"
+GRC = "countries/GranColombia.txt"
+PAS = "countries/PacificStates.txt"
+URU = "countries/Uruguay.txt"
+GYA = "countries/Guyana.txt"
+
+#swiss
+ZGB = "countries/Zehngerichtenbund.txt"
+
+#FU
+VOC = "countries/EastIndiesFU.txt"

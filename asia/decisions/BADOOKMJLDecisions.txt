@@ -1,0 +1,110 @@
+country_decisions = {
+
+	destroy_brahmin_sancutaries = {
+		major = no
+		potential = {
+			check_variable = {
+				which = MarBrahminOppose 
+				value = 3
+			}
+			NOT = { has_country_flag = destroy_sanctuaries }
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = mjl_pro_brahmins_tt
+				OR = {
+					check_variable = {
+						which = MarBrahminOppose 
+						value = 3
+					}
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 1
+			545 = {
+				add_province_modifier = {
+					name = sancutaries_destroyed
+					duration = 3650
+				}
+				add_base_tax = -1
+				add_base_production = -1
+			}
+			hidden_effect = {
+				change_variable = {
+					which = MarBrahminOppose 
+					value = 1
+				}
+				set_country_flag = destroy_sanctuaries
+			}				
+		}
+	}
+	
+	help_brahmin_sancutaries = {
+		major = no
+		potential = {
+			check_variable = {
+				which = MarBrahminSupport
+				value = 3
+			}
+			NOT = { has_country_flag = helped_sanctuaries }
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = mjl_pro_brahmins_tt
+				OR = {
+					check_variable = {
+						which = MarBrahminSupport
+						value = 3
+					}
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = -1
+			545 = {
+				add_province_modifier = {
+					name = sancutaries_helped
+					duration = -1
+					desc = sancutaries_helped_desc
+				}
+				add_base_tax = 1
+				add_base_production = 1
+			}	
+			hidden_effect = {
+				change_variable = {
+					which = MarBrahminSupport 
+					value = 1
+				}
+				set_country_flag = helped_sanctuaries 
+			}				
+		}
+	}
+	
+	move_capital_decision = {
+		major = no
+		potential = {
+			MAR = {
+				owns_core_province = 1948
+			}
+			tag = MAR
+			NOT = { has_country_flag = moved_capital }
+		}
+		allow = {
+			treasury = 500
+		}
+		effect = {
+			add_treasury = -500
+			set_capital = 1948
+			add_adm_power = 50
+			
+			hidden_effect = {
+				set_country_flag = moved_capital
+			}
+		}
+		
+	}
+}
+		
+	
+	

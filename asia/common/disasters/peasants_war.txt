@@ -1,7 +1,9 @@
 peasant_war = {
 	potential = {
+		OR = {
 			current_age = age_of_reformation
-	
+			current_age = age_of_discovery
+		}
 		OR = {
 			government = monarchy
 			government = theocracy
@@ -16,6 +18,7 @@ peasant_war = {
 			AND = {
 				has_global_flag = great_peasants_war_flag
 				is_part_of_hre = yes
+				NOT = { has_country_flag = had_great_peasant_war }
 			}
 		}
 	}
@@ -84,6 +87,17 @@ peasant_war = {
 			factor = 2
 			is_bankrupt = yes
 		}		
+		modifier = {
+			factor = 0.5
+			overextension_percentage = 0.25
+			NOT = { 
+				overextension_percentage = 0.5
+			}
+		}
+		modifier = {
+			factor = 1.0
+			overextension_percentage = 0.5
+		}
 	}
 	
 	can_end = {

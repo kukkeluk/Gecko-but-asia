@@ -1,16 +1,20 @@
 #Hälsingland-Gästrikland-Medelpad, from Gävle to Näs
 
+latent_trade_goods = {
+	coal
+}
+
 add_core = SWE
 owner = SWE
 controller = SWE
 culture = swedish
 religion = catholic
 hre = no
-base_tax = 1 
-base_production = 1
+base_tax = 2 
+base_production = 2
 trade_goods = fish
 base_manpower = 1
-capital = "Hudiksvall"
+capital = "Sundsvall"
 is_city = yes
 discovered_by = eastern
 discovered_by = western

@@ -1,7 +1,7 @@
 #437 - Atak
 
-owner = KHI
-controller = KHI
+owner = TIM
+controller = TIM
 culture = turkmeni
 religion = sunni
 capital = "Nisa"
@@ -18,11 +18,11 @@ discovered_by = ottoman
 discovered_by = indian
 discovered_by = nomad_group
 
-#1409.5.13 = { #Ulugh Beg is made Governor of Samarkand
-#	owner = TRS
-#	controller = TRS
-#	add_core = TRS
-#}
+1409.5.13 = { #Ulugh Beg is made Governor of Samarkand
+	owner = TRS
+	controller = TRS
+	add_core = TRS
+}
 1448.3.1 = { #Ulugh Beg takes Herat and reunites the core of the Timurid Empire
 	owner = TIM
 	controller = TIM

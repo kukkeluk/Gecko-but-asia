@@ -1,0 +1,16 @@
+name = "Venice-Ferrara War"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 113 # Ferrara
+}
+
+1443.1.1 = {
+	add_attacker = VEN
+	add_defender = BLG
+}
+# Peace
+1444.11.11 = {
+	rem_attacker = VEN
+	rem_defender = BLG
+}

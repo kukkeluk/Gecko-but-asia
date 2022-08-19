@@ -1,17 +1,17 @@
 #119 - Ancona
 
-owner = URB
-controller = URB
+owner = PAP
+controller = PAP
 culture = umbrian 
 religion = catholic 
-hre = yes
-base_tax = 2 
-base_production = 3   
-trade_goods = salt
-base_manpower = 2    
+hre = yes 
+base_tax = 4 
+base_production = 4    
+trade_goods = paper
+base_manpower = 3    
 capital = "Ancona" 
 is_city = yes
-add_core = URB
+add_core = PAP
 discovered_by = western
 discovered_by = eastern
 discovered_by = muslim

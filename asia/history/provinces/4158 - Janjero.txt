@@ -1,10 +1,14 @@
 #4158 - Janjero
 
-owner = ETH
-controller = ETH
-add_core = ETH
+latent_trade_goods = {
+	coal
+}
+
+owner = JJI
+controller = JJI
+add_core = JJI
 culture = sidamo
-religion = shamanism
+religion = coptic
 capital = "Fofa"
 is_city = yes
 base_manpower = 1

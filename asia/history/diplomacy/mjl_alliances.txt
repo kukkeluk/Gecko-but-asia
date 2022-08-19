@@ -1,0 +1,14 @@
+#Zimbabwe
+vassal = {
+	first = SWI
+	second = TTL
+	start_date = 1443.1.1
+	end_date = 1448.1.1
+}
+#Lithuanian
+vassal = {
+	first = LIT
+	second = OKA
+	start_date = 1443.1.1
+	end_date = 1448.1.1
+}

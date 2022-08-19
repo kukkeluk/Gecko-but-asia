@@ -95,7 +95,6 @@ estate_nobles_get_allies = {
 		is_at_war = no
 		num_of_free_diplomatic_relations = 1
 		NOT = { has_country_modifier = foreign_contacts }
-		is_free_or_tributary_trigger = yes
 	}
 	selection_weight = {
 		factor = 1
@@ -889,6 +888,7 @@ estate_nobles_support_independence = {
 			NOT = { ROOT = { truce_with = prev } }
 			any_subject_country = {
 				NOT = { has_reform = daimyo }
+				is_colonial_nation = no
 				is_subject_other_than_tributary_trigger = yes
 				liberty_desire = 50
 				has_opinion = {
@@ -910,6 +910,7 @@ estate_nobles_support_independence = {
 				NOT = { ROOT = { truce_with = prev } }
 				any_subject_country = {
 					NOT = { has_reform = daimyo }
+					is_colonial_nation = no
 					is_subject_other_than_tributary_trigger = yes
 					liberty_desire = 50
 					has_opinion = {
@@ -925,6 +926,7 @@ estate_nobles_support_independence = {
 			random_subject_country = {
 				limit = {
 					NOT = { has_reform = daimyo }
+					is_colonial_nation = no
 					is_subject_other_than_tributary_trigger = yes
 					liberty_desire = 50
 					has_opinion = {
@@ -1575,10 +1577,10 @@ estate_nobles_vassalise_vulnerable_country = {
 	can_select = {
 		is_free_or_tributary_trigger = yes
 		is_at_war = no
-		always = no
 		num_of_cities = 12
 		any_neighbor_country = {
 			NOT = { has_reform = free_city }
+			NOT = { has_reform = h_reform_commandery }
 			is_free_or_tributary_trigger = yes
 			OR = {
 				NOT = { num_of_cities = 4 }
@@ -1592,7 +1594,6 @@ estate_nobles_vassalise_vulnerable_country = {
 			NOT = { is_subject_of = root }
 			NOT = { overlord_of = root }
 			NOT = { alliance_with = root }
-			NOT = { historical_rival_with = root } #Should prevent historical rivals
 			NOT = { ROOT = { truce_with = prev } }
 			NOT = {
 				has_opinion = {
@@ -1649,6 +1650,7 @@ estate_nobles_vassalise_vulnerable_country = {
 		random_neighbor_country = {
 			limit = {
 				NOT = { has_reform = free_city }
+				NOT = { has_reform = h_reform_commandery }
 				is_free_or_tributary_trigger = yes
 				OR = {
 					NOT = { num_of_cities = 4 }

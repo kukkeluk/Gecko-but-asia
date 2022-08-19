@@ -1,6 +1,5 @@
 # No previous file for Mississage
 
-
 culture = anishinabe
 religion = totemism
 capital = "Missisage"

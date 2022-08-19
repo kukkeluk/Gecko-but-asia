@@ -23,22 +23,19 @@ country_decisions = {
 						}
 					}
 					capital_scope = {
-							colonial_region = colonial_eastern_america
-						
+				OR = {
+					colonial_region = colonial_eastern_america
+					colonial_region = colonial_mexico
+				}
+					
 						is_core = ROOT
 					}
 				}
 			}
-				colonial_eastern_america = {
-					owned_by = ROOT
-				}
-			OR = {
-				ai = no
-				AND = {
-					ai = yes
-					num_of_cities = 3	
-				}
+			colonial_mexico = {
+				owned_by = ROOT
 			}
+			ai = no
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -54,11 +51,13 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 10
-			is_free_or_tributary_trigger = yes
+			# is_free_or_tributary_trigger = yes
 			is_at_war = no
 			capital_scope = {
+				OR = {
 					colonial_region = colonial_eastern_america
-				
+					colonial_region = colonial_mexico
+				}
 				is_core = ROOT
 			}
 			num_of_owned_provinces_with = {
@@ -83,6 +82,7 @@ country_decisions = {
 				}
 			}
 			change_tag = FLO
+			custom_tooltip = FLO_ideas_localisation
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -131,15 +131,13 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
-			#can't have more than one elective monarchy in the game
-			if = {
-				limit = {
-					has_reform = elective_monarchy
-				}
-				change_government = monarchy
-				add_government_reform = feudalism_reform
-			}
 			add_prestige = 25
+			if = {
+					limit = {
+						has_custom_ideas = no
+					}
+					country_event = { id = ideagroups.1 } #Swap Ideas
+			}
 			set_country_flag = changed_from_colonial_nation
 		}
 		ai_will_do = {

@@ -3,7 +3,7 @@
 owner = TUN
 controller = TUN 
 culture = tunisian
-religion = sunni
+religion = ibadi
 capital = "Sfax"
 trade_goods = sugar
 hre = no

@@ -10,7 +10,10 @@ monarchy = {
 				nayankara_reform
 				misl_confederacy_reform
 				rajput_kingdom
+				negusa_nagast
+				solomonic_empire
 				#Specific:
+				chinese_warlord   
 				grand_duchy_reform
 				daimyo
 				indep_daimyo
@@ -18,6 +21,7 @@ monarchy = {
 				iqta
 				ottoman_government
 				prussian_monarchy
+				brandenburger_monarchy
 				austrian_dual_monarchy
 				principality
 				tsardom
@@ -30,14 +34,24 @@ monarchy = {
 				revolutionary_empire_reform
 				holy_state_reform
 				austrian_archduchy_reform
+				siamese_absolutism
+				confucian_bureaucracy
 				musa_rule
-				persian_theocracy #dum
-				mughal_government #smeev
-				silk_road_empire #smeev
-				gc_imperial_spain_reform
-				empire_of_hungary_reform
-				gc_greater_hungary_reform
-				gc_french_empire
+				mossi_federal_kingdom
+				h_reform_warlord_1
+				h_reform_prefecture
+				h_reform_citystate
+				h_reform_warlord_2
+				h_reform_warlord_3
+				h_reform_warlord_4
+				h_reform_sinicized_horde
+			    hungarian_empire
+				sasanid_government
+				tunisian_emirate
+				mandate_of_heaven_claimant
+				arch_king_reform
+				# Sealand
+				fatimid_government
 			}
 		}
 		hereditary_vs_nobility = {
@@ -50,11 +64,14 @@ monarchy = {
 				poligar_reform
 				khalsa_reform
 				deccani_society_reform
+				mughal_government
 				black_army_reform
 				legion_of_honor_reform
 				imperial_nobility_reform
-				establish_qurchi_corps_reform #dum
-				upgrade_janissary_weaponry_reform #dum
+				uparaja_reform
+				african_colonists_reform
+				habsburg_empire
+				constitutio_valdemariana_reform
 			}
 		}
 		bureaucracy = {
@@ -62,13 +79,14 @@ monarchy = {
 				centralize_reform
 				decentralize_reform
 				sidhi_recruitment
+				mansabdari_reform
 				council_of_the_indies_reform
 				penal_colonies_reform
 				liberte_reform
 				fraternite_reform
-				foreign_ghilman_reform #smeevdum
-				derbend_organization_reform #dum
-				zabt_reform #smeev
+				examination_system_reform
+				corvee_reform
+				commoner_officials_reform
 			}
 		}
 		growth_of_administration = {
@@ -77,14 +95,15 @@ monarchy = {
 				of_noble_bearing_reform
 				meritocratic_focus_reform
 				dakhni_culture_reform
-				mansabdari_reform #smeev
+				zabt_reform
 				permanent_marathas_council_reform
 				governmental_purbias_register_reform
 				revolutionary_principle_reform
 				equality_principle_reform
 				imperial_principle_reform
-				qizilbash_in_officer_corps_reform #dum
-				establish_auxiliary_support_system_reform #dum
+				sakdina_system_reform
+				the_black_guard_reform
+				christian_four_merchantile_reform
 			}
 		}
 		deliberative_assembly = {
@@ -99,8 +118,7 @@ monarchy = {
 				feuillant_reform
 				two_chamber_reform
 				imperial_decree_reform
-				reforms_of_abbas_i_reform #dum
-				janissary_administrative_positions_reform #dum
+				snaphaner_reform
 			}
 		}
 		absolute_rule_vs_constitutional = {
@@ -109,8 +127,6 @@ monarchy = {
 				regional_representation_reform
 				consulate_reform
 				military_electorate_reform
-				ghilman_administrative_positions_reform #dum
-				reform_the_janissaries_reform #dum
 			}
 		}
 		separation_of_power = {
@@ -122,8 +138,6 @@ monarchy = {
 				emperor_of_the_revolution_reform
 				enlightened_monarchy_reform
 				become_rev_republic_reform
-				gecko_noble_regiments_reform
-				gecko_professional_army_reform
 			}
 		}
 	}
@@ -151,7 +165,10 @@ monarchy = {
 		principality_legacy
 		tsardom_legacy
 		holy_state_legacy
+		negusa_nagast_legacy
+		solomonic_empire_legacy
 		musa_rule_legacy
+		mossi_federal_kingdom_legacy			  
 	}
 
 	# Each group of exclusive reforms are mutually exclusive to each other
@@ -243,6 +260,7 @@ republic = {
 		protectorate_parliament_legacy
 		prussian_republic
 		united_cantons_legacy
+		portugese
 	}
 	reform_levels = {
 		oligarchy_merchant_class_noble_elite = {
@@ -259,6 +277,9 @@ republic = {
 				american_republic
 				federal_republic
 				colonial_government
+				crown_colony_government
+				private_enterprise_colony_government
+				self_governing_colony_government	
 				dutch_republic
 				peasants_republic
 				revolutionary_republic_reform
@@ -270,6 +291,10 @@ republic = {
 				protectorate_parliament_reform
 				prussian_republic_reform
 				united_cantons_reform
+				kongsi_federation
+				millenarian_theocracy_reform
+				h_reform_commandery
+				portugese_reform
 			}
 		}
 		republican_virtues = {
@@ -283,6 +308,7 @@ republic = {
 				liberte_reform
 				egalite_reform
 				fraternite_reform
+				african_colonists_reform
 			}
 		}
 		frequent_elections_vs_consolidation_of_power = {
@@ -318,6 +344,7 @@ republic = {
 				municipal_self_defense_reform
 				feuillant_reform
 				two_chamber_reform
+				decentralize_reform
 			}
 		}
 		consolidation_of_power_category = {
@@ -341,7 +368,6 @@ republic = {
 			reforms = {
 				landholders_reform
 				citizenry_reform
-				gecko_professional_army_reform
 				admiralty_reform
 				equal_electorate_reform
 				three_classes_reform
@@ -416,14 +442,17 @@ tribal = {
 		tribal_federation_legacy
 		steppe_horde_legacy
 		siberian_native_council
+		sacred_kingdom_legacy
+		tribal_confederacy_legacy
+		shaka_regime_legacy
+		matrilineal_system_legacy
+		feudal_tribe_legacy
+		great_man_legacy			   
 	}
 
 	reform_levels = {
 		tribal_administration = {
 			reforms = {
-				###X###
-				X_CRI_crimean_khanate_reform
-				#######
 				steppe_horde
 				tribal_federation
 				tribal_despotism
@@ -431,41 +460,47 @@ tribal = {
 				siberian_tribe
 				gond_kingdom
 				great_mongol_state_reform
+				stateless_society
+				polynesian_kingdom
+				polynesian_tribe
+                sacred_kingdom
+				tribal_confederacy
+				shaka_regime
+				matrilineal_system
+				feudal_tribe
+				great_man
 			}
 		}
 		tribal_cultural_values = {
 			reforms = {
 				martial_society_reform
 				civil_society_reform
+				african_colonists_reform
 			}
 		}
 		tribal_religion = {
 			reforms = {
+				religious_societies_reform
 				lip_service_reform
-				centralize_tribal_power_reform
+				mjl_altaic_herdsmen
 			}
 		}
 		tribal_modernization = {
 			reforms = {
+				centralize_tribal_power_reform
 				retain_tribal_hierarchy_reform
-				decentralize_reform
-				centralize_reform
-			}
-		}
-		tribal_innovation = {
-			reforms = {
-				horde_barbaric_despoilers_reform
-				horde_tribal_unity_reform
-				religious_societies_reform
 			}
 		}
 		tribal_reformation = {
-			reforms = {		
+			reforms = {
+				horde_barbaric_despoilers_reform
+				horde_tribal_unity_reform
 				tribe_becomes_monarchy_reform
 				tribe_becomes_republic_reform
 				tribe_becomes_theocracy_reform
-				gc_tribe_becomes_horde_reform
-				gecko_professional_army_reform
+				tribe_becomes_horde_reform
+			    tribe_remain_tribal_reform
+				tribe_tribal_unity
 			}
 		}
 	}
@@ -478,6 +513,50 @@ native = {
 		native_council_legacy
 	}
 	color = { 194 127 209 }
+	reform_levels = {
+		tribe_organization = {
+			reforms = {
+				native_chiefdom_reform
+				native_federation_reform
+				native_clan_council_reform
+				native_hereditary_reform
+			}
+		}
+
+		story_tradition = {
+			reforms = {
+				native_martial_tradition_reform
+				native_oral_tradition_reform
+				native_land_tradition_reform
+			}
+		}
+
+		agricultural_revolution = {
+			reforms = {
+				native_war_band_reform
+				native_settle_down_reform
+				native_seasonal_travel_reform
+			}
+		}
+
+		legal_basis = {
+			reforms = {
+				native_codified_power_reform
+				native_diplomatic_cermonies_reform
+				native_trading_with_foreigners_reform
+			}
+		}
+
+		national_identity = {
+			reforms = {
+				native_becomes_horde_reform
+				native_becomes_monarchy_reform
+				native_becomes_republic_reform
+				native_becomes_theocracy_reform
+				native_remain_being_native_reform					 
+			}
+		}
+}
 }
 
 
@@ -486,7 +565,7 @@ theocracy = {
 	basic_reform = theocracy_mechanic
 
 	legacy_government = {
-		#papal_government
+		papal_government
 		theocratic_government
 		monastic_order_government
 		holy_state_legacy
@@ -496,9 +575,9 @@ theocracy = {
 			reforms = {
 				leading_clergy_reform
 				monastic_order_reform
+				papacy_reform
 				holy_state_reform
 				united_cantons_reform
-				pope_reform
 			}
 		}
 		internal_vs_external_mission = {
@@ -507,13 +586,13 @@ theocracy = {
 				external_mission_reform
 				mission_to_civilize_reform
 				mission_to_kill_pirates_reform
+				african_colonists_reform
 			}
 		}
 		divine_cause = {
 			reforms = {
 				safeguard_holy_sites_reform
 				combat_heresy_reform
-				gecko_professional_army_reform
 				expel_heathens_reform
 				guru_advisors_reform
 				kingdom_of_god_reform
@@ -639,10 +718,10 @@ pre_dharma_mapping = {
 		government = theocracy
 		legacy_government = monastic_order_government
 	}
-#	papal_government = {
-#		government = theocracy
-#		legacy_government = papal_government
-#	}
+	papal_government = {
+		government = theocracy
+		legacy_government = papal_government
+	}
 	steppe_horde = {
 		government = tribal
 		legacy_government = steppe_horde_legacy
@@ -693,7 +772,7 @@ pre_dharma_mapping = {
 	}
 	trading_city = {
 		government = republic
-		legacy_government = imperial_city
+		legacy_government = imperial_city_legacy
 	}
 	ambrosian_republic = {
 		government = republic
@@ -764,6 +843,38 @@ pre_dharma_mapping = {
 		legacy_government = pirate_republic
 	}
 	all_mechanics = {
+		government = monarchy
+		legacy_government = despotic_monarchy
+	}
+	h_reform_commandery = {
+		government = republic
+		legacy_government = oligarchic_republic
+	}
+	h_reform_prefecture = {
+		government = monarchy
+		legacy_government = despotic_monarchy
+	}
+	h_reform_warlord_1 = {
+		government = monarchy
+		legacy_government = despotic_monarchy
+	}
+	h_reform_citystate = {
+		government = monarchy
+		legacy_government = despotic_monarchy
+	}
+	h_reform_warlord_2 = {
+		government = monarchy
+		legacy_government = despotic_monarchy
+	}
+	h_reform_warlord_3 = {
+		government = monarchy
+		legacy_government = despotic_monarchy
+	}
+	h_reform_warlord_4 = {
+		government = monarchy
+		legacy_government = despotic_monarchy
+	}
+	h_reform_sinicized_horde = {
 		government = monarchy
 		legacy_government = despotic_monarchy
 	}

@@ -3,7 +3,6 @@ country_decisions = {
 	french_nation = {
 		major = yes
 		potential = {
-			always = no
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_france_flag }
@@ -81,6 +80,57 @@ country_decisions = {
 				move_capital_effect = yes
 			}
 			change_tag = FRA
+			if = { #Sinicize flemish
+				limit = {
+					primary_culture = flemish
+				}
+				change_primary_culture = flemish_french
+				set_ruler_culture = flemish_french
+			}
+			if = {
+					limit = {
+						heir_culture = flemish
+					}
+					set_heir_culture = flemish_french
+				}
+				if = {
+					limit = {
+						has_consort = yes
+						consort_culture = flemish
+					}
+					set_consort_culture = flemish_french
+				}
+				hidden_effect = {
+					every_province = {
+						limit = {
+							culture = flemish
+						}
+						change_culture = flemish_french
+					}
+					every_country = {
+						limit = {
+							primary_culture = flemish
+						}
+						change_primary_culture = flemish_french
+						set_ruler_culture = flemish_french
+						if = {
+							limit = {
+								has_heir = yes
+								heir_culture = flemish	
+							}
+							set_heir_culture = flemish_french
+						}
+						if = {
+							limit = {
+								has_consort = yes
+								consort_culture = flemish
+							}
+							set_consort_culture = flemish_french
+						}
+					}
+				}
+				custom_tooltip = flemish_culture_ct
+			custom_tooltip = FRA_ideas_localisation
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {

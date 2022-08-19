@@ -4,14 +4,26 @@ government_rank = 1
 technology_group = western
 religion = catholic
 primary_culture = swiss
-elector = yes
-capital = 165 # Bern
+elector=yes
+capital = 5827 # Basel
 add_army_professionalism = 0.1
+historical_friend = GNV
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
 
-1444.11.1 = {
+
+change_estate_land_share = {
+	estate = estate_burghers
+	share = -0.5
+}
+
+
+1405.1.1 = {
 	monarch = {
-		name = "Jules von Hasseln"
-		birth_date = 1400.1.1
+		name = "Jonas Furrer"
+		birth_date = 1405.1.1
 		adm = 4
 		dip = 4
 		mil = 4

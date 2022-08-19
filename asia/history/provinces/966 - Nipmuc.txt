@@ -1,6 +1,5 @@
 #966 - Nipmuc (Western Massachusetts)
 
-
 culture = massachusset
 religion = totemism 
 capital = "Nipmuc" 

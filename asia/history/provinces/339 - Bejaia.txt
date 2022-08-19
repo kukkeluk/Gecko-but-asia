@@ -3,7 +3,7 @@
 owner = TUN
 controller = TUN
 culture = berber
-religion = sunni
+religion = ibadi
 capital = "Bejaia"
 trade_goods = iron
 hre = no
@@ -14,6 +14,7 @@ is_city = yes
 add_core = TUN
 add_core = KBA
 
+center_of_trade = 1
 
 
 discovered_by = western

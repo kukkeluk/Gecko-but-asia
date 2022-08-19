@@ -1,0 +1,16 @@
+name = "Marathas-Gujarat War"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 4430
+}
+
+1443.1.1 = {
+	add_attacker = MAR
+	add_defender = GUJ
+}
+# Peace
+1444.11.11 = {
+	rem_attacker = MAR
+	rem_defender = GUJ
+}

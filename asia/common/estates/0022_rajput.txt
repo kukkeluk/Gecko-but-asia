@@ -6,10 +6,7 @@ estate_rajput = {
 	# If true, country will get estate
 	trigger = {
 		has_dlc = "Dharma"
-		OR = { 
-			technology_group = indian
-			tag = MUG
-			}
+		technology_group = indian
 		OR = {
 			primary_culture = rajput
 			primary_culture = malvi
@@ -164,14 +161,20 @@ estate_rajput = {
 		estate_rajput_land_rights
 		estate_rajput_rajput_regiments
 		estate_rajput_military
-		estate_rajput_advisor
+		#estate_rajput_levies
+		estate_rajput_grant_generalship
 		estate_rajput_loyalty_privilege
-		estate_rajput_officer_corp
 		estate_rajput_look_up_purbias
 		estate_rajput_monopoly_of_metals
 		estate_rajput_monopoly_of_livestock
 		estate_rajput_monopoly_of_gems
-		estate_gc_noble_levies
+		estate_rajput_power_broken
+		estate_rajput_war_support
+		estate_rajput_enforce_serfdom
+		estate_nobility_feudal_society
+		estate_nobility_offensive_focus
+		estate_nobility_defense_focus
+		estate_rajput_subject_rights
 	}
 
 	agendas = {

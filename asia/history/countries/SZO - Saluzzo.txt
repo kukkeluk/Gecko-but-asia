@@ -1,12 +1,11 @@
-government_rank = 1
-government = republic
+government = monarchy
 add_government_reform = free_city
+government_rank = 1
 primary_culture = piedmontese
 religion = catholic
 technology_group = western
 capital = 4727 # Saluzzo
 historical_rival = FRA
-
 1405.1.1 = {
 	monarch = {
 		name = "Ludovico I"

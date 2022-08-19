@@ -1,0 +1,149 @@
+namespace = FU_Teutonic_Events
+
+country_event = { #The Catholicization of Lithuania
+	id = FU_Teutonic_Events.1
+	title = FU_Teutonic_Events.1.t 
+	desc = FU_Teutonic_Events.1.d 
+	picture = fu_teuton_knight_eventPicture
+	
+	fire_only_once = yes 
+	
+	trigger = {
+		tag = POL
+		OR = {
+			any_owned_province = {
+				OR = {
+					culture = byelorussian 
+					culture = ruthenian
+				}
+			}
+			war_with = LIT 
+		}
+		LIT = {
+			any_owned_province = {
+				NOT = { religion = ROOT }
+			}
+		}
+		NOT = { is_year = 1480 }
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+	}
+	
+	option = {
+		name = FU_Teutonic_Events.1.a 
+		
+		add_country_modifier = {
+			name = teu_spreading_word_of_christ_modifier
+			duration = 7300 
+		}
+		add_papal_influence = 10
+	}
+}
+
+country_event = { #Protecting the Less Fortunate
+	id = FU_Teutonic_Events.2
+	title = FU_Teutonic_Events.2.t 
+	desc = FU_Teutonic_Events.2.d 
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = FU_Teutonic_Events.2.a 
+		
+		custom_tooltip = emp_ven_plague_doctor_training_tt
+		hidden_effect = { set_country_flag = has_competent_doctors }
+		add_country_modifier = {
+			name = teu_founding_new_orders_modifier 
+			duration = 9125
+		}
+	}
+}
+
+country_event = { #Church of the Teutonic Order of Vienna
+	id = FU_Teutonic_Events.3
+	title = FU_Teutonic_Events.3.t 
+	desc = FU_Teutonic_Events.3.d 
+	picture = ST_PETERS_CHURCH_eventPicture 
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = FU_Teutonic_Events.3.a 
+		
+		capital_scope = {
+			add_province_modifier = {
+				name = teu_seat_of_the_grandmaster_of_the_teutonic_order_modifier 
+				duration = -1 
+			}
+			if = {
+				limit = {
+					NOT = { has_building = cathedral }
+				}
+				remove_building = temple 
+				add_building = cathedral 
+			}
+		}
+	}
+}
+
+country_event = { #Organization of the Order's Military Wings
+	id = FU_Teutonic_Events.4
+	title = FU_Teutonic_Events.4.t 
+	desc = FU_Teutonic_Events.4.d 
+	picture = fu_teuton_knights_military_eventPicture
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = FU_Teutonic_Events.4.a 
+		
+		define_general = {
+			name = "Fritz Raweneck"
+			shock = 5
+			fire = 3
+			manuever = 5
+			siege = 2
+			trait = defensive_planner_personality
+		}
+		add_army_tradition = 20 
+	}
+}
+	
+
+country_event = { #An event to clear out the 'until we form another nation' rewards# 
+	id = FU_Teutonic_Events.6
+	title = FU_Teutonic_Events.6.t 
+	desc = FU_Teutonic_Events.6.d 
+	picture = SIEGE_eventPicture
+	
+	hidden = yes 
+	
+	trigger = {
+		OR = {
+			ROOT = {
+				OR = {
+					has_country_modifier = teu_five_branch_efficiency_modifier
+					has_country_modifier = teu_defenders_of_christendom_modifier
+				}
+			}
+			41 = {
+				has_province_modifier = teu_residence_of_the_summus_marescalcus_modifier
+			}
+		}
+		NOT = {	tag = TEU }
+	}
+	
+	immediate = {
+		remove_country_modifier = teu_five_branch_efficiency_modifier
+		remove_country_modifier = teu_defenders_of_christendom_modifier
+		remove_country_modifier = teu_residence_of_the_summus_marescalcus_modifier
+	}
+	
+	option = {
+		name = FU_Teutonic_Events.6.a 
+		
+	}
+}

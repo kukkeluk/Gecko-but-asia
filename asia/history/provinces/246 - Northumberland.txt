@@ -1,9 +1,7 @@
 #246 - Northumberland
 #+Durham
 
-latent_trade_goods = {
-	coal
-}
+
 
 owner = ENG
 controller = ENG

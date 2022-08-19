@@ -1,6 +1,7 @@
 government = monarchy
 add_government_reform = austrian_archduchy_reform
-government_rank = 3
+government_rank = 1
+elector = yes
 primary_culture = austrian
 religion = catholic
 technology_group = western
@@ -8,19 +9,41 @@ capital = 134 # Wien
 historical_friend = HUN
 historical_rival = TUR
 historical_rival = FRA
+historical_rival = TIR
+historical_rival = MLH
+historical_rival = ALS
+historical_rival = BAD
+historical_rival = WUR
+historical_rival = KNZ
+historical_rival = ULM
+historical_rival = NUM
+historical_rival = ANS
+historical_rival = ROT
+historical_rival = WBG
+historical_rival = BAM
+historical_rival = MAI
+historical_rival = GOS
+historical_rival = HAM
+historical_rival = BRE
+historical_rival = KOL
+historical_rival = MUN
+historical_rival = HAM
+historical_rival = STE
+historical_rival = WOL
+historical_rival = BOH
+historical_rival = MAN
+historical_rival = MBZ
 national_focus = ADM
+add_country_modifier = {
+	name = "mjl_privateer_efficiency_debuff"
+	duration = -1
+}
+
 change_estate_land_share = {
 	estate = estate_nobles
-	share = 10
+	share = -0.502
 }
-change_estate_land_share = {
-	estate = estate_church
-	share = -5
-}
-change_estate_land_share = {
-	estate = estate_burghers
-	share = -5
-}
+
 add_accepted_culture = slovene
 
 1395.8.29 = {
@@ -66,7 +89,7 @@ add_accepted_culture = slovene
 		birth_date = 1415.9.21
 		adm = 3
 		dip = 5
-		mil = 3
+		mil = 2
 	}
 	
 	clear_scripted_personalities = yes
@@ -75,17 +98,17 @@ add_accepted_culture = slovene
 
 1440.2.22 = {
 	heir = {
-		name = "Maximilian"
-		monarch_name = "Maximilian"
+		name = "Ladislaus Postumus"
+		monarch_name = "Ladislaus Postumus"
 		dynasty = "von Habsburg"
 		birth_date = 1440.2.22
 		death_date = 1457.11.24
 		adm = 3
 		dip = 3
-		mil = 3
+		mil = 4
 	}
+	set_country_flag = hab_ladislaus_postumus_heir
 }
-1444.10.10 = { add_manpower = 20 }
 
 #1450.1.1 = { decision = court_of_wards_and_liveries }
 
@@ -104,6 +127,7 @@ add_accepted_culture = slovene
 }
 
 1457.11.24 = {
+	clr_country_flag = hab_ladislaus_postumus_heir
 	monarch = {
 		name = "Friedrich III"
 		dynasty = "von Habsburg"

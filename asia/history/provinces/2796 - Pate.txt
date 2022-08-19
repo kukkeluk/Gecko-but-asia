@@ -1,8 +1,8 @@
 #2796 - Pate
 
-owner = PTE
-controller = PTE
-add_core = PTE
+owner = MLI
+controller = MLI
+add_core = MLI
 culture = swahili
 religion = sunni
 capital = "Siyu"
