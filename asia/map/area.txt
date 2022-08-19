@@ -813,11 +813,7 @@ zaporizhia_area = { #3
 }
 
 azov_area = { #4
-	286 287 2413 2414
-}
-
-crimea_area = { #4
-	284 285 2410 2447
+	286 287 2413 2414 2447
 }
 
 white_ruthenia_area = { #3
