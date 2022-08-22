@@ -583,7 +583,7 @@ southern_madagascar = { #4
 ########################################
 
 mascarenes_area = { #3
-	1100 1102 1103
+	1100 1102 1103 4020
 }
 
 indian_ocean_islands_area = { #5
