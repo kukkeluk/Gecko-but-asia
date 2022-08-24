@@ -301,12 +301,12 @@ renaissance = {
 		OR = {
 			AND = {
 				is_year = 1450
-				region = italy_region
+				superregion = china_superregion
 			}
 			
 			AND = {
 				is_year = 1450
-				continent = europe
+				continent = asia
 			}
 			AND = {
 				is_year = 1500
@@ -351,7 +351,7 @@ renaissance = {
 	
 	can_start = {
 		is_year = 1450
-		region = italy_region
+		superregion = china_superregion
 		is_state = yes
 		NOT = { province_id = 126 }
 		is_island = no
@@ -409,7 +409,7 @@ renaissance = {
 		modifier = {
 			factor = 1
 			potential = {
-				region = italy_region
+				superregion = china_superregion
 			}
 			custom_trigger_tooltip = {
 				tooltip = tooltip_italian_capital
@@ -424,7 +424,7 @@ renaissance = {
 			factor = 0.05
 			scale = yes
 			potential = {
-				continent = europe
+				continent = asia
 			}
 			custom_trigger_tooltip = {
 				tooltip = tooltip_development_10
@@ -436,7 +436,7 @@ renaissance = {
 			factor = 0.05
 			scale = yes
 			potential = {
-				continent = europe
+				continent = asia
 			}
 			custom_trigger_tooltip = {
 				tooltip = tooltip_development_20
@@ -448,7 +448,7 @@ renaissance = {
 			factor = 0.1
 			scale = yes
 			potential = {
-				continent = europe
+				continent = asia
 			}
 			custom_trigger_tooltip = {
 				tooltip = tooltip_development_5_post_1500
@@ -578,6 +578,7 @@ renaissance = {
 		}
 	}
 }
+
 
 
 #######################################
@@ -988,10 +989,10 @@ printing_press = {
 			trade_goods = paper
 		}
 		OR = {
-			religion = protestant
-			religion = reformed
-			region = north_german_region
-			region = south_german_region
+			religion = confucianism
+			religion = shinto
+			region = indo_china_region
+			region = south_china_region
 		}
 
 	}
