@@ -1,7 +1,4 @@
 #4020 - Comoros
-owner = SKA
-controller = SKA
-add_core = SKA
 culture = madagasque #Malagasy
 religion = sunni
 capital = "Ndzuwani"
