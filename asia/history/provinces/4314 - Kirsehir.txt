@@ -1,7 +1,7 @@
 #4314 - Kirsehir
 
-owner = TUR
-controller = TUR
+owner = KAR
+controller = KAR
 culture = turkish
 religion = sunni
 capital = "Kirshehir"
