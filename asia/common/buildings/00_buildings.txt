@@ -147,7 +147,7 @@ workshop = {
 	time = 12
 
 	modifier = {
-		local_production_efficiency = 0.4
+		local_production_efficiency = 0.6
 	}
 	on_built = {
 		add_development_from_building = {
@@ -277,7 +277,7 @@ temple = {
 	}
 	modifier = {
 		local_missionary_strength = 0.01
-		local_tax_modifier = 0.5
+		local_tax_modifier = 0.75
 	}
 	on_built = {
 		if = {
