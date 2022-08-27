@@ -5037,6 +5037,7 @@ KAR_ideas = {
 	mehmet_bey_firman = {
 		stability_cost_modifier = -0.1
 		culture_conversion_cost = -0.2
+		infantry_power = 0.1
 	}
 	ghazi = {
 		#uses ottoman ideas
