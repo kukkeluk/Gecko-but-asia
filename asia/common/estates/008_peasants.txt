@@ -2,6 +2,7 @@ estate_peasants = {
    icon = 9
    color = { 52 235 55 }
 	trigger = {
+		technology_group = western
 		NOT = { has_government_attribute = is_merchant_republic }
 		NOT = { has_reform = pirate_republic_reform }
 		NOT = { has_reform = veche_republic }
