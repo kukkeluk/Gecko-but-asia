@@ -28,7 +28,7 @@ bonus = {
     range_to = 10.0
     modifier = {
         max_absolutism = -30
-        global_autonomy = 0.1.5
+        global_autonomy = 0.15
         global_tax_modifier = -0.15
     }
 }
