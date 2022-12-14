@@ -352,59 +352,6 @@ great_peasants_war_concessions_triggered_modifier = {
 }
 
 ######################################
-# Pope is in the empire
-######################################
-
-pope_in_hre_triggered_modifier = {
-	potential = {
-		PAP = { is_part_of_hre = yes }
-		religion = catholic
-	}
-	trigger = {
-		PAP = { is_part_of_hre = yes }
-		religion = catholic
-		NOT = { is_part_of_hre = yes }
-	}
-	prestige = -0.5
-}
-
-######################################
-# The Italian Wars
-######################################
-
-italian_wars_triggered_modifier = {
-	potential = {
-		has_global_flag = italian_wars_global_flag
-		capital_scope = {
-			continent = europe
-		}
-		religion_group = christian
-	}
-	trigger = {
-		OR = {
-			AND = {
-				capital_scope = { region = italy_region }
-				any_country = {
-					war_with = ROOT
-					religion_group = christian
-					capital_scope = { continent = europe }
-					total_development = 150
-				}
-			}
-			AND = {
-				NOT = { capital_scope = { region = italy_region } }
-				total_development = 150
-				any_country = {
-					war_with = ROOT
-					capital_scope = { region = italy_region }
-				}
-			}
-		}
-	}
-	amount_of_banners = 0.1
-}
-
-######################################
 # Defense of the Empire
 ######################################
 
