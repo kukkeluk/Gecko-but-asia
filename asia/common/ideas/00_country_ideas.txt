@@ -8774,6 +8774,7 @@ MLW_ideas = {
 	mlw_nimatnama = {
 		religious_unity = 0.25
 		prestige = 0.5
+		no_religion_penalty = yes
 	}
 	mlw_surat_delhi_route = {
 		trade_efficiency = 0.1
