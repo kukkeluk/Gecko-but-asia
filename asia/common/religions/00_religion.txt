@@ -35,6 +35,7 @@ christian = {
 			cav_to_inf_ratio = 0.25
 		}
 		
+		hre_religion = yes
 		
 		on_convert = {
 			change_religion = catholic
@@ -1355,7 +1356,7 @@ eastern = {
 		}
 		heretic = { SHUGENDO }
 		uses_isolationism = yes
-		hre_religion = yes
+		
 		harmonized_modifier = harmonized_shinto
 		
 	}
