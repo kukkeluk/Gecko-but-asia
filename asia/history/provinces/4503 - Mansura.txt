@@ -3,7 +3,7 @@
 owner = MER
 controller = MER
 culture = sindhi
-religion = hinduism
+religion = sunni
 capital = "Mansura"
 trade_goods = cloth
 add_brahmins_or_church_effect = yes

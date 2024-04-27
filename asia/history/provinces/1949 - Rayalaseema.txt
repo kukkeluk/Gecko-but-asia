@@ -1,7 +1,7 @@
 #1949 - Penukonda
 
-owner = VIJ
-controller = VIJ
+owner = KRK
+controller = KRK
 culture = telegu
 religion = hinduism
 capital = "Penukonda"
@@ -12,8 +12,7 @@ base_production = 3
 base_manpower = 2
 is_city = yes
 add_core = KRK
-add_core = VIJ
-add_core = YOR
+
 discovered_by = indian
 discovered_by = muslim 
 discovered_by = ottoman

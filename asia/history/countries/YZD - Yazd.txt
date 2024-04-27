@@ -1,30 +1,17 @@
 government = monarchy
-add_government_reform = sasanid_government
+add_government_reform = feudalism_reform
 government_rank = 1
 primary_culture = persian
-add_accepted_culture = luri
 religion = zoroastrian
 technology_group = muslim
-capital = 428 # Teheran
-historical_rival = QAR
-historical_friend = TAB
-add_country_modifier = {
-	name = "mjl_privateer_efficiency_debuff"
-	duration = -1
+capital = 433 # yazd
+
+1444.1.1 = {
+	monarch = {
+		name = "Joneid"
+		dynasty = "Safavid"
+		adm = 3
+		dip = 4
+		mil = 3
+	}
 }
-change_estate_land_share = {
-	estate = estate_church
-	share = -0.25
-}
-1427.1.1 = { leader = {	name = "Bahram"		type = general	fire = 2	shock = 2	manuever = 2	siege = 2	death_date = 1468.11.24 } }
-1438.1.1 = {
-  monarch = {
-    name = "Bahram"
-	monarch_name = "Bahram VII"
-	dynasty = "Sassanid" 
-	    adm = 5
-		dip = 3
-		mil = 4
- }
- add_ruler_personality = conqueror_personality
- }

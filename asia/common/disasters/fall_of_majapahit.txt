@@ -6,7 +6,7 @@ fall_of_majapahit = {
 		uses_doom = no
 		is_free_or_tributary_trigger = yes
 		normal_or_historical_nations = yes
-		tag = IRO
+		tag = MAJ
 	}
 	
 	can_start = {
@@ -31,7 +31,7 @@ fall_of_majapahit = {
 	
 
 	modifier = {
-		all_power_cost = 0.15
+		all_power_cost = 0.05
 		monarch_lifespan = -0.5
 		reduced_liberty_desire = -15
 	}

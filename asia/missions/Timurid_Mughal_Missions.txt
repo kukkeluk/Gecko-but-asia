@@ -3,15 +3,7 @@ tim_reconquest_persia = {
 	generic = no
 	ai = yes
 	potential = {
-		OR = {
-			tag = TIM
-			tag = TRS
-			tag = AFG
-			tag = QOM
-			tag = KHO
-			tag = FRS
-		}
-		NOT = { map_setup = map_setup_random }
+		tag = YZD
 	}
 	has_country_shield = yes
 	
@@ -43,9 +35,15 @@ tim_reconquest_persia = {
 					}
 				}
 				TIM = {
-					has_opinion_modifier = {
-						who = ROOT
-						modifier = insulted
+					OR = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = insulted
+						}
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = scornfully_insulted
+						}
 					}
 				}
 			}
@@ -92,29 +90,39 @@ tim_reconquest_persia = {
 				limit = {
 					NOT = { tag = TIM }
 				}
-
-			ghor_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { owned_by = ROOT }
+				farsistan_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			kabulistan_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { owned_by = ROOT }
+				persian_gulf_coast = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			balkh_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { owned_by = ROOT }
+				kerman_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-
+				431 = {
+					add_permanent_claim = ROOT
+				}
+				4327 = {
+					add_permanent_claim = ROOT
+				}
+				2217 = {
+					add_permanent_claim = ROOT
+				}
+				4342 = {
+					add_permanent_claim = ROOT
+				}
 			}
 		}
 	}
@@ -127,10 +135,7 @@ tim_reconquest_persia = {
 		provinces_to_highlight = {
 			OR = {
 				area = farsistan_area
-				area = persian_gulf_coast
 				area = kerman_area
-				province_id = 431
-				province_id = 4327
 				province_id = 2217
 				province_id = 4342
 			}
@@ -142,18 +147,8 @@ tim_reconquest_persia = {
 				type = all
 				owned_by = ROOT
 			}
-			persian_gulf_coast = {
-				type = all
-				owned_by = ROOT
-			}
 			kerman_area = {
 				type = all
-				owned_by = ROOT
-			}
-			431 = {
-				owned_by = ROOT
-			}
-			4327 = {
 				owned_by = ROOT
 			}
 			2217 = {
@@ -165,7 +160,7 @@ tim_reconquest_persia = {
 		}
 		
 		effect = {
-			add_treasury = 400
+			add_treasury = 500
 			413 = {
 				add_permanent_claim = ROOT
 			}
@@ -257,11 +252,7 @@ tim_reconquest_khorasan = {
 	ai = yes
 	potential = {
 		OR = {
-			tag = TIM
-			tag = TRS
-			tag = AFG
-			tag = QOM
-			tag = KHO
+			tag = YZD
 		}
 		NOT = { has_dlc = "Dharma" }
 		NOT = { map_setup = map_setup_random }
@@ -274,7 +265,7 @@ tim_reconquest_khorasan = {
 		
 		trigger = {
 			army_size_percentage = 1
-			manpower_percentage = 0.4
+			manpower_percentage = 0.6
 			num_of_generals = 1
 		}
 		
@@ -331,6 +322,9 @@ tim_reconquest_khorasan = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500
+		}
 	}
 	
 	tim_khorasan_one = {
@@ -368,39 +362,30 @@ tim_reconquest_khorasan = {
 		}
 		
 		effect = {
-			  farsistan_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
+			ghor_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
 				}
-				persian_gulf_coast = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
+				add_permanent_claim = ROOT
+			}
+			kabulistan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
 				}
-				kerman_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
+				add_permanent_claim = ROOT
+			}
+			balkh_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
 				}
-				431 = {
-					add_permanent_claim = ROOT
-				}
-				4327 = {
-					add_permanent_claim = ROOT
-				}
-				2217 = {
-					add_permanent_claim = ROOT
-				}
-				4342 = {
-					add_permanent_claim = ROOT
-				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500
 		}
 	}
 	
@@ -440,6 +425,9 @@ tim_reconquest_khorasan = {
 				duration = 5475
 			}
 		}
+		ai_weight = {
+			factor = 500
+		}
 	}
 	
 }
@@ -450,11 +438,7 @@ tim_reconquest_transoxiana = {
 	ai = yes
 	potential = {
 		OR = {
-			tag = TIM
-			tag = TRS
-			tag = AFG
-			tag = QOM
-			tag = KHO
+			tag = YZD
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -470,32 +454,30 @@ tim_reconquest_transoxiana = {
 		}
 		
 		effect = {
-			transoxiana_area = {
+			mashhad_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			termez_area = {
+			birjand_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			458 = {
+			herat_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
-			1967 = {
-				add_permanent_claim = ROOT
-			}
-			457 = {
-				add_permanent_claim = ROOT
-			}
-			2356 = {
-				add_permanent_claim = ROOT
-			}
+		}
+		ai_weight = {
+			factor = 500
 		}
 	}
 	
@@ -506,86 +488,40 @@ tim_reconquest_transoxiana = {
 		
 		provinces_to_highlight = {
 			OR = {
-				area = transoxiana_area
-				area = termez_area
-				province_id = 458
-				province_id = 1967
-				province_id = 457
-				province_id = 2356
+				area = birjand_area
+				area = herat_area
 			}
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-			transoxiana_area = {
+			birjand_area = {
 				type = all
 				owned_by = ROOT
 			}
-			termez_area = {
-				type = all
-				owned_by = ROOT
-			}
-			458 = {
-				owned_by = ROOT
-			}
-			1967 = {
-				owned_by = ROOT
-			}
-			457 = {
-				owned_by = ROOT
-			}
-			2356 = {
+			herat_area = {
 				owned_by = ROOT
 			}
 		}
 		
 		effect = {
-			merv_area = {
+			sistan_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			mashhad_area = {
+			kerman_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			herat_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			syr_darya_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			437 = {
-				add_permanent_claim = ROOT
-			}
-			438 = {
-				add_permanent_claim = ROOT
-			}
-			2349 = {
-				add_permanent_claim = ROOT
-			}
-			441 = {
-				add_permanent_claim = ROOT
-			}
-			2362 = {
-				add_permanent_claim = ROOT
-			}
-			1973 = {
-				add_permanent_claim = ROOT
-			}
+		}
+		ai_weight = {
+			factor = 0
 		}
 	}
 	
@@ -596,53 +532,19 @@ tim_reconquest_transoxiana = {
 		
 		provinces_to_highlight = {
 			OR = {
-				area = merv_area
-				area = herat_area
-				area = mashhad_area
-				area = syr_darya_area
-				province_id = 437
-				province_id = 438
-				province_id = 2349
-				province_id = 441
-				province_id = 2362
-				province_id = 1973
+				area = sistan_area
+				area = kerman_area
 			}
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-			merv_area = {
+			sistan_area = {
 				type = all
 				owned_by = ROOT
 			}
-			herat_area = {
+			kerman_area = {
 				type = all
-				owned_by = ROOT
-			}
-			mashhad_area = {
-				type = all
-				owned_by = ROOT
-			}
-			syr_darya_area = {
-				type = all
-				owned_by = ROOT
-			}
-			437 = {
-				owned_by = ROOT
-			}
-			438 = {
-				owned_by = ROOT
-			}
-			2349 = {
-				owned_by = ROOT
-			}
-			441 = {
-				owned_by = ROOT
-			}
-			2362 = {
-				owned_by = ROOT
-			}
-			1973 = {
 				owned_by = ROOT
 			}
 		}
@@ -654,7 +556,11 @@ tim_reconquest_transoxiana = {
 				duration = 5475
 			}
 		}
+		ai_weight = {
+			factor = 0
+		}
 	}
+	
 }
 
 tim_india = {
@@ -662,15 +568,7 @@ tim_india = {
 	generic = no
 	ai = yes
 	potential = {
-		OR = {
-			tag = TIM
-			tag = TRS
-			tag = AFG
-			tag = QOM
-			tag = KHO
-		}
-		NOT = { has_dlc = "Dharma" }
-		NOT = { map_setup = map_setup_random }
+		tag = YZD
 	}
 	has_country_shield = yes
 	
@@ -714,6 +612,9 @@ tim_india = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 1000
+		}
 	}
 	
 	conquer_delhi = {
@@ -743,6 +644,9 @@ tim_india = {
 		effect = {
 			add_treasury = 500
 			add_prestige = 20
+		}
+		ai_weight = {
+			factor = 1000
 		}
 	}
 }

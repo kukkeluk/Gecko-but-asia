@@ -1,0 +1,69 @@
+country_decisions = {
+
+	free_colonist = {
+		major = yes
+		potential = {
+				NOT = {
+					capital_scope = {
+						region = anatolia_region
+					}
+				}
+				NOT = {
+					capital_scope = {
+						region = caucasia_region
+					}
+				}
+				NOT = {
+					capital_scope = {
+						region = persia_region
+					}
+				}
+				NOT = {
+					capital_scope = {
+						region = arabia_region
+					}
+				}
+				NOT = {
+					capital_scope = {
+						region = khorasan_region
+					}
+				}
+				NOT = {
+					capital_scope = {
+						region = central_asia_region
+					}
+				}
+				NOT = {
+					capital_scope = {
+						region = ural_region
+					}
+				}
+				NOT = {
+					capital_scope = {
+						region = west_siberia_region
+					}
+				}
+				NOT = {
+					capital_scope = {
+						region = tibet_region
+					}
+				}
+
+				NOT = { has_country_modifier = free_colonist}	
+				###X###
+				ai = no
+				dip_tech = 7
+				#######
+			}
+
+		allow = {
+			dip_tech = 7
+		}
+		effect = {
+			add_country_modifier = {
+				name = "free_colonist"
+				duration = -1
+			}
+		}
+	}
+}

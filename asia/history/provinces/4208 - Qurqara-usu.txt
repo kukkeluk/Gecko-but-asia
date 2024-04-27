@@ -1,14 +1,10 @@
 #4208 - Qurqara-usu
 
-owner = OLO
-controller = OLO
-add_core = OLO
-add_core = ZUN
-#owner = CHG		# ruled by a Chagataiid 
-#controller = CHG
-#add_core = CHG
-culture = oirats
-religion = tengri_pagan_reformed
+owner = KSD		# ruled by a Chagataiid 
+controller = KSD
+add_core = KSD
+culture = uyghur
+religion = sunni
 capital = "Balikul"
 trade_goods = grain
 hre = no

@@ -1,0 +1,8 @@
+spriteTypes  = {
+	### ROADS
+	spriteType = {
+		name = "GFX_road_network"
+		texturefile = "gfx//interface//buildings//road_network.tga"
+		loadType = "INGAME"
+	}
+}

@@ -3,12 +3,9 @@
 owner = ZUN
 controller = ZUN
 add_core = ZUN
-#owner = CHG
-#controller = CHG
-#add_core = CHG
-culture = oirats
-religion = tengri_pagan_reformed
-capital = "Ghulja"
+culture = uyghur
+religion = sunni
+capital = "Ili"
 trade_goods = grain
 hre = no
 base_tax = 2 

@@ -3,7 +3,7 @@
 owner = MER
 controller = MER
 culture = sindhi
-religion = hinduism
+religion = sunni
 capital = "Umarkot"
 trade_goods = wool
 hre = no

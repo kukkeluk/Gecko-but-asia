@@ -1,0 +1,12 @@
+spriteTypes  = {
+	### Great Projects
+	spriteType = {
+		name = "GFX_great_project_hanyangdoseong"	
+		texturefile = "gfx//interface//great_projects//great_project_hanyangdoseong.dds"
+	}
+
+	spriteType = {
+		name = "GFX_great_project_the_six_mountain_pirs_of_yazd"	
+		texturefile = "gfx//interface//great_projects//great_project_the_six_mountain_pirs_of_yazd.dds"
+	}
+}

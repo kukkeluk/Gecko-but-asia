@@ -1,7 +1,7 @@
 #1846 - Amasya
 
-owner = KAR
-controller = KAR
+owner = ERE
+controller = ERE
 culture = turkish
 religion = sunni
 capital = "Amasya"
@@ -11,7 +11,6 @@ base_tax = 3
 base_production = 3
 base_manpower = 3
 is_city = yes
-add_core = KAR
 add_core = ERE
 
 

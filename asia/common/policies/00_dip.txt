@@ -1,3 +1,26 @@
+plutocratic_ethos_act = { 
+	monarch_power = DIP
+	
+	potential = {
+		has_idea_group = court_ideas
+		has_idea_group = plutocracy_ideas 
+	}
+	
+	allow = {
+		full_idea_group = court_ideas
+		full_idea_group = plutocracy_ideas 
+	}
+	
+	infantry_fire = 0.10
+	advisor_cost = -0.10
+
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 0			
+	}
+}
+
 the_recruiting_act = {
 	monarch_power = DIP
 
@@ -52,7 +75,7 @@ hold_the_weather_gauge = {
 		full_idea_group = offensive_ideas
 	}
 	
-	discipline = 0.03
+	discipline = 0.035
 	global_naval_barrage_cost = -0.1
 	
 	ai_will_do = {
@@ -652,7 +675,7 @@ protected_shipping_lanes = {
 	}
 	
 	land_morale = 0.05
-	mercenary_discipline = 0.03
+	mercenary_discipline = 0.035
 
 	ai_will_do = {
 		factor = 1
@@ -676,8 +699,8 @@ chaplains_of_the_fleet = {
 		full_idea_group = maritime_ideas
 	}
 	
-	advisor_cost = -0.05
-	manpower_in_true_faith_provinces = 0.1
+	#advisor_cost = -0.05
+	manpower_in_true_faith_provinces = 0.125
 	
 	ai_will_do = {
 		factor = 1
@@ -883,8 +906,8 @@ the_integrated_administration_act = {
 		full_idea_group = quality_ideas
 	}	
 	
-	land_morale = 0.05
-	vassal_forcelimit_bonus = 0.25
+	land_morale = 0.025
+	infantry_power = 0.05
 	
 	ai_will_do = {
 		factor = 1
@@ -1002,7 +1025,7 @@ naval_school_act = {
 		full_idea_group = maritime_ideas
 	}
 
-	trade_efficiency = 0.2
+	trade_efficiency = 0.1
 
 	ai_will_do = {
 		factor = 1
@@ -1089,7 +1112,7 @@ black_chamber_act = {
 	}
 	
 	artillery_cost = -0.10
-	artillery_fire = 0.5
+	artillery_fire = 1
 
 	ai_will_do = {
 		factor = 0.6
@@ -1227,7 +1250,7 @@ trained_marines_act = {
 	}
 	
 	infantry_power = 0.075
-	yearly_army_professionalism = 0.0025
+	yearly_army_professionalism = 0.001
 
 	ai_will_do = {
 		factor = 1

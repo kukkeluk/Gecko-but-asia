@@ -8,17 +8,10 @@ technology_group = ottoman
 historical_rival = MAM
 historical_rival = BYZ
 historical_rival = HAB
-historical_rival = QAR
-historical_friend = ALB
-capital = 149 # Edirne
+capital = 317 # Hudavendigar
 national_focus = MIL
 add_army_professionalism = 0.1
 religious_school = hanafi_school
-add_country_modifier = {
-	name = "mjl_privateer_efficiency_debuff"
-	duration = -1
-}
-
 
 change_estate_land_share = {
 	estate = estate_church
@@ -26,11 +19,7 @@ change_estate_land_share = {
 }
 change_estate_land_share = {
 	estate = estate_nobles
-	share = 9.5
-}
-
-1444.10.1 = {
-	set_estate_privilege = estate_dhimmi_guaranteed_autonomy
+	share = 10
 }
 
 1439.1.1 = {
@@ -51,9 +40,9 @@ change_estate_land_share = {
 		name = "Mehmed II Fatih"
 		dynasty = Osmanoglu
 		birth_date = 1432.3.30
-		adm = 3
-		dip = 3
-		mil = 5
+		adm = 6
+		dip = 4
+		mil = 6
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = conqueror_personality

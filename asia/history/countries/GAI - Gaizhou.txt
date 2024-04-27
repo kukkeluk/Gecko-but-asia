@@ -1,0 +1,17 @@
+government = monarchy
+add_government_reform = chinese_warlord
+technology_group = chinese
+religion = confucianism
+primary_culture = shandong_culture
+capital = 2113 #Gaizhou
+
+1444.1.1 = {
+	monarch = {
+		name = "Xi"
+		dynasty = Jinping
+		birth_date = 1432.3.30
+		adm = 4
+		dip = 2
+		mil = 3
+	}
+}

@@ -3,9 +3,8 @@ add_government_reform = steppe_horde
 primary_culture = kazani
 religion = sunni
 technology_group = nomad_group
-capital = 1082	# Kazan
+capital = 475 # Kazan
 historical_rival = GOL
-historical_rival = LIT
 religious_school = hanafi_school
 
 1438.1.1 = {

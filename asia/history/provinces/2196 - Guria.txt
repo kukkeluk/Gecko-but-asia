@@ -1,16 +1,17 @@
 #2196 - Guria
 
-owner = SME
-controller = SME
+owner = GEO
+controller = GEO
 culture = georgian
 religion = orthodox
 capital = "Batumi"
-trade_goods = wine
+trade_goods = fish
 hre = no
 base_tax = 3
 base_production = 3
-base_manpower = 3
+base_manpower = 2
 is_city = yes
+add_core = GEO
 add_core = SME
 add_core = IME
 discovered_by = muslim
@@ -18,7 +19,6 @@ discovered_by = ottoman
 discovered_by = eastern
 discovered_by = western
 discovered_by = nomad_group
-add_province_triggered_modifier=wine_modifier
 
 1458.1.1 = { unrest = 5 } # Safavid campaign against Georgia
 1460.1.1 = { unrest = 0 } # Defeated by Shirwan Shah

@@ -1,7 +1,7 @@
 #4415 - Negapatam 
 
-owner = VIJ
-controller = VIJ
+owner = KND
+controller = KND
 culture = tamil
 religion = hinduism
 capital = "Negapatam"
@@ -12,8 +12,7 @@ base_production = 4
 base_manpower = 1
 is_city = yes
 add_vaisyas_or_burghers_effect = yes
-add_core = VIJ
-add_core = TNJ
+add_core = KND
 discovered_by = east_african
 discovered_by = indian
 discovered_by = muslim

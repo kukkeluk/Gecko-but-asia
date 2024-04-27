@@ -1,7 +1,7 @@
 #329 - Sivas
 
-owner = KAR
-controller = KAR
+owner = ERE
+controller = ERE
 culture = turkish
 religion = shiite
 capital = "Sivas"

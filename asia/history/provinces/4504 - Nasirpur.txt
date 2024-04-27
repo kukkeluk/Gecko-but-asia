@@ -3,7 +3,7 @@
 owner = MER
 controller = MER
 culture = sindhi
-religion = hinduism
+religion = sunni
 capital = "Nasirpur"
 trade_goods = cotton
 hre = no

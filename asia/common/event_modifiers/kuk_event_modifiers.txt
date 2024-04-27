@@ -1,0 +1,8 @@
+#gecko inspired free colonist
+
+free_colonist = {
+	colonists = 2
+	range = 1
+	global_colonial_growth = 25
+	may_explore = yes
+}

@@ -1,23 +1,25 @@
 #693 - Taiyuan
 
-owner = TAY
-controller = TAY
-add_core = TAY
+owner = JIN
+controller = JIN
 culture = jin
 religion = confucianism
 capital = "Taiyuan"
 trade_goods = iron
 hre = no
-base_tax = 6
+base_tax = 6 
 base_production = 6
-base_manpower = 6
+base_manpower = 3
 is_city = yes
+add_core = JIN
+center_of_trade = 1
+
+hre = yes
 
 discovered_by = chinese
 discovered_by = nomad_group
-discovered_by = indian
 
-center_of_trade = 1
+
 
 
 1608.1.1 = { discovered_by = SPA }

@@ -1,7 +1,7 @@
 #4431 - Kolhapur
 
-owner = VIJ
-controller = VIJ
+owner = MAR
+controller = MAR
 culture = marathi
 religion = hinduism
 capital = "Kolhapur"
@@ -12,8 +12,7 @@ base_production = 4
 base_manpower = 2
 is_city = yes
 add_rajputs_or_marathas_or_nobles_effect = yes
-add_core = VIJ
-add_core = BIJ
+add_core = MAR
 discovered_by = indian
 discovered_by = nomad_group
 discovered_by = muslim 

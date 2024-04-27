@@ -5,6 +5,9 @@ tribe_mechanic = {
 	valid_for_nation_designer = no
 	heir = yes
 	queen = yes
+	custom_attributes = {
+		enables_aristocratic_idea_group = yes
+	}
 }
 
 steppe_horde = {
@@ -15,7 +18,7 @@ steppe_horde = {
 			has_reform = steppe_horde
 			culture_group = altaic
 			culture_group = tartar
-			primary_culture = altaic_new 					
+			primary_culture = altaic_new 
 		}
 		has_reform = steppe_horde
 		NOT = { has_reform = great_mongol_state_reform }
@@ -34,10 +37,18 @@ steppe_horde = {
 	start_territory_to_estates = 0.5
 
 	modifiers = {
-		land_forcelimit_modifier = 0.10
 		loot_amount = 0.50
-		reinforce_cost_modifier = -0.20
+		global_institution_spread = -0.15
+		cav_to_inf_ratio = 0.25
+		movement_speed = 0.2
+		global_manpower_modifier = 0.2
+		land_forcelimit_modifier = 0.2
 		years_of_nationalism = -5
+		reinforce_cost_modifier = -0.5
+	}
+	custom_attributes = {
+		enables_horde_idea_group = yes
+		enables_aristocratic_idea_group = no
 	}
 	ai = {
 		factor = 1000
@@ -62,14 +73,24 @@ great_mongol_state_reform = {
 	raze_province = yes
 	modifiers = {
 		horde_unity = 1
-		land_forcelimit_modifier = 0.20
+		global_manpower_modifier = 0.2
+		land_forcelimit_modifier = 0.2
 		loot_amount = 0.50
-		reinforce_cost_modifier = -0.30
+		reinforce_cost_modifier = -0.5
+		cav_to_inf_ratio = 0.5
+		movement_speed = 0.2
 		years_of_nationalism = -5
 	}
 	conditional = {
 		allow = { has_dlc = "Mandate of Heaven" }
 		allow_banners = yes
+	}
+	custom_attributes = {
+		enables_horde_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	ai = {
+		factor = 1000
 	}
 }
 
@@ -88,8 +109,6 @@ tribal_federation = {
 
 	modifiers = {
 		years_of_nationalism = -5
-		global_tax_modifier = 0.1
-		province_warscore_cost = -0.10
 	}
 
 	conditional = {
@@ -97,6 +116,9 @@ tribal_federation = {
 		government_abilities = {
 			tribal_federation_mechanic
 		}
+	}
+	ai = {
+		factor = 0
 	}
 }
 
@@ -109,6 +131,9 @@ tribal_despotism = {
 		core_creation = -0.1
 	}
 	legacy_equivalent = tribal_despotism_legacy
+	ai = {
+		factor = 1
+	}
 }
 
 tribal_kingdom = {
@@ -118,6 +143,9 @@ tribal_kingdom = {
 	legacy_equivalent = tribal_kingdom_legacy
 	modifiers = {
 		vassal_income = 0.2
+	}
+	ai = {
+		factor = 1
 	}
 }
 
@@ -137,6 +165,9 @@ polynesian_tribe = {
 	modifiers = {
 		global_manpower_modifier = 0.2
 	}
+	ai = {
+		factor = 1
+	}
 }
 
 polynesian_kingdom = {
@@ -154,6 +185,9 @@ polynesian_kingdom = {
 		vassal_income = 0.2
 		reduced_liberty_desire = 20
 		governing_capacity_modifier = -0.5
+	}
+	ai = {
+		factor = 1
 	}
 }
 
@@ -174,8 +208,10 @@ siberian_tribe = {
 		stability_cost_modifier = -0.33
 		global_institution_spread = -0.2
 	}
+	ai = {
+		factor = 1
+	}
 }
-
 stateless_society = {
 	icon = "fist_in_air"
 	allow_normal_conversion = no
@@ -184,10 +220,18 @@ stateless_society = {
 	nation_designer_cost = 0
 	modifiers = {
 		governing_capacity_modifier = -0.99
-		defensiveness = 0.5
-		land_morale = 0.1
+		defensiveness = 0.75
+		land_morale = 0.15
+	}
+	ai = {
+		factor = 1
+		modifier = {
+			factor = -1
+			num_of_cities = 2
+		}
 	}
 }
+
 gond_kingdom = {
 	icon = "chieftain"
 	allow_normal_conversion = yes
@@ -387,7 +431,9 @@ shaka_regime = {
 		allow = {
 			has_dlc = "Rights of Man"
 		}
-		militarised_society = yes
+		government_abilities = {
+			militarization_mechanic
+		}
 	}
 
 	ai = {
@@ -433,6 +479,11 @@ martial_society_reform = {
 	modifiers = {
 		global_manpower_modifier = 0.2
 	}
+	conditional = {
+		allow = {
+		}
+		claim_states = yes
+	}
 	ai = {
 		factor = 1
 		modifier = {
@@ -450,6 +501,11 @@ civil_society_reform = {
 	modifiers = {
 		global_tax_modifier = 0.05
 		yearly_corruption = -0.05
+	}
+	conditional = {
+		allow = {
+		}
+		claim_states = yes
 	}
 	ai = {
 		factor = 1
@@ -522,9 +578,10 @@ centralize_tribal_power_reform = {
 	modifiers = {
 		core_creation = -0.05
 		stability_cost_modifier = -0.05
-		num_accepted_cultures = 2
 	}
 }
+
+#Tribal Reformation
 
 horde_barbaric_despoilers_reform = {
 	icon = "rioting_burning_2"
@@ -571,6 +628,9 @@ tribe_becomes_monarchy_reform = {
 			has_reform = stateless_society
 		}
 	}
+	trigger = {
+		NOT = { has_government_attribute_short_desc = locked_government_type }
+	}
 	effect = {
 		set_country_flag = populists_in_government
 		lose_reforms = 4
@@ -598,16 +658,66 @@ tribe_becomes_monarchy_reform = {
 		if = {
 			limit = {
 				technology_group = nomad_group
+				religion = totemism
+			}
+			change_technology_group = north_american
+			change_unit_type = north_american
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				religion = inti
+			}
+			change_technology_group = andean
+			change_unit_type = andean
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				OR = {
+					religion = mesoamerican_religion
+					religion = nahuatl
+				}
+			}
+			change_technology_group = mesoamerican
+			change_unit_type = mesoamerican
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				religion = dreamtime
+			}
+			change_technology_group = aboriginal_tech
+			change_unit_type = aboriginal_tech
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
 				NOT = { religion_group = muslim }
 				NOT = { religion_group = christian }
 				NOT = { secondary_religion = sunni }
 				NOT = { secondary_religion = shiite }
 				NOT = { secondary_religion = ibadi }
+				NOT = { religion = totemism }
+				NOT = { religion = inti }
+				NOT = { religion = nahuatl }
+				NOT = { religion = mesoamerican_religion }
+				NOT = { religion = dreamtime }
 			}
 			change_technology_group = chinese
 			change_unit_type = chinese
 		}
 		change_government = monarchy
+		if = {
+			limit = {
+				tag = AVE
+			}
+			hidden_effect = {
+				country_event = {
+					id = flavor_gbr.20
+				}
+			}
+		}
 	}
 	ai = {
 		factor = 1
@@ -619,6 +729,7 @@ tribe_becomes_republic_reform = {
 	allow_normal_conversion = yes
 	trigger = {
 		NOT = { is_lesser_in_union = yes }
+		NOT = { has_government_attribute_short_desc = locked_government_type }
 	}
 	effect = {
 		set_country_flag = populists_in_government
@@ -647,16 +758,66 @@ tribe_becomes_republic_reform = {
 		if = {
 			limit = {
 				technology_group = nomad_group
+				religion = totemism
+			}
+			change_technology_group = north_american
+			change_unit_type = north_american
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				religion = inti
+			}
+			change_technology_group = andean
+			change_unit_type = andean
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				OR = {
+					religion = mesoamerican_religion
+					religion = nahuatl
+				}
+			}
+			change_technology_group = mesoamerican
+			change_unit_type = mesoamerican
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				religion = dreamtime
+			}
+			change_technology_group = aboriginal_tech
+			change_unit_type = aboriginal_tech
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
 				NOT = { religion_group = muslim }
 				NOT = { religion_group = christian }
 				NOT = { secondary_religion = sunni }
 				NOT = { secondary_religion = shiite }
 				NOT = { secondary_religion = ibadi }
+				NOT = { religion = totemism }
+				NOT = { religion = inti }
+				NOT = { religion = nahuatl }
+				NOT = { religion = mesoamerican_religion }
+				NOT = { religion = dreamtime }
 			}
 			change_technology_group = chinese
 			change_unit_type = chinese
 		}
 		change_government = republic
+		if = {
+			limit = {
+				tag = AVE
+			}
+			hidden_effect = {
+				country_event = {
+					id = flavor_gbr.20
+				}
+			}
+		}
 		if = {
 			limit = {
 				have_had_reform = stateless_society
@@ -694,6 +855,7 @@ tribe_becomes_theocracy_reform = {
 	}
 	trigger = {
 		NOT = { is_lesser_in_union = yes }
+		NOT = { has_government_attribute_short_desc = locked_government_type }
 	}
 	effect = {
 		set_country_flag = populists_in_government
@@ -719,7 +881,42 @@ tribe_becomes_theocracy_reform = {
 			change_technology_group = eastern
 			change_unit_type = eastern
 		}
-		else_if = {
+		if = {
+			limit = {
+				technology_group = nomad_group
+				religion = totemism
+			}
+			change_technology_group = north_american
+			change_unit_type = north_american
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				religion = inti
+			}
+			change_technology_group = andean
+			change_unit_type = andean
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				OR = {
+					religion = mesoamerican_religion
+					religion = nahuatl
+				}
+			}
+			change_technology_group = mesoamerican
+			change_unit_type = mesoamerican
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				religion = dreamtime
+			}
+			change_technology_group = aboriginal_tech
+			change_unit_type = aboriginal_tech
+		}
+		if = {
 			limit = {
 				technology_group = nomad_group
 				NOT = { religion_group = muslim }
@@ -727,11 +924,26 @@ tribe_becomes_theocracy_reform = {
 				NOT = { secondary_religion = sunni }
 				NOT = { secondary_religion = shiite }
 				NOT = { secondary_religion = ibadi }
+				NOT = { religion = totemism }
+				NOT = { religion = inti }
+				NOT = { religion = nahuatl }
+				NOT = { religion = mesoamerican_religion }
+				NOT = { religion = dreamtime }
 			}
 			change_technology_group = chinese
 			change_unit_type = chinese
 		}
 		change_government = theocracy
+		if = {
+			limit = {
+				tag = AVE
+			}
+			hidden_effect = {
+				country_event = {
+					id = flavor_gbr.20
+				}
+			}
+		}
 	}
 	ai = {
 		factor = 1
@@ -767,11 +979,13 @@ tribe_becomes_horde_reform = {
 			has_reform = tribe_becomes_horde_reform
 		}
 		NOT = { has_reform = great_mongol_state_reform }
+		NOT = { has_government_attribute_short_desc = locked_government_type }
 	}
 	ai = {
 		factor = 0
 	}
 }
+
 tribe_remain_tribal_reform = {
 	icon = "rioting_burning_2"
 	allow_normal_conversion = yes
@@ -798,7 +1012,7 @@ tribe_tribal_unity = {
 		has_dlc = "Cradle of Civilization"
 	}
 	modifiers = {
-		yearly_tribal_allegiance = 1
+		yearly_government_power = 1
 		church_loyalty_modifier = 0.05
 		nobles_loyalty_modifier = 0.05
 		dhimmi_loyalty_modifier = 0.05

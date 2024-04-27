@@ -1,0 +1,7 @@
+﻿l_english:
+#triggered
+ ai_less_diplo_slots:0 "Less diplo slots for ai"
+ ai_daimyo_less_diplo_slots:0 "Less diplo slots for ai daimyos"
+ georgia_ottoman_defense:0 "Defense against the Turks"
+#event
+ free_colonist:0 "Colonial Fervour"

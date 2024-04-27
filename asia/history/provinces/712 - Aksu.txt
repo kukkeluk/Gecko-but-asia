@@ -1,10 +1,7 @@
 #712 - Uighuristan
 
-owner = CHG
-controller = CHG
-add_core = CHG
-#owner = KAS
-#controller = KAS
+owner = KAS
+controller = KAS
 add_core = KAS
 culture = uyghur
 religion = sunni

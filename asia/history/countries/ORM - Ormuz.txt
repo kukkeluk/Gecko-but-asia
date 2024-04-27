@@ -6,25 +6,15 @@ religion = ibadi
 primary_culture = gulf_arabic
 capital = 2999	# Ormuz Island
 religious_school = maliki_school
-add_country_modifier = {
-	name = "mjl_privateer_efficiency_debuff"
-	duration = -1
-}
-
-
-change_estate_land_share = {
-	estate = estate_nobles
-	share = -0.502
-}
 
 #Rulers of Ormuz
 1442.1.1 = {
 	monarch = {
 		name = "Fakhr al-Din"
 		dynasty = "Turani"
-		adm = 3
-		dip = 5
-		mil = 5
+		dip = 4
+		mil = 2
+		adm = 4
 	}
 	add_piety = 0.1
 }

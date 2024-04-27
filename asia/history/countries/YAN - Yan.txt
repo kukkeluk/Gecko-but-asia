@@ -1,7 +1,17 @@
 government = monarchy
-add_government_reform = h_reform_prefecture
-government_rank = 1
+add_government_reform = chinese_warlord
 technology_group = chinese
 religion = confucianism
 primary_culture = chihan
-capital = 704	#Liaoxi
+capital = 1816	#Beijing
+elector = yes
+
+1444.1.1 = {
+	monarch = {
+		name = "Yuanzhang" # Hongwu Emperor
+		dynasty = "Yan"
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}

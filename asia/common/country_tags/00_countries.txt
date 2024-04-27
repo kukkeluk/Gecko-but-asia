@@ -13,9 +13,13 @@ SHL	= "countries/Holstein.txt"
 SCA	= "countries/Scandinavia.txt"
 EST = "countries/Estonia.txt"
 LVA = "countries/Livonia.txt"
+LTG = "countries/Latgalia.txt"
 SMI = "countries/Sami.txt"
 KRL = "countries/Karelia.txt"
 ICE = "countries/Iceland.txt"
+
+#kuk added
+GAI = "countries/Gaizhou.txt"
 
 #Balkans
 ACH	= "countries/PrincipalityOfAchaia.txt"
@@ -24,6 +28,7 @@ ATH	= "countries/Athens.txt"
 BOS	= "countries/Bosnia.txt"
 BUL	= "countries/Bulgaria.txt"
 BYZ	= "countries/ByzantineEmpire.txt"
+LAE	= "countries/Latin Empire.txt"
 CEP	= "countries/Corfu.txt"
 CRO	= "countries/Croatia.txt"
 CRT	= "countries/Crete.txt"
@@ -57,6 +62,7 @@ TYR = "countries/Tyrone.txt"
 WLS	= "countries/Wales.txt"
 NOL = "countries/Northumberland.txt"
 GBR	= "countries/GreatBritain.txt"
+AVE = "countries/AngevinEmpire.txt"
 MTH = "countries/Meath.txt"
 ULS = "countries/Ulster.txt"
 DMS = "countries/Desmond.txt" #Earldom of Desmond
@@ -69,6 +75,7 @@ FLY = "countries/Faly.txt"
 MCM = "countries/MacCarthy.txt" #Kingdom of Desmond
 KOI = "countries/Mann.txt"
 LOI = "countries/TheIsles.txt"
+EIC	= "countries/EastIndiaCompany.txt"
 
 #Colonies
 BRZ	= "countries/Brazil.txt"
@@ -421,6 +428,12 @@ NBI = "countries/Nubia.txt"
 RZI = "countries/Rozwi.txt"
 KIT = "countries/Kitara.txt"
 WAD = "countries/Wadai.txt"
+#XHO = "countries/Xhosa.txt"
+#KBI = "countries/Kebbi.txt"
+#ZAM = "countries/Zamfara.txt"
+#GOB = "countries/Gobir.txt"
+#BIR = "countries/Biram.txt"
+#DAU = "countries/Daura.txt"
 
 #East African Additions
 
@@ -1082,6 +1095,7 @@ SYN = "countries/Synthetics.txt"
 
 #New Formables
 ISR = "countries/Israel.txt"
+
 #Converter tags:
 #JOM = countries/Jomsvikings.txt
 #HAH = countries/Hashshashin.txt

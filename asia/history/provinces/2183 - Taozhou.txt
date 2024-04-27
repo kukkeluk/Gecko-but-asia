@@ -1,21 +1,22 @@
 # 2183 - Taozhou
 
-owner = TAO
-controller = TAO
-add_core = TAO
-culture = xibei
-religion = confucianism
+owner = CSH
+controller = CSH
+culture = tibetan
+religion = vajrayana
 capital = "Taozhou"
 trade_goods = chinaware
-hre = no
-base_tax = 4
-base_production = 7
-base_manpower = 3
+hre = yes
+base_tax = 2 
+base_production = 2
+base_manpower = 2
 is_city = yes
+add_core = CSH
+
+
 
 discovered_by = chinese
 discovered_by = nomad_group
-discovered_by = indian
 
 
 1644.1.1 = {

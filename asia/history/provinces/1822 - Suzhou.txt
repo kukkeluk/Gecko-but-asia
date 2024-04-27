@@ -1,21 +1,22 @@
 #1822 - Suzhou
 
-owner = SZH
-controller = SZH
-add_core = SZH
+owner = MNG
+controller = MNG
+add_core = MNG
 culture = wu
 religion = confucianism
 capital = "Suzhou"
 trade_goods = silk
-hre = no
-base_tax = 6
-base_production = 6
-base_manpower = 3
+hre = yes
+base_tax = 9 
+base_production = 9
+base_manpower = 2
 is_city = yes
+
+
 
 discovered_by = chinese
 discovered_by = nomad_group
-discovered_by = indian
 
 extra_cost = 10
 

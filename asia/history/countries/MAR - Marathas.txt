@@ -3,33 +3,16 @@ add_government_reform = autocracy_reform
 technology_group = indian
 primary_culture = marathi
 religion = hinduism
-capital = 545 #Daulatabad
-add_country_modifier = {
-	name = "mjl_privateer_efficiency_debuff"
-	duration = -1
-}
+capital = 1946	# Satara
+ 
 
-
-change_estate_land_share = {
-	estate = estate_maratha
-	share = 5.20
-}
 #Maratha Leaders (at Satara)
-1424.1.1 = {
+1444.1.1 = {
 	monarch = {
 		name = "Shivaji I"
 		dynasty = "Bhonsle"
-		ADM = 3
-		DIP = 3
-		MIL = 5
-	}
-}
-
-#Maratha Leaders (at Satara)
-1647.1.1 = {
-	monarch = {
-		name = "Shivaji I"
-		dynasty = "Bhonsle"
+		birth_date = 1425.5.14
+		death_date = 11470.3.11
 		ADM = 4
 		DIP = 4
 		MIL = 6

@@ -4,16 +4,7 @@ primary_culture = georgian
 religion = orthodox
 technology_group = eastern
 capital = 423 # T'bilisi
-historical_rival = QAR
-add_country_modifier = {
-	name = "mjl_privateer_efficiency_debuff"
-	duration = -1
-}
 
-change_estate_land_share = {
-	estate = estate_nobles
-	share = -0.502
-}
 
 1399.1.1 = {
 	monarch = {
@@ -101,20 +92,6 @@ change_estate_land_share = {
 		adm = 4
 		dip = 3
 		mil = 5
-	}
-}
-
-1433.1.1 = {
-	heir = {
-		name = "Giorgi"
-		monarch_name = "Giorgi VII"
-		dynasty = "Bagrationi"
-		birth_date = 1417.1.1
-		death_date = 1476.1.1
-		claim = 95
-		adm = 3
-		dip = 3
-		mil = 4
 	}
 }
 

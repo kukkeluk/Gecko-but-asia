@@ -29,7 +29,7 @@ mnd_maj_1 = {
 						is_subject_of = ROOT
 						NOT = { liberty_desire = 50 }
 					}
-					amount = 2
+					amount = 4
 				}
 			}
 			else = {
@@ -38,7 +38,7 @@ mnd_maj_1 = {
 						is_subject_of = ROOT
 						NOT = { liberty_desire = 50 }
 					}
-					amount = 2
+					amount = 3
 				}
 			}
 		}
@@ -48,64 +48,6 @@ mnd_maj_1 = {
 			add_country_modifier = {
 				name = maj_subject_liberty_modifier
 				duration = 7300
-			}
-		}
-	}
-	
-	maj_colonize_mas_teleporter = {
-		icon = mission_iroquois_warriors
-		required_missions = { }
-		position = 2
-		
-		provinces_to_highlight = {
-			OR = {
-				area = luzon_area
-			}
-			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		
-		trigger = {
-			MAS	= {
-				Not = {
-					total_development = 100
-				}
-			}
-	
-			luzon_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			num_of_colonists = 1
-		}
-		
-		effect = {
-			5807 = {
-			cede_province = ROOT
-			}
-			5807 = {
-			add_core = ROOT
-			}
-			hidden_effect = {
-				806 = {
-					discover_country = ROOT
-				}
-				809 = {
-					discover_country = ROOT
-				}
-				2826 = {
-					discover_country = ROOT
-				}
-				812 = {
-					discover_country = ROOT
-				}
-				2822 = {
-					discover_country = ROOT
-				}
-				2888 = {
-					discover_country = ROOT
-				}
 			}
 		}
 	}
@@ -121,7 +63,11 @@ mnd_maj_1 = {
 		position = 3
 		trigger = {
 			capital_scope = {
-				development = 25
+				development = 50
+			}
+			OR = {
+				num_of_times_used_transfer_development = 2
+				capital_scope = { num_of_times_improved = 5 }
 			}
 		}
 		effect = {
@@ -145,7 +91,12 @@ mnd_maj_1 = {
 				absolutism = 75
 			}
 			is_subject = no
-			
+			2690 = {
+				has_great_project = {
+					type = any
+					tier = 3
+				}
+			}
 		}
 		effect = {
 			set_country_flag = siam_royal_absolutism
@@ -245,7 +196,12 @@ mnd_maj_2 = {
 		}
 		trigger = {
 			stability = 1
-		
+			if = {
+				limit = {
+					government = monarchy
+				}
+				legitimacy = 90
+			}
 			NOT = {
 				num_of_rebel_armies = 1
 			}
@@ -292,6 +248,7 @@ mnd_maj_2 = {
 		}
 		effect = {
 			add_prestige = 25
+			custom_tooltip = maj_end_disaster_mission_tt
 			add_country_modifier = {
 				name = majapahit_respected
 				duration = -1
@@ -319,7 +276,7 @@ mnd_maj_2 = {
 						is_subject_of = ROOT
 						NOT = { liberty_desire = 20 }
 					}
-					amount = 2
+					amount = 6
 				}
 			}
 			else = {
@@ -328,12 +285,29 @@ mnd_maj_2 = {
 						is_subject_of = ROOT
 						NOT = { liberty_desire = 20 }
 					}
-					amount = 2
+					amount = 3
 				}
 			}
 		}
 		effect = {
-        add_prestige = 10
+			custom_tooltip = majapahit_cb_1_tt # see cb_vassalize_majapahit
+			if = {
+				limit = {
+					any_subject_country = {
+						is_subject_of_type = tributary_state
+					}
+				}
+				every_subject_country = {
+					limit = {
+						is_subject_of_type = tributary_state
+					}
+					ROOT = { vassalize = PREV }
+					add_country_modifier = {
+						name = maj_reduced_lib_desire
+						duration = 5475
+					}
+				}
+			}
 		}
 	}
 	mnd_maj_rein_in_brunei = {
@@ -452,7 +426,7 @@ mnd_maj_3 = {
 			religious_unity = 0.8
 			NOT = {
 				any_owned_province = {
-					unrest = 2
+					unrest = 0
 				}
 			}
 		}
@@ -619,6 +593,12 @@ mnd_maj_3 = {
 						religion = hinduism
 					}
 					custom_tooltip = propagate_religion_maj_tt
+					enable_propagate_religion_in_abrahamic_provinces= yes
+				}
+				else = {
+					hidden_effect = {
+						enable_propagate_religion_in_abrahamic_provinces= yes
+					}
 				}
 				every_province = {
 					limit = {
@@ -800,7 +780,6 @@ mnd_maj_4 = {
 	mnd_maj_sunda_relations = {
 		icon = mnd_maj_sunda_relations
 		required_missions = { }
-		position = 6
 		provinces_to_highlight = {
 			OR = {
 				owned_by = SUN
@@ -853,7 +832,7 @@ mnd_maj_4 = {
 				}
 				SUN = {
 					change_primary_culture = javanese
-					add_accepted_culture = sundanese
+					add_accepted_culture_or_dip_power = { culture = sundanese dip_reward = yes }
 				}				
 			}
 			if = {
@@ -918,6 +897,7 @@ mnd_maj_4 = {
 						has_dlc = "El Dorado"
 						has_dlc = "Mare Nostrum"
 						has_dlc = "Golden Century"
+						has_dlc = "Lions of the North"
 					}
 				}
 				add_country_modifier = {
@@ -946,6 +926,7 @@ mnd_maj_4 = {
 						has_dlc = "El Dorado"
 						has_dlc = "Mare Nostrum"
 						has_dlc = "Golden Century"
+						has_dlc = "Lions of the North"
 					}
 				}
 				1371 = {

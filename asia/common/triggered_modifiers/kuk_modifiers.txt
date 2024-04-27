@@ -1,0 +1,41 @@
+ai_less_diplo_slots = {
+    potential = {
+        ai = yes
+        }
+    trigger = {
+        ai = yes
+    }
+
+    diplomatic_upkeep = -2
+}
+
+georgia_ottoman_defense = {
+    potential = {
+        NOT = { is_year = 1500}
+         tag = GEO
+    }
+    trigger = {
+			tag = GEO
+			is_in_war = {
+				defender_leader = TUR
+				duration = 30
+        }
+    }
+
+    land_morale = 0.10
+    discipline = 0.05
+    global_tax_income = 48
+    defensiveness = 0.20
+}
+
+ai_daimyo_less_diplo_slots = {
+    potential = {
+        ai = yes
+        }
+    trigger = {
+        ai = yes
+	has_reform = daimyo
+    }
+
+    diplomatic_upkeep = -2
+}

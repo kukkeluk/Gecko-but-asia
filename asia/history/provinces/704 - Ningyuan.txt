@@ -10,7 +10,7 @@ trade_goods = fish
 base_tax = 2
 base_production = 2
 base_manpower = 2
-hre = no
+hre = yes
 citysize = 8970
 
 fort_15th = yes

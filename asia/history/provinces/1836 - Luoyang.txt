@@ -10,7 +10,7 @@ trade_goods = gems
 base_tax = 3
 base_production = 3
 base_manpower = 3
-hre = no
+hre = yes
 citysize = 39760
 
 #fort_15th = yes

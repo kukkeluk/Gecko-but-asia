@@ -362,15 +362,7 @@ gen_south_india_2 = {
 		
 		trigger = {
 			grown_by_development = 25
-			if = {
-				limit = {
-					has_dlc = "Art of War"
-				}
-				num_of_war_reparations = 3
-			}
-			else = {
-				share_of_starting_income = 1.25
-			}
+			share_of_starting_income = 1.25
 		}
 		
 		effect = {
@@ -506,7 +498,6 @@ gen_south_india_2 = {
 				area = ahmednagar_area
 				area = telingana_area
 				area = berar_area
-				area = gondwana_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -534,16 +525,12 @@ gen_south_india_2 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			gondwana_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
 		}
 		
 		effect = {
 			add_country_modifier = {
 				name = "deccan_conquest"
-				duration = 7300
+				duration = -1
 			}
 		}
 	}
@@ -1835,7 +1822,7 @@ gen_south_india_5 = {
 	
 	gen_south_india_diamonds = {
 		icon = mission_war_chest
-		required_missions = { }
+		required_missions = { gen_south_india_trade }
 		position = 4
 		provinces_to_highlight = {
 			province_id = 542

@@ -54,14 +54,19 @@ can_add_province_to_hre = {
 	
 }
 
+#ROOT = province, FROM = country
 can_remove_province_from_hre = {
 	condition = {
 		potential = {
-			ai = yes
+			owner = {
+				ai = yes
+			}
 		}
 		allow = {
-			NOT = {
-				has_country_flag = permanently_left_hre_flag
+			owner = {
+				NOT = {
+					has_country_flag = permanently_left_hre_flag
+				}
 			}
 		}
 	}
@@ -115,43 +120,12 @@ can_move_capital = {
 			always = no
 		}
 	}
-	condition = {
-		tooltip = "MJL_OTHER_CN_REGION_CAPITAL"
-		potential = {
-			FROM = {
-				is_colonial_nation = yes
-			}
-		}
-		allow = {
-			FROM = {
-				capital_scope = {
-					colonial_region = ROOT
-				}
-			}
-		}
-	}
 }
 
 can_move_trade_port = {
 }
 
 can_order_assault = {
-#	condition = {
-#		tooltip = "MJL_CANNOT_ASSAULT_WHILE_CN"
-#		potential = {
-#			FROM = {
-#				is_colonial_nation = yes
-#			}
-#		}
-#		allow = {
-#			OR = {
-#				continent = north_america
-#				continent = south_america
-#				region = australia_region
-#				region = oceanea_region
-#			}
-#		}
-#	}
 }
 
 can_order_force_march = {
@@ -170,69 +144,15 @@ can_burn_colony = {
 }
 
 can_colonize_province = {
-	condition = {
-		tooltip = "MJL_CANT_COLONIZE_OTHER_CN_REGION"
-		potential = {
-			FROM = {
-				is_colonial_nation = yes
-			}
-		}
-		allow = {
-			OR = {
-				FROM = {
-					capital_scope = {
-						colonial_region = ROOT
-					}
-				}
-			}
-		}
-	}
-	condition = {
-		tooltip = "MJL_CANT_COLONIZE_WITH_AFRICA_GOV"
-		potential = {
-			FROM = {
-				has_reform = african_colonists_reform
-				NOT = {
-					OR = {
-						has_idea = colonial_ventures
-						has_active_policy = colonial_administration_act
-						has_active_policy = colonial_administration_act2
-						has_active_policy = colonial_administration_act3
-					}
-				}
-			}
-		}
-		allow = {
-			AND = {
-				continent = africa
-				is_island = no
-			}
-		}
-	}
-	condition = {
-		tooltip = "MJL_AI_CANT_COLONIZE_WITH_AFRICA_GOV"
-		potential = {
-			FROM = {
-				ai = yes
-				has_reform = african_colonists_reform
-				NOT = {
-					OR = {
-						has_idea_group = expansion_ideas
-						has_idea_group = exploration_ideas
-					}
-				}
-			}
-		}
-		allow = {
-			always = no
-		}
-	}
 }
 
 can_colonize_province_siberian_frontier = {
 }
 
 can_add_seat_in_parliament = {
+}
+
+can_remove_seat_in_parliament = {
 }
 
 can_add_estate = {
@@ -261,7 +181,7 @@ can_have_colonial_nations = {
 			}
 		}
 		allow = {
-			always = no
+			always = no 
 		}
 	}
 }
@@ -275,7 +195,7 @@ is_possible_hre_province = {
 		potential = {
 		}
 		allow = {
-			continent = europe
+			continent = asia
 		}
 	}
 }

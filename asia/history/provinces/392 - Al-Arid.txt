@@ -1,5 +1,8 @@
 #392 - Al-Arid
-
+	
+owner = NAJ
+controller = NAJ
+add_core = NAJ
 religion = sunni
 capital = "Diriyah"
 trade_goods = livestock
